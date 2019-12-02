@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
+	'hostname' => 'http://www.cs12cpc.xyz/',
+	'username' => 'cscpcxyz_Coin',
+	'password' => 'Tan1234',
+	'database' => 'cscpcxyz_Coin',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
