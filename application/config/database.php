@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'http://www.cs12cpc.xyz/',
+	'hostname' => '27.254.86.31',
 	'username' => 'cscpcxyz_Coin',
 	'password' => 'Tan1234',
 	'database' => 'cscpcxyz_Coin',
