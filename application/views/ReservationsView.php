@@ -226,6 +226,79 @@
 
 	<!-- Recent -->
 
+	<!-- ลองเทส -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<div class="form-group">
+    <h1><label for="paket">ประเภทห้อง</label></h1>
+	<select class="search_form_select" name="paket" id="paket">
+										<?php $this->db->select('roomcategory.*');
+							$this->db->from('roomcategory');
+							$query = $this->db->get();
+							$results = $query->result_array();?>
+						<?php	foreach($results as $result){
+								?>
+											
+											<h1><option><?php echo $result['roomname'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?> </option> 
+												
+											<?php
+							} ?>
+										</select>
+       <!-- I've used my own code, for checking the result, you should use your:
+       <option value="">Pilih Paket</option>
+        <?php  
+            foreach ($datatour as $dttour) 
+            {
+                if ($id==$dttour->id) 
+                {
+                    $s='selected';
+                }
+                else
+                {
+                    $s='';
+                }
+            ?>
+                <option <?php echo $s ?>  value="<?php echo $dttour->id;?>"><?php echo $dttour->paket;?></option>
+                <?php
+            }
+        ?>
+       -->      
+    </select>
+</div>
+
+<div id="info"></div>
+<!-- ลองเทส -->
+
+<!-- ลองเทส2 -->
+<script type="text/javascript">
+$(function(){
+
+    $('#paket').unbind('change');
+    $('#paket').change(function(){
+
+    var opt_sel = $('#paket').val();  
+
+        $.ajax({
+            method:"POST", 
+            url:'',
+            data:{
+                sel_op:opt_sel
+            }
+        }).done(function(a){
+
+            $('#info').html(a);
+        }).fail(function(){
+
+            alert("It's an epic fail.");
+        });
+    });
+
+})
+</script>
+<!-- ลองเทส2 -->
+
+
+
+
 	<div class="recent">
 		<div class="container">
 			<div class="row">
