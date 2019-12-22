@@ -194,7 +194,7 @@
 				<div class="col">
 					<div class="home_search_container">
 						<div class="home_search_content">
-							<form action="<?php echo site_url('ReservationsController/keyword') ?>" class="search_form d-flex flex-row align-items-start justfy-content-start">
+							<form action="<?php echo site_url('ReservationsController/keyword') ?>" method="post" class="search_form d-flex flex-row align-items-start justfy-content-start">
 								<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
 									<div>
 									<div>
@@ -208,14 +208,15 @@
 						<?php	foreach($results as $result){
 								?>
 											
-											<h1><option><?php echo $result['roomname'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?> </option> 
-												
+											<h1><option value="<?php echo $result['roomname'] . ' '?>"> 
+											<?php echo $result['roomname'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?>
+								</option>
 											<?php
 							} ?>
 										</select>
 									</div>
 												
-								<button class="search_form_button ml-auto">search</button>
+								<button type="submit" class="search_form_button ml-auto" name="submit" value="Search">search</button>
 							</form>
 						</div>
 					</div>
