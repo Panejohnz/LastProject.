@@ -77,5 +77,13 @@ class Imgtype_model extends CI_Model
 	public function remove_roomcategory($id){
 		$this->db->delete('roomcategory',array('id'=>$id));
 	}
-
+	public function read_imgtype($imgtype_id){
+		$this->db->where('id',$imgtype_id);
+		$query = $this->db->get('roomcategory');
+		if($query->num_rows() > 0){
+			$data = $query->row();
+			return $data;
+		}
+		return FALSE;
+	}
 }

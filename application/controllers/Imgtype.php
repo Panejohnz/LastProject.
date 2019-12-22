@@ -150,7 +150,7 @@ class imgtype extends CI_Controller
 					)
 				);
 
-                        redirect('roomcategory', 'refresh');
+                        redirect('imgtype');
 
                 }
 	}

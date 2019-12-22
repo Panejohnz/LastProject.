@@ -49,7 +49,7 @@
                                     <?php if(!empty($results)){ foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('index.php/imgtype/edit/'.$data->id); ?>">
+                                            <a href="<?php echo base_url('imgtype/edit/'.$data->id); ?>">
                                             <?php echo  $data->roomname; ?>
                                             </a> 
                                             <br>
