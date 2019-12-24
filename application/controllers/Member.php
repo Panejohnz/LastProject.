@@ -61,7 +61,7 @@ class Member extends CI_Controller
 					)
 				);
 				$this->member_model->entry_member($this->input->post('user_id'));
-				redirect('member', 'refresh');
+				redirect('member');
 			}
 			else
 			{
@@ -112,14 +112,14 @@ class Member extends CI_Controller
 			'deletelink'=> 'member/remove/' . $user_id
 		);
 		$this->load->view('template/backheader');
-		$this->load->view('confrm',$data);
+		$this->load->view('member/confrm',$data);
 		$this->load->view('template/backfooter');
 	}
 
 	public function remove($user_id)
 	{
 		$this->member_model->remove_member($user_id);
-		redirect('member','refresh');
+		redirect('member');
 	}
 
 
