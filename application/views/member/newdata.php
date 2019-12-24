@@ -67,6 +67,13 @@
             
 
                     <div class="form-group">
+                    <div class="col-sm-4">      
+                        <label for="exampleInputEmail1">
+                            เบอร์โทร
+                        </label> <?php echo $this->session->flashdata('error_tel')?>
+                        <input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $this->session->flashdata('tel'); ?>">
+                    </div>
+
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
                             email

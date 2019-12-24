@@ -58,6 +58,7 @@
 		</span>
 	</a>
 
+
 	<!-- Header Navbar -->
 	<nav class="navbar navbar-static-top" role="navigation">
 		<!-- Sidebar toggle button-->
@@ -68,6 +69,21 @@
 		</a>
 		<!-- Navbar Right Menu -->
 		
+		<div class="navbar-custom-menu">
+			<ul class="nav navbar-nav">
+				<!-- User Account Menu -->
+				<li class="dropdown user user-menu">
+					<!-- Menu Toggle Button -->
+					
+					<a href="<?php echo  base_url('LoginController'); ?>" class="btn btn-default btn-flat">
+									Sign out
+								</a>
+					</a>
+					
+				</li>
+			</ul>
+		</div>
+
 	</nav>
 </header>
 <!-- Left side column. contains the logo and sidebar -->

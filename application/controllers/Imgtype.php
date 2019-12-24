@@ -70,6 +70,31 @@ class imgtype extends CI_Controller
                 }
                 if($this->form_validation->run() == TRUE && $checkfile == TRUE)
                 {
+<<<<<<< HEAD
+                        //$error = array('error' => $this->upload->display_errors());
+                        //echo $this->upload->display_errors();
+                        //$this->load->view('upload_form', $error);
+
+               
+                	$arr1=array(
+                        		'id'=> $this->input->post('id'),
+                        		'roomname'=> $this->input->post('roomname'),
+                        		'typeimg'=> $this->input->post('typeimg2'),
+                        	);
+                        $this->db->where('id', $this->input->post('id'));
+                        $this->db->update('roomcategory', $arr1);
+
+
+               	$this->session->set_flashdata( 		
+                		array(
+						'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-success"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ [ไม่เปลี่ยนภาพ]</div></div>'
+					)
+				);
+
+                	 redirect('imgtype', 'refresh');
+
+
+=======
                     $this->session->set_flashdata(
                         array(
                             'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
@@ -80,6 +105,7 @@ class imgtype extends CI_Controller
                     $datafile = ($this->input->post('datafile')=='') ? $data['typeimg'] : $this->input->post('datafile');
                     $this->imgtype_model->entry_imgtype($this->input->post('imgtype_id'),$datafile);
                     redirect('imgtype', 'refresh');
+>>>>>>> ba74b8125b37d35a6dbaa602ab50bb32f9d2567b
                 }
                 else
                 {
@@ -97,6 +123,37 @@ class imgtype extends CI_Controller
                     //exit();
     
                 }
+<<<<<<< HEAD
+	}
+
+
+	public function edit($id)
+	{
+		$data['result'] = $this->imgtype_model->read_imgtype($id);
+		$this->load->view('template/backheader');
+		$this->load->view('imgtype/edit',$data);
+		$this->load->view('template/backfooter');
+	}
+
+	public function confrm($id)
+	{
+		$data = array
+		(
+			'backlink'  => 'imgtype',
+			'deletelink'=> 'imgtype/remove/' . $id
+		);
+		$this->load->view('template/backheader');
+		$this->load->view('member/confrm',$data);
+		$this->load->view('template/backfooter');
+	}
+
+	public function remove($id)
+	{
+		$this->imgtype_model->remove_imgtype($id);
+		redirect('imgtype','refresh');
+	}
+
+=======
                 if($this->input->post('imgtype_id') == NULL){
                     //redirect('imgtype/newdata');
                 }
@@ -167,6 +224,7 @@ class imgtype extends CI_Controller
             //$error = array('error' => $this->upload->display_errors());
             //echo $this->upload->display_errors();
             //$this->load->view('upload_form', $error);
+>>>>>>> ba74b8125b37d35a6dbaa602ab50bb32f9d2567b
 
                
             $arr1=array(

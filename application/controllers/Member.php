@@ -48,6 +48,7 @@ class Member extends CI_Controller
 			//$this->form_validation->set_rules('address', 'ที่อยู่', 'required', array('required'=> 'ค่าห้ามว่าง!'));
 			$this->form_validation->set_rules('firstname', 'ชื่อ', 'required', array('required'=> 'ค่าห้ามว่าง!'));
 			$this->form_validation->set_rules('lastname', 'นามสกุล', 'required', array('required'=> 'ค่าห้ามว่าง!'));
+			$this->form_validation->set_rules('tel', 'เบอร์โทร', 'required', array('required'=> 'ค่าห้ามว่าง!'));
 			$this->form_validation->set_rules('email', 'อีเมล์', 'required', array('required'=> 'ค่าห้ามว่าง!'));
 			$this->form_validation->set_rules('gender', 'เพศ', 'required', array('required'=> 'ค่าห้ามว่าง!'));
 			
@@ -72,6 +73,7 @@ class Member extends CI_Controller
 					//'error_address' 	=> form_error('address'),
 					'error_firstname' 		=> form_error('firstname'),
 					'error_lastname' 		=> form_error('lastname'),
+					'error_tel' 		=> form_error('tel'),
 					'error_email' 	=> form_error('email'),
 					'error_gender' 	=> form_error('gender'),
 					
@@ -80,6 +82,7 @@ class Member extends CI_Controller
 					'password'       	=> set_value('password'),
 					'firstname'       		=> set_value('firstname'),
 					'lastname'       	=> set_value('lastname'),
+					'tel'       	=> set_value('tel'),
 					'email'       		=> set_value('email'),
 					'gender'       	=> set_value('gender')
 					
@@ -92,7 +95,7 @@ class Member extends CI_Controller
 			}
 			else
 			{
-				redirect('member/edit/'.$this->input->post('user_id'));
+				redirect('member/edit/'. $this->input->post('user_id'));
 			}
 		}
 	}
@@ -100,7 +103,7 @@ class Member extends CI_Controller
 	{
 		$data['result'] = $this->member_model->read_member($user_id);
 		$this->load->view('template/backheader');
-		$this->load->view('member/edit',$data);
+		$this->load->view('member/edit', $data);
 		$this->load->view('template/backfooter');
 	}
 

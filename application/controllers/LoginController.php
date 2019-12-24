@@ -32,15 +32,15 @@ class LoginController extends CI_Controller
         $validate = $this->login_model->validate($username, $password);
         if ($validate->num_rows() > 0) {
             $data  = $validate->row_array();
-            $id = $data['id'];
+            $id = $data['user_id'];
             $name  = $data['firsname'];
             $email = $data['email'];
-            $level = $data['status_user'];
+            $level = $data['statusem'];
             $sesdata = array(
                 'id' => $id,
                 'firsname'  => $name,
                 'email'     => $email,
-                'status_user'     => $level,
+                'statusem'     => $level,
                 'logged_in' => true
             );
             $this->session->set_userdata($sesdata);
@@ -56,13 +56,13 @@ class LoginController extends CI_Controller
             }
         } else {
             echo $this->session->set_flashdata('msg', 'Username or Password is Wrong');
-            redirect('TestController');
+            redirect('LoginController');
         }
     }
 
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect('homecontroller');
+        redirect('LoginController');
     }
 }

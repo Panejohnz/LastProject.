@@ -42,7 +42,7 @@ class Member_model extends CI_Model
 		$this->password = $this->input->post('password');
 		$this->firstname = $this->input->post('firstname');
 		$this->lastname = $this->input->post('lastname');
-		
+		$this->tel = $this->input->post('tel');
 		$this->email = $this->input->post('email');
 		
 		
