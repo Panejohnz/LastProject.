@@ -38,7 +38,7 @@
 					</span>
 				</div>
 
-				<form class="login100-form validate-form" name="login" id="login_form" method="post" action=<?php echo base_url('member') ?>>
+				<form class="login100-form validate-form" name="login" id="login_form" method="post" action=<?php echo base_url('LoginController/auth') ?>>
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">Username</span>
 						<input class="input100" type="text" name="usertxt" id="usertxt" placeholder="Username" required class="form-control">
@@ -49,8 +49,9 @@
 						<span class="label-input100">Password</span>
 						<input class="input100" type="password" name="passtxt" id="passtxt" placeholder="Password" required class="form-control">
 						<span class="focus-input100"></span>
+						
 					</div>
-
+					<?php echo $this->session->flashdata('msg');?>
 					
 
 					<div class="container-login100-form-btn">
