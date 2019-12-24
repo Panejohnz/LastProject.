@@ -10,7 +10,7 @@ class Page extends CI_Controller{
   function index(){
     //Allowing akses to admin only
       if($this->session->userdata('statusem')==='1' || $this->session->userdata('statusem')==='2'){
-          $this->load->view('member');
+       redirect('member');
       }else{
           echo "Access Denied";
       }
