@@ -60,7 +60,7 @@
                                               
                                             </td> 
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('index.php/imgtype/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('imgtype/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
                                     <?php } } ?>

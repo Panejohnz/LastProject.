@@ -194,7 +194,7 @@ class imgtype extends CI_Controller
 					)
 				);
 
-                	 redirect('roomcategory', 'refresh');
+                	 redirect('imgtype', 'refresh');
 
 
                 }
@@ -255,7 +255,7 @@ class imgtype extends CI_Controller
 			'deletelink'=> 'imgtype/remove/' . $id
 		);
 		$this->load->view('template/backheader');
-		$this->load->view('confrm',$data);
+		$this->load->view('member/confrm',$data);
 		$this->load->view('template/backfooter');
 	}
 
