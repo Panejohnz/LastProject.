@@ -1,6 +1,7 @@
 <?php //print_r($_SESSION);?>
 <!DOCTYPE html>
 <html lang="en">
+	<title>Rianthong</title>
 <head>
 
 <style>
@@ -36,6 +37,7 @@ color: #000;
 	</title>
 	<!-- tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
 	<!-- bootstrap 3.3.4-->
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../bootstrap/css/bootstrap.min.css">
 	<!-- font awesome icons-->

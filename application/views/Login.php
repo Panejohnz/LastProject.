@@ -3,13 +3,11 @@
 <head>
 
 
-	<title>Dormitory</title>
+	<title>Rianthong</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/logincss/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>../assets/logincss/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>../assets/logincss/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->

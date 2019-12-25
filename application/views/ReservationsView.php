@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Bluesky</title>
+<title>Rianthong</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Bluesky template project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>../assets/bluesky/styles/bootstrap4/bootstrap.min.css">
 <link href="<?php echo base_url(); ?>../assets/bluesky/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>../assets/bluesky/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -26,7 +27,7 @@
 				<div class="col">
 					<div class="header_content d-flex flex-row align-items-center justify-content-start">
 						<div class="logo">
-							<a href="#"><img src="<?php echo base_url(); ?>../assets/bluesky/images/logo.png" alt=""></a>
+							<a href="<?php echo site_url("ReservationsController");?>"><img src="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png" alt=""  ></a>
 						</div>
 						<nav class="main_nav">
 							<ul>
@@ -49,142 +50,14 @@
 		</div>
 	</header>
 
-	<!-- Menu -->
 
-	<div class="menu trans_500">
-		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
-			<div class="menu_close_container"><div class="menu_close"></div></div>
-			<div class="logo menu_logo">
-				<a href="#">
-					<div class="logo_container d-flex flex-row align-items-start justify-content-start">
-						<div class="logo_image"><div><img src="<?php echo base_url(); ?>../assets/bluesky/images/logo.png" alt=""></div></div>
-					</div>
-				</a>
-			</div>
-			<ul>
-				<li class="menu_item"><a href="index.html">Home</a></li>
-				<li class="menu_item"><a href="about.html">About us</a></li>
-				<li class="menu_item"><a href="#">Speakers</a></li>
-				<li class="menu_item"><a href="#">Tickets</a></li>
-				<li class="menu_item"><a href="news.html">News</a></li>
-				<li class="menu_item"><a href="contact.html">Contact</a></li>
-			</ul>
-		</div>
-		<div class="menu_phone"><span>call us: </span>652 345 3222 11</div>
-	</div>
+	
 	
 	<!-- Home -->
 
 	<div class="home">
 
-		<!-- Home Slider -->
-		<div class="home_slider_container">
-			<div class="owl-carousel owl-theme home_slider">
-				
-				<!-- Slide -->
-				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url(/assets/bluesky/images/home_slider_1.jpg)"></div>
-					<div class="slide_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="slide_content">
-										<div class="home_subtitle">super offer</div>
-										<div class="home_title">Villa with sea view</div>
-										<div class="home_details">
-											<ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
-												<li>
-													<div class="home_details_image"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_1.png" alt=""></div>
-													<span> 650 Ftsq</span>
-												</li>
-												<li>
-													<div class="home_details_image"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_2.png" alt=""></div>
-													<span> 3 Bedrooms</span>
-												</li>
-												<li>
-													<div class="home_details_image"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_3.png" alt=""></div>
-													<span> 2 Bathrooms</span>
-												</li>
-											</ul>
-										</div>
-										<div class="home_price">$ 1. 245 999</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Slide -->
-				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
-					<div class="slide_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="slide_content">
-										<div class="home_subtitle">super offer</div>
-										<div class="home_title">Villa with sea view</div>
-										<div class="home_details">
-											<ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
-												<li>
-													<div class="home_details_image"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_1.png" alt=""></div>
-													<span> 650 Ftsq</span>
-												</li>
-												<li>
-													<div class="home_details_image"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_2.png" alt=""></div>
-													<span> 3 Bedrooms</span>
-												</li>
-												<li>
-													<div class="home_details_image"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_3.png" alt=""></div>
-													<span> 2 Bathrooms</span>
-												</li>
-											</ul>
-										</div>
-										<div class="home_price">$ 1. 245 999</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Slide -->
-				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url(../images/home_slider_1.jpg)"></div>
-					<div class="slide_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="slide_content">
-										<div class="home_subtitle">super offer</div>
-										<div class="home_title">Villa with sea view</div>
-										<div class="home_details">
-											<ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
-												<li>
-													<div class="home_details_image"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_1.png" alt=""></div>
-													<span> 650 Ftsq</span>
-												</li>
-												<li>
-													<div class="home_details_image"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_2.png" alt=""></div>
-													<span> 3 Bedrooms</span>
-												</li>
-												<li>
-													<div class="home_details_image"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_3.png" alt=""></div>
-													<span> 2 Bathrooms</span>
-												</li>
-											</ul>
-										</div>
-										<div class="home_price">$ 1. 245 999</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
+		
 	</div>
 
 	<!-- Home Search -->
@@ -194,6 +67,7 @@
 				<div class="col">
 					<div class="home_search_container">
 						<div class="home_search_content">
+							
 							<form action="<?php echo site_url('ReservationsController/keyword') ?>" method="post" class="search_form d-flex flex-row align-items-start justfy-content-start">
 								<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
 									<div>
@@ -226,80 +100,6 @@
 	</div>
 
 	<!-- Recent -->
-
-	<!-- ลองเทส -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<div class="form-group">
-    <h1><label for="paket">ประเภทห้อง</label></h1>
-	<select class="search_form_select" name="paket" id="paket">
-										<?php $this->db->select('roomcategory.*');
-							$this->db->from('roomcategory');
-							$query = $this->db->get();
-							$results = $query->result_array();?>
-						<?php	foreach($results as $result){
-								?>
-											
-											<h1><option><?php echo $result['roomname'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?> </option> 
-												
-											<?php
-							} ?>
-										</select>
-       <!-- I've used my own code, for checking the result, you should use your:
-       <option value="">Pilih Paket</option>
-        <?php  
-            foreach ($datatour as $dttour) 
-            {
-                if ($id==$dttour->id) 
-                {
-                    $s='selected';
-                }
-                else
-                {
-                    $s='';
-                }
-            ?>
-                <option <?php echo $s ?>  value="<?php echo $dttour->id;?>"><?php echo $dttour->paket;?></option>
-                <?php
-            }
-        ?>
-       -->      
-    </select>
-</div>
-
-<div id="info"></div>
-<!-- ลองเทส -->
-
-<!-- ลองเทส2 -->
-<script type="text/javascript">
-$(function(){
-
-    $('#paket').unbind('change');
-    $('#paket').change(function(){
-
-    var opt_sel = $('#paket').val();  
-
-        $.ajax({
-            method:"POST", 
-            url:'',
-            data:{
-                sel_op:opt_sel
-            }
-        }).done(function(a){
-
-            $('#info').html(a);
-        }).fail(function(){
-
-            alert("It's an epic fail.");
-        });
-    });
-
-})
-</script>
-<!-- ลองเทส2 -->
-
-
-
-
 	<div class="recent">
 		<div class="container">
 			<div class="row">
@@ -310,74 +110,7 @@ $(function(){
 			</div>
 			<div class="row recent_row">
 				<div class="col">
-					<div class="recent_slider_container">
-						<div class="owl-carousel owl-theme recent_slider">
-							
-							<!-- Slide -->
-							<div class="owl-item">
-								<div class="recent_item">
-									<div class="recent_item_inner">
-										<div class="recent_item_image">
-											<img src="<?php echo base_url(); ?>../assets/bluesky/images/property_1.jpg" alt="">
-											<div class="tag_featured property_tag"><a href="#">Featured</a></div>
-										</div>
-										<div class="recent_item_body text-center">
-											<div class="recent_item_location">Miami</div>
-											<div class="recent_item_title"><a href="property.html">Sea view property</a></div>
-											<div class="recent_item_price">$ 1. 234 981</div>
-										</div>
-										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
-											<div><div class="recent_icon"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
-											<div><div class="recent_icon"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
-											<div><div class="recent_icon"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
-										</div>
-									</div>
-								</div>
-							</div>
 
-							<!-- Slide -->
-							<div class="owl-item">
-								<div class="recent_item">
-									<div class="recent_item_inner">
-										<div class="recent_item_image">
-											<img src="<?php echo base_url(); ?>../assets/bluesky/images/property_2.jpg" alt="">
-											<div class="tag_offer property_tag"><a href="#">Offer</a></div>
-										</div>
-										<div class="recent_item_body text-center">
-											<div class="recent_item_location">Los Angeles</div>
-											<div class="recent_item_title"><a href="property.html">2 Floor Town House</a></div>
-											<div class="recent_item_price">$ 1. 234 981</div>
-										</div>
-										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
-											<div><div class="recent_icon"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
-											<div><div class="recent_icon"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
-											<div><div class="recent_icon"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slide -->
-							<div class="owl-item">
-								<div class="recent_item">
-									<div class="recent_item_inner">
-										<div class="recent_item_image">
-											<img src="<?php echo base_url(); ?>../assets/bluesky/images/property_3.jpg" alt="">
-											<div class="tag_featured property_tag"><a href="#">Featured</a></div>
-										</div>
-										<div class="recent_item_body text-center">
-											<div class="recent_item_location">Florida</div>
-											<div class="recent_item_title"><a href="property.html">Vacation Home</a></div>
-											<div class="recent_item_price">$ 1. 234 981</div>
-										</div>
-										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
-											<div><div class="recent_icon"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
-											<div><div class="recent_icon"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
-											<div><div class="recent_icon"><img src="<?php echo base_url(); ?>../assets/bluesky/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
-										</div>
-									</div>
-								</div>
-							</div>
 
 						</div>
 
