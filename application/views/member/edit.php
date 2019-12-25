@@ -61,7 +61,7 @@
 						<label for="exampleInputEmail1">
 							ชื่อ
 						</label> <?php echo $this->session->flashdata('error_name')?>
-						<input type="text" id="name" class="form-control" name="name" value="<?php echo  $result->firstname ?>">
+						<input type="text" id="name" class="form-control" name="firstname" value="<?php echo  $result->firstname ?>">
 					</div>
 
 				 	<div class="col-sm-4">		

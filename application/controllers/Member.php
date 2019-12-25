@@ -1,4 +1,7 @@
 <?php
+
+
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Member extends CI_Controller
 {
@@ -40,65 +43,19 @@ class Member extends CI_Controller
 
 	public function postdata()
 	{
-		if($this->input->server('REQUEST_METHOD') == TRUE){
-
-			$this->form_validation->set_rules('username', 'ไอดี', 'required', array('required'=> 'ค่าห้ามว่าง!'));
-			$this->form_validation->set_rules('password', 'รหัสผ่าน', 'required', array('required'=> 'ค่าห้ามว่าง!'));
-			//$this->form_validation->set_rules('gender', 'เพศ', 'required', array('required'=> 'ค่าห้ามว่าง!'));
-			//$this->form_validation->set_rules('address', 'ที่อยู่', 'required', array('required'=> 'ค่าห้ามว่าง!'));
-			$this->form_validation->set_rules('firstname', 'ชื่อ', 'required', array('required'=> 'ค่าห้ามว่าง!'));
-			$this->form_validation->set_rules('lastname', 'นามสกุล', 'required', array('required'=> 'ค่าห้ามว่าง!'));
-			$this->form_validation->set_rules('tel', 'เบอร์โทร', 'required', array('required'=> 'ค่าห้ามว่าง!'));
-			$this->form_validation->set_rules('email', 'อีเมล์', 'required', array('required'=> 'ค่าห้ามว่าง!'));
-			$this->form_validation->set_rules('gender', 'เพศ', 'required', array('required'=> 'ค่าห้ามว่าง!'));
-			
-
-
-
-			if($this->form_validation->run() == TRUE){
-				$this->session->set_flashdata(
-					array(
-						'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
-					)
-				);
-				$this->member_model->entry_member($this->input->post('user_id'));
-				redirect('member');
-			}
-			else
-			{
-				$data = array(
-					'error_username' 		=> form_error('username'),
-					'error_password' 	=> form_error('password'),
-					//'error_gender' 		=> form_error('gender'),
-					//'error_address' 	=> form_error('address'),
-					'error_firstname' 		=> form_error('firstname'),
-					'error_lastname' 		=> form_error('lastname'),
-					'error_tel' 		=> form_error('tel'),
-					'error_email' 	=> form_error('email'),
-					'error_gender' 	=> form_error('gender'),
-					
-
-					'username'       		=> set_value('username'),
-					'password'       	=> set_value('password'),
-					'firstname'       		=> set_value('firstname'),
-					'lastname'       	=> set_value('lastname'),
-					'tel'       	=> set_value('tel'),
-					'email'       		=> set_value('email'),
-					'gender'       	=> set_value('gender')
-					
-
-				);
-				$this->session->set_flashdata($data);
-			}
-			if($this->input->post('user_id') == NULL){
-				redirect('member/newdata');
-			}
-			else
-			{
-				redirect('member/edit/'. $this->input->post('user_id'));
-			}
+		$object = array(
+			'username' => $this->input->post('username'),
+			'password' => $this->input->post('password'),
+			'firstname' => $this->input->post('firstname'),
+			'lastname' => $this->input->post('lastname'),
+			'tel' => $this->input->post('tel'),
+			'email' => $this->input->post('email'),
+			'gender' => $this->input->post('gender')
+		);
+$this->db->insert('users', $object);
+redirect('member');
 		}
-	}
+	
 	public function edit($user_id)
 	{
 		$data['result'] = $this->member_model->read_member($user_id);

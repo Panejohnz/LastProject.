@@ -49,8 +49,8 @@
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
                             ชื่อ
-                        </label> <?php echo $this->session->flashdata('error_name')?>
-                        <input type="text" id="name" class="form-control" name="name" value="<?php echo $this->session->flashdata('name'); ?>">
+                        </label> <?php echo $this->session->flashdata('error_firstname')?>
+                        <input type="text" id="name" class="form-control" name="firstname" value="<?php echo $this->session->flashdata('name'); ?>">
                     </div>
 
                     <div class="col-sm-4">      
