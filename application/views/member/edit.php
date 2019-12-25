@@ -34,7 +34,7 @@
 			<!-- form start -->
 		<div class="col-md-1"></div>
 		<div class="col-md-9">
-			<form role="form" action="<?php echo  base_url('member/postdata'); ?>" method="post" class="form-horizontal">
+			<form role="form" action="<?php echo  base_url(''); ?>member/edmem/<?php echo $result->user_id ?>" method="post" class="form-horizontal">
 				<input type="hidden" name="user_id" value="<?php echo $result->user_id?>">
 				<div class="box-body">
 				<div class="form-group">

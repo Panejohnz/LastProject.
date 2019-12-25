@@ -64,6 +64,22 @@ redirect('member');
 		$this->load->view('template/backfooter');
 	}
 
+	public function edmem($idmem){
+		$object = array(
+			'username' => $this->input->post('username'),
+			'password' => $this->input->post('password'),
+			'firstname' => $this->input->post('firstname'),
+			'lastname' => $this->input->post('lastname'),
+			'tel' => $this->input->post('tel'),
+			'email' => $this->input->post('email'),
+			'gender' => $this->input->post('gender')
+		);
+		$this->db->where('user_id', $idmem);
+		
+		$this->db->update('users', $object);
+		redirect('member');
+	}
+
 	public function confrm($user_id)
 	{
 		$data = array

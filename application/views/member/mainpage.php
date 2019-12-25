@@ -54,9 +54,8 @@
                                             <br>
                                             username : <?php echo $data->username; ?>
                                             </td>
-                                            <td>
                                             
-                                           
+                                            <td>
                                             <br>
                                             อีเมล์ : 
                                             <?php echo $data->email; ?>  
