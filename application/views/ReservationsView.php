@@ -14,6 +14,16 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>../assets/bluesky/plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>../assets/bluesky/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>../assets/bluesky/styles/responsive.css">
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="<?php echo base_url(); ?>../assets2/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>../assets2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Argon CSS -->
+  <link type="text/css" href="<?php echo base_url(); ?>../assets/css/argon.css?v=1.1.0" rel="stylesheet">
+
 </head>
 <body>
 
@@ -69,6 +79,17 @@
 						<div class="home_search_content">
 							
 							<form action="<?php echo site_url('ReservationsController/keyword') ?>" method="post" class="search_form d-flex flex-row align-items-start justfy-content-start">
+
+							<div class="form-group">
+					<label class="bmd-label-floating">Date of Birth</label>
+					<div class="input-group input-group-alternative">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+						</div>
+						<input class="form-control datepicker" placeholder="Select date" type="text" name="date" value="06/20/2019">
+
+					</div>
+				</div>
 								<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
 									<div>
 									<div>
@@ -207,5 +228,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="<?php echo base_url('./assets/bluesky/plugins/easing/easing.js')?>"></script>
 <script src="<?php echo base_url('./assets/bluesky/plugins/parallax-js-master/parallax.min.js')?>"></script>
 <script src="<?php echo base_url('./assets/bluesky/js/custom.js');?>"></script>
+
+ <!-- Core -->
+ <script src="<?php echo base_url('../assets2/vendor/jquery/jquery.min.js');?>"></script>
+  <script src="<?php echo base_url('../assets2/vendor/popper/popper.min.js');?>"></script>
+  <script src="<?php echo base_url('../assets2/vendor/bootstrap/bootstrap.min.js');?>"></script>
+  <script src="<?php echo base_url('../assets2/vendor/headroom/headroom.min.js');?>"></script>
+  <!-- Argon JS -->
+  <script src="<?php echo base_url('../assets2/js/argon.js?v=1.1.0')?>"></script>
+  <script src="<?php echo base_url('../assets2/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
 </body>
 </html>
