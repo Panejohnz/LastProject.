@@ -155,7 +155,7 @@ class imgtype extends CI_Controller
         $config['max_size']     = '2000';
         $config['max_width'] = '2000';
         $config['max_height'] = '2000';
-
+        
         $this->load->library('upload', $config);
 
 

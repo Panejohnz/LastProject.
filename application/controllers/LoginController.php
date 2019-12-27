@@ -22,7 +22,6 @@ class LoginController extends CI_Controller
     {
         $this->load->view('Login');
         
-    
     }
 
     public function auth()

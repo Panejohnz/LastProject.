@@ -6,6 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Bluesky template project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- date -->
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 4 DatePicker</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<!-- date -->
 <link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>../assets/bluesky/styles/bootstrap4/bootstrap.min.css">
 <link href="<?php echo base_url(); ?>../assets/bluesky/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -16,13 +25,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>../assets/bluesky/styles/responsive.css">
 
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-  <!-- Icons -->
-  <link href="<?php echo base_url(); ?>../assets2/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>../assets2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <!-- Argon CSS -->
-  <link type="text/css" href="<?php echo base_url(); ?>../assets/css/argon.css?v=1.1.0" rel="stylesheet">
+  
 
 </head>
 <body>
@@ -80,16 +83,15 @@
 							
 							<form action="<?php echo site_url('ReservationsController/keyword') ?>" method="post" class="search_form d-flex flex-row align-items-start justfy-content-start">
 
-							<div class="form-group">
-					<label class="bmd-label-floating">Date of Birth</label>
-					<div class="input-group input-group-alternative">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-						</div>
-						<input class="form-control datepicker" placeholder="Select date" type="text" name="date" value="06/20/2019">
-
-					</div>
-				</div>
+							<input id="datepicker" width="276" />
+	<!-- date -->
+	<script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+	<!-- date -->
+							
 								<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
 									<div>
 									<div>
@@ -229,13 +231,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="<?php echo base_url('./assets/bluesky/plugins/parallax-js-master/parallax.min.js')?>"></script>
 <script src="<?php echo base_url('./assets/bluesky/js/custom.js');?>"></script>
 
- <!-- Core -->
- <script src="<?php echo base_url('../assets2/vendor/jquery/jquery.min.js');?>"></script>
-  <script src="<?php echo base_url('../assets2/vendor/popper/popper.min.js');?>"></script>
-  <script src="<?php echo base_url('../assets2/vendor/bootstrap/bootstrap.min.js');?>"></script>
-  <script src="<?php echo base_url('../assets2/vendor/headroom/headroom.min.js');?>"></script>
-  <!-- Argon JS -->
-  <script src="<?php echo base_url('../assets2/js/argon.js?v=1.1.0')?>"></script>
-  <script src="<?php echo base_url('../assets2/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
+ 
 </body>
 </html>
