@@ -173,6 +173,15 @@ color: #000;
 					</span>
 				</a>
 			</li>
+			<li class="<?php echo base_url('contract'); ?>">
+				<a href="<?php echo base_url('contract'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span>
+						- สัญญาเช่า
+					</span>
+				</a>
+			</li>
 			<li>
 				<a href="<?php echo  base_url('LoginController'); ?>">
 					<i class="fa fa-link">
