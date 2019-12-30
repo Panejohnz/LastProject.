@@ -119,7 +119,7 @@ class Contract extends CI_Controller
 
         $this->load->library('upload', $config);
 
-        if (! $this->upload->do_upload('Insurance')) {
+        if (! $this->upload->do_upload('contract')) {
             //$error = array('error' => $this->upload->display_errors());
             echo $this->upload->display_errors();
         //$this->load->view('upload_form', $error);
@@ -134,7 +134,7 @@ class Contract extends CI_Controller
 
             $arr=array(
                                 // 'roomname'=> $this->input->post('roomname'),
-                                "contract"=>$filename
+                                "Insurance"=>$filename
                             );
             $this->db->insert('contract', $arr);
 
@@ -147,7 +147,7 @@ class Contract extends CI_Controller
             redirect('contract');
 
             $object = array(
-                'typeimg' => $this->input->post('typeimg'),
+                'Insurance' => $this->input->post('typeimg'),
                 'startdate' => $this->input->post('startdate'),
                 'enddate' => $this->input->post('enddate'),
                 'numroom' => $this->input->post('numroom')
