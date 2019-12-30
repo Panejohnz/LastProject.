@@ -119,7 +119,7 @@ class Contract extends CI_Controller
 
         $this->load->library('upload', $config);
 
-        if (! $this->upload->do_upload('contract')) {
+        if (! $this->upload->do_upload('typeimg')) {
             //$error = array('error' => $this->upload->display_errors());
             echo $this->upload->display_errors();
         //$this->load->view('upload_form', $error);
