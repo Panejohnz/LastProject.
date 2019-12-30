@@ -53,6 +53,12 @@
                         </label> <?php echo $this->session->flashdata('error_firstname')?>
                         <input type="text" id="name" class="form-control" name="numroom" value="<?php echo $this->session->flashdata('name'); ?>">
                     </div>
+                    <div class="col-sm-4">  
+                        <label for="exampleInputEmail1">
+                            ลูกค้า
+                        </label> <?php echo $this->session->flashdata('error_firstname')?>
+                        <input type="text" id="IdCustomer" class="form-control" name="IdCustomer" value="<?php echo $this->session->flashdata('name'); ?>">
+                    </div>
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">

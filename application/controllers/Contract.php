@@ -6,14 +6,14 @@ class Contract extends CI_Controller
     {
         parent::__construct();
         $this->load->library('pagination');
-        $this->load->model('Contract_model');
+        $this->load->model('contract_model');
     }
 
     public function index()
     {
         $config = array();
         $config['base_url'] = base_url('contract/index');
-        $config['total_rows'] = $this->Contract_model->record_count($this->input->get('keyword'));
+        $config['total_rows'] = $this->contract_model->record_count($this->input->get('keyword'));
         $config['per_page'] = $this->input->get('keyword') == null ? 14 : 999;
         $config['uri_segment'] = 3;
         $choice = $config['total_rows'] / $config['per_page'];
@@ -22,7 +22,7 @@ class Contract extends CI_Controller
         $this->pagination->initialize($config);
 
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['results'] = $this->Contract_model->fetch_Contract($config['per_page'], $page, $this->input->get('keyword'));
+        $data['results'] = $this->contract_model->fetch_Contract($config['per_page'], $page, $this->input->get('keyword'));
         $data['link'] = $this->pagination->create_links();
         $data['total_rows'] = $config['total_rows'];
         $this->load->view('template/backheader');
@@ -148,9 +148,10 @@ class Contract extends CI_Controller
 
             $object = array(
                 'Insurance' => $this->input->post('typeimg'),
-                'startdate' => $this->input->post('startdate'),
-                'enddate' => $this->input->post('enddate'),
-                'numroom' => $this->input->post('numroom')
+                'StartRcontract' => $this->input->post('startdate'),
+                'EndRcontractct' => $this->input->post('enddate'),
+                'NumRoom' => $this->input->post('numroom'),
+                'IdCustomer' => $this->input->post('IdCustomer')
             
             );
     $this->db->insert('contract', $object);

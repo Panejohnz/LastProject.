@@ -38,32 +38,47 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ประเภท</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">รูปภาพ</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ห้องพัก</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">วันเริ่มสัญญา</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">วันสินสุดสัญญา</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">รหัสลูกค้า</th>
 
                                         
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(!empty($results)){ foreach ($results as $data) { ?>
+                                    <?php if (!empty($results)) {
+                                    foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('imgtype/edit/'.$data->id); ?>">
-                                            <?php echo  $data->roomname; ?>
-                                            </a> 
+                                            <?php echo  $data->NumRoom; ?>
                                             <br>
-                                           
-                                            </td>
+                                             </td>
                                              <td>
-                                             <img src="../uploads/<?php echo $data->typeimg; ?>" width="100px">
+                                            <?php echo $data->Insurance; ?>
                                               
                                             </td> 
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('imgtype/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            <?php echo $data->StartRcontract; ?>
+                                              
+                                            </td> 
+                                            <td>
+                                            <?php echo $data->EndRcontractct; ?>
+                                              
+                                            </td> 
+                                            <td>
+                                            <?php echo $data->IdCustomer; ?>
+                                              
+                                            </td> 
+                                             
+                                            <td>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('contract/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
-                                    <?php } } ?>
+                                    <?php }
+} ?>
                                 </tbody>
 
                             </table>
