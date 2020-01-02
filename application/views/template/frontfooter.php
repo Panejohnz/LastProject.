@@ -20,5 +20,8 @@
     <script src="<?php echo base_url(); ?>dist/js/app.min.js" type="text/javascript"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?php echo base_url(); ?>dist/js/demo.js" type="text/javascript"></script>
+
+  
+
   </body>
 </html>

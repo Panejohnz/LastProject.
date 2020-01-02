@@ -40,6 +40,11 @@ color: #000;
 	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
 	<!-- bootstrap 3.3.4-->
 	
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	
   <link type="text/css" href="<?php echo base_url(); ?>../assets/css/argon.css?v=1.1.0" rel="stylesheet">
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../bootstrap/css/bootstrap.min.css">
 	<!-- font awesome icons-->
@@ -170,6 +175,15 @@ color: #000;
 					</i>
 					<span>
 						- จัดการประเภทห้อง
+					</span>
+				</a>
+			</li>
+			<li class="<?php echo base_url('room'); ?>">
+				<a href="<?php echo base_url('room'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span>
+						- ห้องพัก
 					</span>
 				</a>
 			</li>
