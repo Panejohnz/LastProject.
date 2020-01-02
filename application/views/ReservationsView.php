@@ -87,7 +87,8 @@
 	<!-- date -->
 	<script>
         $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap4'
+            uiLibrary: 'bootstrap4',
+			minDate: 0
         });
     </script>
 	<!-- date -->
