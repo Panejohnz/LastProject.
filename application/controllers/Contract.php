@@ -147,6 +147,7 @@ class Contract extends CI_Controller
             redirect('contract');
 
             $object = array(
+             
                 'Insurance' => $this->input->post('typeimg'),
                 'StartRcontract' => $this->input->post('startdate'),
                 'EndRcontractct' => $this->input->post('enddate'),

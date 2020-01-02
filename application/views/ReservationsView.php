@@ -83,7 +83,7 @@
 							
 							<form action="<?php echo site_url('ReservationsController/keyword') ?>" method="post" class="search_form d-flex flex-row align-items-start justfy-content-start">
 
-							<input id="datepicker" width="276" />
+							<input id="datepicker" width="276" name="datepicker"/>
 	<!-- date -->
 	<script>
         $('#datepicker').datepicker({

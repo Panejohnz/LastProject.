@@ -19,16 +19,19 @@ class ReservationsController extends CI_Controller
 		
         $this->db->where('id', $cateid);
         $query = $this->db->get('roomcategory');
-       $qq = $query->row_array();
-		
+       $qq = $query->row_array();   
+       $qq = array(
+        'reservationsstart' => $this->input->post('datepicker'));
+        $this->db->insert('reservations', $qq);
 		//$search_room = $this->ReservationsModel->search_room($cateid);
       
-			//$data  = $search_room->row_array();
-            $level = $qq['id'];
+            //$data  = $search_room->row_array();
             
-		if($level === '1'){
-            $room['results'] = $this->ReservationsModel->cate1();
-            $this->load->view('airroom', $room);
-        }
+        //     $level = $qq['id'];
+            
+		// if($level === '1'){
+        //     $room['results'] = $this->ReservationsModel->cate1();
+        //     $this->load->view('airroom', $room);
+        // }
     }
 }
