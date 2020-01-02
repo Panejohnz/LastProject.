@@ -196,6 +196,15 @@ color: #000;
 					</span>
 				</a>
 			</li>
+			<li class="<?php echo base_url('Billcontroller'); ?>">
+				<a href="<?php echo base_url('Billcontroller'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span>
+						- ค่าน้ำ ค่าไฟ
+					</span>
+				</a>
+			</li>
 			<li>
 				<a href="<?php echo  base_url('LoginController'); ?>">
 					<i class="fa fa-link">
