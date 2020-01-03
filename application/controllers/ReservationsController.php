@@ -11,7 +11,7 @@ class ReservationsController extends CI_Controller
 	}
     public function index()
     {
-        $this->load->view('ReservationsView');
+        $this->load->view('newhome');
     }
 
     public function keyword($cateid = null)
