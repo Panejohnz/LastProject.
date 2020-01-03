@@ -187,6 +187,15 @@ color: #000;
 					</span>
 				</a>
 			</li>
+			<li class="<?php echo base_url('Repair'); ?>">
+				<a href="<?php echo base_url('Repair'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span>
+						- รายการแจ้งซ่อม
+					</span>
+				</a>
+			</li>
 			<li class="<?php echo base_url('contract'); ?>">
 				<a href="<?php echo base_url('contract'); ?>">
 					<i class="fa fa-link">
