@@ -243,6 +243,7 @@ class Contract extends CI_Controller
         $this->load->view('template/backfooter');
     }
 
+
     public function confrm($id)
     {
         $data = array(

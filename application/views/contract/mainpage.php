@@ -53,6 +53,7 @@
                                     foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
+                                            <a href="<?php echo base_url('contract/edit/'.$data->id); ?>">
                                             <?php echo  $data->NumRoom; ?>
                                             <br>
                                              </td>

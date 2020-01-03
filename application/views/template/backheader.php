@@ -56,6 +56,9 @@ color: #000;
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../dist/css/skins/skin-blue.min.css">
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../plugins/datatables/dataTables.bootstrap.css">
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../dist/css/mycustom.css">
+
+
+	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>

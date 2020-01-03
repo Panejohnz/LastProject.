@@ -35,6 +35,7 @@
                         <input type="file" name="typeimg" id="typeimg" accept=".pdf,.docx,.doc,.pptx,.xlsx,.png,.jpg" >
                     </div>
 
+
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
                             วันเริ่มสัญญา
@@ -44,7 +45,7 @@
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
                             วันหมดสัญญา
-                        </label> <?php echo $this->session->flashdata('error_firstname')?>
+                        </label> <?php echo $this->session->flashdata('error_enddate')?>
                         <input type="text" id="name" class="form-control" name="enddate" value="<?php echo $this->session->flashdata('name'); ?>">
                     </div>
                     <div class="col-sm-4">  

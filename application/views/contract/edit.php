@@ -17,12 +17,16 @@
 				</a>
 			</li>
 			<li class="active">
-				<?php echo $result->roomname ?>
+				<?php echo $result->NumRoom ?>
 			</li>
 		</ol>
 	</section>
 	<!-- Main content -->
 	<section class="content">
+	<div class="container">
+        <div class="row">
+            <div class="col-sm-2"></div> 
+            <div class="col-sm-7">
 		<!-- Your Page Content Here -->
 		<div class="box box-primary">
 			<div class="box-header with-border">
@@ -33,26 +37,48 @@
 			<!-- form start -->
 			<form role="form" action="<?php echo  base_url('imgtype/update'); ?>" method="post"  enctype="multipart/form-data" >
 				<input type="hidden" name="id" value="<?php echo $result->id ?>">
-				<input type="hidden" name="typeimg2" value="<?php echo $result->typeimg ?>">
+				
 				<div class="box-body">
-					<div class="form-group">
-						<label for="exampleInputEmail1">
-							ชื่อประเภท
-						</label> <?php echo $this->session->flashdata('error_roomname')?>
-						<input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $result->roomname ?>">
-					</div>
 
 			 <div class="form-group">
 
                         <label for="exampleInputEmail1">
                             อัพโหลดไฟล์ภาพ
 
-		<a href="<?php echo base_url('uploads/' . $result->typeimg); ?>" target="_blank">(ไฟล์เดิมคลิก)</a>
+		<a href="<?php echo base_url('uploads/' . $result->Insurance); ?>" target="_blank">(ไฟล์เดิมคลิก)</a>
 
                      
                         </label> <?php echo $this->session->flashdata('err_typeimg'); ?>
                         <input type="file" name="typeimg" id="typeimg" >
-                    </div>
+					</div>
+					
+					<div class="col-sm-4">
+						<label for="exampleInputEmail1">
+						วันเริ่มสัญญา
+						</label> <?php echo $this->session->flashdata('error_startdate')?>
+						<input type="text" id="name" class="form-control" name="startdate" value="<?php echo  $result->StartRcontract ?>">
+					</div>
+
+					<div class="col-sm-4">
+						<label for="exampleInputEmail1">
+						วันหมดสัญญา
+						</label> <?php echo $this->session->flashdata('error_enddate')?>
+						<input type="text" id="name" class="form-control" name="enddate" value="<?php echo  $result->EndRcontractct ?>">
+					</div>
+
+					<div class="col-sm-4">
+						<label for="exampleInputEmail1">
+						เลขห้อง
+						</label> <?php echo $this->session->flashdata('error_numroom')?>
+						<input type="text" id="name" class="form-control" name="numroom" value="<?php echo  $result->NumRoom ?>">
+					</div>
+
+					<div class="col-sm-4">
+						<label for="exampleInputEmail1">
+						ลูกค้า
+						</label> <?php echo $this->session->flashdata('error_numroom')?>
+						<input type="text" id="name" class="form-control" name="numroom" value="<?php echo  $result->IdCustomer ?>">
+					</div>
 
 				</div><!-- /.box-body -->
 
@@ -61,7 +87,7 @@
 						<i class="fa fa-fw fa-save">
 						</i>บันทึกข้อมูล
 					</button>
-					<a class="btn btn-danger" href="<?php echo  base_url('imgtype'); ?>" role="button">
+					<a class="btn btn-danger" href="<?php echo  base_url('contract'); ?>" role="button">
 						<i class="fa fa-fw fa-close">
 						</i>ยกเลิก
 					</a>
