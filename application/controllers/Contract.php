@@ -246,6 +246,19 @@ class Contract extends CI_Controller
                         );
 
             redirect('contract', 'refresh');
+
+
+            $object = array(
+             
+                'Insurance' => $this->input->post('typeimg'),
+                'StartRcontract' => $this->input->post('startdate'),
+                'EndRcontractct' => $this->input->post('enddate'),
+                'NumRoom' => $this->input->post('numroom'),
+                'IdCustomer' => $this->input->post('IdCustomer')
+            
+            );
+    $this->db->insert('contract', $object);
+    redirect('contract');
         }
     }
 

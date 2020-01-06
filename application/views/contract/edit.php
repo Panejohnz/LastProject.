@@ -35,7 +35,7 @@
 				</h3>
 			</div><!-- /.box-header -->
 			<!-- form start -->
-			<form role="form" action="<?php echo  base_url('imgtype/update'); ?>" method="post"  enctype="multipart/form-data" >
+			<form role="form" action="<?php echo  base_url('contract/update'); ?>" method="post"  enctype="multipart/form-data" >
 				<input type="hidden" name="id" value="<?php echo $result->id ?>">
 				
 				<div class="box-body">
@@ -77,7 +77,7 @@
 						<label for="exampleInputEmail1">
 						ลูกค้า
 						</label> <?php echo $this->session->flashdata('error_numroom')?>
-						<input type="text" id="name" class="form-control" name="numroom" value="<?php echo  $result->IdCustomer ?>">
+						<input type="text" id="name" class="form-control" name="IdCustomer" value="<?php echo  $result->IdCustomer ?>">
 					</div>
 
 				</div><!-- /.box-body -->
