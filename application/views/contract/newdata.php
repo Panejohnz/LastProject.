@@ -35,6 +35,7 @@
                         </label> <?php echo $this->session->flashdata('err_typeimg'); ?>
                         <input type="file" name="typeimg" id="typeimg" accept=".pdf,.docx,.doc,.pptx,.xlsx,.png,.jpg" >
                     </div>
+                    
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
                             วันเริ่มสัญญา

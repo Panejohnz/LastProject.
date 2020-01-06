@@ -57,7 +57,7 @@ color: #000;
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../plugins/datatables/dataTables.bootstrap.css">
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../dist/css/mycustom.css">
 
-
+	<link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/bootstrap-datepicker.css">
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -68,6 +68,8 @@ color: #000;
 	<!-- REQUIRED JS SCRIPTS -->
 
 	<!-- jQuery 2.1.4 -->
+	<script src="<?php echo base_url('../assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
+
 	<script src="<?php echo base_url(); ?>../plugins/jQuery/jQuery-2.1.4.min.js" type="text/javascript">
 	</script>
 	<!-- Bootstrap 3.3.2 JS -->

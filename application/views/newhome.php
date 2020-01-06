@@ -90,11 +90,10 @@
 	        				<div class="form-group p-4 align-self-stretch d-flex align-items-end">
 	        					<div class="wrap">
 				    					<label for="#">Check-in Date</label>
-				    					<input id="datepicker" name="datepicker" type="text" class="form-control checkin_date" placeholder="Check-in date">
+				    					<input id="datepicker" name="datepicker" type="text" class="form-control checkin_date" placeholder="Check-in date" readonly >
 			    					</div>
 			    				</div>
 	        			</div>
-	        			
 	        			<div class="col-md d-flex">
 	        				<div class="form-group p-4 align-self-stretch d-flex align-items-end">
 	        					<div class="wrap">
