@@ -149,29 +149,21 @@ class Contract extends CI_Controller
 
             $arr=array(
                                 // 'roomname'=> $this->input->post('roomname'),
-                                "Insurance"=>$filename
+                                "Insurance"=>$filename,
+                                'StartRcontract' => $this->input->post('datepickerstart'),
+                'EndRcontractct' => $this->input->post('datepickerend'),
+                'NumRoom' => $this->input->post('numroom'),
+                'IdCustomer' => $this->input->post('IdCustomer')
                             );
             $this->db->insert('contract', $arr);
 
             $this->session->set_flashdata(
-                            array(
+                array(
                         'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                     )
-                        );
+            );
 
             redirect('contract');
-
-            $object = array(
-             
-                'Insurance' => $this->input->post('typeimg'),
-                'StartRcontract' => $this->input->post('startdate'),
-                'EndRcontractct' => $this->input->post('enddate'),
-                'NumRoom' => $this->input->post('numroom'),
-                'IdCustomer' => $this->input->post('IdCustomer')
-            
-            );
-    $this->db->insert('contract', $object);
-    redirect('contract');
         }
     }
 

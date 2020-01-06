@@ -1,3 +1,6 @@
+<link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
@@ -52,19 +55,18 @@
                         <input type="file" name="typeimg" id="typeimg" >
 					</div>
 					
-					<div class="col-sm-4">
-						<label for="exampleInputEmail1">
-						วันเริ่มสัญญา
-						</label> <?php echo $this->session->flashdata('error_startdate')?>
-						<input type="text" id="name" class="form-control" name="startdate" value="<?php echo  $result->StartRcontract ?>">
-					</div>
-
-					<div class="col-sm-4">
-						<label for="exampleInputEmail1">
-						วันหมดสัญญา
-						</label> <?php echo $this->session->flashdata('error_enddate')?>
-						<input type="text" id="name" class="form-control" name="enddate" value="<?php echo  $result->EndRcontractct ?>">
-					</div>
+					<div class="col-sm-4">  
+                    <label for="#">วันเริ่มสัญญา</label> <?php echo $this->session->flashdata('error_firstname')?>
+                        
+                         <input id="datepickerstart" name="datepickerstart" type="text" class="form-control checkin_date" readonly value="<?php echo  $result->StartRcontract ?>">
+					
+                    </div>
+                    <div class="col-sm-4">  
+                        <label for="exampleInputEmail1">
+                            วันหมดสัญญา
+                        </label> <?php echo $this->session->flashdata('error_enddate')?>
+                        <input id="datepickerend" name="datepickerend" type="text" class="form-control checkin_date" readonly value="<?php echo  $result->EndRcontractct ?>">
+                    </div>
 
 					<div class="col-sm-4">
 						<label for="exampleInputEmail1">
@@ -96,3 +98,15 @@
 		</div>
 	</section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+<script src="<?php echo base_url('../assets/deluxe/js/jquery.min.js')?>"></script>
+  <script src="<?php echo base_url('../assets/deluxe/js/jquery-migrate-3.0.1.min.js')?>"></script>
+  <script src="<?php echo base_url('../assets/deluxe/js/jquery.waypoints.min.js')?>"></script>
+  <script src="<?php echo base_url('../assets/deluxe/js/jquery.stellar.min.js')?>"></script>
+  <script src="<?php echo base_url('../assets/deluxe/js/owl.carousel.min.js')?>"></script>
+  <script src="<?php echo base_url('../assets/deluxe/js/jquery.magnific-popup.min.js')?>"></script>
+  <script src="<?php echo base_url('../assets/deluxe/js/aos.js')?>"></script>
+  <script src="<?php echo base_url('../assets/deluxe/js/jquery.animateNumber.min.js')?>"></script>
+  <script src="<?php echo base_url('../assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
+  <script src="<?php echo base_url('../assets/deluxe/js/jquery.timepicker.min.js')?>"></script>
+  <script src="<?php echo base_url('../assets/deluxe/js/scrollax.min.js')?>"></script>
+  <script src="<?php echo base_url('../assets/deluxe/js/main.js')?>"></script>
