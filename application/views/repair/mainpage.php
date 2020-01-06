@@ -2,11 +2,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            จัดการประเภทภาพ
+            รายการแจ้งซ่อม
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo  base_url('imgtype'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-            <li class="active">จัดการประเภทภาพ</li>
+            <li><a href="<?php echo  base_url('repair'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+            <li class="active">รายการแจ้งซ่อม</li>
         </ol>
     </section>
     <!-- Top menu -->
@@ -22,8 +22,8 @@
                 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                     <div class="row">
                         <div class="col-sm-6">
-                            <a class="btn btn-success" href="<?php echo  base_url('imgtype/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a>
-                            <a class="btn btn-default" href="<?php echo  base_url('imgtype'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
+                            
+                            <a class="btn btn-default" href="<?php echo  base_url('repair'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
                         </div>
                         <div class="col-sm-6">
                             <div id="" class="dataTables_filter">
@@ -38,7 +38,7 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1"">ประเภท</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1">ประเภท</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">ผู้แจ้ง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">ห้อง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>

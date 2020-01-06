@@ -12,7 +12,7 @@ class repair extends CI_Controller
     public function index()
     {
         $config = array();
-        $config['base_url'] = base_url('imgtype/index');
+        $config['base_url'] = base_url('repair/index');
         $config['total_rows'] = $this->repair_model->record_count($this->input->get('keyword'));
         $config['per_page'] = $this->input->get('keyword') == null ? 14 : 999;
         $config['uri_segment'] = 3;
@@ -36,6 +36,20 @@ class repair extends CI_Controller
         $this->load->view('repair/newdata');
         $this->load->view('template/backfooter');
     }
+
+    public function postdata()
+	{
+		$object = array(
+			'customer_id' => $this->input->post('customer_id'),
+			'roomnum' => $this->input->post('roomnum'),
+			'job_description' => $this->input->post('job_description'),
+			'operator_id' => $this->input->post('operator_id'),
+			'statusrepair' => $this->input->post('statusrepair')    
+			
+		);
+$this->db->insert('Repair', $object);
+redirect('repair');
+		}
 
 
     /*
@@ -143,7 +157,7 @@ class repair extends CI_Controller
                     )
                         );
 
-            redirect('imgtype');
+            redirect('repair');
         }
     }
 
@@ -184,7 +198,7 @@ class repair extends CI_Controller
                     )
                    );
 
-            redirect('imgtype', 'refresh');
+            redirect('repair', 'refresh');
         } else {
             $data = $this->upload->data();
 
@@ -209,7 +223,7 @@ class repair extends CI_Controller
                                 "typeimg"=>$filename
                             );
             $this->db->where('id', $this->input->post('id'));
-            $this->db->update('imgtype', $arr);
+            $this->db->update('repair', $arr);
 
             $this->session->set_flashdata(
                             array(
@@ -217,7 +231,7 @@ class repair extends CI_Controller
                     )
                         );
 
-            redirect('imgtype', 'refresh');
+            redirect('repair', 'refresh');
         }
     }
 
@@ -226,24 +240,24 @@ class repair extends CI_Controller
     {
         $data['result'] = $this->repair_model->read_imgtype($id);
         $this->load->view('template/backheader');
-        $this->load->view('imgtype/edit', $data);
+        $this->load->view('repair/edit', $data);
         $this->load->view('template/backfooter');
     }
 
     public function confrm($id)
     {
         $data = array(
-            'backlink'  => 'imgtype',
-            'deletelink'=> 'imgtype/remove/' . $id
+            'backlink'  => 'repair',
+            'deletelink'=> 'repair/remove/' . $id
         );
         $this->load->view('template/backheader');
-        $this->load->view('imgtype/confrm', $data);
+        $this->load->view('repair/confrm', $data);
         $this->load->view('template/backfooter');
     }
 
     public function remove($id)
     {
         $this->repair_model->remove_roomcategory($id);
-        redirect('imgtype', 'refresh');
+        redirect('repair', 'refresh');
     }
 }

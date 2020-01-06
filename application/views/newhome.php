@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Deluxe - Free Bootstrap 4 Template by Colorlib</title>
+  <title>Rianthong</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 
@@ -31,7 +31,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Deluxe</a>
+	      <a class="navbar-brand" href="index.html">Rianthong</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -57,8 +57,8 @@
           <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-12 ftco-animate text-center">
           	<div class="text mb-5 pb-3">
-	            <h1 class="mb-3">Welcome To Deluxe</h1>
-	            <h2>Hotels &amp; Resorts</h2>
+	            <h1 class="mb-3">Welcome To Rianthong</h1>
+	            <h2>Apartment</h2>
             </div>
           </div>
         </div>
