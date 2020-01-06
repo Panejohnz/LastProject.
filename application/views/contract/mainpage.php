@@ -50,7 +50,7 @@
                                 </thead>
                                 <tbody>
                                     <?php if (!empty($results)) {
-                                    foreach ($results as $data) { ?>
+    foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
                                             <a href="<?php echo base_url('contract/edit/'.$data->id); ?>">
@@ -58,7 +58,17 @@
                                             <br>
                                              </td>
                                              <td>
-                                            <?php echo $data->Insurance; ?>
+                                             <?php if (!empty($files)) {
+        foreach ($files as $frow) { ?>
+<div class="file-box">
+    <div class="box-content">
+      
+       
+        <a href="<?php echo base_url().'contract/download/'.$frow['id']; ?>" class="dwn"> <?php echo $data->Insurance; ?></a>
+    </div>
+</div>
+        <?php  }
+    } ?>
                                               
                                             </td> 
                                             <td>

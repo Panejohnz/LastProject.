@@ -25,6 +25,7 @@ class Contract extends CI_Controller
         $data['results'] = $this->contract_model->fetch_Contract($config['per_page'], $page, $this->input->get('keyword'));
         $data['link'] = $this->pagination->create_links();
         $data['total_rows'] = $config['total_rows'];
+        $data['files'] = $this->contract_model->getRows();
         $this->load->view('template/backheader');
         $this->load->view('contract/mainpage', $data);
         $this->load->view('template/backfooter');
@@ -36,7 +37,21 @@ class Contract extends CI_Controller
         $this->load->view('contract/newdata');
         $this->load->view('template/backfooter');
     }
-
+    public function download($id){
+        if (!empty($id)) {
+            //load download helper
+            $this->load->helper('download');
+            
+            //get file info from database
+            $fileInfo = $this->contract_model->getRows(array('id' => $id));
+            
+            //file path
+            $file = 'uploads/'.$fileInfo['Insurance'];
+            
+            //download file from directory
+            force_download($file, null);
+        }
+    }
 
     /*
         public function postdata()
