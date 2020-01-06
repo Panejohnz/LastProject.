@@ -1,5 +1,5 @@
-<?php foreach($results as $room){ ?>
-  <p><?php echo $room->roomnum?>
-    <?php echo $room->roomcate?>
-    <?php echo $room->roomprice?>
+<?php foreach ($results->result() as $row) { ?>
+  <p><?php echo $row['roomnum'] ?>
+    <?php echo $row->roomcate ?>
+    <?php echo $row->roomprice ?>
 <?php } ?>
