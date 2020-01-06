@@ -7,12 +7,14 @@ class RoomController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('login_model');
+        $this->load->model('room_model');
     }
 
 
     public function index()
     {
         $this->load->view('Room');
+        
         
     }
 }

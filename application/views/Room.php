@@ -348,23 +348,97 @@
     font-weight: 400;
 }
     </style>
+
+    <!-- Fonts -->
+	 <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link href="<?php echo base_url(); ?>../assets2/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>../assets2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Argon CSS -->
+  <link type="text/css" href="<?php echo base_url(); ?>../assets2/css/argon.css?v=1.1.0" rel="stylesheet">
 </head>
+<html>
 <body>
+    
+        
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-default">
+    <div class="container">
+        <a class="navbar-brand" href="#">Default Color</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-default">
+            <div class="navbar-collapse-header">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                        <a href="index.html">
+                            <img src="assets/img/brand/blue.png">
+                        </a>
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav ml-lg-auto">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-icon" href="#">
+                        <i class="ni ni-favourite-28"></i>
+                        <span class="nav-link-inner--text d-lg-none">Discover</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-icon" href="#">
+                        <i class="ni ni-notification-70"></i>
+                        <span class="nav-link-inner--text d-lg-none">Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-link-icon" href="#" id="navbar-default_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="ni ni-settings-gear-65"></i>
+                        <span class="nav-link-inner--text d-lg-none">Settings</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
 <div class="container">
     <div class="row clearfix">
+
+<?php $this->db->select('room.*');
+							$this->db->from('room');
+							$query = $this->db->get();
+							$results = $query->result_array();?>
+						<?php	foreach($results as $data){
+								?>
         <div class="col-lg-3 col-md-4 col-sm-12">
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">
-                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <img src="<?php echo base_url('../assets/69524.png')?>" alt="Room" class="img-fluid">
                         
                     </div>
                     <div class="product_details">
-                        <h5><a href="ec-product-detail.html">Simple Black Clock</a></h5>
+                        <h2><a href="ec-product-detail.html"><?php echo  $data['roomnum']; ?></a></h2>
+                        <h5><?php echo  $data['roomcate']; ?></h5>
                         <ul class="product_price list-unstyled">
-                            <li class="old_price">$16.00</li>
-                            <li class="new_price">$13.00</li>
+                        <h4> <li class="new_price"><?php echo  $data['roomprice']; ?>฿</li></h4>
+                        <button class="btn btn-primary" type="button">Button</button>
                         </ul>
                     </div>
                 </div>
@@ -372,12 +446,20 @@
         </div>
         
         
-    </div>
+  
+<?php
+							} ?>
+   </div>
 </div>
-
 <script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	
-</script>
+<script type="text/javascript"></script>
+ <script src="<?php echo base_url(); ?>../assets2/vendor/jquery/jquery.min.js"></script>
+  <script src="<?php echo base_url(); ?>../assets2/vendor/popper/popper.min.js"></script>
+  <script src="<?php echo base_url(); ?>../assets2/vendor/bootstrap/bootstrap.min.js"></script>
+  <script src="<?php echo base_url(); ?>../assets2/vendor/headroom/headroom.min.js"></script>
+  <!-- Argon JS -->
+  <script src="<?php echo base_url(); ?>../assets2/js/argon.js?v=1.1.0"></script>
+  <!--Datepicker -->
+  <script src="<?php echo base_url('../assets2/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
 </body>
 </html>
