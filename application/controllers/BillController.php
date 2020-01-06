@@ -22,7 +22,7 @@ class BillController extends CI_Controller
         $this->pagination->initialize($config);
 
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['results'] = $this->bill_model->fetch_Contract($config['per_page'], $page, $this->input->get('keyword'));
+        $data['results'] = $this->bill_model->fetch_room($config['per_page'], $page, $this->input->get('keyword'));
         $data['link'] = $this->pagination->create_links();
         $data['total_rows'] = $config['total_rows'];
         $this->load->view('template/backheader');
