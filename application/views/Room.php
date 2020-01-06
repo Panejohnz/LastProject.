@@ -1,266 +1,604 @@
-<style>
-
-body{margin-top:20px;}
-
-
-/*
-* @subsection Shop
-*/
-.product {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-left: auto;
-  margin-right: auto;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from https://bootdey.com  -->
+    <!--  All snippets are MIT license https://bootdey.com/license -->
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+    	body{
+    margin-top:20px;
+    background-color: #f4f7f6;
+}
+.c_review {
+    margin-bottom: 0
 }
 
-.product .caption {
-  margin-top: 15px;
+.c_review li {
+    margin-bottom: 16px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #e8e8e8
 }
 
-.product .caption h6 {
-  color: #455a64;
+.c_review li:last-child {
+    margin: 0;
+    border: none
 }
 
-.product .caption .price + .price {
-  margin-left: 15px;
+.c_review .avatar {
+    float: left;
+    width: 80px
 }
 
-.product.tumbnail {
-  box-shadow: 0 5px 25px 0 transparent;
-  transition: 0.3s linear;
-  padding-top: 0;
+.c_review .comment-action {
+    float: left;
+    width: calc(100% - 80px)
 }
 
-.product.tumbnail img:hover {
-  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2);
+.c_review .comment-action .c_name {
+    margin: 0
 }
 
-.single-product span {
-  display: inline-block;
+.c_review .comment-action p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 95%;
+    display: block
 }
 
-.single-product .rating .fa-star, .single-product .rating .fa-star-o {
-  font-size: 16px;
-  color: #f7d4a0;
-  margin-left: 2px;
+.product_item:hover .cp_img {
+    top: -40px
 }
 
-.single-product .rating + * {
-  margin-left: 15px;
+.product_item:hover .cp_img img {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22)
 }
 
-.single-product h1.h1-variant-2 {
-  margin-bottom: 20px;
+.product_item:hover .cp_img .hover {
+    display: block
 }
 
-.single-product .caption:before {
-  content: '';
-  height: 100%;
-  display: inline-block;
-  vertical-align: middle;
+.product_item .cp_img {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    -o-transform: translate(-50%);
+    -khtml-transform: translate(-50%);
+    width: 100%;
+    padding: 15px;
+    transition: all 0.2s ease-in-out
 }
 
-.single-product .caption span {
-  display: inline-block;
-  vertical-align: middle;
+.product_item .cp_img img {
+    transition: all 0.2s ease-in-out;
+    border-radius: 6px
 }
 
-.single-product .caption .price {
-  font-weight: 400;
-}
-
-.single-product .caption .price.sale {
-  color: #e75854;
-  font-size: 33px;
-}
-
-.single-product .caption * + .price {
-  margin-left: 10.8%;
-}
-
-@media (max-width: 1199px) {
-  .single-product .caption * + .price {
-    margin-left: 7.8%;
-  }
-}
-
-.single-product .caption * + .quantity {
-  margin-left: 26px;
-}
-
-.single-product .caption .info-list {
-  border-bottom: 1px solid #f3f3ed;
-  border-top: 1px solid #f3f3ed;
-  font-family: Montserrat, sans-serif;
-  padding-top: 26px;
-  padding-bottom: 26px;
-  text-align: left;
-}
-
-.single-product .caption .info-list dt, .single-product .caption .info-list dd {
-  display: inline-block;
-  line-height: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.single-product .caption .info-list dt {
-  letter-spacing: 0.08em;
-  font-size: 12px;
-  color: #a7b0b4;
-  width: 35%;
-  text-transform: uppercase;
-}
-
-.single-product .caption .info-list dd {
-  font-size: 15px;
-  color: #565452;
-  width: 62.5%;
-}
-
-.single-product .caption .share span.small {
-  margin-top: 9px;
-}
-
-@media (max-width: 991px) {
-  .single-product .caption .share span.small {
-    display: block;
-    margin-bottom: 15px;
-  }
-}
-
-@media (max-width: 767px) {
-  .single-product .table-mobile tr {
-    padding-top: 0;
-  }
-  .single-product .table-mobile tr:before {
+.product_item .cp_img .hover {
     display: none;
-  }
+    text-align: center;
+    margin-top: 10px
 }
 
-.price {
-  display: inline-block;
-  font-size: 15px;
-  font-family: Montserrat, sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #2b2f3e;
+.product_item .product_details {
+    padding-top: 110%;
+    text-align: center
 }
 
-.price.sale {
-  color: #e75854;
+.product_item .product_details h5 {
+    margin-bottom: 5px
 }
 
-.price del {
-  color: #b0bec5;
+.product_item .product_details h5 a {
+    font-size: 16px;
+    color: #444
 }
 
-.quantity {
-  text-align: center;
-  font-family: Montserrat, sans-serif;
-  font-size: 12px;
-  background: #eceff1;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width: 82px;
-  height: auto;
-  display: inline-block;
+.product_item .product_details h5 a:hover {
+    text-decoration: none
 }
 
-.quantity span {
-  display: inline-block;
+.product_item .product_details .product_price {
+    margin: 0
 }
 
-.quantity .num {
-  width: 26px;
+.product_item .product_details .product_price li {
+    display: inline-block;
+    padding: 0 10px
 }
 
-.quantity [class*='fa-'] {
-  padding-top: 4px;
-  width: 22px;
-  padding-bottom: 4px;
-  color: #b0bec5;
-  cursor: pointer;
+.product_item .product_details .product_price .new_price {
+    font-weight: 600;
+    color: #ff4136
 }
 
-.quantity [class*='fa-']:hover {
-  color: #455a64;
+.product_item_list table tr td {
+    vertical-align: middle
 }
-</style>
 
+.product_item_list table tr td h5 {
+    font-size: 15px;
+    margin: 0
+}
 
-<div class="container bootstrap snipets">
-   <h1 class="text-center text-muted">Room</h1>
-   <div class="row flow-offset-1">
-     <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="http://static.livedemo00.template-help.com/wt_58434/images/shop-1.jpg" alt=""></a>
-         <div class="caption">
-           <h6><a href="#">Short Sleeve T-Shirt</a></h6><span class="price">
-             <del>$24.99</del></span><span class="price sale">$12.49</span>
-         </div>
-       </div>
-     </div>
-     <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="http://static.livedemo00.template-help.com/wt_58434/images/shop-2.jpg" alt=""></a>
-         <div class="caption">
-           <h6><a href="#">Short Sleeve T-Shirt</a></h6><span class="price">
-             <del>$24.99</del></span><span class="price sale">$12.49</span>
-         </div>
-       </div>
-     </div>
-     <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="http://static.livedemo00.template-help.com/wt_58434/images/shop-3.jpg" alt=""></a>
-         <div class="caption">
-           <h6><a href="#">Short Sleeve T-Shirt</a></h6><span class="price">$12.49</span>
-         </div>
-       </div>
-     </div>
-     <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="http://static.livedemo00.template-help.com/wt_58434/images/shop-4.jpg" alt=""></a>
-         <div class="caption">
-           <h6><a href="#">Short Sleeve T-Shirt</a></h6><span class="price">
-             <del>$24.99</del></span><span class="price sale">$12.49</span>
-         </div>
-       </div>
-     </div>
-     <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="http://static.livedemo00.template-help.com/wt_58434/images/shop-5.jpg" alt=""></a>
-         <div class="caption">
-           <h6><a href="#">Short Sleeve T-Shirt</a></h6><span class="price">
-             <del>$24.99</del></span><span class="price sale">$12.49</span>
-         </div>
-       </div>
-     </div>
-     <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="http://static.livedemo00.template-help.com/wt_58434/images/shop-6.jpg" alt=""></a>
-         <div class="caption">
-           <h6><a href="#">Short Sleeve T-Shirt</a></h6><span class="price">
-             <del>$24.99</del></span><span class="price sale">$12.49</span>
-         </div>
-       </div>
-     </div>
-     <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="http://static.livedemo00.template-help.com/wt_58434/images/shop-7.jpg" alt=""></a>
-         <div class="caption">
-           <h6><a href="#">Short Sleeve T-Shirt</a></h6><span class="price">$12.49</span>
-         </div>
-       </div>
-     </div>
-     <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="http://static.livedemo00.template-help.com/wt_58434/images/shop-8.jpg" alt=""></a>
-         <div class="caption">
-           <h6><a href="#">Short Sleeve T-Shirt</a></h6><span class="price">
-             <del>$24.99</del></span><span class="price sale">$12.49</span>
-         </div>
-       </div>
-     </div>
-     <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="http://static.livedemo00.template-help.com/wt_58434/images/shop-9.jpg" alt=""></a>
-         <div class="caption">
-           <h6><a href="#">Short Sleeve T-Shirt</a></h6><span class="price">
-             <del>$24.99</del></span><span class="price sale">$12.49</span>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
+.product_item_list table tr td .btn {
+    box-shadow: none !important
+}
+
+.product-order-list table tr th:last-child {
+    width: 145px
+}
+
+.preview {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.preview .preview-pic {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1
+}
+
+.preview .preview-thumbnail.nav-tabs {
+    margin-top: 15px;
+    font-size: 0
+}
+
+.preview .preview-thumbnail.nav-tabs li {
+    width: 20%;
+    display: inline-block
+}
+
+.preview .preview-thumbnail.nav-tabs li nav-link img {
+    max-width: 100%;
+    display: block
+}
+
+.preview .preview-thumbnail.nav-tabs li a {
+    padding: 0;
+    margin: 2px;
+    border-radius: 0 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important
+}
+
+.preview .preview-thumbnail.nav-tabs li:last-of-type {
+    margin-right: 0
+}
+
+.preview .tab-content {
+    overflow: hidden
+}
+
+.preview .tab-content img {
+    width: 100%;
+    -webkit-animation-name: opacity;
+    animation-name: opacity;
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s
+}
+
+.details {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.details .rating .stars {
+    display: inline-block
+}
+
+.details .sizes .size {
+    margin-right: 10px
+}
+
+.details .sizes .size:first-of-type {
+    margin-left: 40px
+}
+
+.details .colors .color {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    height: 2em;
+    width: 2em;
+    border-radius: 2px
+}
+
+.details .colors .color:first-of-type {
+    margin-left: 20px
+}
+
+.details .colors .not-available {
+    text-align: center;
+    line-height: 2em
+}
+
+.details .colors .not-available:before {
+    font-family: Material-Design-Iconic-Font;
+    content: "\f136";
+    color: #fff
+}
+
+@media screen and (max-width: 996px) {
+    .preview {
+        margin-bottom: 20px
+    }
+}
+
+@-webkit-keyframes opacity {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(3);
+        transform: scale(3)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(3);
+        transform: scale(3)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+.cart-page .cart-table tr th:last-child {
+    width: 145px
+}
+
+.cart-table .quantity-grp {
+    width: 120px
+}
+
+.cart-table .quantity-grp .input-group {
+    margin-bottom: 0
+}
+
+.cart-table .quantity-grp .input-group-addon {
+    padding: 0 !important;
+    text-align: center;
+    background-color: #1ab1e3
+}
+
+.cart-table .quantity-grp .input-group-addon a {
+    display: block;
+    padding: 8px 10px 10px;
+    color: #fff
+}
+
+.cart-table .quantity-grp .input-group-addon a i {
+    vertical-align: middle
+}
+
+.cart-table .quantity-grp .form-control {
+    background-color: #fff
+}
+
+.cart-table .quantity-grp .form-control+.input-group-addon {
+    background-color: #1ab1e3
+}
+
+.ec-checkout .wizard .content .form-group .btn-group.bootstrap-select.form-control {
+    padding: 0
+}
+
+.ec-checkout .wizard .content .form-group .btn-group.bootstrap-select.form-control .btn-round.btn-simple {
+    padding-top: 12px;
+    padding-bottom: 12px
+}
+
+.ec-checkout .wizard .content ul.card-type {
+    font-size: 0
+}
+
+.ec-checkout .wizard .content ul.card-type li {
+    display: inline-block;
+    margin-right: 10px
+}
+
+.card {
+    background: #fff;
+    margin-bottom: 30px;
+    transition: .5s;
+    border: 0;
+    border-radius: .55rem;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+}
+
+.card .body {
+    font-size: 14px;
+    color: #424242;
+    padding: 20px;
+    font-weight: 400;
+}
+    </style>
+</head>
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html">Simple Black Clock</a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$16.00</li>
+                            <li class="new_price">$13.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html">Simple Black Clock</a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$12.00</li>
+                            <li class="new_price">$11.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html">Brone Candle</a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$23.00</li>
+                            <li class="new_price">$17.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html">Simple Black Clock</a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$16.00</li>
+                            <li class="new_price">$10.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html">Brone Lamp Glasses</a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$18.00</li>
+                            <li class="new_price">$15.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html">Unero Small Bag</a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$21.00</li>
+                            <li class="new_price">$17.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html">Unero Round lass</a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$16.00</li>
+                            <li class="new_price">$10.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html">Wood Simple Clock</a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$16.00</li>
+                            <li class="new_price">$10.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html">Wood Long TV</a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$16.00</li>
+                            <li class="new_price">$10.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html">Simple Black Clock</a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$16.00</li>
+                            <li class="new_price">$10.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html">Wood Simple Chair</a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$16.00</li>
+                            <li class="new_price">$10.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="<?php echo base_url('../assets/house-309113__340.jpg')?>" alt="Product" class="img-fluid">
+                        <div class="hover">
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-plus"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product_details">
+                        <h5><a href="ec-product-detail.html">Simple Black</a></h5>
+                        <ul class="product_price list-unstyled">
+                            <li class="old_price">$16.00</li>
+                            <li class="new_price">$10.00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+</body>
+</html>
