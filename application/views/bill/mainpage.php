@@ -1,78 +1,94 @@
-<html>
-<head>
-<title>CODEMANIA.BLOGSPOT.COM</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            ห้องพัก
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?php echo  base_url('room'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+            <li class="active">ห้องพัก</li>
+        </ol>
+    </section>
+    <!-- Top menu -->
+    <?php echo $this->session->flashdata('msginfo'); ?>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Your Page Content Here -->
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">ตารางข้อมูล</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                    <div class="row">
+                        <div class="col-sm-6">
+                           
+                            <a class="btn btn-default" href="<?php echo  base_url('room'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="" class="dataTables_filter">
+                            <form action="" method="GET" name="search">
+                            	<label>ค้นหา</label>:<input type="search" name="keyword" class="form-control input-sm" placeholder="ค้นหาชื่อหมวดหมู่"></label>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">เลขห้อง</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ค่าไฟ</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">ค่าน้ำ</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if(!empty($results)){ foreach ($results as $data) { ?>
+                                        <tr role="row">
+                                            <td>
+                                            <a href="<?php echo base_url('room/edit/'.$data->id); ?>">
+                                            <?php echo  $data->roomnum; ?>
+                                            
+                                            </a> 
+                                            <br>
+                                            
+                                            </td>
+                                            
+                                            <td>
+                                            <br>
+                                            
+                                            <input type="input" name="electric" class="form-control input-sm" style="width:60%">
+                                            <br>
+                                            
+                                            
+                                            </td>
+                                            <td>
+                                            <br>
+                                            <input type="input" name="water" class="form-control input-sm" style="width:60%">
+                                            </td>
+                                           
+                                        </tr>
+                                    <?php } } ?>
+                                </tbody>
 
-<style>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Total <?php echo  $total_rows; ?> entries</div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div id="example1_paginate" class="dataTables_paginate paging_simple_numbers">
+                                <?php echo $link; ?>
+                            </div>
 
-    .highlight {
-        background-color: #FFFF88;
-    }
-
-    .red_text{
-        color : red;
-    }
-   
-    table th,table td{
-        text-align: center !important;
-    }
-</style>
-</head>
-<body>
-   
-    <div class="container">
-   
-    
-     
-    <form class="form-horizontal" method="GET" action="meter_list.php">
-          <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">เลือกเดือน : </label>
-           
-             <input type="text" class="form-control" name="year" placeholder="เดือน" value="">
-             <input type="text" class="form-control" name="month" placeholder="เดือน" value="">
-            <input type="submit" value="ประมวลผล" />
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.box-body -->
         </div>
-    </form>
-   
-      <div class="row">       
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th rowspan=2>ห้อง</th>
-                    <th colspan=2>ค่าน้ำ</th>
-                    <th colspan=2>ค่าไฟ</th>
-                </tr>
-                <tr>
-                    <td align="center">เดือนที่แล้ว</td>
-                    <td align="center">เดือนปัจจุบัน</td>
-                    <td align="center">เดือนที่แล้ว</td>
-                    <td align="center">เดือนปัจจุบัน</td>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if( !empty($results) ) {
-                    foreach($results as $row){
-                ?>
-                <tr>
-                    <td><?php echo $row['billroomnum'];?></td>
-                    <td><?php echo $row['Electricbill'];?></td>
-                    <td><?php echo $row['Waterbill'];?></td>
-                    <td><?php echo $row['Rates'];?></td>
-                    <td><?php echo $row['date'];?></td>
-                </tr>
-                <?php }}?>
-            </tbody>
-        </table>
-      </div>
-     
-    </div><!-- container -->
-
-    <footer class="footer">
-        <br/><br/>
-      
-    </footer>
-
-</div> <!-- /container -->
-</body>
-</html>
+    </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
