@@ -37,7 +37,8 @@ class Contract extends CI_Controller
         $this->load->view('contract/newdata');
         $this->load->view('template/backfooter');
     }
-    public function download($id){
+    public function download($id)
+    {
         if (!empty($id)) {
             //load download helper
             $this->load->helper('download');
@@ -55,7 +56,7 @@ class Contract extends CI_Controller
 
     /*
         public function postdata()
-    
+
         {
             print_r($_FILES);
             exit;
@@ -65,19 +66,19 @@ class Contract extends CI_Controller
                 $config['max_size']     = '2000';
                 $config['max_width'] = '2000';
                 $config['max_height'] = '2000';
-    
+
                 $this->load->library('upload', $config);
-    
-    
+
+
                 //$this->upload->initialize($config);
                 //$config['overwrite'] = TRUE;
                 $config['typeimg'] = ($this->input->post('datafile')=='') ? uniqid() : $this->input->post('datafile');
                 //$this->load->library('upload',$config);
-    
+
                 $no_file_error = "<p>You did not select a file to upload.</p>";
                 if(!$this->upload->do_upload('typeimg') && $this->upload->display_errors() != $no_file_error){
                     $checkfile = FALSE;
-    
+
                 }
                 else
                 {
@@ -90,7 +91,7 @@ class Contract extends CI_Controller
                             'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                         )
                     );
-    
+
                     $data     = $this->upload->data();
                     $datafile = ($this->input->post('datafile')=='') ? $data['typeimg'] : $this->input->post('datafile');
                     $this->imgtype_model->entry_imgtype($this->input->post('imgtype_id'),$datafile);
@@ -103,14 +104,14 @@ class Contract extends CI_Controller
                         'err_typeimg'     		=> $this->upload->display_errors(),
                         'imgtype_name'       	=> set_value('imgtype_name'),
                         'typeimg'       		=> set_value('typeimg')
-    
+
                     );
                     $this->session->set_flashdata($data);
-    
+
                     //print_r($data);
-    
+
                     //exit();
-    
+
                 }
                 if($this->input->post('imgtype_id') == NULL){
                     //redirect('imgtype/newdata');
@@ -121,7 +122,7 @@ class Contract extends CI_Controller
                 }
             }
         }
-    
+
     */
     public function adding($value='')
     {
@@ -192,17 +193,17 @@ class Contract extends CI_Controller
             $arr1=array(
                                 'id'=> $this->input->post('id'),
                                 // 'roomname'=> $this->input->post('roomname'),
-                                'Insurance'=> $this->input->post('Insurance2'),
+                                'Insurance'=> $this->input->post('Insurance'),
                             );
             $this->db->where('id', $this->input->post('id'));
             $this->db->update('contract', $arr1);
 
 
             $this->session->set_flashdata(
-                       array(
+                array(
                         'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-success"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ [ไม่เปลี่ยนภาพ]</div></div>'
                     )
-                   );
+            );
 
             redirect('contract', 'refresh');
         } else {
@@ -236,10 +237,10 @@ class Contract extends CI_Controller
             $this->db->update('contract', $arr);
 
             $this->session->set_flashdata(
-                            array(
+                array(
                         'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                     )
-                        );
+            );
 
             redirect('contract', 'refresh');
 
@@ -253,8 +254,8 @@ class Contract extends CI_Controller
                 'IdCustomer' => $this->input->post('IdCustomer')
             
             );
-    $this->db->insert('contract', $object);
-    redirect('contract');
+            $this->db->insert('contract', $object);
+            redirect('contract');
         }
     }
     
@@ -268,6 +269,20 @@ class Contract extends CI_Controller
         $this->load->view('template/backfooter');
     }
 
+    public function edcon($idmem){
+
+		$object = array(
+            'Insurance' => $this->input->post('typeimg'),
+            'StartRcontract' => $this->input->post('datepickerstart'),
+            'EndRcontractct' => $this->input->post('datepickerend'),
+            'NumRoom' => $this->input->post('numroom'),
+            'IdCustomer' => $this->input->post('IdCustomer')
+		);
+		$this->db->where('id', $idmem);
+		
+		$this->db->update('contract', $object);
+		redirect('contract');
+	}
 
     public function confrm($id)
     {

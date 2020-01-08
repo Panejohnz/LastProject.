@@ -45,19 +45,19 @@ color: #000;
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 	
-  <link type="text/css" href="<?php echo base_url(); ?>../assets/css/argon.css?v=1.1.0" rel="stylesheet">
-	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../bootstrap/css/bootstrap.min.css">
+  <link type="text/css" href="<?php echo base_url(); ?>./assets/css/argon.css?v=1.1.0" rel="stylesheet">
+	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./bootstrap/css/bootstrap.min.css">
 	<!-- font awesome icons-->
-	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../bootstrap/css/font-awesome.min.css">
+	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./bootstrap/css/font-awesome.min.css">
 	<!-- ionicons-->
-	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../bootstrap/css/ionicons.min.css">
+	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./bootstrap/css/ionicons.min.css">
 	<!--Theme style-->
-	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../dist/css/AdminLTE.min.css">
-	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../dist/css/skins/skin-blue.min.css">
-	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../plugins/datatables/dataTables.bootstrap.css">
-	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>../dist/css/mycustom.css">
+	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./dist/css/AdminLTE.min.css">
+	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./dist/css/skins/skin-blue.min.css">
+	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./plugins/datatables/dataTables.bootstrap.css">
+	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./dist/css/mycustom.css">
 
-	<link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/bootstrap-datepicker.css">
 
 	
 	
@@ -71,15 +71,15 @@ color: #000;
 	<!-- REQUIRED JS SCRIPTS -->
 
 	<!-- jQuery 2.1.4 -->
-	<script src="<?php echo base_url('../assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
+	<script src="<?php echo base_url('./assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
 
-	<script src="<?php echo base_url(); ?>../plugins/jQuery/jQuery-2.1.4.min.js" type="text/javascript">
+	<script src="<?php echo base_url(); ?>./plugins/jQuery/jQuery-2.1.4.min.js" type="text/javascript">
 	</script>
 	<!-- Bootstrap 3.3.2 JS -->
-	<script src="<?php echo base_url(); ?>../bootstrap/js/bootstrap.min.js" type="text/javascript">
+	<script src="<?php echo base_url(); ?>./bootstrap/js/bootstrap.min.js" type="text/javascript">
 	</script>
 	<!-- AdminLTE App -->
-	<script src="<?php echo base_url(); ?>../dist/js/app.min.js" type="text/javascript">
+	<script src="<?php echo base_url(); ?>./dist/js/app.min.js" type="text/javascript">
 	</script>
 </head>
 <body class="skin-blue sidebar-mini">

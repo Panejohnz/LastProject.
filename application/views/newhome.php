@@ -4,28 +4,28 @@
   <title>Rianthong</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>./assets/bluesky/images/goldd.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/animate.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/animate.css">
     
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/magnific-popup.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/magnific-popup.css">
 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/aos.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/aos.css">
 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/jquery.timepicker.css">
 
     
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/flaticon.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/icomoon.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>../assets/deluxe/css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/flaticon.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/icomoon.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/style.css">
   </head>
   <body>
 
@@ -51,7 +51,7 @@
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url(<?php echo base_url(); ?>../assets/deluxe/images/bg_1.jpg);">
+      <div class="slider-item" style="background-image:url(<?php echo base_url(); ?>./assets/deluxe/images/bg_1.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -65,7 +65,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url(<?php echo base_url(); ?>../assets/deluxe/images/bg_2.jpg);">
+      <div class="slider-item" style="background-image:url(<?php echo base_url(); ?>./assets/deluxe/images/bg_2.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -233,7 +233,7 @@
     		<div class="row">
     			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/room-1.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/room-1.jpg);">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -248,7 +248,7 @@
     			</div>
     			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/room-2.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/room-2.jpg);">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -263,7 +263,7 @@
     			</div>
     			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/room-3.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/room-3.jpg);">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -278,7 +278,7 @@
     			</div>
     			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/room-4.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/room-4.jpg);">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -293,7 +293,7 @@
     			</div>
     			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/room-5.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/room-5.jpg);">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -308,7 +308,7 @@
     			</div>
     			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
     				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/room-6.jpg);">
+    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/room-6.jpg);">
     						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -325,7 +325,7 @@
     	</div>
     </section>
 
-    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/bg_1.jpg);">
+    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/bg_1.jpg);">
     	<div class="container">
     		<div class="row justify-content-center">
     			<div class="col-md-10">
@@ -378,7 +378,7 @@
 		            <div class="carousel-testimony owl-carousel ftco-owl">
 		              <div class="item">
 		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/person_1.jpg)">
+		                  <div class="user-img mb-4" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/person_1.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
@@ -392,7 +392,7 @@
 		              </div>
 		              <div class="item">
 		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/person_2.jpg)">
+		                  <div class="user-img mb-4" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/person_2.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
@@ -406,7 +406,7 @@
 		              </div>
 		              <div class="item">
 		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/person_3.jpg)">
+		                  <div class="user-img mb-4" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/person_3.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
@@ -420,7 +420,7 @@
 		              </div>
 		              <div class="item">
 		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/person_1.jpg)">
+		                  <div class="user-img mb-4" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/person_1.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
@@ -434,7 +434,7 @@
 		              </div>
 		              <div class="item">
 		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/person_1.jpg)">
+		                  <div class="user-img mb-4" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/person_1.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
@@ -465,7 +465,7 @@
         <div class="row d-flex">
           <div class="col-md-3 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('<?php echo base_url(); ?>../assets/deluxe/images/image_1.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('<?php echo base_url(); ?>./assets/deluxe/images/image_1.jpg');">
               </a>
               <div class="text mt-3 d-block">
                 <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
@@ -479,7 +479,7 @@
           </div>
           <div class="col-md-3 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('<?php echo base_url(); ?>../assets/deluxe/images/image_2.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('<?php echo base_url(); ?>./assets/deluxe/images/image_2.jpg');">
               </a>
               <div class="text mt-3">
                 <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
@@ -493,7 +493,7 @@
           </div>
           <div class="col-md-3 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('<?php echo base_url(); ?>../assets/deluxe/images/image_3.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('<?php echo base_url(); ?>./assets/deluxe/images/image_3.jpg');">
               </a>
               <div class="text mt-3">
                 <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
@@ -507,7 +507,7 @@
           </div>
           <div class="col-md-3 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('<?php echo base_url(); ?>../assets/deluxe/images/image_4.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('<?php echo base_url(); ?>./assets/deluxe/images/image_4.jpg');">
               </a>
               <div class="text mt-3">
                 <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
@@ -532,28 +532,28 @@
         </div>
         <div class="row no-gutters">
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-1.jpg" class="insta-img image-popup" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/insta-1.jpg);">
+            <a href="images/insta-1.jpg" class="insta-img image-popup" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/insta-1.jpg);">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-2.jpg" class="insta-img image-popup" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/insta-2.jpg);">
+            <a href="images/insta-2.jpg" class="insta-img image-popup" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/insta-2.jpg);">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-3.jpg" class="insta-img image-popup" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/insta-3.jpg);">
+            <a href="images/insta-3.jpg" class="insta-img image-popup" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/insta-3.jpg);">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-4.jpg" class="insta-img image-popup" style="background-image: url(<?php echo base_url(); ?>../assets/deluxe/images/insta-4.jpg);">
+            <a href="images/insta-4.jpg" class="insta-img image-popup" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/insta-4.jpg);">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
@@ -636,23 +636,23 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery-migrate-3.0.1.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/popper.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/bootstrap.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery.easing.1.3.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery.waypoints.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery.stellar.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/owl.carousel.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery.magnific-popup.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/aos.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery.animateNumber.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery.timepicker.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/scrollax.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery-migrate-3.0.1.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/popper.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/bootstrap.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.easing.1.3.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.waypoints.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.stellar.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/owl.carousel.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.magnific-popup.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/aos.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.animateNumber.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.timepicker.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/scrollax.min.js')?>"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/google-map.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/main.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/google-map.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/main.js')?>"></script>
     
   </body>
 </html>
