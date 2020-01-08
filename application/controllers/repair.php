@@ -32,9 +32,9 @@ class repair extends CI_Controller
 
     public function newdata()
     {
-        $this->load->view('template/backheader');
+        // $this->load->view('template/backheader');
         $this->load->view('repair/newdata');
-        $this->load->view('template/backfooter');
+        // $this->load->view('template/backfooter');
     }
 
     public function postdata()
@@ -48,7 +48,7 @@ class repair extends CI_Controller
 			
 		);
 $this->db->insert('Repair', $object);
-redirect('repair');
+redirect('ReservationsController');
 		}
 
 

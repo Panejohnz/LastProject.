@@ -38,7 +38,7 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1">ประเภท</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1">ID</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">ผู้แจ้ง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">ห้อง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>

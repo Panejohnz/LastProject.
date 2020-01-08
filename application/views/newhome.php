@@ -31,15 +31,15 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Rianthong</a>
+	      <a class="navbar-brand" href="<?php echo site_url('ReservationsController') ?>">Rianthong</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="rooms.html" class="nav-link">Rooms</a></li>
+	          <li class="nav-item active"><a href="<?php echo site_url('ReservationsController') ?>" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a  href="<?php echo site_url('repair/newdata') ?>" class="nav-link">Repair</a></li>
 	          <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
@@ -332,16 +332,16 @@
 		    		<div class="row">
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
-		              <div class="text">
+		               <div class="text">
 		                <strong class="number" data-number="50000">0</strong>
 		                <span>Happy Guests</span>
-		              </div>
+		              </div> 
 		            </div>
 		          </div>
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
 		              <div class="text">
-		                <strong class="number" data-number="3000">0</strong>
+		                <strong class="number" data-number="40">0</strong>
 		                <span>Rooms</span>
 		              </div>
 		            </div>
@@ -349,7 +349,7 @@
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
 		              <div class="text">
-		                <strong class="number" data-number="1000">0</strong>
+		                <strong class="number" data-number="2">0</strong>
 		                <span>Staffs</span>
 		              </div>
 		            </div>
