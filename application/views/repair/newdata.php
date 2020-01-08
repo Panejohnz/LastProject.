@@ -1,31 +1,54 @@
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-            แจ้งซ่อม
-         </h1>
-        <ol class="breadcrumb">
-            <li><a href="<?php echo  base_url('repair'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-            <li><a href="<?php echo  base_url('repair'); ?>">แจ้งซ่อม</a></li>
-            <li class="active">เพิ่มข้อมูลใหม่</li>
-        </ol>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+ <head>
+ <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link href="<?php echo base_url(); ?>../assets2/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>../assets2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Argon CSS -->
+  <link type="text/css" href="<?php echo base_url(); ?>../assets2/css/argon.css?v=1.1.0" rel="stylesheet">
+</head>
+
+<html>
+<body>
+    
+        
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-default">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-2"></div> 
-            <div class="col-sm-7">
-        <!-- Your Page Content Here -->
-        <div class="box box-primary">
-            <div class="box-header with-border">
-                <h3 class="box-title">เพิ่มข้อมูล</h3>
-            </div><!-- /.box-header -->
+        <a class="navbar-brand" href="<?php echo site_url('repair/newdata') ?>">แจ้งซ่อม</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-default">
+            <div class="navbar-collapse-header">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                        <a href="index.html">
+                            <img src="assets/img/brand/blue.png">
+                        </a>
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+           
+
+        </div>
+    </div>
+</nav>
+    <!-- Content Header (Page header) -->
             <!-- form start -->
+            <div class="container">
             <form role="form" action="<?php echo  base_url('repair/postdata'); ?>" method="post" enctype="multipart/form-data">
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">ประเภท</label> <?php echo $this->session->flashdata('error_id'); ?>
+                        <label for="exampleInputEmail1">ID<?php echo $this->session->flashdata('error_id'); ?>
                         <input type="text" id="id" class="form-control" name="id" value="<?php echo  $this->session->flashdata('id'); ?>">
                     </div>
 
@@ -64,10 +87,19 @@
 
                 <div class="box-footer">
                     <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
-                    <a class="btn btn-danger" href="<?php echo  base_url('repair'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
+                    <a class="btn btn-danger" href="<?php echo  base_url('ReservationsController'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
                 </div>
+                
             </form>
-        </div>
-        </div> </div> </div> 
-    </section><!-- /.content -->
-</div><!-- /.content-wrapper -->
+            </div>
+            <script src="<?php echo base_url(); ?>../assets2/vendor/jquery/jquery.min.js"></script>
+  <script src="<?php echo base_url(); ?>../assets2/vendor/popper/popper.min.js"></script>
+  <script src="<?php echo base_url(); ?>../assets2/vendor/bootstrap/bootstrap.min.js"></script>
+  <script src="<?php echo base_url(); ?>../assets2/vendor/headroom/headroom.min.js"></script>
+  <!-- Argon JS -->
+  <script src="<?php echo base_url(); ?>../assets2/js/argon.js?v=1.1.0"></script>
+  <!--Datepicker -->
+  <script src="<?php echo base_url('../assets2/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
+</body>
+</html>
+ 
