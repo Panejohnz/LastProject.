@@ -1,4 +1,4 @@
-<link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
+<link rel="icon" type="image/png" href="<?php echo base_url(); ?>./assets/bluesky/images/goldd.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 <div class="content-wrapper">
@@ -45,27 +45,27 @@
 
 			 <div class="form-group">
 
-                        <label for="exampleInputEmail1">
+                        <label for="exampleInputEmail1" value="<?php echo  $result->Insurance ?>">
                             อัพโหลดไฟล์ภาพ
 
 		<a href="<?php echo base_url('uploads/' . $result->Insurance); ?>" target="_blank">(ไฟล์เดิมคลิก)</a>
 
                      
                         </label> <?php echo $this->session->flashdata('err_typeimg'); ?>
-                        <input type="file" name="typeimg" id="typeimg" >
+                        <input type="file" name="typeimg" id="typeimg" value="<?php echo  $result->Insurance ?>" >
 					</div>
 					
 					<div class="col-sm-4">  
                     <label for="#">วันเริ่มสัญญา</label> <?php echo $this->session->flashdata('error_firstname')?>
                         
-                         <input id="datepickerstart" name="datepickerstart" type="text" class="form-control checkin_date" readonly value="<?php echo  $result->StartRcontract ?>">
+                         <input id="datepickerstart" name="datepickerstart" type="text" class="form-control checkin_date"  value="<?php echo  $result->StartRcontract ?>">
 					
                     </div>
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
                             วันหมดสัญญา
                         </label> <?php echo $this->session->flashdata('error_enddate')?>
-                        <input id="datepickerend" name="datepickerend" type="text" class="form-control checkin_date" readonly value="<?php echo  $result->EndRcontractct ?>">
+                        <input id="datepickerend" name="datepickerend" type="text" class="form-control checkin_date" value="<?php echo  $result->EndRcontractct ?>">
                     </div>
 
 					<div class="col-sm-4">

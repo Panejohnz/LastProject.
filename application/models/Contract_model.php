@@ -74,6 +74,7 @@ class Contract_model extends CI_Model
 		}
 		return FALSE;
 	}
+	
 	public function remove_contract($id){
 		$this->db->delete('contract',array('id'=>$id));
 	}
