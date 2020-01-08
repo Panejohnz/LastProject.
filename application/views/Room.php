@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<title>Rianthong</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 <head>
     <meta charset="utf-8">
     <!--  This file has been downloaded from https://bootdey.com  -->
@@ -365,7 +371,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-default">
     <div class="container">
-        <a class="navbar-brand" href="#">Default Color</a>
+        <a class="navbar-brand" href="<?php echo site_url('ReservationsController') ?>">Back</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -386,32 +392,7 @@
                 </div>
             </div>
 
-            <ul class="navbar-nav ml-lg-auto">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="#">
-                        <i class="ni ni-favourite-28"></i>
-                        <span class="nav-link-inner--text d-lg-none">Discover</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="#">
-                        <i class="ni ni-notification-70"></i>
-                        <span class="nav-link-inner--text d-lg-none">Profile</span>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link nav-link-icon" href="#" id="navbar-default_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="ni ni-settings-gear-65"></i>
-                        <span class="nav-link-inner--text d-lg-none">Settings</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-            </ul>
+           
 
         </div>
     </div>
@@ -429,7 +410,7 @@
         <div class="col-lg-3 col-md-4 col-sm-12">
             <div class="card product_item">
                 <div class="body">
-                    <div class="cp_img">
+                    <div class="cp_img">    
                         <img src="<?php echo base_url('../assets/69524.png')?>" alt="Room" class="img-fluid">
                         
                     </div>
@@ -438,7 +419,27 @@
                         <h5><?php echo  $data['roomcate']; ?></h5>
                         <ul class="product_price list-unstyled">
                         <h4> <li class="new_price"><?php echo  $data['roomprice']; ?>฿</li></h4>
-                        <button class="btn btn-primary" type="button">Button</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Detail</button>
+                        <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">รายละเอียด</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h2>สวัสดีจ้า</h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
                         </ul>
                     </div>
                 </div>

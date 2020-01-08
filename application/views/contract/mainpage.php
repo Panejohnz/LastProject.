@@ -5,7 +5,7 @@
             จัดการสัญญาเช่า
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo  base_url('imgtype'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+            <li><a href="<?php echo  base_url('contract'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
             <li class="active">จัดการสัญญาเช่า</li>
         </ol>
     </section>

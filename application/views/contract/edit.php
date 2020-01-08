@@ -38,7 +38,7 @@
 				</h3>
 			</div><!-- /.box-header -->
 			<!-- form start -->
-			<form role="form" action="<?php echo  base_url('contract/update'); ?>" method="post"  enctype="multipart/form-data" >
+			<form role="form" action="<?php echo  base_url('contract/edcon/'. $result->id); ?>" method="post"  enctype="multipart/form-data" >
 				<input type="hidden" name="id" value="<?php echo $result->id ?>">
 				
 				<div class="box-body">
