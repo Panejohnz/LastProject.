@@ -2,22 +2,22 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			 จัดการประเภทภาพ
+			รายการแจ้งซ่อม
 		</h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="<?php echo  base_url('imgtype'); ?>">
+				<a href="<?php echo  base_url('repair'); ?>">
 					<i class="fa fa-dashboard">
 					</i>หน้าแรก
 				</a>
 			</li>
 			<li>
-				<a href="<?php echo  base_url('imgtype'); ?>">
-					 จัดการประเภทภาพ
+				<a href="<?php echo  base_url('repair'); ?>">
+				รายการแ้งซ่อม
 				</a>
 			</li>
 			<li class="active">
-				<?php echo $result->roomname ?>
+				<?php echo $result->id ?>
 			</li>
 		</ol>
 	</section>
@@ -31,28 +31,44 @@
 				</h3>
 			</div><!-- /.box-header -->
 			<!-- form start -->
-			<form role="form" action="<?php echo  base_url('imgtype/update'); ?>" method="post"  enctype="multipart/form-data" >
-				<input type="hidden" name="id" value="<?php echo $result->id ?>">
-				<input type="hidden" name="typeimg2" value="<?php echo $result->typeimg ?>">
+			<form role="form" action="<?php echo  base_url('repair/editre/'. $result->id); ?>" method="post"  enctype="multipart/form-data" >
+			
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">
-							ชื่อประเภท
-						</label> <?php echo $this->session->flashdata('error_roomname')?>
-						<input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $result->roomname ?>">
+							ผู้แจ้ง
+						</label> <?php echo $this->session->flashdata('error_roomnum')?>
+						<input type="text" id="id" class="form-control" name="id" value="<?php echo  $result->id ?>" style="width: auto" >
 					</div>
 
-			 <div class="form-group">
+					<div class="form-group">
+						<label for="exampleInputEmail1">
+							ห้อง
+						</label> <?php echo $this->session->flashdata('error_roomnum')?>
+						<input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo  $result->roomnum ?>"style="width: auto">
+					</div>
 
-                        <label for="exampleInputEmail1">
-                            อัพโหลดไฟล์ภาพ
+					<div class="form-group">
+						<label for="exampleInputEmail1">
+							รายละเอียด
+						</label> <?php echo $this->session->flashdata('error_job_description')?>
+						<input type="text" id="job_description" class="form-control" name="job_description" value="<?php echo  $result->job_description?>">
+					</div>
 
-		<a href="<?php echo base_url('uploads/' . $result->typeimg); ?>" target="_blank">(ไฟล์เดิมคลิก)</a>
+					<div class="form-group">
+						<label for="exampleInputEmail1">
+							พนักงาน
+						</label> <?php echo $this->session->flashdata('error_operator_id')?>
+						<input  type="text" id="operator_id" class="form-control" name="operator_id" value="<?php echo  $result->operator_id?>"style="width: auto">
+					</div>
 
-                     
-                        </label> <?php echo $this->session->flashdata('err_typeimg'); ?>
-                        <input type="file" name="typeimg" id="typeimg" >
-                    </div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">
+							สถานะ
+						</label> <?php echo $this->session->flashdata('error_statusrepair')?>
+						<input type="text" id="statusrepair" class="form-control" name="statusrepair" value="<?php echo  $result->statusrepair?>"style="width: auto">
+					</div>
+
 
 				</div><!-- /.box-body -->
 
@@ -61,7 +77,7 @@
 						<i class="fa fa-fw fa-save">
 						</i>บันทึกข้อมูล
 					</button>
-					<a class="btn btn-danger" href="<?php echo  base_url('imgtype'); ?>" role="button">
+					<a class="btn btn-danger" href="<?php echo  base_url('repair'); ?>" role="button">
 						<i class="fa fa-fw fa-close">
 						</i>ยกเลิก
 					</a>

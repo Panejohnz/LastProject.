@@ -226,7 +226,11 @@ class Contract extends CI_Controller
                                 'id'=> $this->input->post('id'),
                                 // 'roomname'=> $this->input->post('roomname'),
                                 //'typeimg2'=> $this->input->post('typeimg2'),
-                                "Insurance"=>$filename
+                                "Insurance"=>$filename,
+                                'StartRcontract' => $this->input->post('startdate'),
+                'EndRcontractct' => $this->input->post('enddate'),
+                'NumRoom' => $this->input->post('numroom'),
+                'IdCustomer' => $this->input->post('IdCustomer')
                             );
             $this->db->where('id', $this->input->post('id'));
             $this->db->update('contract', $arr);
@@ -253,6 +257,7 @@ class Contract extends CI_Controller
     redirect('contract');
         }
     }
+    
 
 
     public function edit($id)

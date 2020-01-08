@@ -243,6 +243,21 @@ redirect('repair');
         $this->load->view('repair/edit', $data);
         $this->load->view('template/backfooter');
     }
+    public function editre($id){
+		$object = array(
+			'roomnum' => $this->input->post('roomnum'),
+			'job_description' => $this->input->post('job_description'),
+			'operator_id' => $this->input->post('operator_id'),
+			'statusrepair' => $this->input->post('statusrepair')
+			
+		);
+		$this->db->where('id', $id);
+		
+		$this->db->update('Repair', $object);
+		redirect('repair');
+	}
+
+
 
     public function confrm($id)
     {
