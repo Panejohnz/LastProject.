@@ -32,12 +32,12 @@ class LoginController extends CI_Controller
         if ($validate->num_rows() > 0) {
             $data  = $validate->row_array();
             $id = $data['user_id'];
-            $name  = $data['firsname'];
+            $name  = $data['firstname'];
             $email = $data['email'];
             $level = $data['statusem'];
             $sesdata = array(
                 'id' => $id,
-                'firsname'  => $name,
+                'firstname'  => $name,
                 'email'     => $email,
                 'statusem'     => $level,
                 'logged_in' => true
