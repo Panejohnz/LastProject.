@@ -98,15 +98,15 @@
 		</div>
 	</section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-<script src="<?php echo base_url('../assets/deluxe/js/jquery.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery-migrate-3.0.1.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery.waypoints.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery.stellar.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/owl.carousel.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery.magnific-popup.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/aos.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery.animateNumber.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/jquery.timepicker.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/scrollax.min.js')?>"></script>
-  <script src="<?php echo base_url('../assets/deluxe/js/main.js')?>"></script>
+<script src="<?php echo base_url('./assets/deluxe/js/jquery.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery-migrate-3.0.1.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.waypoints.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.stellar.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/owl.carousel.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.magnific-popup.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/aos.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.animateNumber.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.timepicker.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/scrollax.min.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/main.js')?>"></script>
