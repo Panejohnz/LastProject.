@@ -47,7 +47,7 @@
 						</label> <?php echo $this->session->flashdata('error_roomnum')?>
 						<input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo  $result->roomnum ?>"style="width: auto">
 					</div>
-
+					
 					<div class="form-group">
 						<label for="exampleInputEmail1">
 							รายละเอียด

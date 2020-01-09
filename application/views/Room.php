@@ -358,10 +358,10 @@
     <!-- Fonts -->
 	 <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
   <!-- Icons -->
-  <link href="<?php echo base_url(); ?>../assets2/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>../assets2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>./assets2/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>./assets2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- Argon CSS -->
-  <link type="text/css" href="<?php echo base_url(); ?>../assets2/css/argon.css?v=1.1.0" rel="stylesheet">
+  <link type="text/css" href="<?php echo base_url(); ?>./assets2/css/argon.css?v=1.1.0" rel="stylesheet">
 </head>
 <html>
 <body>
@@ -411,7 +411,7 @@
             <div class="card product_item">
                 <div class="body">
                     <div class="cp_img">    
-                        <img src="<?php echo base_url('../assets/69524.png')?>" alt="Room" class="img-fluid">
+                        <img src="<?php echo base_url('./assets/69524.png')?>" alt="Room" class="img-fluid">
                         
                     </div>
                     <div class="product_details">

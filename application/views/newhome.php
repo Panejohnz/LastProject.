@@ -38,8 +38,8 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="<?php echo site_url('ReservationsController') ?>" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a  href="<?php echo site_url('repair/newdata') ?>" class="nav-link">Repair</a></li>
+	          <li class="nav-item active"><a href="<?php echo site_url('ReservationsController') ?>" class="nav-link">หน้าแรก</a></li>
+	          <li class="nav-item"><a  href="<?php echo site_url('repair/newdata') ?>" class="nav-link">แจ้งซ่อม</a></li>
 	          <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
