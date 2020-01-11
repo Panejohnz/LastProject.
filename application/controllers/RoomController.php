@@ -13,8 +13,18 @@ class RoomController extends CI_Controller
 
     public function index()
     {
-        $this->load->view('Room');
+        
+        $room = $this->room_model->room_detail();
+        $this->load->view('room',['room'=>$room]);
         
         
     }
+  
+    public function get_room()
+{
+    $id = $this->input->get('id');
+    $get_room = $this->room_model->get_room($id);
+    echo json_encode($get_room); 
+    exit();
+}
 }
