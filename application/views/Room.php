@@ -427,13 +427,13 @@
                         <h5><?php echo  $data['roomcate']; ?></h5>
                         <ul class="product_price list-unstyled">
                         <h4> <li class="new_price"><?php echo  $data['roomprice']; ?>฿</li></h4>
-                        <button class="btn btn-primary view_detail" relid="<?php echo $data['id']; ?>" >Detail</button>
+                        <button class="btn btn-primary view_detail" relid="<?php echo $data['id']; ?>" <?php if($data['roomstatus'] != 0 ) {  ?> disabled <?php }?>>Detail</button>
                         <!-- Modal -->
                         <div id="show_modal" class="modal fade" role="dialog" style="background: #000;">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 style="font-size: 24px; color: #17919e; text-shadow: 1px 1px #ccc;"><i class="fa fa-folder"></i> Details</h3>
+        <h3 style="font-size: 24px; color: #17919e; text-shadow: 1px 1px #ccc;"><i class="fa fa-folder" ></i> Details</h3>
       </div>
       <div class="modal-body">
         <table class="table table-bordered table-striped">
