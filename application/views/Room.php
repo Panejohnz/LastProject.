@@ -6,6 +6,11 @@
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <head>
     <meta charset="utf-8">
     <!--  This file has been downloaded from https://bootdey.com  -->
@@ -368,6 +373,9 @@
     
         
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-default">
     <div class="container">
@@ -402,44 +410,56 @@
     <div class="row clearfix">
 
 <?php $this->db->select('room.*');
-							$this->db->from('room');
-							$query = $this->db->get();
-							$results = $query->result_array();?>
-						<?php	foreach($results as $data){
-								?>
+                            $this->db->from('room');
+                            $query = $this->db->get();
+                            $results = $query->result_array();?>
+						<?php	foreach ($results as $data) {
+                                ?>
         <div class="col-lg-3 col-md-4 col-sm-12">
-            <div class="card product_item">
+            <div class="card product_item" id="exampleModal">
                 <div class="body">
                     <div class="cp_img">    
                         <img src="<?php echo base_url('./assets/69524.png')?>" alt="Room" class="img-fluid">
                         
                     </div>
-                    <div class="product_details">
+                    <div class="product_details" >
                         <h2><a href="ec-product-detail.html"><?php echo  $data['roomnum']; ?></a></h2>
                         <h5><?php echo  $data['roomcate']; ?></h5>
                         <ul class="product_price list-unstyled">
                         <h4> <li class="new_price"><?php echo  $data['roomprice']; ?>฿</li></h4>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Detail</button>
+                        <button class="btn btn-primary view_detail" relid="<?php echo $data['id']; ?>" <?php if($data['roomstatus'] != 0 ) {  ?> disabled <?php }?>>Detail</button>
                         <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div id="show_modal" class="modal fade" role="dialog" style="background: #000;">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">รายละเอียด</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h3 style="font-size: 24px; color: #17919e; text-shadow: 1px 1px #ccc;"><i class="fa fa-folder" ></i> Details</h3>
       </div>
       <div class="modal-body">
-        <h2>สวัสดีจ้า</h2>
+        <table class="table table-bordered table-striped">
+          <thead class="btn-primary">
+            <tr>
+              <th>Number Room</th>
+              <th>Categetory</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><p id="roomnum"></p></td> 
+              <td><p id="roomcate"></p></td>
+              <td><p id="roomprice"></p></td>
+            </tr>
+          </tbody>
+       </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
       </div>
     </div>
   </div>
 </div>
+
                         </ul>
                     </div>
                 </div>
@@ -449,18 +469,43 @@
         
   
 <?php
-							} ?>
+                            } ?>
    </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+      $('.view_detail').click(function(){
+          
+          var id = $(this).attr('relid'); //get the attribute value
+          
+          $.ajax({
+              url : "<?php echo base_url(); ?>RoomController/get_room",
+              data:{id : id},
+              method:'GET',
+              dataType:'json',
+              success:function(response) {
+                $('#roomnum').html(response.roomnum); //hold the response in id and show on popup
+                $('#roomcate').html(response.roomcate);
+                $('#roomprice').html(response.roomprice);
+                $('#show_modal').modal({backdrop: 'static', keyboard: true, show: true});
+            }
+          });
+      });
+    });
+</script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script type="text/javascript"></script>
  <script src="<?php echo base_url(); ?>../assets2/vendor/jquery/jquery.min.js"></script>
   <script src="<?php echo base_url(); ?>../assets2/vendor/popper/popper.min.js"></script>
   <script src="<?php echo base_url(); ?>../assets2/vendor/bootstrap/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>../assets2/vendor/headroom/headroom.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <!-- Argon JS -->
-  <script src="<?php echo base_url(); ?>../assets2/js/argon.js?v=1.1.0"></script>
+  <script src="<?php echo base_url(); ?>./assets2/js/argon.js?v=1.1.0"></script>
   <!--Datepicker -->
-  <script src="<?php echo base_url('../assets2/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
+  <script src="<?php echo base_url('./assets2/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
 </body>
 </html>

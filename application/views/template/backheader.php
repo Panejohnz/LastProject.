@@ -130,7 +130,7 @@ color: #000;
 		<!-- logo for regular state and mobile devices -->
 		<span class="logo-lg">
 			<b>
-			Rianthong
+			Rianthong <?php echo $this->session->userdata('firstname');?>
 			</b>
 		</span>
 	</a>
