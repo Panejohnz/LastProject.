@@ -56,7 +56,7 @@
                                            
                                             </td>
                                              <td>
-                                             <img src="../uploads/<?php echo $data->typeimg; ?>" width="100px">
+                                             <img src="./uploads/<?php echo $data->typeimg; ?>" width="100px">
                                               
                                             </td> 
                                             <td>
