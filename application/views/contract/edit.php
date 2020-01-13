@@ -45,10 +45,10 @@
 
 			 <div class="form-group">
 
-                        <label for="exampleInputEmail1" value="<?php echo  $result->Insurance ?>">
+                        <label for="exampleInputEmail1" value="<?php echo  $result->Insurance ?>" >
                             อัพโหลดไฟล์ภาพ
 
-		<a href="<?php echo base_url('uploads/' . $result->Insurance); ?>" target="_blank">(ไฟล์เดิมคลิก)</a>
+		<a href="<?php echo base_url('uploads/'.$result->Insurance); ?>" target="_blank" require>(ไฟล์เดิมคลิก)</a>
 
                      
                         </label> <?php echo $this->session->flashdata('err_typeimg'); ?>
