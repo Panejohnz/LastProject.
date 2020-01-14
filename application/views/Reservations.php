@@ -6,6 +6,8 @@
   <link href="<?php echo base_url(); ?>./assets2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="<?php echo base_url(); ?>./assets2/css/argon.css?v=1.1.0" rel="stylesheet">
+
+
 </head>
 
 <html>
@@ -45,46 +47,48 @@
     <!-- Content Header (Page header) -->
             <!-- form start -->
             <div class="container"><br>
-            <form role="form" action="<?php echo  base_url(''); ?>" method="post" enctype="multipart/form-data">
+            <form role="form" action="<?php echo base_url('Bookaroom/postdata'); ?>" method="post" enctype="multipart/form-data">
             
             <div class="box-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">เลขห้อง<?php echo $this->session->flashdata('error_id'); ?>
-                        <input type="text" id="id" class="form-control" name="id" value="<?php echo  $this->session->flashdata('id'); ?>">
+                        <label for="exampleInputEmail1">เลขห้อง<?php echo $this->session->flashdata('error_roomnum'); ?>
+                        <input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo  $this->session->flashdata('roomnum'); ?>">
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">ชื่อ-นามสกุล</label> <?php echo $this->session->flashdata('error_customer_id'); ?>
-                        <input type="text" id="customer_id" class="form-control" name="customer_id" value="<?php echo  $this->session->flashdata('customer_id'); ?>" style="width: 500px;">
+                        <label for="exampleInputEmail1">ชื่อ-นามสกุล</label> <?php echo $this->session->flashdata('error_name'); ?>
+                        <input type="text" id="name" class="form-control" name="name" value="<?php echo  $this->session->flashdata('name'); ?>" style="width: 500px;">
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">เบอร์โทรศัพท์</label> <?php echo $this->session->flashdata('error_roomnum'); ?>
-                        <input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo  $this->session->flashdata('roomnum'); ?>"style="width: 350px;">
+                        <label for="exampleInputEmail1">เบอร์โทรศัพท์</label> <?php echo $this->session->flashdata('error_telephone'); ?>
+                        <input type="text" id="telephone" class="form-control" name="telephone" value="<?php echo  $this->session->flashdata('telephone'); ?>"style="width: 350px;">
                     </div>
 
 
                     <img src="<?php echo base_url('./assets/Kbank.jpg')?>" alt="Room" class="img-fluid"style="width: 400px;"><br>
                     <br>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">
-                            อัพโหลดใบเสร็จการจอง
-                        </label> <?php echo $this->session->flashdata('err_typeimg'); ?>
-                        <input type="file" name="typeimg" id="typeimg" >
-                    </div>
+                    <div class="text-left">
+								<div class="fileUpload btn btn-primary">
+								<span style="color: white;">+ เพิ่มรูป</span>
+										<label for="file"><strong></strong><span class="box__dragndrop"></label>
+										<input class="upload" type="file" name="file" id="piccar1" required />
+								</div>
+                            </div>
+                            <br>
 
                     
 
                     <!-- <div class="form-group">
                         <label for="exampleInputEmail1">
                             อัพโหลดไฟล์ภาพ
-                        </label> <?php echo $this->session->flashdata('err_typeimg'); ?>
+                        </label> <?php echo $this->session->flashdata('err_image'); ?>
                         <input type="file" name="typeimg" id="typeimg" >
                     </div> -->
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">
-                    <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
+                    <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
                     <a class="btn btn-danger" href="<?php echo  base_url('ReservationsController'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
                 </div>
                 

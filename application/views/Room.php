@@ -456,7 +456,7 @@
        </table>
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-success" onclick="location.href='<?php echo base_url();?>controller'"><i class="fa fa-times"></i> จอง</button>
+      <button type="button" class="btn btn-success" onclick="location.href='<?php echo base_url();?>Bookaroom'"><i class="spaceship"></i> จอง</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> ปิด</button>
       </div>
     </div>
