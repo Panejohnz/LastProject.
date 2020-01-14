@@ -423,7 +423,7 @@
                         
                     </div>
                     <div class="product_details" >
-                        <h2><a href="ec-product-detail.html"><?php echo  $data['roomnum']; ?></a></h2>
+                        <h2><?php echo  $data['roomnum']; ?></a></h2>
                         <h5><?php echo  $data['roomcate']; ?></h5>
                         <ul class="product_price list-unstyled">
                         <h4> <li class="new_price"><?php echo  $data['roomprice']; ?>฿</li></h4>
@@ -439,9 +439,9 @@
         <table class="table table-bordered table-striped">
           <thead class="btn-primary">
             <tr>
-              <th>Number Room</th>
-              <th>Categetory</th>
-              <th>Price</th>
+              <td>Number Room</th>
+              <td>Categetory</th>
+              <td>Price</th>
             </tr>
           </thead>
           <tbody>
@@ -456,7 +456,8 @@
        </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+      <button type="button" class="btn btn-success" onclick="location.href='<?php echo base_url();?>controller'"><i class="fa fa-times"></i> จอง</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> ปิด</button>
       </div>
     </div>
   </div>
