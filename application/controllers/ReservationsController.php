@@ -11,7 +11,9 @@ class ReservationsController extends CI_Controller
     }
     public function index()
     {
-        $this->load->view('newhome');
+         $this->load->view('newhome');
+         
+       
     }
 
     public function keyword($cateid = null)
@@ -35,9 +37,5 @@ class ReservationsController extends CI_Controller
             redirect('ReservationsController/airroom');
         }
     }
-    public function airroom()
-    {
-        $room['results'] = $this->ReservationsModel->cate1();
-        $this->load->view('airroom', $room);
-    }
+    
 }

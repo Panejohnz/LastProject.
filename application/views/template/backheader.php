@@ -37,7 +37,7 @@ color: #000;
 	</title>
 	<!-- tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>./assets/bluesky/images/goldd.png">
 	<!-- bootstrap 3.3.4-->
 	
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
