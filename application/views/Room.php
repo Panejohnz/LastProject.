@@ -3,7 +3,7 @@
 <title>Rianthong</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>../assets/bluesky/images/goldd.png">
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>./assets/bluesky/images/goldd.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -445,11 +445,13 @@
             </tr>
           </thead>
           <tbody>
+             
             <tr>
               <td><p id="roomnum"></p></td> 
               <td><p id="roomcate"></p></td>
               <td><p id="roomprice"></p></td>
             </tr>
+                
           </tbody>
        </table>
       </div>
