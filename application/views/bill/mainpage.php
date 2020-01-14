@@ -39,13 +39,14 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">เลขห้อง</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ค่าไฟ</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ค่าไฟ</th>
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">ค่าน้ำ</th>
                                        
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(!empty($results)){ foreach ($results as $data) { ?>
+                                    <?php if (!empty($results)) {
+    foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
                                             <a href="<?php echo base_url('room/edit/'.$data->id); ?>">
@@ -57,12 +58,18 @@
                                             </td>
                                             
                                             <td>
+                                            เลขมิเตอร์
                                             <br>
+                                          
+                                            <input type="input" name="electric" id="electric" class="form-control input-sm" style="width:55%">
                                             
-                                            <input type="input" name="electric" class="form-control input-sm" style="width:60%">
                                             <br>
-                                            
-                                            
+                                        จำนวนเงิน :  <span id="result"></span>
+                                            <script>$(document).ready(function(){
+    $('#electric').keyup(function(){
+        $('#result').text($('#electric').val() * 7);
+    });   
+});</script>
                                             </td>
                                             <td>
                                             <br>
@@ -70,7 +77,8 @@
                                             </td>
                                            
                                         </tr>
-                                    <?php } } ?>
+                                    <?php }
+} ?>
                                 </tbody>
 
                             </table>
