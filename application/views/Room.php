@@ -439,7 +439,7 @@
                                                 
                                              } else {
                                                  ?>
-                                                 <a href="Orders/update_status?sval=<?php echo $data['id']; ?>&sval=<?php echo $data['roomstatus']; ?>" class="btn btn-danger">รอการชำระเงิน</a>
+                                                 <a href="RoomController/update_status?sval=<?php echo $data['id']; ?>&sval=<?php echo $data['roomstatus']; ?>" class="btn btn-danger">รอการชำระเงิน</a>
                                                 
                                            <?php
                                              }

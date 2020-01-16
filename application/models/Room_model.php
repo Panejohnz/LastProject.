@@ -82,7 +82,7 @@ class Room_model extends CI_Model
     public function update_status(){
         $id = $_REQUEST['sid'];
         $saval = $_REQUEST['sval'];
-        if($saval==1)
+        if($saval == 1)
         {
             $status = 0;
         }

@@ -47,7 +47,7 @@ class RoomController extends CI_Controller
                 $this->load->model('Room_model', 'room');
                 $up_status = $this->room->update_status();
 
-                if($up_status>0)
+                if($up_status > 0)
                 {
                     $this->session->set_flashdata('msg', "updated success");
                     $this->session->set_flashdata('msg_class', "alert-success");
