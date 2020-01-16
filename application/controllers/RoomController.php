@@ -27,4 +27,37 @@ class RoomController extends CI_Controller
     echo json_encode($get_room); 
     exit();
 }
-}
+
+    public function update_room(){
+             $this->load->model('Room_model', 'room');
+             $res = $this->room->update_status();
+             if ($res > 0) {
+                $this->session->set_flashdata('msg', "updated success");
+                $this->session->set_flashdata('msg_class', "alert-success");
+           } else {
+                $this->session->set_flashdata('msg', ";not updated success");
+                $this->session->set_flashdata('msg_class', "alert-danger");
+            }
+            return redirect('Roomcontroller');
+        }
+        public function update_status()
+        {
+            if(isset($_REQUEST['sval']))
+            {
+                $this->load->model('Room_model', 'room');
+                $up_status = $this->room->update_status();
+
+                if($up_status>0)
+                {
+                    $this->session->set_flashdata('msg', "updated success");
+                    $this->session->set_flashdata('msg_class', "alert-success");
+                }
+                else
+                {
+                    $this->session->set_flashdata('msg', ";not updated success");
+                    $this->session->set_flashdata('msg_class', "alert-danger");
+                }
+                return redirect('Roomcontroller');
+            }
+        }
+    }

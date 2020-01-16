@@ -78,4 +78,22 @@ class Room_model extends CI_Model
                     ->get()
                     ->row();
     }
+
+    public function update_status(){
+        $id = $_REQUEST['sid'];
+        $saval = $_REQUEST['sval'];
+        if($saval==1)
+        {
+            $status = 0;
+        }
+        else
+        {
+            $status = 1;
+        }
+        $data = array(
+                'roomstatus' => $status
+            );
+        $this->db->where('id',$id);
+        return $this->db->update('room',$data);
+        }
 }

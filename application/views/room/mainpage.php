@@ -31,6 +31,7 @@
                             	<label>ค้นหา</label>:<input type="search" name="keyword" class="form-control input-sm" placeholder="ค้นหาชื่อหมวดหมู่"></label>
                             </form>
                             </div>
+                            
                         </div>
                     </div>
                     <div class="row">
@@ -38,10 +39,11 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">เลขห้อง</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ประเภทห้อง</th>
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ราคา</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 15%;">เลขห้อง</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 40%;">ประเภทห้อง</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">ราคา</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">สถานะห้อง</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  20px;">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,6 +69,11 @@
                                             <td>
                                             <?php echo $data->roomprice; ?>
                                             </td>
+
+                                            <td>
+                                            <?php echo $data->roomstatus; ?>
+                                            </td>
+
                                             <td>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('room/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>

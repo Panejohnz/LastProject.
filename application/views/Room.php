@@ -427,6 +427,24 @@
                         <h5><?php echo  $data['roomcate']; ?></h5>
                         <ul class="product_price list-unstyled">
                         <h4> <li class="new_price"><?php echo  $data['roomprice']; ?>฿</li></h4>
+                        <td>  
+                                            <?php //สถานะ
+                                            
+                                             $status = $data['roomstatus'];
+                                             if ($status == 1) {
+                                                 ?>
+                                                <a href="RoomController/update_status?sval=<?php echo $data['id']; ?>&sval=<?php echo $data['status']; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-success">ชำระเงินเรียบร้อยแล้ว</a>
+                                                
+                                             <?php
+                                                
+                                             } else {
+                                                 ?>
+                                                 <a href="Orders/update_status?sval=<?php echo $data['id']; ?>&sval=<?php echo $data['status']; ?>" class="btn btn-danger">รอการชำระเงิน</a>
+                                                
+                                           <?php
+                                             }
+                                            ?>
+                                            </td>
                         <button class="btn btn-primary view_detail" relid="<?php echo $data['id']; ?>" <?php if($data['roomstatus'] != 0 ) {  ?> disabled <?php }?>>Detail</button>
                         <!-- Modal -->
                         <div id="show_modal" class="modal fade" role="dialog" style="background: #000;">
