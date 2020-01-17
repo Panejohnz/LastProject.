@@ -32,10 +32,10 @@ class RoomController extends CI_Controller
              $this->load->model('Room_model', 'room');
              $res = $this->room->update_status();
              if ($res > 0) {
-                $this->session->set_flashdata('msg', "updated success");
+                $this->session->set_flashdata('msg', "data updated success");
                 $this->session->set_flashdata('msg_class', "alert-success");
            } else {
-                $this->session->set_flashdata('msg', ";not updated success");
+                $this->session->set_flashdata('msg', "data not updated success");
                 $this->session->set_flashdata('msg_class', "alert-danger");
             }
             return redirect('Roomcontroller');
@@ -49,12 +49,12 @@ class RoomController extends CI_Controller
 
                 if($up_status > 0)
                 {
-                    $this->session->set_flashdata('msg', "updated success");
+                    $this->session->set_flashdata('msg', "updated status success");
                     $this->session->set_flashdata('msg_class', "alert-success");
                 }
                 else
                 {
-                    $this->session->set_flashdata('msg', ";not updated success");
+                    $this->session->set_flashdata('msg', "status not updated success");
                     $this->session->set_flashdata('msg_class', "alert-danger");
                 }
                 return redirect('Roomcontroller');

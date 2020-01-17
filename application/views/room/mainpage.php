@@ -71,7 +71,22 @@
                                             </td>
 
                                             <td>
-                                            <?php echo $data->roomstatus; ?>
+                                            <?php //สถานะ
+                                            
+                                            $status = $data->roomstatus;
+                                            if ($status == 1) {
+                                                ?>
+                                               <a href="RoomController/update_status?sval=<?php echo $data->id; ?>&sval=<?php echo $data->roomstatus; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-danger">ติดจอง</a>
+                                               
+                                            <?php
+                                               
+                                            } else {
+                                                ?>
+                                                <a href="RoomController/update_status?sval=<?php echo $data->id; ?>&sval=<?php echo $data->roomstatus; ?>" class="btn btn-success">ห้องว่าง</a>
+                                               
+                                          <?php
+                                            }
+                                           ?>
                                             </td>
 
                                             <td>
