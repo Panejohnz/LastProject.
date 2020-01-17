@@ -442,6 +442,7 @@
                                                  <a href="RoomController/update_status?sid=<?php echo $data['id']; ?>&sval=<?php echo $data['roomstatus']; ?>" class="btn btn-danger">รอการชำระเงิน</a>
                                                 
                                            <?php
+                                           print_r($status);
                                              }
                                             ?>
                                             </td>
