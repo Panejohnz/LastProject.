@@ -433,13 +433,13 @@
                                              $status = $data['roomstatus'];
                                              if ($status == 1) {
                                                  ?>
-                                                <a href="RoomController/update_status?sid=<?php echo $data['id']; ?>&sval=<?php echo $data['roomstatus']; ?>" class="btn btn-success">ติดจอง</a>
+                                                <a href="RoomController/update_status?sid=<?php echo $data['id'];  ?>&sval=<?php echo $data['roomstatus']; ?>" disabled class="btn btn-success">ติดจอง</a>
                                                 
                                              <?php
                                                 
                                              } else {
                                                  ?>
-                                                 <a href="RoomController/update_status?sval=<?php echo $data['id']; ?>&sval=<?php echo $data['roomstatus']; ?>" class="btn btn-success">ห้องว่าง</a>
+                                                 <a href="RoomController/update_status/<?php echo $data['id']; ?>" class="btn btn-success">ห้องว่าง</a>
                                                 
                                            <?php
                                            print_r($status);
@@ -499,7 +499,7 @@
 
       $('.view_detail').click(function(){
           
-          var id = $(this).attr('relid'); //get the attribute value
+          var id = $(this).attr('relid');
           
           $.ajax({
               url : "<?php echo base_url(); ?>RoomController/get_room",
@@ -507,7 +507,7 @@
               method:'GET',
               dataType:'json',
               success:function(response) {
-                $('#roomnum').html(response.roomnum); //hold the response in id and show on popup
+                $('#roomnum').html(response.roomnum);
                 $('#roomcate').html(response.roomcate);
                 $('#roomprice').html(response.roomprice);
                 $('#show_modal').modal({backdrop: 'static', keyboard: true, show: true});

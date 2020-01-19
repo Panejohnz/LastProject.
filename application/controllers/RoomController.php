@@ -38,20 +38,33 @@ class RoomController extends CI_Controller
         }
         return redirect('Roomcontroller');
     }
-    public function update_status()
+    public function update_status($id)
     {
-        if (isset($_REQUEST['sval'])) {
-            $this->load->model('Room_model', 'RoomController');
-            $up_status = $this->RoomController->update_status();
+       // if (isset($_REQUEST['sval'])) {
+        //     $this->load->model('Room_model', 'RoomController');
+        //     $up_status = $this->RoomController->update_status();
 
-            if ($up_status > 0) {
-                $this->session->set_flashdata('msg', "updated success");
-                $this->session->set_flashdata('msg_class', "alert-success");
-            } else {
-                $this->session->set_flashdata('msg', ";not updated success");
-                $this->session->set_flashdata('msg_class', "alert-danger");
-            }
-            return redirect('RoomController');
-        }
+        //     if ($up_status > 0) {
+        //         $this->session->set_flashdata('msg', "updated success");
+        //         $this->session->set_flashdata('msg_class', "alert-success");
+        //     } else {
+        //         $this->session->set_flashdata('msg', ";not updated success");
+        //         $this->session->set_flashdata('msg_class', "alert-danger");
+        //     }
+        //     return redirect('RoomController');
+        // }
+
+        $this->db->where('id', $id);
+        // $query = $this->db->get('room');
+        // $imf = $query->row_array();
+
+        $data2 = array(
+            'roomstatus' => '1'
+          );
+   
+           
+            $this->db->update('room', $data2);
+            redirect('RoomController');
+        
     }
 }

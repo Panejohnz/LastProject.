@@ -52,7 +52,7 @@
             <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">เลขห้อง<?php echo $this->session->flashdata('error_roomnum'); ?>
-                        <input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo  $this->session->flashdata('roomnum'); ?>">
+                        <input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo $this->input->post('roomnum'); ?>">
                     </div>
 
                     <div class="form-group">
