@@ -442,7 +442,7 @@
                                                  <a href="RoomController/update_status/<?php echo $data['id']; ?>" class="btn btn-success">ห้องว่าง</a>
                                                 
                                            <?php
-                                           print_r($status);
+                                         
                                              }
                                             ?>
                                             </td>

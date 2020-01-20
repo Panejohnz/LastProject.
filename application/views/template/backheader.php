@@ -69,6 +69,7 @@ color: #000;
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	<!-- REQUIRED JS SCRIPTS -->
+	
 
 	<!-- jQuery 2.1.4 -->
 	<script src="<?php echo base_url('./assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
@@ -192,6 +193,15 @@ color: #000;
 					</i>
 					<span>
 						- ห้องพัก
+					</span>
+				</a>
+			</li>
+			<li class="<?php echo base_url('Reservationadmin'); ?>">
+				<a href="<?php echo base_url('Reservationadmin'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span>
+						- รายการจองห้องพัก
 					</span>
 				</a>
 			</li>
