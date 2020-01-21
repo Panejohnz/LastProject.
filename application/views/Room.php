@@ -460,6 +460,7 @@
             <tr>
               <td>Number Room</th>
               <td>Categetory</th>
+             
               <td>Price</th>
             </tr>
           </thead>
@@ -468,6 +469,7 @@
             <tr>
               <td><p id="roomnum"></p></td> 
               <td><p id="roomcate"></p></td>
+              
               <td><p id="roomprice"></p></td>
             </tr>
                 

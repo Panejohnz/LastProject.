@@ -17,6 +17,7 @@
             <tr>
               <td><p id="roomnum"></p></td> //here i am showing the data with the help of id
               <td><p id="roomcate"></p></td>//here i am showing the data with the help of id
+              
               <td><p id="roomprice"></p></td>//here i am showing the data with the help of id
             </tr>
           </tbody>

@@ -39,7 +39,8 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ประเภท</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">รูปภาพ</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 60%;">รายละเอียด</th>
+                                        
 
                                         
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
@@ -55,10 +56,13 @@
                                             <br>
                                            
                                             </td>
-                                             <td>
+                                            <td>
+                                            <?php echo  $data->detail; ?>
+                                            </td>
+                                             <!-- <td>
                                              <img src="./uploads/<?php echo $data->typeimg; ?>" width="100px">
                                               
-                                            </td> 
+                                            </td>  -->
                                             <td>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('imgtype/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
