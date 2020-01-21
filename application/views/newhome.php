@@ -87,7 +87,7 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-lg-12">
-    				<form action="<?php echo site_url('RoomController') ?>" method="post" class="booking-form">
+    				<form action="<?php echo site_url('RoomController/index/') ?>" method="post" class="booking-form">
 	        		<div class="row">
 	        			<div class="col-md-3 d-flex">
 	        				<div class="form-group p-4 align-self-stretch d-flex align-items-end">
@@ -104,7 +104,7 @@
 			      					<div class="form-field">
 			        					<div class="select-wrap">
 			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-			                    <select name="" id="" class="form-control">
+			                    <select name="roomname" id="roomname" class="form-control">
 								<?php $this->db->select('roomcategory.*');
 							$this->db->from('roomcategory');
 							$query = $this->db->get();
