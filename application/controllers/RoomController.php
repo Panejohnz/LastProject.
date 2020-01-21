@@ -17,10 +17,10 @@ class RoomController extends CI_Controller
         $this->db->where('id', $cateid);
         $query = $this->db->get('roomcategory');
         $qq = $query->row_array();
-        $qq = array(
-            'reservationsstart' => $this->input->post('datepicker'),
-            'reservationsprice' => '2000');
-        $this->db->insert('reservations', $qq);
+        // $qq = array(
+        //     'reservationsstart' => $this->input->post('datepicker'),
+        //     'reservationsprice' => '2000');
+        // $this->db->insert('reservations', $qq);
         $room = $this->room_model->room_detail();
         $this->load->view('room', ['room'=>$room],$qq);
     }
