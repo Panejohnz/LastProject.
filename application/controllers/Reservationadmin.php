@@ -8,6 +8,7 @@ class Reservationadmin extends CI_Controller
 		parent::__construct();
 		$this->load->library('pagination');
 		$this->load->model('ReservationsModel');
+		
 	}
 
 	public function index()

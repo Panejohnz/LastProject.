@@ -232,8 +232,17 @@ color: #000;
 					</span>
 				</a>
 			</li>
+			<li class="<?php echo base_url('ComplainController'); ?>">
+				<a href="<?php echo base_url('ComplainController'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span>
+						- ร้องเรียน
+					</span>
+				</a>
+			</li>
 			<li>
-				<a href="<?php echo  base_url('LoginController'); ?>">
+				<a href="<?php echo  base_url('LoginController/logout'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>
