@@ -3,16 +3,57 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class ReservationsModel extends CI_Model
 {
-    public function search_room($cateid)
+
+    public function __construct()
     {
-        $this->db->where('id', $cateid);
-        $result = $this->db->get('roomcategory');
-        return $result;
+        parent::__construct();
     }
-    public function cate1()
+
+    public function record_count($keyword)
     {
-        $this->db->where('id');
-        $query = $this->db->get('room');
-        return $query;
+        $this->db->like('roomnum', $keyword);
+        $this->db->from('reservations');
+        return $this->db->count_all_results();
     }
+
+    public function fetch_room($limit, $start, $keryword)
+    {
+        $this->db->like('roomnum', $keryword);
+        $this->db->limit($limit, $start);
+        $query = $this->db->get('reservations');
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        return false;
+    }
+
+    public function read_reservations($id){
+		$this->db->where('id',$id);
+		$query = $this->db->get('reservations');
+		if($query->num_rows() > 0){
+			$data = $query->row();
+			return $data;
+		}
+		return FALSE;
+	}
+	
+	public function remove_reservations($id){
+		$this->db->delete('reservations',array('id'=>$id));
+	}
+
+    // public function search_room($cateid)
+    // {
+    //     $this->db->where('id', $cateid);
+    //     $result = $this->db->get('roomcategory');
+    //     return $result;
+    // }
+    // public function cate1()
+    // {
+    //     $this->db->where('id');
+    //     $query = $this->db->get('room');
+    //     return $query;
+    // }
 }
