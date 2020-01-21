@@ -8,13 +8,21 @@ class RoomController extends CI_Controller
         parent::__construct();
         $this->load->model('login_model');
         $this->load->model('room_model');
+        
     }
 
 
-    public function index()
+    public function index($cateid = null)
     {
+        $this->db->where('id', $cateid);
+        $query = $this->db->get('roomcategory');
+        $qq = $query->row_array();
+        // $qq = array(
+        //     'reservationsstart' => $this->input->post('datepicker'),
+        //     'reservationsprice' => '2000');
+        // $this->db->insert('reservations', $qq);
         $room = $this->room_model->room_detail();
-        $this->load->view('room', ['room'=>$room]);
+        $this->load->view('room', ['room'=>$room],$qq);
     }
   
     public function get_room()
@@ -71,7 +79,7 @@ class RoomController extends CI_Controller
     {
         $getcode= $this->input->post('reportCode');
         $data['showdetail'] = $this->model_expreport->showdetail($getcode);
-        $ret = $this->load->view('detail_template',$data,true); //return as data   
+        $ret = $this->load->view('detail_template', $data, true); //return as data
         print_r($ret);
     }
 }

@@ -11,6 +11,9 @@ class Member extends CI_Controller
 		parent::__construct();
 		$this->load->library('pagination');
 		$this->load->model('member_model');
+		if (!$this->session->userdata('firstname')) { //ดัก user บังคับล็อกอิน
+            redirect('LoginController');
+        }
 	}
 
 	public function index()
