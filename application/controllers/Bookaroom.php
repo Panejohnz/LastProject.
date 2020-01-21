@@ -9,11 +9,9 @@ class Bookaroom extends CI_Controller
         
         $this->load->model('ReservationsModel');
     }
-    public function index()
+    public function index($roomnum)
     {
-         $this->load->view('Reservations');
-         
-       
+         $this->load->view('Reservations',$roomnum); 
     }
 
     // public function keyword($cateid = null)
@@ -39,7 +37,7 @@ class Bookaroom extends CI_Controller
     // }
 
 
-    public function postdata()
+    public function postdata($id)
 	{
         
 		$config['upload_path'] = './uploads/';
@@ -69,6 +67,18 @@ class Bookaroom extends CI_Controller
             echo "window.location.href = '". base_url(). "ReservationsController ';";
             echo "</script>";
             $this->db->insert('reservations', $arr);
+
+            $this->db->where('id', $id);
+        // $query = $this->db->get('room');
+        // $imf = $query->row_array();
+
+        $data2 = array(
+            'roomstatus' => '1'
+          );
+   
+           
+        $this->db->update('room', $data2);
+        redirect('RoomController');
 // redirect('ReservationsController');
         }
     }

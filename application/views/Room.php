@@ -475,7 +475,8 @@
        </table>
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-success" onclick="location.href='<?php echo base_url();?>Bookaroom'"><i class="spaceship"></i> จอง</button>
+      <a href="<?php echo site_url('Bookaroom/index/'.$data['roomnum']  ) ?>"><button type="button" class="btn btn-success">จอง</button></a>
+    
         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> ปิด</button>
       </div>
     </div>

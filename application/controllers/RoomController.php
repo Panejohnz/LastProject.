@@ -40,7 +40,7 @@ class RoomController extends CI_Controller
     }
     public function update_status($id)
     {
-       // if (isset($_REQUEST['sval'])) {
+        // if (isset($_REQUEST['sval'])) {
         //     $this->load->model('Room_model', 'RoomController');
         //     $up_status = $this->RoomController->update_status();
 
@@ -63,8 +63,15 @@ class RoomController extends CI_Controller
           );
    
            
-            $this->db->update('room', $data2);
-            redirect('RoomController');
-        
+        $this->db->update('room', $data2);
+        redirect('RoomController');
+    }
+
+    public function getnumroom()
+    {
+        $getcode= $this->input->post('reportCode');
+        $data['showdetail'] = $this->model_expreport->showdetail($getcode);
+        $ret = $this->load->view('detail_template',$data,true); //return as data   
+        print_r($ret);
     }
 }
