@@ -411,7 +411,7 @@
 
 <?php $this->db->select('room.*');
                             $this->db->from('room');
-                            $query = $this->db->get();
+                            $query = $this->db->get('');
                             $results = $query->result_array();?>
 						<?php	foreach ($results as $data) {
                                 ?>

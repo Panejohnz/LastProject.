@@ -25,7 +25,10 @@
     
     <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/flaticon.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/icomoon.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/style.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/style.css">
+	
+
+	
   </head>
   <body>
 
@@ -102,7 +105,7 @@
 			        					<div class="select-wrap">
 			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
 			                    <select name="" id="" class="form-control">
-                                <?php $this->db->select('roomcategory.*');
+								<?php $this->db->select('roomcategory.*');
 							$this->db->from('roomcategory');
 							$query = $this->db->get();
 							$results = $query->result_array();?>
