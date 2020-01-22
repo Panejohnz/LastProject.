@@ -63,8 +63,7 @@ class RoomController extends CI_Controller
         // }
 
         $this->db->where('id', $id);
-        // $query = $this->db->get('room');
-        // $imf = $query->row_array();
+
 
         $data2 = array(
             'roomstatus' => '1'

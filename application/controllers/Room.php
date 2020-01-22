@@ -18,7 +18,7 @@ class Room extends CI_Controller
 		$config = array();
 		$config['base_url'] = base_url('room/index');
 		$config['total_rows'] = $this->room_model->record_count($this->input->get('keyword'));
-		$config['per_page'] = $this->input->get('keyword') == NULL ? 14 : 999;
+		$config['per_page'] = $this->input->get('keyword') == NULL ? 40 : 999;
 		$config['uri_segment'] = 3;
 		$choice = $config['total_rows'] / $config['per_page'];
 		$config['num_links'] = round($choice);

@@ -82,7 +82,7 @@
                                                
                                             } else {
                                                 ?>
-                                                <a href="RoomController/update_status?sval=<?php echo $data->id; ?>&sval=<?php echo $data->roomstatus; ?>" class="btn btn-success">ห้องว่าง</a>
+                                                <a href="Bookaroom/index/<?php echo $data->id; ?>" class="btn btn-success">ห้องว่าง</a>
                                                
                                           <?php
                                             }

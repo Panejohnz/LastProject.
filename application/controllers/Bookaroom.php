@@ -9,9 +9,14 @@ class Bookaroom extends CI_Controller
         
         $this->load->model('ReservationsModel');
     }
-    public function index($roomnum)
+    public function index($id)
     {
-         $this->load->view('Reservations',$roomnum); 
+        $this->db->where('id',$id);
+       $query = $this->db->get('room');
+         $qq = $query->row_array();
+        //print_r($qq);
+        
+         $this->load->view('Reservations',$qq); 
     }
 
     // public function keyword($cateid = null)
@@ -41,7 +46,7 @@ class Bookaroom extends CI_Controller
 	{
         
 		$config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
+        $config['allowed_types'] = 'gif|jpg|png|pdf';
         $config['max_size']  = '1000000000';
         $config['max_width']  = '1000000000';
         $config['max_height']  = '1000000000';
@@ -62,13 +67,10 @@ class Bookaroom extends CI_Controller
                                 'image'=>$filename,
                                 
                             );
-                            echo "<script>";
-            echo "alert('จองห้องพักเรียบร้อย');";
-            echo "window.location.href = '". base_url(). "ReservationsController ';";
-            echo "</script>";
+                           
             $this->db->insert('reservations', $arr);
 
-            $this->db->where('id', $id);
+           $this->db->where('id',$id);
         // $query = $this->db->get('room');
         // $imf = $query->row_array();
 
@@ -78,7 +80,11 @@ class Bookaroom extends CI_Controller
    
            
         $this->db->update('room', $data2);
-        redirect('RoomController');
+        echo "<script>";
+        echo "alert('จองห้องพักเรียบร้อย');";
+        echo "window.location.href = '". base_url(). "ReservationsController ';";
+        echo "</script>";
+        redirect('Room');
 // redirect('ReservationsController');
         }
     }
