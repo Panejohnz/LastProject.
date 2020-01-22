@@ -129,6 +129,13 @@ class Contract extends CI_Controller
     */
     public function adding($value='')
     {
+
+        $Date = $this->input->post("datepickerstart");
+            $dat = date("Y-m-d", strtotime($Date));
+            $Date2 = $this->input->post("datepickerend");
+            $dat2 = date("Y-m-d", strtotime($Date2));    
+
+
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'gif|jpg|png|doc|docx|pptx|xlsx';
         $config['max_size']     = '10000000';
@@ -154,8 +161,8 @@ class Contract extends CI_Controller
             $arr=array(
                                 // 'roomname'=> $this->input->post('roomname'),
                                 "Insurance"=>$filename,
-                                'StartRcontract' => $this->input->post('datepickerstart'),
-                'EndRcontractct' => $this->input->post('datepickerend'),
+                                'StartRcontract' => $dat,
+                'EndRcontractct' => $dat2,
                 'NumRoom' => $this->input->post('numroom'),
                 'IdCustomer' => $this->input->post('IdCustomer')
                             );
@@ -272,12 +279,17 @@ class Contract extends CI_Controller
         $this->load->view('template/backfooter');
     }
 
-    public function edcon($idmem){
-
+    public function edcon($idmem)
+    {
+        $Date = $this->input->post("datepickerstart");
+        $dat = date("Y-m-d", strtotime($Date));
+        $Date2 = $this->input->post("datepickerend");
+        $dat2 = date("Y-m-d", strtotime($Date2));    
+        
 		$object = array(
             'Insurance' => $this->input->post('typeimg'),
-            'StartRcontract' => $this->input->post('datepickerstart'),
-            'EndRcontractct' => $this->input->post('datepickerend'),
+            'StartRcontract' => $dat,
+            'EndRcontractct' => $dat2,
             'NumRoom' => $this->input->post('numroom'),
             'IdCustomer' => $this->input->post('IdCustomer')
 		);

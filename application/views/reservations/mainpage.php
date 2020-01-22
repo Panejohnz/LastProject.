@@ -39,10 +39,10 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 15%;">วันที่</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ราคาห้อง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">เลขห้อง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">ชื่อ-นามสกุล</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">เบอร์โทรศัพท์</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ราคาห้อง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">สลีปการโอนเงิน</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
                                     </tr>
@@ -60,19 +60,19 @@
                                             
                                             <td>
                                             
-                                            <?php echo  $data->reservationsprice; ?>
+                                            <?php echo  $data->roomnum; ?>
                                             <br>
                                            
                                             
                                             </td>
                                             <td>
-                                            <?php echo  $data->roomnum; ?>
-                                            </td>
-                                            <td>
                                             <?php echo  $data->name; ?>
                                             </td>
                                             <td>
-                                            <?php echo  $data->telephone; ?> 
+                                            <?php echo  $data->telephone; ?>
+                                            </td>
+                                            <td>
+                                            <?php echo  $data->reservationsprice; ?> 
                                             </td>
                                             <td>
                                             <img src="./uploads/<?php echo $data->image; ?>" width="60px">
