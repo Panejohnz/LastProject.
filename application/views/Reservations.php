@@ -46,13 +46,16 @@
 </nav>
     <!-- Content Header (Page header) -->
             <!-- form start -->
+            <?php  $this->db->where('id',$id);
+       $query = $this->db->get('room');
+         $qq = $query->row_array(); ?>
             <div class="container"><br>
-            <form role="form" action="<?php echo base_url('Bookaroom/postdata'); ?>" method="post" enctype="multipart/form-data">
-            
+            <form role="form" action="<?php echo base_url('Bookaroom/postdata/'.$id); ?>" method="post" enctype="multipart/form-data">
+           
             <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">เลขห้อง<?php echo $this->session->flashdata('error_roomnum'); ?>
-                        <input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo $this->input->post('roomnum'); ?>">
+                        <input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo $qq['roomnum'] ?>">
                     </div>
 
                     <div class="form-group">
