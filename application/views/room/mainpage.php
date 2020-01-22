@@ -40,9 +40,10 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 15%;">เลขห้อง</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 40%;">ประเภทห้อง</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 35%;">ประเภทห้อง</th>
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">ราคา</th>
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">สถานะห้อง</th>
+                                        
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  20px;">&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -88,6 +89,7 @@
                                             }
                                            ?>
                                             </td>
+                                            
 
                                             <td>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('room/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>

@@ -1,21 +1,14 @@
+<!-- <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
 <script src="<?php echo base_url('./EZView/EZView.js'); ?>"></script>
         <script src="<?php echo base_url('./EZView/draggable.js'); ?>"></script>
-     
-     <!-- Main Footer -->
-      <footer class="main-footer">
-        <!-- To the right -->
-        <div class="pull-right hidden-xs">
-           
-        </div>
-        <!-- Default to the left -->
         <script>
-  $(function(){
+$(function(){
 
-  $('img').EZView();
+$('img').EZView();
+
 });
-</script>
+</script> -->
       </footer>
-    </div><!-- ./wrapper -->
-        </div>
-    </body>
-</html>
