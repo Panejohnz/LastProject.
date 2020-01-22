@@ -75,7 +75,9 @@
                                             <?php echo  $data->reservationsprice; ?> 
                                             </td>
                                             <td>
-                                            <img src="./uploads/<?php echo $data->image; ?>" width="60px">
+                                            <a target="_blank" href="<?php echo  base_url('uploads/'.$data->image); ?>">
+                                                <img src="./uploads/<?php echo $data->image; ?>"  width="60px">
+                                    </a>
                                             </td>
                                             <td>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('Reservationadmin/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>

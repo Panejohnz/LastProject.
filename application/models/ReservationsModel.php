@@ -11,14 +11,14 @@ class ReservationsModel extends CI_Model
 
     public function record_count($keyword)
     {
-        $this->db->like('roomnum', $keyword);
+        $this->db->like('reservationsstart', $keyword);
         $this->db->from('reservations');
         return $this->db->count_all_results();
     }
 
     public function fetch_room($limit, $start, $keryword)
     {
-        $this->db->like('roomnum', $keryword);
+        $this->db->like('reservationsstart', $keryword);
         $this->db->limit($limit, $start);
         $query = $this->db->get('reservations');
         if ($query->num_rows() > 0) {
