@@ -469,7 +469,7 @@
             <tr>
               <td><p id="roomnum"></p></td> 
               <td><p id="roomcate"></p></td>
-              
+              <td><p id="id"></p></td>
               <td><p id="roomprice"></p></td>
             </tr>
                 
@@ -477,7 +477,7 @@
        </table>
       </div>
       <div class="modal-footer">
-      <a href="<?php echo site_url('Bookaroom/index/'.$data['roomnum']  ) ?>"><button type="button" class="btn btn-success">จอง</button></a>
+      <a href="<?php echo site_url('Bookaroom/index/'.$data['id']  ) ?>"><button type="button" class="btn btn-success">จอง</button></a>
     
         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> ปิด</button>
       </div>
@@ -513,6 +513,7 @@
                 $('#roomnum').html(response.roomnum);
                 $('#roomcate').html(response.roomcate);
                 $('#roomprice').html(response.roomprice);
+                $('#id').html(response.id);
                 $('#show_modal').modal({backdrop: 'static', keyboard: true, show: true});
             }
           });

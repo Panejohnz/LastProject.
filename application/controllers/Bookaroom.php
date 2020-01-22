@@ -9,7 +9,7 @@ class Bookaroom extends CI_Controller
         
         $this->load->model('ReservationsModel');
     }
-    public function index($id)
+    public function index($id = null)
     {
         $this->db->where('id',$id);
        $query = $this->db->get('room');

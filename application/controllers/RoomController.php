@@ -12,9 +12,9 @@ class RoomController extends CI_Controller
     }
 
 
-    public function index($cateid = null)
+    public function index($id = null)
     {
-        $this->db->where('id', $cateid);
+        $this->db->where('id', $id);
         $query = $this->db->get('roomcategory');
         $qq = $query->row_array();
         // $qq = array(

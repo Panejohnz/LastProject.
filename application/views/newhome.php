@@ -87,6 +87,8 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-lg-12">
+				
+					
     				<form action="<?php echo site_url('RoomController/index/') ?>" method="post" class="booking-form">
 	        		<div class="row">
 	        			<div class="col-md-3 d-flex">
