@@ -89,7 +89,7 @@
     			<div class="col-lg-12">
 				
 					
-    				<form action="<?php echo site_url('RoomController/index/') ?>" method="post" class="booking-form">
+    				<form action="<?php echo site_url('RoomController') ?>" method="post" class="booking-form">
 	        		<div class="row">
 	        			<div class="col-md-3 d-flex">
 	        				<div class="form-group p-4 align-self-stretch d-flex align-items-end">
@@ -537,7 +537,7 @@
         </div>
         <div class="row no-gutters">
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-1.jpg" class="insta-img image-popup" style="background-image: url(<?php echo base_url(); ?>./assets/deluxe/images/insta-1.jpg);">
+            <a href="images/insta-1.jpg" class="insta-img image-popup" style="background-image: url(<?php echo base_url(); ?>./assets/Kbank.jpg);">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>

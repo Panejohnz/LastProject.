@@ -18,7 +18,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-default">
     <div class="container">
-        <a class="navbar-brand" href="<?php echo site_url('') ?>">จองห้องพัก</a>
+        <a class="navbar-brand" href="<?php echo site_url('RoomController/index/') ?>">จองห้องพัก</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -75,7 +75,7 @@
 								<div class="fileUpload btn btn-primary">
 								<span style="color: white;">+ เพิ่มรูป</span>
 										<label for="file"><strong></strong><span class="box__dragndrop"></label>
-										<input class="upload" type="file" name="file" id="piccar1" required />
+										<input class="upload" type="file" name="file" id="piccar1" required  />
 								</div>
                             </div>
                             <br>
