@@ -28,10 +28,10 @@ class RoomController extends CI_Controller
     public function get_room()
     {
         $id = $this->input->get('id');
-        $idcate = $this->input->get('id');
+       
         $get_room = $this->room_model->get_room($id);
-        $get_cate = $this->room_model->get_cate($idcate);
-        echo json_encode($get_room,$get_cate);
+       
+        echo json_encode($get_room);
         exit();
     }
 

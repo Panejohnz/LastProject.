@@ -89,7 +89,7 @@
     			<div class="col-lg-12">
 				
 					
-    				<form action="<?php echo site_url('RoomController') ?>" method="post" class="booking-form">
+    				<form action="<?php echo site_url('RoomController/index/'.$his['id']) ?>" method="post" class="booking-form">
 	        		<div class="row">
 	        			<div class="col-md-3 d-flex">
 	        				<div class="form-group p-4 align-self-stretch d-flex align-items-end">

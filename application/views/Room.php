@@ -458,20 +458,18 @@
               <td>ID</th>
               <td>Number Room</th>
               <td>Categetory</th>
-              <td>Detail</th>
+             
               <td>Price</th>
             </tr>
           </thead>
           <tbody>
-             <?php 
-             $gg = $this->db->get('roomcategory');
-             $imf = $gg->result_array();?>
+            
                
             <tr>
               <td><p id="id"></p></td>
               <td><p id="roomnum"></p></td> 
               <td><p id="roomcate"></p></td>
-              <td><p <?php echo $imf['detail']?>></p></td>
+              
               <td><p id="roomprice"></p></td>
                
 

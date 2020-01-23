@@ -56,4 +56,17 @@ class ReservationsModel extends CI_Model
     //     $query = $this->db->get('room');
     //     return $query;
     // }
+    
+    public function historybill($id){
+        $this->db->where('id',$id);
+		$query = $this->db->get('roomcategory');
+		if($query->num_rows() > 0){
+			$data = $query->row();
+			return $data;
+		}
+		return FALSE;
+	}
+        
+        
+    
 }

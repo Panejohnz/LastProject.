@@ -9,11 +9,10 @@ class ReservationsController extends CI_Controller
         
         $this->load->model('ReservationsModel');
     }
-    public function index()
-    {
-         $this->load->view('newhome');
-         
-       
+    public function index($id=null)
+    {   
+       $data['his'] = $this->ReservationsModel->historybill($id);
+       $this->load->view('newhome',$data);
     }
 
     
@@ -27,7 +26,7 @@ class ReservationsController extends CI_Controller
         //     'reservationsstart' => $this->input->post('datepicker'),
         //     'reservationsprice' => '2000');
         //     $this->db->insert('reservations', $qq);
-        $search_room = $this->ReservationsModel->search_room($cateid);  
+        $search_room = $this->ReservationsModel->search_room($cateid);
         $data  = $search_room->row_array();
         $level = $data['id'];
         $sesdata = array(
@@ -39,5 +38,4 @@ class ReservationsController extends CI_Controller
             redirect('ReservationsController/airroom');
         }
     }
-    
 }
