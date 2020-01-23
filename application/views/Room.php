@@ -410,8 +410,8 @@
     <div class="row clearfix">
 
 <?php $this->db->select('room.*');
-                            $this->db->from('room');
-                            $query = $this->db->get('');
+                          
+                            $query = $this->db->get('room');
                             $results = $query->result_array();?>
 						<?php	foreach ($results as $data) {
                                 ?>
@@ -431,22 +431,19 @@
                                             <?php //สถานะ
                                             
                                              $status = $data['roomstatus'];
-                                             if ($status == 1) {
-                                                 ?>
-                                                <a href="RoomController/update_status?sid=<?php echo $data['id'];  ?>&sval=<?php echo $data['roomstatus']; ?>" disabled class="btn btn-success">ติดจอง</a>
+                                if ($status == 1) {
+                                    ?>
+                                                <a href="RoomController/update_status?sid=<?php echo $data['id']; ?>&sval=<?php echo $data['roomstatus']; ?>" disabled class="btn btn-success">ติดจอง</a>
                                                 
                                              <?php
-                                                
-                                             } else {
-                                                 ?>
-                                                 <a href="RoomController/update_status/<?php echo $data['id']; ?>" class="btn btn-success">ห้องว่าง</a>
+                                } else {
+                                    ?>
+                                                <a href="Bookaroom/index/<?php echo $data['id']; ?>" class="btn btn-success">จอง</a>
                                                 
                                            <?php
-                                         
-                                             }
-                                            ?>
+                                } ?>
                                             </td>
-                        <button class="btn btn-primary view_detail" relid="<?php echo $data['id']; ?>" <?php if($data['roomstatus'] != 0 ) {  ?> disabled <?php }?>>Detail</button>
+                        <button class="btn btn-primary view_detail" relid="<?php echo $data['id']; ?>" <?php if ($data['roomstatus'] != 0) {  ?> disabled <?php } ?>>Detail</button>
                         <!-- Modal -->
                         <div id="show_modal" class="modal fade" role="dialog" style="background: #000;">
   <div class="modal-dialog">
@@ -458,26 +455,33 @@
         <table class="table table-bordered table-striped">
           <thead class="btn-primary">
             <tr>
+              <td>ID</th>
               <td>Number Room</th>
               <td>Categetory</th>
-             
+              <td>Detail</th>
               <td>Price</th>
             </tr>
           </thead>
           <tbody>
-             
+             <?php 
+             $gg = $this->db->get('roomcategory');
+             $imf = $gg->result_array();?>
+               
             <tr>
+              <td><p id="id"></p></td>
               <td><p id="roomnum"></p></td> 
               <td><p id="roomcate"></p></td>
-              <td><p id="id"></p></td>
+              <td><p <?php echo $imf['detail']?>></p></td>
               <td><p id="roomprice"></p></td>
+               
+
             </tr>
                 
           </tbody>
        </table>
       </div>
       <div class="modal-footer">
-      <a href="<?php echo site_url('Bookaroom/index/'.$data['id']  ) ?>"><button type="button" class="btn btn-success">จอง</button></a>
+      
     
         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> ปิด</button>
       </div>
@@ -519,6 +523,7 @@
           });
       });
     });
+    
 </script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script type="text/javascript"></script>

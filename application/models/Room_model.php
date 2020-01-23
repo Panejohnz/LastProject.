@@ -78,6 +78,14 @@ class Room_model extends CI_Model
                     ->get()
                     ->row();
     }
+    public function get_cate($idcate)
+    {
+        return $this->db->select('*')
+                    ->from('roomcategory')
+                    ->where(['id'=>$idcate])
+                    ->get()
+                    ->row();
+    }
 
     public function update_status(){
         $id = $_REQUEST['sid'];
