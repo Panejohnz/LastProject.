@@ -12,19 +12,24 @@ class RoomController extends CI_Controller
     }
 
 
-    public function index($id = null)
+    public function index()
     {
-        $this->db->where('id', $id);
-        $query = $this->db->get('roomcategory');
-        $qq = $query->row_array();
+       
+    }
+  
+    public function ss(){
+        $id = $this->input->post('Hee');
+        $this->db->where('roomcate', $id);
+        $query = $this->db->get('room');
+        $hee = $query->row_array();
         // $qq = array(
         //     'reservationsstart' => $this->input->post('datepicker'),
         //     'reservationsprice' => '2000');
         // $this->db->insert('reservations', $qq);
-        $room = $this->room_model->room_detail();
-        $this->load->view('room', ['room'=>$room],$qq);
+        $room = $hee;
+        $this->data['id'] = $id;
+        $this->load->view('room', $this->data, FALSE);
     }
-  
     public function get_room()
     {
         $id = $this->input->get('id');

@@ -88,8 +88,8 @@
     		<div class="row">
     			<div class="col-lg-12">
 				
-					
-    				<form action="<?php echo site_url('RoomController/index/'.$his['id']) ?>" method="post" class="booking-form">
+					<?php echo "ควย". $his; ?>
+    				<form action="<?php echo base_url('RoomController/ss/') ?>" method="post" class="booking-form">
 	        		<div class="row">
 	        			<div class="col-md-3 d-flex">
 	        				<div class="form-group p-4 align-self-stretch d-flex align-items-end">
@@ -106,7 +106,7 @@
 			      					<div class="form-field">
 			        					<div class="select-wrap">
 			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-			                    <select name="roomname" id="roomname" class="form-control">
+			                    <select name="Hee" id="roomname" class="form-control">
 								<?php $this->db->select('roomcategory.*');
 							$this->db->from('roomcategory');
 							$query = $this->db->get();
@@ -117,7 +117,7 @@
 											<h1><option value="<?php echo $result['roomname'] . ' '?>"> 
 											<?php echo $result['roomname'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?>
 								</option>
-											<?php
+											<?php $eiei = $result['id'];
 							} ?>
 										</select>
 			                  </div>
@@ -128,7 +128,7 @@
 	        			
 	        			<div class="col-md d-flex">
 	        				<div class="form-group d-flex align-self-stretch">
-			              <input type="submit" value="Check Availability" class="btn btn-primary py-3 px-4 align-self-stretch">
+			               <input type="submit" value="Check Availability" class="btn btn-primary py-3 px-4 align-self-stretch">
 			            </div>
 	        			</div>
 	        		</div>

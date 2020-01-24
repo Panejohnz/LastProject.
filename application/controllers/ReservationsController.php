@@ -11,8 +11,9 @@ class ReservationsController extends CI_Controller
     }
     public function index($id=null)
     {   
-       $data['his'] = $this->ReservationsModel->historybill($id);
-       $this->load->view('newhome',$data);
+       $this->data['his'] = $this->ReservationsModel->historybill($id);
+       
+       $this->load->view('newhome',$this->data,false);
     }
 
     

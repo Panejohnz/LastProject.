@@ -409,8 +409,8 @@
 <div class="container">
     <div class="row clearfix">
 
-<?php $this->db->select('room.*');
-                          
+<?php                       
+                            $this->db->where('roomcate', $id);
                             $query = $this->db->get('room');
                             $results = $query->result_array();?>
 						<?php	foreach ($results as $data) {
@@ -438,7 +438,7 @@
                                              <?php
                                 } else {
                                     ?>
-                                                <a href="Bookaroom/index/<?php echo $data['id']; ?>" class="btn btn-success">จอง</a>
+                                                <a href="<?php echo base_url();?>Bookaroom/dd/<?php echo $data['id']; ?>" class="btn btn-success">จอง</a>
                                                 
                                            <?php
                                 } ?>
