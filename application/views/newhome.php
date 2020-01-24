@@ -107,6 +107,7 @@
 			        					<div class="select-wrap">
 			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
 			                    <select name="Hee" id="roomname" class="form-control">
+									
 								<?php $this->db->select('roomcategory.*');
 							$this->db->from('roomcategory');
 							$query = $this->db->get();

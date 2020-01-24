@@ -438,7 +438,7 @@
                                              <?php
                                 } else {
                                     ?>
-                                                <a href="<?php echo base_url();?>Bookaroom/dd/<?php echo $data['id']; ?>" class="btn btn-success">จอง</a>
+                                                <a href="<?php echo base_url();?>Bookaroom/dd/<?php echo $data['id']; ?>" class="btn btn-success">ห้องว่าง</a>
                                                 
                                            <?php
                                 } ?>

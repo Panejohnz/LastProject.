@@ -95,5 +95,12 @@ redirect('room');
 		redirect('room');
 	}
 
+	public function status1()
+	{
+		
+	
+		
+	}
+
 
 }
