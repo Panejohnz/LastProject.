@@ -106,7 +106,8 @@
 			      					<div class="form-field">
 			        					<div class="select-wrap">
 			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-			                    <select name="roomname" id="roomname" class="form-control">
+			                    <select name="roomname" id="roomname" class="form-control" >
+								<option value="" disabled selected>ประเภทห้อง</option>
 								<?php $this->db->select('roomcategory.*');
 							$this->db->from('roomcategory');
 							$query = $this->db->get();

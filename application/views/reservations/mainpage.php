@@ -72,11 +72,11 @@
                                             <?php echo  $data->telephone; ?>
                                             </td>
                                             <td>
-                                            <?php echo  $data->reservationsprice; ?> 
+                                            <?php echo  $data->reservationsprice; ?>  
                                             </td>
                                             <td>
                                             <a target="_blank" href="<?php echo  base_url('uploads/'.$data->image); ?>">
-                                                <img src="./uploads/<?php echo $data->image; ?>"  width="60px">
+                                            <img src="./uploads/<?php echo $data->image; ?>" width="50px">
                                     </a>
                                             </td>
                                             <td>

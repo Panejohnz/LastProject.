@@ -14,7 +14,7 @@ class Reservationadmin extends CI_Controller
 	public function index()
 	{
 		$config = array();
-		$config['base_url'] = base_url('reservations');
+		$config['base_url'] = base_url('Reservationadmin/index/');
 		$config['total_rows'] = $this->ReservationsModel->record_count($this->input->get('keyword'));
 		$config['per_page'] = $this->input->get('keyword') == NULL ? 14 : 999;
 		$config['uri_segment'] = 3;

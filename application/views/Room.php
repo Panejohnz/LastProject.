@@ -409,8 +409,9 @@
 <div class="container">
     <div class="row clearfix">
 
-<?php $this->db->select('room.*');
-                          
+
+                            <?php $this->db->select('room.*');
+                            
                             $query = $this->db->get('room');
                             $results = $query->result_array();?>
 						<?php	foreach ($results as $data) {
@@ -433,7 +434,7 @@
                                              $status = $data['roomstatus'];
                                 if ($status == 1) {
                                     ?>
-                                                <a href="RoomController/update_status?sid=<?php echo $data['id']; ?>&sval=<?php echo $data['roomstatus']; ?>" disabled class="btn btn-success">ติดจอง</a>
+                                                <a href="RoomController/update_status?sid=<?php echo $data['id']; ?>&sval=<?php echo $data['roomstatus']; ?>" disabled class="btn btn-danger">ติดจอง</a>
                                                 
                                              <?php
                                 } else {
