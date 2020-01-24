@@ -433,7 +433,7 @@
                                              $status = $data['roomstatus'];
                                 if ($status == 1) {
                                     ?>
-                                                <a href="RoomController/update_status?sid=<?php echo $data['id']; ?>&sval=<?php echo $data['roomstatus']; ?>" disabled class="btn btn-success">ติดจอง</a>
+                                                <a href="RoomController/update_status?sid=<?php echo $data['id']; ?>&sval=<?php echo $data['roomstatus']; ?>" disabled class="btn btn-danger">ติดจอง</a>
                                                 
                                              <?php
                                 } else {

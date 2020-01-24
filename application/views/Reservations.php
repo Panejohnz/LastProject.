@@ -67,9 +67,14 @@
                         <label for="exampleInputEmail1">เบอร์โทรศัพท์</label> <?php echo $this->session->flashdata('error_telephone'); ?>
                         <input type="text" id="telephone" class="form-control" name="telephone" value="<?php echo  $this->session->flashdata('telephone'); ?>"style="width: 350px;">
                     </div>
-
-
+                    <div class="row">
+                    <div class="col-sm">
                     <img src="<?php echo base_url('./assets/Kbank.jpg')?>" alt="Room" class="img-fluid"style="width: 400px;"><br>
+                    </div>
+                    <div class="col-sm">
+                    <img src="<?php echo base_url('./assets/Kbank.jpg')?>" alt="Room" class="img-fluid"style="width: 400px;">
+                    </div>
+                    </div>
                     <br>
                     <div class="text-left">
 								<div class="fileUpload btn btn-primary">
