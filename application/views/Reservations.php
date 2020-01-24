@@ -43,7 +43,9 @@
 
         </div>
     </div>
-</nav>
+</nav><?php $stringrow = base_url(uri_string());
+            $arraystate = (explode("/", $stringrow));
+            $idtest = ($arraystate[7]); ?>
     <!-- Content Header (Page header) -->
             <!-- form start -->
             <?php  $this->db->where('id',$id);
@@ -54,7 +56,7 @@
            
             <div class="box-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">เลขห้อง<?php echo $this->session->flashdata('error_roomnum'); ?>
+                        <label for="exampleInputEmail1">เลขห้อง <?php echo $idtest ?> <?php echo $this->session->flashdata('error_roomnum'); ?>
                         <input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo $qq['roomnum'] ?>">
                     </div>
 

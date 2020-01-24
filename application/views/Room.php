@@ -379,7 +379,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-default">
     <div class="container">
-        <a class="navbar-brand" href="<?php echo site_url('ReservationsController') ?>">Back <?php echo $this->input->post('datepicker');?> <?php echo $this->input->post('roomname');?></a>
+        <?php $datepicker = $this->input->post('datepicker'); ?>
+        <a class="navbar-brand" href="<?php echo base_url('ReservationsController') ?>">Back <?php echo $datepicker?> <?php echo $this->input->post('roomname');?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -408,7 +409,7 @@
 
 <div class="container">
     <div class="row clearfix">
-
+    
 <?php                       
                             $this->db->where('roomcate', $id);
                             $query = $this->db->get('room');
