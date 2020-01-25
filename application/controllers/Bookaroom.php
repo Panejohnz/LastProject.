@@ -66,7 +66,9 @@ class Bookaroom extends CI_Controller
             //$imgtype_name = $data['imgtype_name'];
             $arr=array(         'roomnum' => $this->input->post('roomnum'),
 			                    'name' => $this->input->post('name'),
-			                    'telephone' => $this->input->post('telephone'),
+                                'telephone' => $this->input->post('telephone'),
+                                'reservationsstart' => $this->input->post('reservationsstart'),
+                                'reservationsprice' => 500,
                                 'image'=>$filename,
                                 
                             );
