@@ -45,7 +45,9 @@
     </div>
 </nav><?php $stringrow = base_url(uri_string());
             $arraystate = (explode("/", $stringrow));
-            $idtest = ($arraystate[7]); ?>
+            $idtest = ($arraystate[7]);
+            $idtest1 = ($arraystate[8]);
+            $idtest2 = ($arraystate[9]); ?>
     <!-- Content Header (Page header) -->
             <!-- form start -->
             <?php  $this->db->where('id',$id);
@@ -55,9 +57,13 @@
             <form role="form" action="<?php echo base_url('Bookaroom/postdata/'.$id); ?>" method="post" enctype="multipart/form-data">
            
             <div class="box-body">
+            <div class="form-group">
+                        <label for="exampleInputEmail1">วันที่จอง  <?php echo $this->session->flashdata('error_roomnum'); ?>
+                        <input readonly type="text" id="reservationsstart" class="form-control" name="reservationsstart" value="<?php echo $idtest ?>/<?php echo $idtest1 ?>/<?php echo $idtest2 ?>">
+                    </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">เลขห้อง <?php echo $idtest ?> <?php echo $this->session->flashdata('error_roomnum'); ?>
-                        <input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo $qq['roomnum'] ?>">
+                        <label for="exampleInputEmail1">เลขห้อง <?php echo $this->session->flashdata('error_roomnum'); ?>
+                        <input readonly type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo $qq['roomnum'] ?>">
                     </div>
 
                     <div class="form-group">
