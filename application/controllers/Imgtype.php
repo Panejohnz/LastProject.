@@ -136,6 +136,7 @@ class imgtype extends CI_Controller
 
             $arr=array(
                                 'roomname'=> $this->input->post('roomname'),
+                                'detail'=> $this->input->post('detail'),
                                 "typeimg"=>$filename
                             );
             $this->db->insert('roomcategory', $arr);
@@ -175,6 +176,7 @@ class imgtype extends CI_Controller
             $arr1=array(
                                 'id'=> $this->input->post('id'),
                                 'roomname'=> $this->input->post('roomname'),
+                                'detail'=> $this->input->post('detail'),
                                 'typeimg'=> $this->input->post('typeimg2'),
                             );
             $this->db->where('id', $this->input->post('id'));

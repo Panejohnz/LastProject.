@@ -70,9 +70,29 @@
                                     <td>
                                            <?php echo  $data->operator_id; ?>
                                     </td>
+
                                     <td>
+                                            <?php //สถานะ
+                                            
+                                            $status = $data->statusrepair;
+                                            if ($status == 1) {
+                                                ?>
+                                               <a href="repair/update_status?sval=<?php echo $data->id; ?>&sval=<?php echo $data->statusrepair; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-success">รับเรื่องแล้ว</a>
+                                               
+                                            <?php
+                                               
+                                            } else {
+                                                ?>
+                                                <a href="repair/index/<?php echo $data->id; ?>" class="btn btn-danger">กำลังตรวจสอบ</a>
+                                               
+                                          <?php
+                                            }
+                                           ?>
+                                            </td>
+
+                                    <!-- <td>
                                            <?php echo  $data->statusrepair; ?>
-                                    </td>
+                                    </td> -->
                                             </td>
                                             
                                             <td>

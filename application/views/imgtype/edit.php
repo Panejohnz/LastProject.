@@ -41,8 +41,14 @@
 						</label> <?php echo $this->session->flashdata('error_roomname')?>
 						<input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $result->roomname ?>">
 					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">
+							รายละเอียด
+						</label> <?php echo $this->session->flashdata('error_detail')?>
+						<input type="text" id="detail" class="form-control" name="detail" value="<?php echo  $result->detail ?>">
+					</div>
 
-			 <div class="form-group">
+			 <!-- <div class="form-group">
 
                         <label for="exampleInputEmail1">
                             อัพโหลดไฟล์ภาพ
@@ -52,7 +58,7 @@
                      
                         </label> <?php echo $this->session->flashdata('err_typeimg'); ?>
                         <input type="file" name="typeimg" id="typeimg" >
-                    </div>
+                    </div> -->
 
 				</div><!-- /.box-body -->
 

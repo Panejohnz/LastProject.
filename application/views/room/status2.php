@@ -23,13 +23,15 @@
                     <div class="row">
                     <div class="col-sm-1">
                             <?php 
+                            $query = $this->db->query("SELECT * FROM `room` WHERE roomstatus = '1'");
+                            $ww = $query->result_array();
                             
                             ?>
 
-                           <a class="btn btn-success" href="<?php echo base_url('room/status1/'); ?>" role="button">ห้องว่าง</a>
+                           <a class="btn btn-success" href="<?php echo base_url('room/status2/'); ?>" role="button">ห้องว่าง</a>
                        </div>
                        <div class="col-sm-1">
-                           <a class="btn btn-danger" href="<?php echo base_url('room/status2/'); ?>" role="button">ติดจอง</a>
+                           <a class="btn btn-danger" href="<?php echo base_url('room'); ?>" role="button">ติดจอง</a>
                        </div>
                         <div class="col-sm-1">
                            
@@ -60,11 +62,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(!empty($results)){ foreach ($results as $data) { ?>
+                                    <?php  foreach ($ww as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('room/edit/'.$data->id); ?>">
-                                            <?php echo  $data->roomnum; ?>
+                                            
+                                            <?php echo  $data['roomnum']; ?>
                                             
                                             </a> 
                                             <br>
@@ -74,28 +76,28 @@
                                             <td>
                                             <br>
                                             
-                                            <?php echo $data->roomcate; ?>  
+                                            <?php echo $data['roomcate']; ?>  
                                             <br>
                                             
                                             
                                             </td>
                                             <td>
-                                            <?php echo $data->roomprice; ?>
+                                            <?php echo $data['roomprice']; ?>
                                             </td>
 
                                             <td>
                                             <?php //สถานะ
                                             
-                                            $status = $data->roomstatus;
+                                            $status = $data['roomstatus'];
                                             if ($status == 1) {
                                                 ?>
-                                               <a href="RoomController/update_status?sval=<?php echo $data->id; ?>&sval=<?php echo $data->roomstatus; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-danger">ติดจอง</a>
+                                               <a href="RoomController/update_status?sval=<?php echo $data['id']; ?>&sval=<?php echo $data['roomstatus']; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-danger">ติดจอง</a>
                                                
                                             <?php
                                                
                                             } else {
                                                 ?>
-                                                <a href="Bookaroom/index/<?php echo $data->id; ?>" class="btn btn-success">ห้องว่าง</a>
+                                                <a href="Bookaroom/index/<?php echo $data['id']; ?>" class="btn btn-success">ห้องว่าง</a>
                                                
                                           <?php
                                             }
@@ -104,10 +106,10 @@
                                             
 
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('room/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('room/confrm/'.$data['id']); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
-                                    <?php } } ?>
+                                    <?php }  ?>
                                 </tbody>
 
                             </table>

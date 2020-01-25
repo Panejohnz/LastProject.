@@ -58,17 +58,18 @@
                                             <br>
                                              </td>
                                              <td>
-                                             <?php if (!empty($files)) {
-        foreach ($files as $frow) { ?>
+                                             <?php $this->db->where('id', $data->id);
+                                                   $files =  $this->db->get('contract', 1);
+                                                    $f = $files->row_array();?>
 <div class="file-box">
     <div class="box-content">
       
        
-        <a href="<?php echo base_url().'contract/download/'.$frow['id']; ?>" class="dwn"> <?php echo $data->Insurance; ?></a>
+        <a href="<?php echo base_url().'contract/download/'.$f['Insurance']; ?>" class="dwn"> <?php echo $data->Insurance; ?></a>
     </div>
 </div>
-        <?php  }
-    } ?>
+        <?php  
+     ?>
                                               
                                             </td> 
                                             <td>

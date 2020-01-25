@@ -98,7 +98,23 @@ redirect('room');
 	public function status1()
 	{
 		
-	
+
+		$this->load->view('template/backheader');
+		$this->load->view('room/status1');
+		$this->load->view('template/backfooter');
+		
+		
+		
+	}
+	public function status2()
+	{
+		
+
+		$this->load->view('template/backheader');
+		$this->load->view('room/status2');
+		$this->load->view('template/backfooter');
+		
+		
 		
 	}
 

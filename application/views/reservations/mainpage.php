@@ -76,7 +76,7 @@
                                             </td>
                                             <td>
                                             <a target="_blank" href="<?php echo  base_url('uploads/'.$data->image); ?>">
-                                            <img src="./uploads/<?php echo $data->image; ?>" width="50px">
+                                            <img src="<?php echo base_url(); ?>./uploads/<?php echo $data->image; ?>" width="50px">
                                     </a>
                                             </td>
                                             <td>

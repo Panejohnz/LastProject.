@@ -278,4 +278,47 @@ redirect('ReservationsController');
         $this->repair_model->remove_roomcategory($id);
         redirect('repair', 'refresh');
     }
+
+
+    public function update_repair()
+    {
+        $this->load->model('repair_model', 'Repair');
+        $res = $this->room->update_status();
+        if ($res > 0) {
+            $this->session->set_flashdata('msg', "updated success");
+            $this->session->set_flashdata('msg_class', "alert-success");
+        } else {
+            $this->session->set_flashdata('msg', ";not updated success");
+            $this->session->set_flashdata('msg_class', "alert-danger");
+        }
+        return redirect('repair');
+    }
+    public function update_status($id)
+    {
+        // if (isset($_REQUEST['sval'])) {
+        //     $this->load->model('Room_model', 'RoomController');
+        //     $up_status = $this->RoomController->update_status();
+
+        //     if ($up_status > 0) {
+        //         $this->session->set_flashdata('msg', "updated success");
+        //         $this->session->set_flashdata('msg_class', "alert-success");
+        //     } else {
+        //         $this->session->set_flashdata('msg', ";not updated success");
+        //         $this->session->set_flashdata('msg_class', "alert-danger");
+        //     }
+        //     return redirect('RoomController');
+        // }
+
+        $this->db->where('id', $id);
+
+
+        $data2 = array(
+            'statusrepair' => '1'
+          );
+   
+           
+        $this->db->update('Repair', $data2);
+        redirect('repair');
+    }
+
 }

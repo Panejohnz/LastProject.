@@ -86,4 +86,23 @@ class repair_model  extends CI_Model
 		}
 		return FALSE;
 	}
+
+
+	public function update_status(){
+        $id = $_REQUEST['sid'];
+        $saval = $_REQUEST['svalo'];
+        if($saval == 1)
+        {
+            $status = 0;
+        }
+        else
+        {
+            $status = 1;
+        }
+        $data = array(
+                'statusrepair' => $status
+            );
+        $this->db->where('id',$id);
+        return $this->db->update('Repair',$data);
+        }
 }
