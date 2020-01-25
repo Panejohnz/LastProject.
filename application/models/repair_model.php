@@ -88,7 +88,7 @@ class repair_model  extends CI_Model
 	}
 
 
-	public function update_status(){
+	public function update_repair(){
         $id = $_REQUEST['sid'];
         $saval = $_REQUEST['svalo'];
         if($saval == 1)

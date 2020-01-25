@@ -280,19 +280,30 @@ redirect('ReservationsController');
     }
 
 
-    public function update_repair()
+    public function update_repair($id)
     {
-        $this->load->model('repair_model', 'Repair');
-        $res = $this->room->update_status();
-        if ($res > 0) {
-            $this->session->set_flashdata('msg', "updated success");
-            $this->session->set_flashdata('msg_class', "alert-success");
-        } else {
-            $this->session->set_flashdata('msg', ";not updated success");
-            $this->session->set_flashdata('msg_class', "alert-danger");
-        }
-        return redirect('repair');
-    }
+        
+        $data2 = array(
+            'statusrepair' => '1'
+          );
+   
+            $this->db->where('id', $id);
+            $this->db->update('Repair', $data2);
+            redirect('repair');
+        
+        // $this->load->model('repair_model', 'Repair');
+        // $res = $this->Repair->update_repair();
+        // if ($res > 0) {
+        //     $this->session->set_flashdata('msg', "updated success");
+        //     $this->session->set_flashdata('msg_class', "alert-success");
+        // } else {
+        //     $this->session->set_flashdata('msg', ";not updated success");
+        //     $this->session->set_flashdata('msg_class', "alert-danger");
+        // }
+        // return redirect('repair');
+    
+}
+
     public function update_status($id)
     {
         // if (isset($_REQUEST['sval'])) {

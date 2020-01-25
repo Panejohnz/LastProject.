@@ -83,7 +83,7 @@
                                                
                                             } else {
                                                 ?>
-                                                <a href="repair/index/<?php echo $data->id; ?>" class="btn btn-danger">กำลังตรวจสอบ</a>
+                                                <a href="repair/update_repair/<?php echo $data->id; ?>" class="btn btn-danger">กำลังตรวจสอบ</a>
                                                
                                           <?php
                                             }
