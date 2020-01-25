@@ -40,7 +40,7 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">เลขห้อง</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ค่าไฟ</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 30%;">ค่าไฟ</th>
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">ค่าน้ำ</th>
                                        
                                     </tr>
@@ -59,16 +59,16 @@
                                             </td>
                                             
                                             <td>
-                                            เลขมิเตอร์
-                                            <br>
+                                            เดือนที่แล้ว
+                                           
                                           
-                                            <input type="input" name="electric" id="electric" class="form-control input-sm" style="width:55%">
-                                            
+                                            <input readonly type="input" name="electricold" id="electricold" class="form-control input-sm" value="<?php echo $data->Electricbill; ?>" style="width:30%">
+                                           เดือนนี้ <input type="input" name="electricnew" id="electricnew" class="form-control input-sm" style="width:30%">
                                             <br>
                                         จำนวนเงิน :  <span id="result"></span>
                                             <script>$(document).ready(function(){
-    $('#electric').keyup(function(){
-        $('#result').text($('#electric').val() * 7);
+    $('#electricnew').keyup(function(){
+        $('#result').text($('#electricnew').val() * 7);
     });   
 });</script>
                                             </td>
