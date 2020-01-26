@@ -42,6 +42,7 @@
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 10%;">เลขห้อง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 30%;">ค่าไฟ</th>
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ค่าน้ำ</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 5%;"></th>
                                        
                                     </tr>
                                 </thead>
@@ -63,9 +64,11 @@
                                            
                                           
                                             <input readonly type="input" name="electricold" id="electricold" class="form-control input-sm" value="<?php echo $data->Electricbill; ?>" style="width:30%">
-                                           เดือนนี้ <input type="input" name="electricnew" id="electricnew" class="form-control input-sm" style="width:30%">
-                                           <a class="btn btn-info" href="<?php echo  base_url('Billcontroller'); ?>" >คำนวน</a>
+                                                เดือนปัจจุบัน
+                                                 <input  type="input" name="electricnew" id="electricnew" class="form-control input-sm" style="width:30%">
+                                          
                                             <br>
+                                            ราคา : 
                                         <!-- จำนวนเงิน :  <span id="resulte"></span>
                                             <script>$(document).ready(function(){
     $('#electricnew').keyup(function(){
@@ -78,9 +81,11 @@
                                            
                                           
                                             <input readonly type="input" name="waterold" id="waterold" class="form-control input-sm" value="<?php echo $data->Waterbill; ?>" style="width:30%">
-                                           เดือนนี้ <input type="input" name="waternew" id="waternew" class="form-control input-sm" style="width:30%"> 
-                                           <a class="btn btn-info" href="<?php echo  base_url('Billcontroller'); ?>" >คำนวน</a>
+                                            เดือนปัจจุบัน <input type="input" name="waternew" id="waternew" class="form-control input-sm" style="width:30%"> 
+                                           
                                             <br>
+                                            <?php $status = $data->roomstatus; ?>
+                                            <td><a class="btn btn-info" <?php if($status != 0){ ?> disabled <?php } ?> href="<?php echo  base_url('Billcontroller/cal/'.$data->id); ?>" >คำนวน</a></td>
                                         <!-- จำนวนเงิน :  <span id="resultw"></span>
                                             <script>$(document).ready(function(){
     $('#waternew').keyup(function(){
