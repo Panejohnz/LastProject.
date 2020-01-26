@@ -39,9 +39,9 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">เลขห้อง</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 10%;">เลขห้อง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 30%;">ค่าไฟ</th>
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">ค่าน้ำ</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ค่าน้ำ</th>
                                        
                                     </tr>
                                 </thead>
@@ -64,18 +64,31 @@
                                           
                                             <input readonly type="input" name="electricold" id="electricold" class="form-control input-sm" value="<?php echo $data->Electricbill; ?>" style="width:30%">
                                            เดือนนี้ <input type="input" name="electricnew" id="electricnew" class="form-control input-sm" style="width:30%">
+                                           <a class="btn btn-info" href="<?php echo  base_url('Billcontroller'); ?>" >คำนวน</a>
                                             <br>
-                                        จำนวนเงิน :  <span id="result"></span>
+                                        <!-- จำนวนเงิน :  <span id="resulte"></span>
                                             <script>$(document).ready(function(){
     $('#electricnew').keyup(function(){
-        $('#result').text($('#electricnew').val() * 7);
+        $('#resulte').text($('#electricnew').val() * 7);
     });   
-});</script>
+});</script> -->
                                             </td>
                                             <td>
+                                            เดือนที่แล้ว
+                                           
+                                          
+                                            <input readonly type="input" name="waterold" id="waterold" class="form-control input-sm" value="<?php echo $data->Waterbill; ?>" style="width:30%">
+                                           เดือนนี้ <input type="input" name="waternew" id="waternew" class="form-control input-sm" style="width:30%"> 
+                                           <a class="btn btn-info" href="<?php echo  base_url('Billcontroller'); ?>" >คำนวน</a>
                                             <br>
-                                            <input type="input" name="water" class="form-control input-sm" style="width:60%">
+                                        <!-- จำนวนเงิน :  <span id="resultw"></span>
+                                            <script>$(document).ready(function(){
+    $('#waternew').keyup(function(){
+        $('#resultw').text($('#waternew').val() * 7);
+    });   
+});</script> -->
                                             </td>
+                                            
                                            
                                         </tr>
                                     <?php }

@@ -15,9 +15,9 @@ class BillController extends CI_Controller
     public function index()
     {
         $config = array();
-        $config['base_url'] = base_url('ิbill/index');
+        $config['base_url'] = base_url('bill/index');
         $config['total_rows'] = $this->bill_model->record_count($this->input->get('keyword'));
-        $config['per_page'] = $this->input->get('keyword') == null ? 14 : 999;
+        $config['per_page'] = $this->input->get('keyword') == null ? 40 : 999;
         $config['uri_segment'] = 3;
         $choice = $config['total_rows'] / $config['per_page'];
         $config['num_links'] = round($choice);
