@@ -44,6 +44,7 @@
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">เบอร์โทรศัพท์</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">ราคาห้อง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">สลีปการโอนเงิน</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">สัญญา</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -78,6 +79,9 @@
                                             <a target="_blank" href="<?php echo  base_url('uploads/'.$data->image); ?>">
                                             <img src="<?php echo base_url(); ?>./uploads/<?php echo $data->image; ?>" width="50px">
                                     </a>
+                                            </td>
+                                            <td>
+                                            <a class="btn btn-success" href="<?php echo  base_url('contract/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> ทำสัญญา</a>
                                             </td>
                                             <td>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('Reservationadmin/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>

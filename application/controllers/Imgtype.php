@@ -177,7 +177,7 @@ class imgtype extends CI_Controller
                                 'id'=> $this->input->post('id'),
                                 'roomname'=> $this->input->post('roomname'),
                                 'detail'=> $this->input->post('detail'),
-                                'typeimg'=> $this->input->post('typeimg2'),
+                                
                             );
             $this->db->where('id', $this->input->post('id'));
             $this->db->update('roomcategory', $arr1);
