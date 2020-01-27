@@ -77,8 +77,8 @@
                                             $status = $data->statusrepair;
                                             if ($status == 1) {
                                                 ?>
-                                               <a href="repair/update_status?sval=<?php echo $data->id; ?>&sval=<?php echo $data->statusrepair; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-success">รับเรื่องแล้ว</a>
-                                               
+                                               <a href="repair/update_status?sval=<?php echo $data->id; ?>&sval=<?php echo $data->statusrepair; ?>"  class="btn btn-success">รับเรื่องแล้ว</a>
+                                               <!-- <?php if ($status == 1) { ?> disabled <?php   } ?> -->
                                             <?php
                                                
                                             } else {
