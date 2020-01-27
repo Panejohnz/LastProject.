@@ -20,7 +20,7 @@
 				</a>
 			</li>
 			<li class="active">
-				<?php echo $result->NumRoom ?>
+				<?php echo $result->numroom ?>
 			</li>
 		</ol>
 	</section>
@@ -38,48 +38,48 @@
 				</h3>
 			</div><!-- /.box-header -->
 			<!-- form start -->
-			<form role="form" action="<?php echo  base_url('contract/edcon/'. $result->id); ?>" method="post"  enctype="multipart/form-data" >
+			<form role="form" action="<?php echo  base_url('contract/edcon/'. $result->contract_id); ?>" method="post"  enctype="multipart/form-data" >
 				<input type="hidden" name="id" value="<?php echo $result->id ?>">
 				
 				<div class="box-body">
 
 			 <div class="form-group">
 
-                        <label for="exampleInputEmail1" value="<?php echo  $result->Insurance ?>" >
+                        <label for="exampleInputEmail1" value="<?php echo  $result->insurance ?>" >
                             อัพโหลดไฟล์ภาพ
 
-		<a href="<?php echo base_url('uploads/'.$result->Insurance); ?>" target="_blank" require>(ไฟล์เดิมคลิก)</a>
+		<a href="<?php echo base_url('uploads/'.$result->insurance); ?>" target="_blank" require>(ไฟล์เดิมคลิก)</a>
 
                      
                         </label> <?php echo $this->session->flashdata('err_typeimg'); ?>
-                        <input type="file" name="typeimg" id="typeimg" value="<?php echo  $result->Insurance ?>" >
+                        <input type="file" name="typeimg" id="typeimg" value="<?php echo  $result->insurance ?>" >
 					</div>
 					
 					<div class="col-sm-4">  
                     <label for="#">วันเริ่มสัญญา</label> <?php echo $this->session->flashdata('error_firstname')?>
                         
-                         <input id="datepickerstart" name="datepickerstart" type="text" class="form-control checkin_date"  value="<?php echo  $result->StartRcontract ?>">
+                         <input id="datepickerstart" name="datepickerstart" type="text" class="form-control checkin_date"  value="<?php echo  $result->startrcontract ?>">
 					
                     </div>
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
                             วันหมดสัญญา
                         </label> <?php echo $this->session->flashdata('error_enddate')?>
-                        <input id="datepickerend" name="datepickerend" type="text" class="form-control checkin_date" value="<?php echo  $result->EndRcontractct ?>">
+                        <input id="datepickerend" name="datepickerend" type="text" class="form-control checkin_date" value="<?php echo  $result->endrcontractct ?>">
                     </div>
 
 					<div class="col-sm-4">
 						<label for="exampleInputEmail1">
 						เลขห้อง
 						</label> <?php echo $this->session->flashdata('error_numroom')?>
-						<input type="text" id="name" class="form-control" name="numroom" value="<?php echo  $result->NumRoom ?>">
+						<input type="text" id="name" class="form-control" name="numroom" value="<?php echo  $result->numroom ?>">
 					</div>
 
 					<div class="col-sm-4">
 						<label for="exampleInputEmail1">
 						ลูกค้า
 						</label> <?php echo $this->session->flashdata('error_numroom')?>
-						<input type="text" id="name" class="form-control" name="IdCustomer" value="<?php echo  $result->IdCustomer ?>">
+						<input type="text" id="name" class="form-control" name="IdCustomer" value="<?php echo  $result->idcustomer ?>">
 					</div>
 
 				</div><!-- /.box-body -->

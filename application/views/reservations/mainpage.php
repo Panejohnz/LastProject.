@@ -52,7 +52,7 @@
                                     <?php if(!empty($results)){ foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('reservations/edit/'.$data->id); ?>">
+                                            <a href="<?php echo base_url('reservations/edit/'.$data->reservations_id); ?>">
                                             <?php echo  $data->reservationsstart; ?>
                                             </a> 
                                             <br>

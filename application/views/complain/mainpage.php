@@ -52,18 +52,18 @@
     foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('complain/edit/'.$data->customer_id); ?>">
+                                            <a href="<?php echo base_url('complain/edit/'.$data->complain_id); ?>">
                                             <?php echo  $data->complaindetail; ?>
                                             <br>
                                            
                                             <td>
-                                            <?php echo $data->customer_id; ?>
+                                            <?php echo $data->user_id; ?>
                                               
                                             </td> 
                                             
                                              
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('complain/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('complain/confrm/'.$data->complain_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
                                     <?php }

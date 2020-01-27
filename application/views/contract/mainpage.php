@@ -53,19 +53,19 @@
     foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('contract/edit/'.$data->id); ?>">
-                                            <?php echo  $data->NumRoom; ?>
+                                            <a href="<?php echo base_url('contract/edit/'.$data->contract_id); ?>">
+                                            <?php echo  $data->numroom; ?>
                                             <br>
                                              </td>
                                              <td>
-                                             <?php $this->db->where('id', $data->id);
+                                             <?php $this->db->where('id', $data->contract_id);
                                                    $files =  $this->db->get('contract', 1);
                                                     $f = $files->row_array();?>
 <div class="file-box">
     <div class="box-content">
       
        
-        <a href="<?php echo base_url().'contract/download/'.$f['Insurance']; ?>" class="dwn"> <?php echo $data->Insurance; ?></a>
+        <a href="<?php echo base_url().'contract/download/'.$f['insurance']; ?>" class="dwn"> <?php echo $data->insurance; ?></a>
     </div>
 </div>
         <?php  
@@ -73,20 +73,20 @@
                                               
                                             </td> 
                                             <td>
-                                            <?php echo $data->StartRcontract; ?>
+                                            <?php echo $data->startrcontract; ?>
                                               
                                             </td> 
                                             <td>
-                                            <?php echo $data->EndRcontractct; ?>
+                                            <?php echo $data->endrcontractct; ?>
                                               
                                             </td> 
                                             <td>
-                                            <?php echo $data->IdCustomer; ?>
+                                            <?php echo $data->idcustomer; ?>
                                               
                                             </td> 
                                              
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('contract/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('contract/confrm/'.$data->contract_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
                                     <?php }

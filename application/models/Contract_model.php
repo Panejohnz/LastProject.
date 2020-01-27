@@ -66,7 +66,7 @@ class Contract_model extends CI_Model
 
 
 	public function read_contract($id){
-		$this->db->where('id',$id);
+		$this->db->where('contract_id',$id);
 		$query = $this->db->get('contract');
 		if($query->num_rows() > 0){
 			$data = $query->row();
@@ -76,10 +76,10 @@ class Contract_model extends CI_Model
 	}
 	
 	public function remove_contract($id){
-		$this->db->delete('contract',array('id'=>$id));
+		$this->db->delete('contract',array('contract_id'=>$id));
 	}
 	public function read_imgtype($id){
-		$this->db->where('id',$id);
+		$this->db->where('contract_id',$id);
 		$query = $this->db->get('contract');
 		if($query->num_rows() > 0){
 			$data = $query->row();
@@ -90,9 +90,9 @@ class Contract_model extends CI_Model
 	function getRows($params = array()){
         $this->db->select('*');
         $this->db->from('contract');	
-        $this->db->order_by('StartRcontract','desc');
-        if(array_key_exists('id',$params) && !empty($params['id'])){
-            $this->db->where('id',$params['id']);
+        $this->db->order_by('startrcontract','desc');
+        if(array_key_exists('contract_id',$params) && !empty($params['contract_id'])){
+            $this->db->where('contract_id',$params['contract_id']);
             //get records
             $query = $this->db->get();
             $result = ($query->num_rows() > 0)?$query->row_array():FALSE;

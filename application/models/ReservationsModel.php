@@ -31,7 +31,7 @@ class ReservationsModel extends CI_Model
     }
 
     public function read_reservations($id){
-		$this->db->where('id',$id);
+		$this->db->where('reservations_id',$id);
 		$query = $this->db->get('reservations');
 		if($query->num_rows() > 0){
 			$data = $query->row();
@@ -41,7 +41,7 @@ class ReservationsModel extends CI_Model
 	}
 	
 	public function remove_reservations($id){
-		$this->db->delete('reservations',array('id'=>$id));
+		$this->db->delete('reservations',array('reservations_id'=>$id));
 	}
 
     // public function search_room($cateid)
@@ -58,7 +58,7 @@ class ReservationsModel extends CI_Model
     // }
     
     public function historybill($id){
-        $this->db->where('id',$id);
+        $this->db->where('roomcategory_id',$id);
 		$query = $this->db->get('roomcategory');
 		if($query->num_rows() > 0){
 			$data = $query->row();

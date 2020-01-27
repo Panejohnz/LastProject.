@@ -34,8 +34,8 @@
 			<!-- form start -->
 		<div class="col-md-1"></div>
 		<div class="col-md-9">
-			<form role="form" action="<?php echo  base_url(''); ?>room/edroom/<?php echo $result->id ?>" method="post" class="form-horizontal">
-				<input type="hidden" name="user_id" value="<?php echo $result->id?>">
+			<form role="form" action="<?php echo  base_url(''); ?>room/edroom/<?php echo $result->room_id ?>" method="post" class="form-horizontal">
+				<input type="hidden" name="user_id" value="<?php echo $result->room_id?>">
 				<div class="box-body">
 				<div class="form-group">
 				<div class="col-sm-4">
@@ -49,7 +49,7 @@
 					<label for="exampleInputEmail1">
 							ประเภทห้อง
 						</label> <?php echo $this->session->flashdata('error_roomcate')?>
-						<input type="text" id="roomcate" class="form-control" name="roomcate" value="<?php echo  $result->roomcate ?>">
+						<input type="text" id="roomcate" class="form-control" name="roomcate" value="<?php echo  $result->roomname ?>">
 				</div>
 
 			</div>

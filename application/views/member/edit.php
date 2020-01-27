@@ -43,13 +43,13 @@
 							username
 						</label> 
 						<?php echo $this->session->flashdata('error_username')?>
-						<input type="text" id="username" class="form-control" name="username" value="<?php echo  $result->username ?>">
+						<input type="text" readonly id="username" class="form-control" name="username" value="<?php echo  $result->username ?>">
 				</div>
 				<div class="col-sm-4">	
 					<label for="exampleInputEmail1">
 							password
 						</label> <?php echo $this->session->flashdata('error_password')?>
-						<input type="text" id="password" class="form-control" name="password" value="<?php echo  $result->password ?>">
+						<input type="text" readonly id="password" class="form-control" name="password" value="<?php echo  $result->password ?>">
 				</div>
 
 			</div>

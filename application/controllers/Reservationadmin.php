@@ -64,7 +64,7 @@ redirect('room');
 			'roomprice' => $this->input->post('roomprice')
 			
 		);
-		$this->db->where('id', $idroom);
+		$this->db->where('room_id', $idroom);
 		
 		$this->db->update('room', $object);
 		redirect('room');
