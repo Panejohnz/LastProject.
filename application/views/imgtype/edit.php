@@ -31,8 +31,8 @@
 				</h3>
 			</div><!-- /.box-header -->
 			<!-- form start -->
-			<form role="form" action="<?php echo  base_url('imgtype/update'); ?>" method="post"  enctype="multipart/form-data" >
-				<input type="hidden" name="id" value="<?php echo $result->id ?>">
+			<form role="form" action="<?php echo  base_url(''); ?>imgtype/edittype/<?php echo $result->roomcategory_id ?>" method="post"  enctype="multipart/form-data" >
+				<input type="hidden" name="id" value="<?php echo $result->roomcategory_id ?>">
 				
 				<div class="box-body">
 					<div class="form-group">
@@ -46,6 +46,12 @@
 							รายละเอียด
 						</label> <?php echo $this->session->flashdata('error_detail')?>
 						<input type="text" id="detail" class="form-control" name="detail" value="<?php echo  $result->detail ?>">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">
+							ราคา
+						</label> <?php echo $this->session->flashdata('error_detail')?>
+						<input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo  $result->roomprice ?>">
 					</div>
 
 			 <!-- <div class="form-group">

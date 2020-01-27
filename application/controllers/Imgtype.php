@@ -119,25 +119,19 @@ class imgtype extends CI_Controller
         $config['max_width'] = '2000';
         $config['max_height'] = '2000';
 
-        $this->load->library('upload', $config);
-
-        if (! $this->upload->do_upload('typeimg')) {
-            //$error = array('error' => $this->upload->display_errors());
-            echo $this->upload->display_errors();
-        //$this->load->view('upload_form', $error);
-        } else {
-            $data = $this->upload->data();
+        
 
             //print_r($data);
             //$this->load->view('upload_success', $data);
 
-            $filename = $data['file_name'];
+            
             //$imgtype_name = $data['imgtype_name'];
 
             $arr=array(
                                 'roomname'=> $this->input->post('roomname'),
                                 'detail'=> $this->input->post('detail'),
-                                "typeimg"=>$filename
+                                'roomprice'=> $this->input->post('roomprice')
+                               
                             );
             $this->db->insert('roomcategory', $arr);
 
@@ -148,82 +142,95 @@ class imgtype extends CI_Controller
                         );
 
             redirect('imgtype');
-        }
+        
     }
 
 
-    public function update($value='')
-    {
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size']     = '2000';
-        $config['max_width'] = '2000';
-        $config['max_height'] = '2000';
+    // public function update($value='')
+    // {
+    //     $config['upload_path'] = './uploads/';
+    //     $config['allowed_types'] = 'gif|jpg|png';
+    //     $config['max_size']     = '2000';
+    //     $config['max_width'] = '2000';
+    //     $config['max_height'] = '2000';
         
-        $this->load->library('upload', $config);
+    //     $this->load->library('upload', $config);
 
 
-        //print_r($_POST);
+    //     //print_r($_POST);
 
-        //exit();
+    //     //exit();
 
-        if (! $this->upload->do_upload('typeimg')) {
-            //$error = array('error' => $this->upload->display_errors());
-            //echo $this->upload->display_errors();
-            //$this->load->view('upload_form', $error);
+    //     if (! $this->upload->do_upload('typeimg')) {
+    //         //$error = array('error' => $this->upload->display_errors());
+    //         //echo $this->upload->display_errors();
+    //         //$this->load->view('upload_form', $error);
 
                
-            $arr1=array(
-                                'id'=> $this->input->post('id'),
-                                'roomname'=> $this->input->post('roomname'),
-                                'detail'=> $this->input->post('detail'),
+    //         $arr1=array(
+    //                             'id'=> $this->input->post('id'),
+    //                             'roomname'=> $this->input->post('roomname'),
+    //                             'detail'=> $this->input->post('detail'),
                                 
-                            );
-            $this->db->where('id', $this->input->post('id'));
-            $this->db->update('roomcategory', $arr1);
+    //                         );
+    //         $this->db->where('id', $this->input->post('id'));
+    //         $this->db->update('roomcategory', $arr1);
 
 
-            $this->session->set_flashdata(
-                       array(
-                        'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-success"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ [ไม่เปลี่ยนภาพ]</div></div>'
-                    )
-                   );
+    //         $this->session->set_flashdata(
+    //                    array(
+    //                     'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-success"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ [ไม่เปลี่ยนภาพ]</div></div>'
+    //                 )
+    //                );
 
-            redirect('imgtype', 'refresh');
-        } else {
-            $data = $this->upload->data();
+    //         redirect('imgtype', 'refresh');
+    //     } else {
+    //         $data = $this->upload->data();
 
-            //print_r($data);
-            //$this->load->view('upload_success', $data);
+    //         //print_r($data);
+    //         //$this->load->view('upload_success', $data);
 
-            $filename = $data['file_name'];
-            //$imgtype_name = $data['imgtype_name'];
+    //         $filename = $data['file_name'];
+    //         //$imgtype_name = $data['imgtype_name'];
 
-            if ($filename!='') {
-                echo "has";
-            } else {
-                echo "no";
-            }
+    //         if ($filename!='') {
+    //             echo "has";
+    //         } else {
+    //             echo "no";
+    //         }
 
-            //exit();
+    //         //exit();
 
-            $arr=array(
-                                'id'=> $this->input->post('id'),
-                                'roomname'=> $this->input->post('roomname'),
-                                //'typeimg2'=> $this->input->post('typeimg2'),
-                                "typeimg"=>$filename
-                            );
-            $this->db->where('id', $this->input->post('id'));
-            $this->db->update('imgtype', $arr);
+    //         $arr=array(
+    //                             'id'=> $this->input->post('id'),
+    //                             'roomname'=> $this->input->post('roomname'),
+    //                             //'typeimg2'=> $this->input->post('typeimg2'),
+    //                             "typeimg"=>$filename
+    //                         );
+    //         $this->db->where('id', $this->input->post('id'));
+    //         $this->db->update('imgtype', $arr);
 
-            $this->session->set_flashdata(
-                            array(
-                        'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
-                    )
-                        );
+    //         $this->session->set_flashdata(
+    //                         array(
+    //                     'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
+    //                 )
+    //                     );
 
-            redirect('imgtype', 'refresh');
-        }
+    //         redirect('imgtype', 'refresh');
+    //     }
+    // }
+
+    public function edittype($idtype){
+        $object = array(
+            'roomcategory_id'=> $this->input->post('id'),
+            'roomname'=> $this->input->post('roomname'),
+                                'detail'=> $this->input->post('detail'),
+                                'roomprice'=> $this->input->post('roomprice')
+		);
+		$this->db->where('roomcategory_id', $idtype);
+		
+		$this->db->update('roomcategory', $object);
+		redirect('imgtype');
     }
 
 

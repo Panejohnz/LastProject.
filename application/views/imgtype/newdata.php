@@ -29,11 +29,19 @@
                         <input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $this->session->flashdata('roomname'); ?>">
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputEmail1">รายละเอียด</label> <?php echo $this->session->flashdata('error_roomname'); ?>
+                        <input type="text" id="detail" class="form-control" name="detail" value="<?php echo  $this->session->flashdata('detail'); ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">ราคา</label> <?php echo $this->session->flashdata('error_roomname'); ?>
+                        <input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo  $this->session->flashdata('roomprice'); ?>">
+                    </div>
+                    <!-- <div class="form-group">
                         <label for="exampleInputEmail1">
                             อัพโหลดไฟล์ภาพ
                         </label> <?php echo $this->session->flashdata('err_typeimg'); ?>
                         <input type="file" name="typeimg" id="typeimg" >
-                    </div>
+                    </div> -->
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">

@@ -178,6 +178,15 @@ color: #000;
 					</span>
 				</a>
 			</li>
+			<li class="<?php echo base_url('admin'); ?>">
+				<a href="<?php echo base_url('admin'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span>
+						- จัดการพนักงาน
+					</span>
+				</a>
+			</li>
 			<li class="<?php echo base_url('imgtype'); ?>">
 				<a href="<?php echo base_url('imgtype'); ?>">
 					<i class="fa fa-link">
@@ -193,6 +202,15 @@ color: #000;
 					</i>
 					<span>
 						- ห้องพัก
+					</span>
+				</a>
+			</li>
+			<li class="<?php echo base_url(''); ?>">
+				<a href="<?php echo base_url(''); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span>
+						- เฟอร์นิเจอร์
 					</span>
 				</a>
 			</li>

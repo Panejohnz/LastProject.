@@ -2,11 +2,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            จัดการประเภทห้อง
+            จัดการพนักงาน
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo  base_url('imgtype'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-            <li class="active">จัดการประเภทห้อง</li>
+            <li><a href="<?php echo  base_url('admin'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+            <li class="active">จัดการพนักงาน</li>
         </ol>
     </section>
     <!-- Top menu -->
@@ -22,13 +22,13 @@
                 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                     <div class="row">
                         <div class="col-sm-6">
-                            <a class="btn btn-success" href="<?php echo  base_url('imgtype/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a>
-                            <a class="btn btn-default" href="<?php echo  base_url('imgtype'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
+                            <a class="btn btn-success" href="<?php echo  base_url('admin/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a>
+                            <a class="btn btn-default" href="<?php echo  base_url('admin'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
                         </div>
                         <div class="col-sm-6">
                             <div id="" class="dataTables_filter">
                             <form action="" method="GET" name="search">
-                            	<label>ค้นหา</label>:<input type="search" name="keyword" class="form-control input-sm" placeholder="ค้นหา"></label>
+                            	<label>ค้นหา</label>:<input type="search" name="keyword" class="form-control input-sm" placeholder="ค้นหาชื่อหมวดหมู่"></label>
                             </form>
                             </div>
                         </div>
@@ -38,11 +38,8 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ประเภท</th>
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 50%;">รายละเอียด</th>
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ราคา</th>
-
-                                        
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ชื่อ สกุล</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -50,24 +47,24 @@
                                     <?php if(!empty($results)){ foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('imgtype/edit/'.$data->roomcategory_id); ?>">
-                                            <?php echo  $data->roomname; ?>
+                                            <a href="<?php echo base_url('admin/edit/'.$data->employee_id); ?>">
+                                            <?php echo  $data->firstname; ?>
+                                            <?php echo $data->lastname; ?>
                                             </a> 
                                             <br>
+                                            username : <?php echo $data->username; ?>
+                                            </td>
+                                            
+                                            <td>
+                                            <br>
+                                            อีเมล์ : 
+                                            <?php echo $data->email; ?>  
+                                            <br>
+                                          
+                                            
                                            
-                                            </td>
                                             <td>
-                                            <?php echo  $data->detail; ?>
-                                            </td>
-                                             <!-- <td>
-                                             <img src="./uploads/<?php echo $data->typeimg; ?>" width="100px">
-                                              
-                                            </td>  -->
-                                            <td>
-                                            <?php echo  $data->roomprice; ?>
-                                            </td>
-                                            <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('imgtype/confrm/'.$data->roomcategory_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('admin/confrm/'.$data->employee_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
                                     <?php } } ?>
