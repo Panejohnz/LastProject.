@@ -36,7 +36,7 @@ class LoginController extends CI_Controller
             $email = $data['email'];
             $level = $data['statusem'];
             $sesdata = array(
-                'id' => $id,
+                'user_id' => $id,
                 'firstname'  => $name,
                 'email'     => $email,
                 'statusem'     => $level,

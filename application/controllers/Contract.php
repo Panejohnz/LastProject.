@@ -36,6 +36,10 @@ class Contract extends CI_Controller
 
     public function newdata()
     {
+        // $this->db->where('id', $id);
+        // $this->db->get('Table', limit, offset);
+        
+        
         $this->load->view('template/backheader');
         $this->load->view('contract/newdata');
         $this->load->view('template/backfooter');
@@ -47,7 +51,7 @@ class Contract extends CI_Controller
             $this->load->helper('download');
             
             //get file info from database
-            $fileInfo = $this->contract_model->getRows(array('id' => $id));
+            $fileInfo = $this->contract_model->getRows(array('contract_id' => $id));
             
             //file path
             $file = 'uploads/'.$fileInfo['Insurance'];
@@ -160,11 +164,11 @@ class Contract extends CI_Controller
 
             $arr=array(
                                 // 'roomname'=> $this->input->post('roomname'),
-                                "Insurance"=>$filename,
-                                'StartRcontract' => $dat,
-                'EndRcontractct' => $dat2,
-                'NumRoom' => $this->input->post('numroom'),
-                'IdCustomer' => $this->input->post('IdCustomer')
+                                "insurance"=>$filename,
+                                'startrcontract' => $dat,
+                'endrcontractct' => $dat2,
+                'numroom' => $this->input->post('numroom'),
+                'idcustomer' => $this->input->post('idcustomer')
                             );
             $this->db->insert('contract', $arr);
 
@@ -201,11 +205,11 @@ class Contract extends CI_Controller
 
                
             $arr1=array(
-                                'id'=> $this->input->post('id'),
+                                'contract_id'=> $this->input->post('id'),
                                 // 'roomname'=> $this->input->post('roomname'),
                                 'Insurance'=> $this->input->post('Insurance'),
                             );
-            $this->db->where('id', $this->input->post('id'));
+            $this->db->where('contract_id', $this->input->post('id'));
             $this->db->update('contract', $arr1);
 
 
@@ -234,16 +238,16 @@ class Contract extends CI_Controller
             //exit();
 
             $arr=array(
-                                'id'=> $this->input->post('id'),
+                                'contract_id'=> $this->input->post('id'),
                                 // 'roomname'=> $this->input->post('roomname'),
                                 //'typeimg2'=> $this->input->post('typeimg2'),
-                                "Insurance"=>$filename,
-                                'StartRcontract' => $this->input->post('startdate'),
-                'EndRcontractct' => $this->input->post('enddate'),
-                'NumRoom' => $this->input->post('numroom'),
-                'IdCustomer' => $this->input->post('IdCustomer')
+                                "insurance"=>$filename,
+                                'startrcontract' => $this->input->post('startdate'),
+                'endrcontractct' => $this->input->post('enddate'),
+                'numroom' => $this->input->post('numroom'),
+                'idcustomer' => $this->input->post('idcustomer')
                             );
-            $this->db->where('id', $this->input->post('id'));
+            $this->db->where('contract_id', $this->input->post('id'));
             $this->db->update('contract', $arr);
 
             $this->session->set_flashdata(
@@ -257,11 +261,11 @@ class Contract extends CI_Controller
 
             $object = array(
              
-                'Insurance' => $this->input->post('typeimg'),
-                'StartRcontract' => $this->input->post('startdate'),
-                'EndRcontractct' => $this->input->post('enddate'),
-                'NumRoom' => $this->input->post('numroom'),
-                'IdCustomer' => $this->input->post('IdCustomer')
+                'insurance' => $this->input->post('typeimg'),
+                'startrcontract' => $this->input->post('startdate'),
+                'endrcontractct' => $this->input->post('enddate'),
+                'numroom' => $this->input->post('numroom'),
+                'idcustomer' => $this->input->post('IdCustomer')
             
             );
             $this->db->insert('contract', $object);
@@ -281,23 +285,46 @@ class Contract extends CI_Controller
 
     public function edcon($idmem)
     {
-        $Date = $this->input->post("datepickerstart");
-        $dat = date("Y-m-d", strtotime($Date));
-        $Date2 = $this->input->post("datepickerend");
-        $dat2 = date("Y-m-d", strtotime($Date2));    
+       
+            //$imgtype_name = $data['imgtype_name'];
+
+            $Date = $this->input->post("datepickerstart");
+            $dat = date("Y-m-d", strtotime($Date));
+            $Date2 = $this->input->post("datepickerend");
+            $dat2 = date("Y-m-d", strtotime($Date2));
         
-		$object = array(
-            'Insurance' => $this->input->post('typeimg'),
-            'StartRcontract' => $dat,
-            'EndRcontractct' => $dat2,
-            'NumRoom' => $this->input->post('numroom'),
-            'IdCustomer' => $this->input->post('IdCustomer')
-		);
-		$this->db->where('id', $idmem);
-		
-		$this->db->update('contract', $object);
-		redirect('contract');
-	}
+            $config['upload_path'] = './uploads/';
+            $config['allowed_types'] = 'gif|jpg|png|doc|docx|pptx|xlsx';
+            $config['max_size']     = '10000000';
+            $config['max_width'] = '200000';
+            $config['max_height'] = '200000';
+            
+            $this->load->library('upload', $config);
+            if (! $this->upload->do_upload('typeimg')) {
+                //$error = array('error' => $this->upload->display_errors());
+                echo $this->upload->display_errors();
+            //$this->load->view('upload_form', $error);
+            } else {
+                $data = $this->upload->data();
+    
+                //print_r($data);
+                //$this->load->view('upload_success', $data);
+    
+                $filename = $data['file_name'];
+
+            $object = array(
+            "insurance"=>$filename,
+            'startrcontract' => $dat,
+            'endrcontractct' => $dat2,
+            'numroom' => $this->input->post('numroom'),
+            'idcustomer' => $this->input->post('IdCustomer')
+        );
+            $this->db->where('contract_id', $idmem);
+        
+            $this->db->update('contract', $object);
+            redirect('contract');
+        }
+    }
 
     public function confrm($id)
     {

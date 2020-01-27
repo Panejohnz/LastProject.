@@ -21,7 +21,13 @@ class Room_model extends CI_Model
     {
         $this->db->like('roomnum', $keryword);
         $this->db->limit($limit, $start);
-        $query = $this->db->get('room');
+        $this->db->select('*')
+        ->from('room')
+        ->from('roomcategory')
+     ->where('roomcategory.roomcategory_id = room.roomcate_id');
+     
+     
+$query = $this->db->get();
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
                 $data[] = $row;
@@ -46,13 +52,19 @@ class Room_model extends CI_Model
         if ($id == null) {
             $this->db->insert('room', $this);
         } else {
-            $this->db->update('room', $this, array('id'=> $id));
+            $this->db->update('room', $this, array('room_id'=> $id));
         }
     }
     public function read_room($id)
     {
         $this->db->where('id', $id);
-        $query = $this->db->get('room');
+        $this->db->select('*')
+        ->from('room')
+        ->from('roomcategory')
+     ->where('roomcategory.roomcategory_id = room.roomcate_id');
+     
+     
+$query = $this->db->get();
         if ($query->num_rows() > 0) {
             $data = $query->row();
             return $data;
@@ -61,7 +73,7 @@ class Room_model extends CI_Model
     }
     public function remove_room($id)
     {
-        $this->db->delete('room', array('id'=>$id));
+        $this->db->delete('room', array('room_id'=>$id));
     }
     public function room_detail()
     {
@@ -74,7 +86,7 @@ class Room_model extends CI_Model
     {
         return $this->db->select('*')
                     ->from('room')
-                    ->where(['id'=>$id])
+                    ->where(['room_id'=>$id])
                     ->get()
                     ->row();
     }
@@ -82,7 +94,7 @@ class Room_model extends CI_Model
     {
         return $this->db->select('*')
                     ->from('roomcategory')
-                    ->where(['id'=>$idcate])
+                    ->where(['roomcategory_id'=>$idcate])
                     ->get()
                     ->row();
     }
@@ -101,7 +113,7 @@ class Room_model extends CI_Model
         $data = array(
                 'roomstatus' => $status
             );
-        $this->db->where('id',$id);
+        $this->db->where('room_id',$id);
         return $this->db->update('room',$data);
         }
 }

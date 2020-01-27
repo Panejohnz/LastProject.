@@ -20,7 +20,7 @@ class ReservationsController extends CI_Controller
 
     public function keyword($cateid = null)
     {
-        $this->db->where('id', $cateid);
+        $this->db->where('roomcategory_id', $cateid);
         $query = $this->db->get('roomcategory');
         $qq = $query->row_array();
         //    $qq = array(

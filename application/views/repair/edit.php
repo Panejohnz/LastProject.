@@ -31,14 +31,14 @@
 				</h3>
 			</div><!-- /.box-header -->
 			<!-- form start -->
-			<form role="form" action="<?php echo  base_url('repair/editre/'. $result->id); ?>" method="post"  enctype="multipart/form-data" >
+			<form role="form" action="<?php echo  base_url('repair/editre/'. $result->repair_id); ?>" method="post"  enctype="multipart/form-data" >
 			
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">
 							ผู้แจ้ง
 						</label> <?php echo $this->session->flashdata('error_roomnum')?>
-						<input type="text" id="id" class="form-control" name="id" value="<?php echo  $result->id ?>" style="width: auto" >
+						<input type="text" id="id" class="form-control" name="id" value="<?php echo  $result->repair_id ?>" style="width: auto" >
 					</div>
 
 					<div class="form-group">

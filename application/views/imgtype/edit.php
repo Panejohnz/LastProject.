@@ -32,8 +32,8 @@
 			</div><!-- /.box-header -->
 			<!-- form start -->
 			<form role="form" action="<?php echo  base_url('imgtype/update'); ?>" method="post"  enctype="multipart/form-data" >
-				<input type="hidden" name="id" value="<?php echo $result->id ?>">
-				<input type="hidden" name="typeimg2" value="<?php echo $result->typeimg ?>">
+				<input type="hidden" name="id" value="<?php echo $result->roomcategory_id ?>">
+				<!-- <input type="hidden" name="typeimg2" value="<?php echo $result->typeimg ?>"> -->
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">

@@ -23,7 +23,7 @@ class bill_model extends CI_Model
         $this->db->limit($limit, $start);
         $this->db->select('*')
        				 ->from('room')
-                     ->join('bill', 'bill.id = room.id');
+                     ->join('bill', 'bill.bill_id = room.room_id');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
@@ -49,12 +49,12 @@ class bill_model extends CI_Model
         if ($id == null) {
             $this->db->insert('room', $this);
         } else {
-            $this->db->update('room', $this, array('id'=> $id));
+            $this->db->update('room', $this, array('room_id'=> $id));
         }
     }
     public function read_room($id)
     {
-        $this->db->where('id', $id);
+        $this->db->where('room_id', $id);
         $query = $this->db->get('room');
         if ($query->num_rows() > 0) {
             $data = $query->row();
@@ -64,6 +64,6 @@ class bill_model extends CI_Model
     }
     public function remove_room($id)
     {
-        $this->db->delete('room', array('id'=>$id));
+        $this->db->delete('room', array('room_id'=>$id));
     }
 }

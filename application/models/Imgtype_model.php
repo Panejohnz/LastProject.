@@ -66,7 +66,7 @@ class Imgtype_model extends CI_Model
 
 
 	public function read_roomcategory($id){
-		$this->db->where('id',$id);
+		$this->db->where('roomcategory_id',$id);
 		$query = $this->db->get('roomcategory');
 		if($query->num_rows() > 0){
 			$data = $query->row();
@@ -75,10 +75,10 @@ class Imgtype_model extends CI_Model
 		return FALSE;
 	}
 	public function remove_roomcategory($id){
-		$this->db->delete('roomcategory',array('id'=>$id));
+		$this->db->delete('roomcategory',array('roomcategory_id'=>$id));
 	}
 	public function read_imgtype($imgtype_id){
-		$this->db->where('id',$imgtype_id);
+		$this->db->where('roomcategory_id',$imgtype_id);
 		$query = $this->db->get('roomcategory');
 		if($query->num_rows() > 0){
 			$data = $query->row();

@@ -50,7 +50,7 @@
                                     <?php if(!empty($results)){ foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('imgtype/edit/'.$data->id); ?>">
+                                            <a href="<?php echo base_url('imgtype/edit/'.$data->roomcategory_id); ?>">
                                             <?php echo  $data->roomname; ?>
                                             </a> 
                                             <br>
@@ -64,7 +64,7 @@
                                               
                                             </td>  -->
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('imgtype/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('imgtype/confrm/'.$data->roomcategory_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
                                     <?php } } ?>

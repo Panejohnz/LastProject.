@@ -49,7 +49,7 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">ID<?php echo $this->session->flashdata('error_id'); ?>
-                        <input type="text" id="id" class="form-control" name="id" value="<?php echo  $this->session->flashdata('id'); ?>">
+                        <input type="text" id="id" class="form-control" name="id" value="<?php echo  $this->session->flashdata('repair_id'); ?>">
                     </div>
 
                     <div class="form-group">

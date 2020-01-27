@@ -66,7 +66,7 @@ class repair_model  extends CI_Model
 
 
 	public function read_roomcategory($id){
-		$this->db->where('id',$id);
+		$this->db->where('repair_id',$id);
 		$query = $this->db->get('Repair');
 		if($query->num_rows() > 0){
 			$data = $query->row();
@@ -75,10 +75,10 @@ class repair_model  extends CI_Model
 		return FALSE;
 	}
 	public function remove_roomcategory($id){
-		$this->db->delete('Repair',array('id'=>$id));
+		$this->db->delete('Repair',array('repair_id'=>$id));
 	}
 	public function read_imgtype($imgtype_id){
-		$this->db->where('id',$imgtype_id);
+		$this->db->where('repair_id',$imgtype_id);
 		$query = $this->db->get('Repair');
 		if($query->num_rows() > 0){
 			$data = $query->row();
@@ -102,7 +102,7 @@ class repair_model  extends CI_Model
         $data = array(
                 'statusrepair' => $status
             );
-        $this->db->where('id',$id);
+        $this->db->where('repair_id',$id);
         return $this->db->update('Repair',$data);
         }
 }

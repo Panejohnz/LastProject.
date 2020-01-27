@@ -11,6 +11,9 @@ class Room extends CI_Controller
 		parent::__construct();
 		$this->load->library('pagination');
 		$this->load->model('room_model');
+		if (!$this->session->userdata('firstname')) { //ดัก user บังคับล็อกอิน
+            redirect('LoginController');
+        }
 	}
 
 	public function index()
@@ -71,7 +74,7 @@ redirect('room');
 			'roomprice' => $this->input->post('roomprice')
 			
 		);
-		$this->db->where('id', $idroom);
+		$this->db->where('room_id', $idroom);
 		
 		$this->db->update('room', $object);
 		redirect('room');
@@ -97,10 +100,16 @@ redirect('room');
 
 	public function status1()
 	{
-		
+		$this->db->select('*')
+        ->from('room')
+        ->from('roomcategory')
+     ->where('roomcategory.roomcategory_id = room.roomcate_id');
+     
+     
+$query = $this->db->get();
 
 		$this->load->view('template/backheader');
-		$this->load->view('room/status1');
+		$this->load->view('room/status1',$query);
 		$this->load->view('template/backfooter');
 		
 		
@@ -109,9 +118,15 @@ redirect('room');
 	public function status2()
 	{
 		
-
+		$this->db->select('*')
+        ->from('room')
+        ->from('roomcategory')
+     ->where('roomcategory.roomcategory_id = room.roomcate_id');
+     
+     
+$query = $this->db->get();
 		$this->load->view('template/backheader');
-		$this->load->view('room/status2');
+		$this->load->view('room/status2',$query);
 		$this->load->view('template/backfooter');
 		
 		

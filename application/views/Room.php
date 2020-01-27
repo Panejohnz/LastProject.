@@ -380,7 +380,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-default">
     <div class="container">
         <?php $datepicker = $this->input->post('datepicker'); ?>
-        <a class="navbar-brand" href="<?php echo base_url('ReservationsController') ?>">Back <?php echo $datepicker?> <?php echo $this->input->post('roomname');?></a>
+        <a class="navbar-brand" href="<?php echo base_url('ReservationsController') ?>">Back <?php echo $this->input->post('roomname');?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -410,10 +410,10 @@
 <div class="container">
     <div class="row clearfix">
     
-<?php                       
-                            $this->db->where('roomcate', $id);
-                            $query = $this->db->get('room');
-                            $results = $query->result_array();?>
+<?php
+                           
+        $query  = $this->db->query("SELECT room.id as he ,roomcategory.* ,room.* FROM room,roomcategory WHERE room.roomcate_id = roomcategory.id AND roomcategory.id = $id");
+                            $results = $query->result_array();?>    
 						<?php	foreach ($results as $data) {
                                 ?>
         <div class="col-lg-3 col-md-4 col-sm-12">
@@ -425,7 +425,7 @@
                     </div>
                     <div class="product_details" >
                         <h2><?php echo  $data['roomnum']; ?></a></h2>
-                        <h5><?php echo  $data['roomcate']; ?></h5>
+                        <h5><?php echo  $data['roomname']; ?></h5>
                         <ul class="product_price list-unstyled">
                         <h4> <li class="new_price"><?php echo  $data['roomprice']; ?>฿</li></h4>
                         <td>  
@@ -434,17 +434,17 @@
                                              $status = $data['roomstatus'];
                                 if ($status == 1) {
                                     ?>
-                                                <a href="RoomController/update_status?sid=<?php echo $data['id']; ?>&sval=<?php echo $data['roomstatus']; ?>" disabled class="btn btn-danger">ติดจอง</a>
+                                                <a href="RoomController/update_status?sid=<?php echo $data['room_id']; ?>&sval=<?php echo $data['roomstatus']; ?>" disabled class="btn btn-danger">ไม่ว่าง</a>
                                                 
                                              <?php
                                 } else {
                                     ?>
-                                                <a href="<?php echo base_url();?>Bookaroom/dd/<?php echo $data['id']?>/<?php echo $datepicker ?>" class="btn btn-success">ห้องว่าง</a>
+                                                <a href="<?php echo base_url(); ?>Bookaroom/dd/<?php echo $data['he']?>/<?php echo $datepicker ?>" class="btn btn-success">จอง</a>
                                                 
                                            <?php
                                 } ?>
                                             </td>
-                        <button class="btn btn-primary view_detail" relid="<?php echo $data['id']; ?>" <?php if ($data['roomstatus'] != 0) {  ?> disabled <?php } ?>>Detail</button>
+                        <button class="btn btn-primary view_detail" relid="<?php echo $data['room_id']; ?>" <?php if ($data['roomstatus'] != 0) {  ?> disabled <?php } ?>>Detail</button>
                         <!-- Modal -->
                         <div id="show_modal" class="modal fade" role="dialog" style="background: #000;">
   <div class="modal-dialog">
@@ -516,7 +516,7 @@
                 $('#roomnum').html(response.roomnum);
                 $('#roomcate').html(response.roomcate);
                 $('#roomprice').html(response.roomprice);
-                $('#id').html(response.id);
+                $('#room_id').html(response.id);
                 $('#show_modal').modal({backdrop: 'static', keyboard: true, show: true});
             }
           });

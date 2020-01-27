@@ -43,10 +43,7 @@
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="<?php echo site_url('ReservationsController') ?>" class="nav-link">หน้าแรก</a></li>
 	          <li class="nav-item"><a  href="<?php echo site_url('repair/newdata') ?>" class="nav-link">แจ้งซ่อม</a></li>
-	          <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          
 	        </ul>
 	      </div>
 	    </div>
@@ -95,7 +92,7 @@
 	        				<div class="form-group p-4 align-self-stretch d-flex align-items-end">
 	        					<div class="wrap">
 				    					<label for="#">Check-in Date</label>
-				    					<input id="datepicker" name="datepicker" type="text" class="form-control checkin_date" placeholder="Check-in date" readonly >
+				    					<input id="datepicker" name="datepicker" type="text" class="form-control checkin_date" required placeholder="Check-in date" autocomplete="off" >
 			    					</div>
 			    				</div>
 	        			</div>
@@ -118,7 +115,7 @@
 											<h1><option value="<?php echo $result['roomname'] . ' '?>"> 
 											<?php echo $result['roomname'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?>
 								</option>
-											<?php $eiei = $result['id'];
+											<?php $eiei = $result['roomcategory_id'];
 							} ?>
 										</select>
 			                  </div>

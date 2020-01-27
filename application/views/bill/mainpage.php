@@ -51,7 +51,7 @@
     foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('room/edit/'.$data->id); ?>">
+                                            <a href="<?php echo base_url('room/edit/'.$data->bill_id); ?>">
                                             <?php echo  $data->roomnum; ?>
                                             
                                             </a> 
@@ -63,7 +63,7 @@
                                             เดือนที่แล้ว
                                            
                                           
-                                            <input readonly type="input" name="electricold" id="electricold" class="form-control input-sm" value="<?php echo $data->Electricbill; ?>" style="width:30%">
+                                            <input readonly type="input" name="electricold" id="electricold" class="form-control input-sm" value="<?php echo $data->electricbill; ?>" style="width:30%">
                                                 เดือนปัจจุบัน
                                                  <input  type="input" name="electricnew" id="electricnew" class="form-control input-sm" style="width:30%">
                                           
@@ -80,12 +80,12 @@
                                             เดือนที่แล้ว
                                            
                                           
-                                            <input readonly type="input" name="waterold" id="waterold" class="form-control input-sm" value="<?php echo $data->Waterbill; ?>" style="width:30%">
-                                            เดือนปัจจุบัน <input type="input" name="waternew" id="waternew" class="form-control input-sm" style="width:30%"> 
+                                            <input readonly type="text" name="waterold" id="waterold" class="form-control input-sm" value="<?php echo $data->waterbill; ?>" style="width:30%">
+                                            เดือนปัจจุบัน <input type="text" name="waternew" id="waternew" class="form-control input-sm" style="width:30%"> 
                                            
                                             <br>
                                             <?php $status = $data->roomstatus; ?>
-                                            <td><a class="btn btn-info" <?php if($status != 0){ ?> disabled <?php } ?> href="<?php echo  base_url('Billcontroller/cal/'.$data->id); ?>" >คำนวน</a></td>
+                                            <td><input type='submit' name='submit' href="<?php echo  base_url('Billcontroller/cal/'.$data->bill_id); ?>"  class="btn btn-info" <?php if($status != 0){ ?> disabled <?php } ?>   ></td>
                                         <!-- จำนวนเงิน :  <span id="resultw"></span>
                                             <script>$(document).ready(function(){
     $('#waternew').keyup(function(){

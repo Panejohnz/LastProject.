@@ -8,31 +8,35 @@ class RoomController extends CI_Controller
         parent::__construct();
         $this->load->model('login_model');
         $this->load->model('room_model');
-        
     }
 
 
     public function index()
     {
-       
     }
   
-    public function ss(){
+    public function ss()
+    {
         $id = $this->input->post('Hee');
-        $this->db->where('roomcate', $id);
-        $query = $this->db->get('room');
+        $this->db->where('roomname', $id);
+        $this->db->select('*')
+                            ->from('room')
+                            ->from('roomcategory')
+                         ->where('roomcategory.roomcategory_id = room.roomcate_id');
+                         
+                         
+        $query = $this->db->get();
         $hee = $query->row_array();
         // $qq = array(
         //     'reservationsstart' => $this->input->post('datepicker'),
         //     'reservationsprice' => '2000');
         // $this->db->insert('reservations', $qq);
-        $room = $hee;
-        $this->data['id'] = $id;
-        $this->load->view('room', $this->data, FALSE);
+        $this->data['roomcategory_id'] = $hee['room_id'];
+        $this->load->view('room', $this->data, false);
     }
     public function get_room()
     {
-        $id = $this->input->get('id');
+        $id = $this->input->get('room_id');
        
         $get_room = $this->room_model->get_room($id);
        
@@ -69,7 +73,7 @@ class RoomController extends CI_Controller
         //     return redirect('RoomController');
         // }
 
-        $this->db->where('id', $id);
+        $this->db->where('room_id', $id);
 
 
         $data2 = array(

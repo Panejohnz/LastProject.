@@ -54,12 +54,12 @@
                                     <?php if(!empty($results)){ foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('repair/edit/'.$data->id); ?>">
-                                            <?php echo  $data->id; ?>
+                                            <a href="<?php echo base_url('repair/edit/'.$data->repair_id); ?>">
+                                            <?php echo  $data->repair_id; ?>
                                             </a> 
                                             <br>
                                            <td>
-                                           <?php echo  $data->customer_id; ?>
+                                           <?php echo  $data->user_id; ?>
                                     </td>
                                     <td>
                                            <?php echo  $data->roomnum; ?>
@@ -68,7 +68,7 @@
                                            <?php echo  $data->job_description; ?>
                                     </td>
                                     <td>
-                                           <?php echo  $data->operator_id; ?>
+                                           <!-- <?php echo  $data->operator_id; ?> -->
                                     </td>
 
                                     <td>
@@ -83,7 +83,7 @@
                                                
                                             } else {
                                                 ?>
-                                                <a href="repair/update_repair/<?php echo $data->id; ?>" class="btn btn-danger">กำลังตรวจสอบ</a>
+                                                <a href="repair/update_repair/<?php echo $data->repair_id; ?>" class="btn btn-danger">กำลังตรวจสอบ</a>
                                                
                                           <?php
                                             }
@@ -96,7 +96,7 @@
                                             </td>
                                             
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('imgtype/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('imgtype/confrm/'.$data->repair_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
                                     <?php } } ?>

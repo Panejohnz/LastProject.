@@ -43,7 +43,7 @@ class repair extends CI_Controller
     public function postdata()
 	{
 		$object = array(
-			'customer_id' => $this->input->post('customer_id'),
+			'user_id' => $this->input->post('customer_id'),
 			'roomnum' => $this->input->post('roomnum'),
 			'job_description' => $this->input->post('job_description'),
 			'operator_id' => $this->input->post('operator_id'),
@@ -187,11 +187,11 @@ redirect('ReservationsController');
 
                
             $arr1=array(
-                                'id'=> $this->input->post('id'),
+                                'roomcategory_id'=> $this->input->post('id'),
                                 'roomname'=> $this->input->post('roomname'),
                                 'typeimg'=> $this->input->post('typeimg2'),
                             );
-            $this->db->where('id', $this->input->post('id'));
+            $this->db->where('roomcategory_id', $this->input->post('id'));
             $this->db->update('roomcategory', $arr1);
 
 
@@ -220,12 +220,12 @@ redirect('ReservationsController');
             //exit();
 
             $arr=array(
-                                'id'=> $this->input->post('id'),
+                                'repair_id'=> $this->input->post('id'),
                                 'roomname'=> $this->input->post('roomname'),
                                 //'typeimg2'=> $this->input->post('typeimg2'),
                                 "typeimg"=>$filename
                             );
-            $this->db->where('id', $this->input->post('id'));
+            $this->db->where('repair_id', $this->input->post('id'));
             $this->db->update('repair', $arr);
 
             $this->session->set_flashdata(
@@ -254,7 +254,7 @@ redirect('ReservationsController');
 			'statusrepair' => $this->input->post('statusrepair')
 			
 		);
-		$this->db->where('id', $id);
+		$this->db->where('repair_id', $id);
 		
 		$this->db->update('Repair', $object);
 		redirect('repair');
@@ -287,7 +287,7 @@ redirect('ReservationsController');
             'statusrepair' => '1'
           );
    
-            $this->db->where('id', $id);
+            $this->db->where('repair_id', $id);
             $this->db->update('Repair', $data2);
             redirect('repair');
         
@@ -320,7 +320,7 @@ redirect('ReservationsController');
         //     return redirect('RoomController');
         // }
 
-        $this->db->where('id', $id);
+        $this->db->where('repair_id', $id);
 
 
         $data2 = array(

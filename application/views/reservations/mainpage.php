@@ -51,7 +51,7 @@
                                     <?php if(!empty($results)){ foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('reservations/edit/'.$data->id); ?>">
+                                            <a href="<?php echo base_url('reservations/edit/'.$data->reservations_id); ?>">
                                             <?php echo  $data->reservationsstart; ?>
                                             </a> 
                                             <br>
@@ -80,7 +80,7 @@
                                     </a>
                                             </td>
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('Reservationadmin/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('Reservationadmin/confrm/'.$data->reservations_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
                                     <?php } } ?>

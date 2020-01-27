@@ -33,18 +33,24 @@ class BillController extends CI_Controller
         $this->load->view('template/backfooter');
     }
 
-    public function cal($id){
-        $this->db->where('id', $id);
+    public function cal($id)
+    {
+        $this->db->where('bill_id', $id);
         $query = $this->db->get('bill');
         $imf = $query->row_array();
 
-        $this->db->where('id', $imf['id']);
+        $this->db->where('bill_id', $imf['pricebill_id']);
         $query1 = $this->db->get('pricebill');
         $imf2 = $query1->row_array();
 
-        echo $imf['Electricbill']*7;
+        // POST data
+        $postData = $this->input->post();
        
-
+        // Read POST data
+        echo $postData['waternew'];
+           
+       
+       
+        echo $imf['electricbill']*7;
     }
-   
 }

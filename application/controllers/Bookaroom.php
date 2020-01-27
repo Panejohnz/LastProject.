@@ -14,7 +14,7 @@ class Bookaroom extends CI_Controller
         
     }
     public function dd($id = null){
-        $this->db->where('id',$id);
+        $this->db->where('room_id',$id);
        $query = $this->db->get('room');
          $qq = $query->row_array();
         //print_r($qq);
@@ -64,7 +64,7 @@ class Bookaroom extends CI_Controller
 
             $filename = $data['file_name'];
             //$imgtype_name = $data['imgtype_name'];
-            $arr=array(         'roomnum' => $this->input->post('roomnum'),
+            $arr=array(         'id_room' => $this->input->post('roomnum'),
 			                    'name' => $this->input->post('name'),
                                 'telephone' => $this->input->post('telephone'),
                                 'reservationsstart' => $this->input->post('reservationsstart'),
@@ -75,7 +75,7 @@ class Bookaroom extends CI_Controller
                            
             $this->db->insert('reservations', $arr);
 
-           $this->db->where('id',$id);
+           $this->db->where('room_id',$id);
         // $query = $this->db->get('room');
         // $imf = $query->row_array();
 
@@ -147,4 +147,14 @@ class Bookaroom extends CI_Controller
 	// 	$this->db->delete('reservations',array('id'=>$id));
 	// }
     
+
+    public function up($id){
+        $data2 = array(
+            'roomstatus' => '1'
+          );
+   
+            $this->db->where('room_', $id);
+            $this->db->update('room', $data2);
+            redirect('Room');
+    }
 }
