@@ -77,6 +77,31 @@
                         <label for="exampleInputEmail1">เบอร์โทรศัพท์</label> <?php echo $this->session->flashdata('error_telephone'); ?>
                         <input type="text" id="telephone" class="form-control" name="telephone" value="<?php echo  $this->session->flashdata('telephone'); ?>"style="width: 350px;">
                     </div>
+
+                    <label for="exampleInputEmail1">เลือกเฟอร์นิเจอร์เพิ่มเติม</label>
+                    <div style="display:flex;">
+
+                    <div class="custom-control custom-checkbox mb-3" style="margin: 1%">
+                    <input class="custom-control-input" id="customCheck1" type="checkbox">
+                    <label class="custom-control-label" for="customCheck1">Unchecked</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-3" style="margin: 1%">
+                    <input class="custom-control-input" id="customCheck2" type="checkbox">
+                    <label class="custom-control-label" for="customCheck2">Checked</label>
+                    </div>
+                
+                    </div>                    
+                    
+                   
+                    <!-- <div class="custom-control custom-checkbox mb-3">
+                    <input class="custom-control-input" id="customCheck3" type="checkbox" disabled>
+                    <label class="custom-control-label" for="customCheck3">Disabled Unchecked</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-3">
+                    <input class="custom-control-input" id="customCheck4" type="checkbox" checked disabled>
+                    <label class="custom-control-label" for="customCheck4">Disabled Checked</label>
+                    </div> -->
+
                     <div class="row">
                     <div class="col-sm">
                     <img src="<?php echo base_url('./assets/Kbank.jpg')?>" alt="Room" class="img-fluid"style="width: 400px;"><br>
@@ -86,6 +111,7 @@
                     </div>
                     </div>
                     <br>
+                    
                     <div class="text-left">
 								<div class="fileUpload btn btn-primary">
 								<span style="color: white;">+ เพิ่มรูป</span>
