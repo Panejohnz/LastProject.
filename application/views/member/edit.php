@@ -91,7 +91,7 @@
 						<input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $result->tel ?>">
 					</div>
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 					<div class="col-sm-4">	
 						<label for="exampleInputEmail1">
 							เพศ
@@ -118,7 +118,7 @@
 
 					</div>
 					
-					</div>
+					</div> -->
 
 					 
 

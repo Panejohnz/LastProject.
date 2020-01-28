@@ -82,7 +82,7 @@
                     </div>
                     
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
                             เพศ
@@ -97,7 +97,7 @@
 
                     </div>
                     
-                    </div>
+                    </div> -->
 
                      
 

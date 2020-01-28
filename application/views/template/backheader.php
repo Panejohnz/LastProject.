@@ -205,8 +205,8 @@ color: #000;
 					</span>
 				</a>
 			</li>
-			<li class="<?php echo base_url(''); ?>">
-				<a href="<?php echo base_url(''); ?>">
+			<li class="<?php echo base_url('FurnitureController'); ?>">
+				<a href="<?php echo base_url('FurnitureController'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>
