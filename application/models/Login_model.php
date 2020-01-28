@@ -9,6 +9,14 @@ class Login_model extends CI_Model
         $result = $this->db->get('emmployee');
         return $result;
     }
+    public function validate1($username, $password)
+    {
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+       
+        $result = $this->db->get('users');
+        return $result;
+    }
 
 
    public function validateface($firsname)

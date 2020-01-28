@@ -411,8 +411,9 @@
     <div class="row clearfix">
     
 <?php
-                           
-        $query  = $this->db->query("SELECT room.id as he ,roomcategory.* ,room.* FROM room,roomcategory WHERE room.roomcate_id = roomcategory.id AND roomcategory.id = $id");
+                            // $query  = $this->db->query("SELECT room.id as he ,roomcategory.* ,room.* FROM room,roomcategory WHERE room.roomcate_id = roomcategory.id AND roomcategory.id = $id");
+        $query  = $this->db->query("SELECT room.room_id as he ,roomcategory.* ,room.* FROM room,roomcategory WHERE room.roomcate_id = roomcategory.roomcategory_id AND roomcategory.roomcategory_id = $roomcategory_id");
+        
                             $results = $query->result_array();?>    
 						<?php	foreach ($results as $data) {
                                 ?>

@@ -199,7 +199,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="<?php echo site_url('ReservationsController') ?>">Rianthong</a>
+	      <a class="navbar-brand" href="<?php echo site_url('ReservationsController') ?>">Welcome <?php echo $this->session->userdata('firstname');?></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -210,28 +210,8 @@
 	          <li class="nav-item"><a  href="<?php echo site_url('repair/newdata') ?>" class="nav-link">แจ้งซ่อม</a></li>
 	          <ul class="nav navbar-nav navbar-right ml-auto">			
 			<li class="nav-item">
-				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
-				<ul class="dropdown-menu login-form">					
-					<li>
-						<form action="<?php echo base_url('LoginController/loginmember/') ?>" method="post">
-							<div class="form-group">
-								<label>Username</label>
-								<input type="text" class="form-control" name="usertxt" required="required">
-							</div>
-							<div class="form-group">
-								<div class="clearfix">
-									<label>Password</label>
-									<a href="#" class="pull-right text-muted"><small>Forgot?</small></a>
-								</div>
-							
-								<input type="password" class="form-control" name="passtxt" required="required">
-							</div>
-							<?php echo $this->session->flashdata('msg');?>
-							<input type="submit" class="btn btn-primary btn-block" value="Login">
-						</form>
-					</li>
-				</ul>
-			</li>
+				<a data-toggle="" class="nav-link" href="<?php echo base_url('LoginController/logoutMember') ?>">ออกจากระบบ</a>
+				
 			
 			
 	      </div>

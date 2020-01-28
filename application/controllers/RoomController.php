@@ -31,7 +31,7 @@ class RoomController extends CI_Controller
         //     'reservationsstart' => $this->input->post('datepicker'),
         //     'reservationsprice' => '2000');
         // $this->db->insert('reservations', $qq);
-        $this->data['roomcategory_id'] = $hee['room_id'];
+        $this->data['roomcategory_id'] = $hee['roomcate_id'];
         $this->load->view('room', $this->data, false);
     }
     public function get_room()

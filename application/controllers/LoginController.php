@@ -64,4 +64,40 @@ class LoginController extends CI_Controller
         $this->session->sess_destroy();
         redirect('LoginController');
     }
+    public function loginmember(){
+        $username = $this->input->post('usertxt', true);
+        $password = $this->input->post('passtxt', true);
+        $validate = $this->login_model->validate1($username, $password);
+        if ($validate->num_rows() > 0) {
+            $data  = $validate->row_array();
+            $id = $data['user_id'];
+            $name  = $data['firstname'];
+            $email = $data['email'];
+          
+            $sesdata = array(
+                'user_id' => $id,
+                'firstname'  => $name,
+                'email'     => $email,
+                'logged_in' => true
+            );
+            $this->session->set_userdata($sesdata);
+
+            // access login for author
+        // access login for staff
+           
+                redirect('page/staff');
+
+                // access login for author
+            
+        } else {
+            echo $this->session->set_flashdata('msg', 'Username or Password is Wrong');
+            redirect('LoginController');
+        }
+    }
+    public function logoutMember()
+    {
+        $this->session->sess_destroy();
+        redirect('ReservationsController');
+    }
+    
 }

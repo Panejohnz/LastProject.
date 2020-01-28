@@ -1,9 +1,12 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
 class Page extends CI_Controller{
   function __construct(){
     parent::__construct();
     if($this->session->userdata('logged_in') !== TRUE){
-      redirect('TestController');
+      redirect('ReservationsController');
+  
     }
   }
  
@@ -17,13 +20,11 @@ class Page extends CI_Controller{
  
   }
  
-  function staff(){
+  function staff($id=null){
     //Allowing akses to staff only
-    if($this->session->userdata('status_user')==='0'){
-      $this->load->view('aaa');
-    }else{
-        echo "Access Denied";
-    }
+    $this->load->model('ReservationsModel');
+    $this->data['his'] = $this->ReservationsModel->historybill($id);
+    $this->load->view('home',$this->data,false);
   }
  
 /*  function author(){

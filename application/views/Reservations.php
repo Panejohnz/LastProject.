@@ -51,11 +51,11 @@
             $idtest2 = ($arraystate[9]); ?>
     <!-- Content Header (Page header) -->
             <!-- form start -->
-            <?php  $this->db->where('room_id',$id);
+            <?php  $this->db->where('room_id',$room_id);
        $query = $this->db->get('room');
          $qq = $query->row_array(); ?>
             <div class="container"><br>
-            <form role="form" action="<?php echo base_url('Bookaroom/postdata/'.$id); ?>" method="post" enctype="multipart/form-data">
+            <form role="form" action="<?php echo base_url('Bookaroom/postdata/'.$room_id); ?>" method="post" enctype="multipart/form-data">
            
             <div class="box-body">
             <div class="form-group">
