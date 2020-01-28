@@ -70,11 +70,11 @@ class Bookaroom extends CI_Controller
                                 'reservationsstart' => $this->input->post('reservationsstart'),
                                 'reservationsprice' => 500,
                                 'image'=>$filename,
-                                
+                                'furniture'=> $this->input->post('customCheck1')
                             );
                            
             $this->db->insert('reservations', $arr);
-
+                            
            $this->db->where('room_id',$id);
         // $query = $this->db->get('room');
         // $imf = $query->row_array();
@@ -152,7 +152,7 @@ class Bookaroom extends CI_Controller
         $data2 = array(
             'roomstatus' => '1'
           );
-   
+            
             $this->db->where('room_', $id);
             $this->db->update('room', $data2);
             redirect('Room');

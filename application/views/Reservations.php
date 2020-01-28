@@ -77,21 +77,24 @@
                         <label for="exampleInputEmail1">เบอร์โทรศัพท์</label> <?php echo $this->session->flashdata('error_telephone'); ?>
                         <input type="text" id="telephone" class="form-control" name="telephone" value="<?php echo  $this->session->flashdata('telephone'); ?>"style="width: 350px;">
                     </div>
-
                     <label for="exampleInputEmail1">เลือกเฟอร์นิเจอร์เพิ่มเติม</label>
+                    <?php $this->db->select('furniture.*');
+                   $this->db->from('furniture');
+                   $query = $this->db->get();
+                   $results = $query->result_array();?>
+                   	<?php	foreach($results as $result){
+								?>
+                   
                     <div style="display:flex;">
 
                     <div class="custom-control custom-checkbox mb-3" style="margin: 1%">
-                    <input class="custom-control-input" id="customCheck1" type="checkbox">
-                    <label class="custom-control-label" for="customCheck1">Unchecked</label>
+                    <input class="custom-control-input" id="customCheck1" name="customCheck1[]" value="<?php echo $result['name']; ?>" type="checkbox">
+                    <label class="custom-control-label" for="customCheck1"><?php echo $result['name']; ?></label>
                     </div>
-                    <div class="custom-control custom-checkbox mb-3" style="margin: 1%">
-                    <input class="custom-control-input" id="customCheck2" type="checkbox">
-                    <label class="custom-control-label" for="customCheck2">Checked</label>
-                    </div>
+                   
                 
                     </div>                    
-                    
+                       <?php } ?>
                    
                     <!-- <div class="custom-control custom-checkbox mb-3">
                     <input class="custom-control-input" id="customCheck3" type="checkbox" disabled>
