@@ -75,7 +75,7 @@ redirect('member');
 			'lastname' => $this->input->post('lastname'),
 			'tel' => $this->input->post('tel'),
 			'email' => $this->input->post('email'),
-			'gender' => $this->input->post('gender')
+			
 		);
 		$this->db->where('user_id', $idmem);
 		

@@ -76,7 +76,7 @@
 
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
-                            email
+                            อีเมล
                         </label> <?php echo $this->session->flashdata('error_email')?>
                         <input type="email" id="email" class="form-control" name="email" value="<?php echo  $this->session->flashdata('email'); ?>">
                     </div>
