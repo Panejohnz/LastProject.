@@ -58,7 +58,7 @@
                                             <br>
                                              </td>
                                              <td>
-                                             <?php $this->db->where('id', $data->contract_id);
+                                             <?php $this->db->where('contract_id', $data->contract_id);
                                                    $files =  $this->db->get('contract', 1);
                                                     $f = $files->row_array();?>
 <div class="file-box">

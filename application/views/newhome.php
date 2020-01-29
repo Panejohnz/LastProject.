@@ -221,13 +221,15 @@
 							<div class="form-group">
 								<div class="clearfix">
 									<label>Password</label>
-									<a href="#" class="pull-right text-muted"><small>Forgot?</small></a>
+									
 								</div>
 							
 								<input type="password" class="form-control" name="passtxt" required="required">
 							</div>
 							<?php echo $this->session->flashdata('msg');?>
+							<a href="<?php echo base_url('RegisController'); ?>" class="pull-right text-muted">Register</a>
 							<input type="submit" class="btn btn-primary btn-block" value="Login">
+							
 						</form>
 					</li>
 				</ul>
@@ -845,6 +847,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php echo base_url('./assets/deluxe/js/google-map.js')?>"></script>
   <script src="<?php echo base_url('./assets/deluxe/js/main.js')?>"></script>
-    
+
   </body>
+  
 </html>

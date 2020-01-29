@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
+<style type="text/css">
     	body{
     margin-top:20px;
     background-color: #f4f7f6;
@@ -359,178 +359,46 @@
     font-weight: 400;
 }
     </style>
-
-    <!-- Fonts -->
-	 <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
-  <!-- Icons -->
-  <link href="<?php echo base_url(); ?>./assets2/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>./assets2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <!-- Argon CSS -->
-  <link type="text/css" href="<?php echo base_url(); ?>./assets2/css/argon.css?v=1.1.0" rel="stylesheet">
-</head>
-<html>
-<body>
-    
-        
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-default">
-    <div class="container">
-        <?php $datepicker = $this->input->post('datepicker'); ?>
-        <a class="navbar-brand" href="<?php echo base_url('ReservationsController') ?>">Back <?php echo $this->input->post('roomname');?></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-default">
-            <div class="navbar-collapse-header">
-                <div class="row">
-                    <div class="col-6 collapse-brand">
-                        <a href="index.html">
-                            <img src="assets/img/brand/blue.png">
-                        </a>
-                    </div>
-                    <div class="col-6 collapse-close">
-                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
-                            <span></span>
-                            <span></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-           
-
-        </div>
-    </div>
-</nav>
-
-<div class="container">
-    <div class="row clearfix">
-    
-<?php
-                            // $query  = $this->db->query("SELECT room.id as he ,roomcategory.* ,room.* FROM room,roomcategory WHERE room.roomcate_id = roomcategory.id AND roomcategory.id = $id");
-        $query  = $this->db->query("SELECT room.room_id as he ,roomcategory.* ,room.* FROM room,roomcategory WHERE room.roomcate_id = roomcategory.roomcategory_id AND roomcategory.roomcategory_id = $roomcategory_id");
-        
-                            $results = $query->result_array();?>    
-						<?php	foreach ($results as $data) {
-                                ?>
-        <div class="col-lg-3 col-md-4 col-sm-12">
-            <div class="card product_item" id="exampleModal">
-                <div class="body">
-                    <div class="cp_img">    
-                        <img src="<?php echo base_url('./assets/69524.png')?>" alt="Room" class="img-fluid">
-                        
-                    </div>
-                    <div class="product_details" >
-                        <h2><?php echo  $data['roomnum']; ?></a></h2>
-                        <h5><?php echo  $data['roomname']; ?></h5>
-                        <ul class="product_price list-unstyled">
-                        <h4> <li class="new_price"><?php echo  $data['roomprice']; ?>฿</li></h4>
-                        <td>  
-                                            <?php //สถานะ
-                                            
-                                             $status = $data['roomstatus'];
-                                if ($status == 1) {
-                                    ?>
-                                                <a href="RoomController/update_status?sid=<?php echo $data['room_id']; ?>&sval=<?php echo $data['roomstatus']; ?>" disabled class="btn btn-danger">ไม่ว่าง</a>
-                                                
-                                             <?php
-                                } else {
-                                    ?>
-                                                <a href="<?php echo base_url(); ?>Bookaroom/dd/<?php echo $data['he']?>/<?php echo $datepicker ?>" class="btn btn-success">จอง</a>
-                                                
-                                           <?php
-                                } ?>
-                                            </td>
-                        
-                        <!-- Modal -->
-                        <div id="show_modal" class="modal fade" role="dialog" style="background: #000;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 style="font-size: 24px; color: #17919e; text-shadow: 1px 1px #ccc;"><i class="fa fa-folder" ></i> Details</h3>
-      </div>
-      <div class="modal-body">
-        <table class="table table-bordered table-striped">
-          <thead class="btn-primary">
-            <tr>
-              <td>ID</th>
-              <td>Number Room</th>
-              <td>Categetory</th>
-             
-              <td>Price</th>
-            </tr>
+<form action="<?php echo base_url(); ?>furnitureController/add_selected_student" method="post">
+   <button type="submit" name="submit" class="btn btn-danger">Add Selected</button>
+       <table class="table table-striped table-bordered" style="width:100%">
+          <thead>
+             <tr class="btn-primary">
+                <th></th>
+                <th>S.no.</th>
+                <th>Name</th>
+                <th>Price</th>
+               
+              </tr>
           </thead>
           <tbody>
-            
-               
-            <tr>
-              <td><p id="id"></p></td>
-              <td><p id="roomnum"></p></td> 
-              <td><p id="roomcate"></p></td>
-              
-              <td><p id="roomprice"></p></td>
-               
-
-            </tr>
+            <?php $i = 1; foreach ($furniture_list as $furniture) { ?>
+              <tr>
+                <td>
+                  <input type="checkbox" name="student_id[]" value="<?php echo $furniture->furniture_id; ?>">
+                </td>
+                <td><?php echo $i; ?></td>
+                <td><?php echo $furniture->name; ?></td>
+               <td><?php echo $furniture->price; ?></td>
                 
+             </tr>
+           <?php $i++; } ?>
+        
           </tbody>
-       </table>
-      </div>
-      <div class="modal-footer">
-      
-    
-        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> ปิด</button>
-      </div>
+        </table>
+  </form>
+  <?php if($error = $this->session->flashdata('msg')){ ?>
+    <div class="alert alert-success" id="msg">
+         <a href="#" class="close" data-dismiss="alert">&times;</a>
+         <strong>Success!</strong> <?php echo  $error; ?>
     </div>
-  </div>
-</div>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        
-  
-<?php
-                            } ?>
-   </div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function() {
-
-      $('.view_detail').click(function(){
-          
-          var id = $(this).attr('relid');
-          
-          $.ajax({
-              url : "<?php echo base_url(); ?>RoomController/get_room",
-              data:{id : id},
-              method:'GET',
-              dataType:'json',
-              success:function(response) {
-                $('#roomnum').html(response.roomnum);
-                $('#roomcate').html(response.roomcate);
-                $('#roomprice').html(response.roomprice);
-                $('#room_id').html(response.id);
-                $('#show_modal').modal({backdrop: 'static', keyboard: true, show: true});
-            }
-          });
-      });
-    });
-    
-</script>
+<?php } ?>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script type="text/javascript"></script>
- <script src="<?php echo base_url(); ?>../assets2/vendor/jquery/jquery.min.js"></script>
-  <script src="<?php echo base_url(); ?>../assets2/vendor/popper/popper.min.js"></script>
-  <script src="<?php echo base_url(); ?>../assets2/vendor/bootstrap/bootstrap.min.js"></script>
-  <script src="<?php echo base_url(); ?>../assets2/vendor/headroom/headroom.min.js"></script>
+ <script src="<?php echo base_url(); ?>./assets2/vendor/jquery/jquery.min.js"></script>
+  <script src="<?php echo base_url(); ?>./assets2/vendor/popper/popper.min.js"></script>
+  <script src="<?php echo base_url(); ?>./assets2/vendor/bootstrap/bootstrap.min.js"></script>
+  <script src="<?php echo base_url(); ?>./assets2/vendor/headroom/headroom.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -538,5 +406,3 @@
   <script src="<?php echo base_url(); ?>./assets2/js/argon.js?v=1.1.0"></script>
   <!--Datepicker -->
   <script src="<?php echo base_url('./assets2/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
-</body>
-</html>
