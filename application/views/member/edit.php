@@ -80,16 +80,18 @@
 					<div class="form-group">
 					<div class="col-sm-4">	
 						<label for="exampleInputEmail1">
-							email
-						</label> <?php echo $this->session->flashdata('error_email')?>
-						<input type="email" id="email" class="form-control" name="email" value="<?php echo  $result->email ?>">
-					</div>
-					<div class="col-sm-4">	
-						<label for="exampleInputEmail1">
 						 เบอร์โทร
 						</label> <?php echo $this->session->flashdata('error_tel')?>
 						<input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $result->tel ?>">
 					</div>
+					<div class="col-sm-4">	
+					
+						<label for="exampleInputEmail1">
+							อีเมล
+						</label> <?php echo $this->session->flashdata('error_email')?>
+						<input type="email" id="email" class="form-control" name="email" value="<?php echo  $result->email ?>">
+					</div>
+					
 					</div>
 					<!-- <div class="form-group">
 					<div class="col-sm-4">	
