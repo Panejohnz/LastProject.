@@ -51,7 +51,7 @@
             $idtest2 = ($arraystate[9]); ?>
     <!-- Content Header (Page header) -->
             <!-- form start -->
-            <?php  $this->db->where('room_id',$room_id);
+            <?php  $this->db->where('room_id', $room_id);
        $query = $this->db->get('room');
          $qq = $query->row_array(); ?>
             <div class="container"><br>
@@ -70,20 +70,17 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">ชื่อ-นามสกุล</label> <?php echo $this->session->flashdata('error_name'); ?>
-                        <input type="text" id="name" class="form-control" name="name" value="<?php echo  $this->session->flashdata('name'); ?>" style="width: 500px;">
+                        <input type="text" id="name" class="form-control" name="name" value="<?php echo $this->session->userdata('firstname')?>" style="width: 500px;">
                     </div>
 
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">เบอร์โทรศัพท์</label> <?php echo $this->session->flashdata('error_telephone'); ?>
-                        <input type="text" id="telephone" class="form-control" name="telephone" value="<?php echo  $this->session->flashdata('telephone'); ?>"style="width: 350px;">
-                    </div>
+                  
                     <label for="exampleInputEmail1">เลือกเฟอร์นิเจอร์เพิ่มเติม</label>
                     <?php $this->db->select('furniture.*');
                    $this->db->from('furniture');
                    $query = $this->db->get();
                    $results = $query->result_array();?>
-                   	<?php	foreach($results as $result){
-								?>
+                   	<?php	foreach ($results as $result) {
+                       ?>
                    
                     <div style="display:flex;">
 
@@ -95,7 +92,8 @@
                     
                 
                     </div>                    
-                       <?php } ?>
+                       <?php
+                   } ?>
                    
                     <!-- <div class="custom-control custom-checkbox mb-3">
                     <input class="custom-control-input" id="customCheck3" type="checkbox" disabled>
@@ -136,7 +134,7 @@
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">
-                    <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
+                    <button class="btn btn-success" name="submit" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
                     <a class="btn btn-danger" href="<?php echo  base_url('ReservationsController'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
                 </div>
                 
