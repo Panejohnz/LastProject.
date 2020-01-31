@@ -85,7 +85,7 @@
                     <div style="display:flex;">
 
                     <!-- <div class="custom-control custom-checkbox mb-3" > -->
-                    <input type="checkbox" id="customCheck1" name="customCheck1[]" value="<?php echo $result['name']; ?>" ><?php echo $result['name']; ?> 
+                    <input type="checkbox" id="customCheck1" name="customCheck1[]" value="<?php echo $result['furniture_id']; ?>" ><?php echo $result['name']; ?> 
                     <!-- <label class="custom-control-label" for="customCheck1"><?php echo $result['name']; ?></label> -->
                    
                    
