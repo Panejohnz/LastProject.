@@ -129,7 +129,7 @@ class Bookaroom extends CI_Controller
                 // }
             echo "<script>";
             echo "alert('จองห้องพักเรียบร้อย');";
-            echo "window.location.href = '". base_url()."ReservationsController';";
+            echo "window.location.href = '". base_url()."';";
             echo "</script>";
         
             // redirect('ReservationsController');
@@ -196,7 +196,7 @@ class Bookaroom extends CI_Controller
             'roomstatus' => '1'
           );
             
-        $this->db->where('room_', $id);
+        $this->db->where('room_id', $id);
         $this->db->update('room', $data2);
         redirect('Room');
     }
