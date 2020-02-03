@@ -42,7 +42,8 @@ class RegisController extends CI_Controller
                 'lastname' => $this->input->post('lastname'),
                 'username' => $this->input->post('username'),
                 'email' => $this->input->post('email'),
-                'password' => $this->input->post('password')
+                'password' => $this->input->post('password'),
+                'tel'=> $this->input->post('tel')
                 );
             $this->load->model('insert_users');
             $this->insert_users->insert($data);

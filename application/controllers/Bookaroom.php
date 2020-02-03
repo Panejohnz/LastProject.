@@ -45,7 +45,7 @@ class Bookaroom extends CI_Controller
     // }
 
 
-    public function postdata($id)
+    public function postdata($user_id)
     {
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'gif|jpg|png|pdf';

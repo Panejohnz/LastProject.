@@ -39,12 +39,10 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 15%;">วันที่</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">เลขห้อง</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ชื่อ-นามสกุล</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">เบอร์โทรศัพท์</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ราคาห้อง</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">สลีปการโอนเงิน</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">สัญญา</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">users</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">slipdate</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">slipfile</th>
+                                        
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -61,23 +59,23 @@
                                             
                                             <td>
                                             
-                                            <?php echo  $data->roomnum; ?>
+                                            <?php echo  $data->id_users; ?>
                                             <br>
                                            
                                             
                                             </td>
                                             <td>
-                                            <?php echo  $data->name; ?>
+                                            <?php echo  $data->slip_date; ?>
                                             </td>
-                                            <td>
+                                            <!-- <td>
                                             <?php echo  $data->telephone; ?>
                                             </td>
                                             <td>
                                             <?php echo  $data->reservationsprice; ?>  
-                                            </td>
+                                            </td> -->
                                             <td>
-                                            <a target="_blank" href="<?php echo  base_url('uploads/'.$data->image); ?>">
-                                            <img src="<?php echo base_url(); ?>./uploads/<?php echo $data->image; ?>" width="50px">
+                                            <a target="_blank" href="<?php echo  base_url('uploads/'.$data->slip_file); ?>">
+                                            <img src="<?php echo base_url(); ?>./uploads/<?php echo $data->slip_file; ?>" width="50px">
                                     </a>
                                             </td>
                                             <td>

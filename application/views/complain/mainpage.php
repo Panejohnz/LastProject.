@@ -22,9 +22,8 @@
                 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                     <div class="row">
                         <div class="col-sm-6">
-                            
-                            <a class="btn btn-default" href="<?php echo  base_url('ComplainController
-                            '); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
+                        <a class="btn btn-success" href="<?php echo  base_url('ComplainController/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a>
+                            <a class="btn btn-default" href="<?php echo  base_url('ComplainController'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
                         </div>
                         <div class="col-sm-6">
                             <div id="" class="dataTables_filter">

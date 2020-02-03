@@ -34,5 +34,65 @@ class ComplainController extends CI_Controller
         $this->load->view('template/backfooter');
     }
 
+
+
+    public function newdata()
+	{
+		$this->load->view('template/backheader');
+		$this->load->view('complain/newdata');
+		$this->load->view('template/backfooter');
+	}
+
+	public function postdata()
+	{
+		$object = array(
+			'detail' => $this->input->post('detail'),
+			'user_id' => $this->input->post('user_id'),
+			
+		);
+$this->db->insert('complain', $object);
+redirect('complain');
+		}
+	
+	public function edit($complain_id)
+	{
+		$data['result'] = $this->member_model->read_member($complain_id);
+		$this->load->view('template/backheader');
+		$this->load->view('complain/edit', $data);
+		$this->load->view('template/backfooter');
+	}
+
+	public function edcom($idcom){
+		$object = array(
+			'detail' => $this->input->post('detail'),
+			'user_id' => $this->input->post('user_id'),
+			
+			
+		);
+		$this->db->where('complain_id', $idcom);
+		
+		$this->db->update('complain', $object);
+		redirect('complain');
+	}
+
+	public function confrm($complain_id)
+	{
+		$data = array
+		(
+			'backlink'  => 'complain',
+			'deletelink'=> 'complain/remove/' . $complain_id
+		);
+		$this->load->view('complain/backheader');
+		$this->load->view('complain/confrm',$data);
+		$this->load->view('complain/backfooter');
+	}
+
+	public function remove($complain_id)
+	{
+		$this->member_model->remove_member($complain_id);
+		redirect('complain');
+	}
+
+
   
 }

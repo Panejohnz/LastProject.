@@ -23,7 +23,7 @@
                     <div class="row">
                     <div class="col-sm-1">
                             <?php 
-                            $query = $this->db->query("SELECT * FROM room JOIN roomcategory ON roomcategory.id = room.roomcate_id WHERE roomstatus = '1' ");
+                           $query = $this->db->query("SELECT * FROM room JOIN roomcategory ON roomcategory.roomcategory_id = room.roomcate_id WHERE roomstatus = '1' ");
                             // $query = $this->db->query("SELECT * FROM `room` WHERE roomstatus = '1'");
                             $ww = $query->result_array();
                             
