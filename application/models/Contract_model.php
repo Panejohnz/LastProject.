@@ -89,8 +89,8 @@ class Contract_model extends CI_Model
 	}
 	function getRows($params = array()){
         $this->db->select('*');
-        $this->db->from('contract');	
-        $this->db->order_by('startrcontract','desc');
+        $this->db->from('contract');
+        $this->db->order_by('date_create','desc');
         if(array_key_exists('contract_id',$params) && !empty($params['contract_id'])){
             $this->db->where('contract_id',$params['contract_id']);
             //get records

@@ -44,20 +44,20 @@ class Contract extends CI_Controller
         $this->load->view('contract/newdata');
         $this->load->view('template/backfooter');
     }
-    public function download($id)
+    public function download($contract_id)
     {
-        if (!empty($id)) {
+        if (!empty($contract_id)) {
             //load download helper
             $this->load->helper('download');
             
             //get file info from database
-            $fileInfo = $this->contract_model->getRows(array('contract_id' => $id));
+            $fileInfo = $this->contract_model->getRows(array('contract_id' => $contract_id));
             
             //file path
-            $file = 'uploads/'.$fileInfo['Insurance'];
+            $file = 'uploads/'.$fileInfo['insurance'];
             
             //download file from directory
-            force_download($file, null);
+            force_download($file, NULL);
         }
     }
 
@@ -134,14 +134,14 @@ class Contract extends CI_Controller
     public function adding($value='')
     {
 
-        $Date = $this->input->post("datepickerstart");
-            $dat = date("Y-m-d", strtotime($Date));
-            $Date2 = $this->input->post("datepickerend");
-            $dat2 = date("Y-m-d", strtotime($Date2));    
+        // $Date = $this->input->post("datepickerstart");
+        //     $dat = date("Y-m-d", strtotime($Date));
+        //     $Date2 = $this->input->post("datepickerend");
+        //     $dat2 = date("Y-m-d", strtotime($Date2));
 
 
         $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png|doc|docx|pptx|xlsx';
+        $config['allowed_types'] = 'gif|jpg|png|doc|docx|pptx|xlsx|pdf';
         $config['max_size']     = '10000000';
         $config['max_width'] = '2000';
         $config['max_height'] = '2000';
@@ -163,12 +163,12 @@ class Contract extends CI_Controller
             //$imgtype_name = $data['imgtype_name'];
 
             $arr=array(
-                                // 'roomname'=> $this->input->post('roomname'),
+                'date_create' => date('Y-m-d'),
                                 "insurance"=>$filename,
-                                'startrcontract' => $dat,
-                'endrcontractct' => $dat2,
-                'numroom' => $this->input->post('numroom'),
-                'idcustomer' => $this->input->post('idcustomer')
+                //                 'startrcontract' => $dat,
+                // 'endrcontractct' => $dat2,
+                // 'numroom' => $this->input->post('numroom'),
+                // 'idcustomer' => $this->input->post('idcustomer')
                             );
             $this->db->insert('contract', $arr);
 
@@ -288,29 +288,29 @@ class Contract extends CI_Controller
        
             //$imgtype_name = $data['imgtype_name'];
 
-            $Date = $this->input->post("datepickerstart");
-            $dat = date("Y-m-d", strtotime($Date));
-            $Date2 = $this->input->post("datepickerend");
-            $dat2 = date("Y-m-d", strtotime($Date2));
+        $Date = $this->input->post("datepickerstart");
+        $dat = date("Y-m-d", strtotime($Date));
+        $Date2 = $this->input->post("datepickerend");
+        $dat2 = date("Y-m-d", strtotime($Date2));
         
-            $config['upload_path'] = './uploads/';
-            $config['allowed_types'] = 'gif|jpg|png|doc|docx|pptx|xlsx';
-            $config['max_size']     = '10000000';
-            $config['max_width'] = '200000';
-            $config['max_height'] = '200000';
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'gif|jpg|png|doc|docx|pptx|xlsx';
+        $config['max_size']     = '10000000';
+        $config['max_width'] = '200000';
+        $config['max_height'] = '200000';
             
-            $this->load->library('upload', $config);
-            if (! $this->upload->do_upload('typeimg')) {
-                //$error = array('error' => $this->upload->display_errors());
-                echo $this->upload->display_errors();
-            //$this->load->view('upload_form', $error);
-            } else {
-                $data = $this->upload->data();
+        $this->load->library('upload', $config);
+        if (! $this->upload->do_upload('typeimg')) {
+            //$error = array('error' => $this->upload->display_errors());
+            echo $this->upload->display_errors();
+        //$this->load->view('upload_form', $error);
+        } else {
+            $data = $this->upload->data();
     
-                //print_r($data);
-                //$this->load->view('upload_success', $data);
+            //print_r($data);
+            //$this->load->view('upload_success', $data);
     
-                $filename = $data['file_name'];
+            $filename = $data['file_name'];
 
             $object = array(
             "insurance"=>$filename,
