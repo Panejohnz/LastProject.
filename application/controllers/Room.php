@@ -46,15 +46,12 @@ class Room extends CI_Controller
     public function postdata()
     {
         $object = array(
-            'username' => $this->input->post('username'),
-            'password' => $this->input->post('password'),
-            'firstname' => $this->input->post('firstname'),
-            'lastname' => $this->input->post('lastname'),
-            'tel' => $this->input->post('tel'),
-            'email' => $this->input->post('email'),
-            'gender' => $this->input->post('gender')
+            'roomnum' => $this->input->post('roomnum'),
+            'roomcate' => $this->input->post('roomcate'),
+            'roomprice' => $this->input->post('roomprice'),
+            'roomstatus' => $this->input->post('roomstatus')
         );
-        $this->db->insert('users', $object);
+        $this->db->insert('room', $object);
         redirect('room');
     }
     

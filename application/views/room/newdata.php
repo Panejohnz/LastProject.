@@ -2,12 +2,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            จัดการสมาชิก
+            จัดการห้องพัก
             
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo  base_url('member'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-            <li><a href="<?php echo  base_url('member'); ?>">จัดการสมาชิก</a></li>
+            <li><a href="<?php echo  base_url('room'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+            <li><a href="<?php echo  base_url('room'); ?>">จัดการสมาชิก</a></li>
             <li class="active">เพิ่มข้อมูลใหม่</li>
         </ol>
     </section>
@@ -23,23 +23,33 @@
             <!-- form start -->
         <div class="col-md-1"></div>
         <div class="col-md-9">
-            <form role="form" action="<?php echo  base_url('member/postdata'); ?>" method="post" class="form-horizontal">
+            <form role="form" action="<?php echo  base_url('room/postdata'); ?>" method="post" class="form-horizontal">
                 
                 <div class="box-body">
                 <div class="form-group">
                 <div class="col-sm-4">
                         <label for="exampleInputEmail1">
-                            username
+                            เลขห้อง
                         </label> 
-                        <?php echo $this->session->flashdata('error_username')?>
-                        <input type="text" id="username" class="form-control" name="username" value="<?php echo $this->session->flashdata('username'); ?>">
+                        <?php echo $this->session->flashdata('error_roomnum')?>
+                        <input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo $this->session->flashdata('roomnum'); ?>">
                 </div>
-                <div class="col-sm-4">  
-                    <label for="exampleInputEmail1">
-                            password
-                        </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="password" id="password" class="form-control" name="password" value="<?php echo  $this->session->flashdata('password'); ?>">
-                </div>
+                <div class="form-group">
+                    <div class="col-sm-4">  
+                        <label for="exampleInputEmail1">
+                            ประเภทห้อง
+                        </label> <br>
+                        <?php // echo $this->session->flashdata('error_gender')?>
+
+                        <select name="roomcate" id="roomcate">
+                            <option value="1">ห้องแอร์</option>
+                            <option value="2">ห้องพัดลม</option>
+                             
+                        </select>
+
+                    </div>
+                    
+                    </div>
 
             </div>
                  
@@ -48,56 +58,32 @@
             <div class="form-group">
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
-                            ชื่อ
-                        </label> <?php echo $this->session->flashdata('error_firstname')?>
-                        <input type="text" id="name" class="form-control" name="firstname" value="<?php echo $this->session->flashdata('name'); ?>">
+                            ราคา
+                        </label> <?php echo $this->session->flashdata('error_roomprice')?>
+                        <input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo $this->session->flashdata('roomprice'); ?>">
                     </div>
 
-                    <div class="col-sm-4">      
-                        <label for="exampleInputEmail1">
-                            สกุล
-                        </label> <?php echo $this->session->flashdata('error_lastname')?>
-                        <input type="text" id="lastname" class="form-control" name="lastname" value="<?php echo  $this->session->flashdata('lastname'); ?>">
-                    </div>
-
-            </div>
-
-
-
-            
-
-                    <div class="form-group">
-                    <div class="col-sm-4">      
-                        <label for="exampleInputEmail1">
-                            เบอร์โทร
-                        </label> <?php echo $this->session->flashdata('error_tel')?>
-                        <input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $this->session->flashdata('tel'); ?>">
-                    </div>
-
-                    <div class="col-sm-4">  
-                        <label for="exampleInputEmail1">
-                            email
-                        </label> <?php echo $this->session->flashdata('error_email')?>
-                        <input type="email" id="email" class="form-control" name="email" value="<?php echo  $this->session->flashdata('email'); ?>">
-                    </div>
-                    
-                    </div>
                     <div class="form-group">
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
-                            เพศ
+                            สถานะ
                         </label> 
+                        <br>
                         <?php // echo $this->session->flashdata('error_gender')?>
 
-                        <select name="gender" id="gender">
-                            <option value="1">ชาย</option>
-                            <option value="2">หญิง</option>
+                        <select name="roomstatus" id="roomstatus">
+                            <option value="0">ว่าง</option>
+                            <option value="1">ไม่ว่าง</option>
                              
                         </select>
 
                     </div>
                     
                     </div>
+
+            </div>
+
+                    
 
                      
 
@@ -108,7 +94,7 @@
                         <i class="fa fa-fw fa-save">
                         </i>บันทึกข้อมูล
                     </button>
-                    <a class="btn btn-danger" href="<?php echo  base_url('member'); ?>" role="button">
+                    <a class="btn btn-danger" href="<?php echo  base_url('room'); ?>" role="button">
                         <i class="fa fa-fw fa-close">
                         </i>ยกเลิก
                     </a>

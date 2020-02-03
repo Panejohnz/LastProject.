@@ -19,7 +19,12 @@ class ReservationsModel extends CI_Model
     {
         $this->db->like('reservationsstart', $keryword);
         $this->db->limit($limit, $start);
-        $query = $this->db->get('reservations');
+        $this->db->select('*')  //join
+            ->from('reservations')
+            ->from('users')
+            ->where('users.user_id = reservations.id_users');
+        $query = $this->db->get(); //join
+
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
                 $data[] = $row;
@@ -39,10 +44,10 @@ class ReservationsModel extends CI_Model
         }
         return false;
     }
-    
+
     public function remove_reservations($id)
     {
-        $this->db->delete('reservations', array('reservations_id'=>$id));
+        $this->db->delete('reservations', array('reservations_id' => $id));
     }
 
     // public function search_room($cateid)
@@ -57,7 +62,7 @@ class ReservationsModel extends CI_Model
     //     $query = $this->db->get('room');
     //     return $query;
     // }
-    
+
     public function historybill($id)
     {
         $this->db->where('roomcategory_id', $id);
@@ -70,7 +75,7 @@ class ReservationsModel extends CI_Model
     }
     public function multisave($user_id, $category)
     {
-        $query="INSERT INTO reservationsfurniture VALUE($user_id, $category)";
+        $query = "INSERT INTO reservationsfurniture VALUE($user_id, $category)";
         $this->db->query($query);
     }
     public function insert_order($data)

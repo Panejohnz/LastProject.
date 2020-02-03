@@ -39,9 +39,9 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 15%;">วันที่</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">users</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">slipdate</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">slipfile</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">วันที่จอง</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">หลักฐานการจอง</th>
                                         
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
                                     </tr>
@@ -59,7 +59,10 @@
                                             
                                             <td>
                                             
-                                            <?php echo  $data->id_users; ?>
+                                            <!-- <?php echo  $data->id_users; ?><br> -->
+                                            <?php echo  $data->firstname; ?>&nbsp;<?php echo  $data->lastname; ?><br>
+                                            <?php echo  $data->tel; ?><br>
+                                            <?php echo  $data->email; ?>
                                             <br>
                                            
                                             
@@ -75,8 +78,8 @@
                                             </td> -->
                                             <td>
                                             <a target="_blank" href="<?php echo  base_url('uploads/'.$data->slip_file); ?>">
-                                            <img src="<?php echo base_url(); ?>./uploads/<?php echo $data->slip_file; ?>" width="50px">
-                                    </a>
+                                            <img src="<?php echo base_url(); ?>./uploads/<?php echo $data->slip_file; ?>" width="50px"></a>
+                                            
                                             </td>
                                             <td>
                                             <a class="btn btn-success" href="<?php echo  base_url('contract/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> ทำสัญญา</a>

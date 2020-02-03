@@ -21,18 +21,17 @@
             <div class="box-body">
                 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                     <div class="row">
+                        <div class="col-sm-2">
+                        <a class="btn btn-success" href="<?php echo  base_url('room/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a>
+                        </div>
                     <div class="col-sm-1">
-                            <?php
-                            
-                            ?>
-
                            <a class="btn btn-success" href="<?php echo base_url('room/status1/'); ?>" role="button">ห้องว่าง</a>
                        </div>
                        <div class="col-sm-1">
                            <a class="btn btn-warning" href="<?php echo base_url('room/status2/'); ?>" role="button">ไม่ว่าง</a>
                        </div>
+
                         <div class="col-sm-1">
-                           
                             <a class="btn btn-default" href="<?php echo  base_url('room'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
                              
                         </div>
