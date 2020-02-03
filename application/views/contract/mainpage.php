@@ -38,52 +38,34 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ห้องพัก</th>
+                                       
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">วันเริ่มสัญญา</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">วันสินสุดสัญญา</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">รหัสลูกค้า</th>
+                                        
 
                                         
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px; height:50px;">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php if (!empty($results)) {
     foreach ($results as $data) { ?>
                                         <tr role="row">
-                                            <td>
-                                            <a href="<?php echo base_url('contract/edit/'.$data->contract_id); ?>">
-                                            <?php echo  $data->numroom; ?>
-                                            <br>
-                                             </td>
+                                          
                                              <td>
                                              <?php $this->db->where('contract_id', $data->contract_id);
-                                                   $files =  $this->db->get('contract', 1);
+                                                   $files =  $this->db->get('contract');
                                                     $f = $files->row_array();?>
 <div class="file-box">
     <div class="box-content">
-      
-       
-        <a href="<?php echo base_url().'contract/download/'.$f['insurance']; ?>" class="dwn"> <?php echo $data->insurance; ?></a>
+     
+    <embed src="<?php echo base_url().'uploads/'.$f['insurance']; ?>" width="100%" height="500px"><br>
+        <a href="<?php echo base_url().'contract/download/'.$f['contract_id']; ?>" class="dwn"> <?php echo $data->insurance; ?></a>
     </div>
 </div>
         <?php  
      ?>
                                               
-                                            </td> 
-                                            <td>
-                                            <?php echo $data->startrcontract; ?>
-                                              
-                                            </td> 
-                                            <td>
-                                            <?php echo $data->endrcontractct; ?>
-                                              
-                                            </td> 
-                                            <td>
-                                            <?php echo $data->idcustomer; ?>
-                                              
-                                            </td> 
+                                         
                                              
                                             <td>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('contract/confrm/'.$data->contract_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>

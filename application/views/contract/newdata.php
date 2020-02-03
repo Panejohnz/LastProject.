@@ -39,31 +39,7 @@
                         <input type="file" name="typeimg" id="typeimg" accept=".pdf,.docx,.doc,.pptx,.xlsx,.png,.jpg" >
                     </div>
                     
-                    <div class="col-sm-4">  
-                    <label for="#">วันเริ่มสัญญา</label> <?php echo $this->session->flashdata('error_firstname')?>
-                        
-                         <input id="datepickerstart" name="datepickerstart" type="text" class="form-control checkin_date" readonly >
-					
-                    </div>
-                    <div class="col-sm-4">  
-                        <label for="exampleInputEmail1">
-                            วันหมดสัญญา
-                        </label> <?php echo $this->session->flashdata('error_enddate')?>
-                        <input id="datepickerend" name="datepickerend" type="text" class="form-control checkin_date" readonly >
-                    </div>
-                    <div class="col-sm-4">  
-                        <label for="exampleInputEmail1">
-                            เลขห้อง
-                        </label> <?php echo $this->session->flashdata('error_firstname')?>
-                        <input type="text" id="name" class="form-control" name="numroom" value="<?php echo $this->session->flashdata('name'); ?>">
-                    </div>
-                    <div class="col-sm-4">  
-                        <label for="exampleInputEmail1">
-                            ลูกค้า
-                        </label> <?php echo $this->session->flashdata('error_firstname')?>
-                        <input type="text" id="IdCustomer" class="form-control" name="IdCustomer" value="<?php echo $this->session->flashdata('name'); ?>">
-                    </div>
-                </div><!-- /.box-body -->
+                  
 
                 <div class="box-footer">
                     <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
