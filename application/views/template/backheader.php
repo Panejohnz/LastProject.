@@ -89,7 +89,7 @@ color: #000;
 <header class="main-header">
 
 <div class="snowflakes" aria-hidden="true">
-  <div class="snowflake">
+  <!-- <div class="snowflake">
   ❅
   </div>
   <div class="snowflake">
@@ -118,6 +118,37 @@ color: #000;
   </div>
   <div class="snowflake">
   ❄
+  </div> -->
+  <!--  -->
+  <div class="snowflake">
+  🌹
+  </div>
+  <div class="snowflake">
+  🌹
+  </div>
+  <div class="snowflake">
+  🌹
+  </div>
+  <div class="snowflake">
+  🌹
+  </div>
+  <div class="snowflake">
+  🌹
+  </div>
+  <div class="snowflake">
+  🌹
+  </div>
+  <div class="snowflake">
+  🌹
+  </div>
+  <div class="snowflake">
+  🌹
+  </div>
+  <div class="snowflake">
+  🌹
+  </div>
+  <div class="snowflake">
+  🌹
   </div>
 </div>
 	<!-- Logo -->

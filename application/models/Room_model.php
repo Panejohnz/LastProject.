@@ -57,7 +57,7 @@ $query = $this->db->get();
     }
     public function read_room($id)
     {
-        $this->db->where('id', $id);
+        $this->db->where('room_id', $id);
         $this->db->select('*')
         ->from('room')
         ->from('roomcategory')

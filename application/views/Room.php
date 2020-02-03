@@ -414,12 +414,14 @@
                             // $query  = $this->db->query("SELECT room.id as he ,roomcategory.* ,room.* FROM room,roomcategory WHERE room.roomcate_id = roomcategory.id AND roomcategory.id = $id");
         $query  = $this->db->query("SELECT room.room_id as he ,roomcategory.* ,room.* FROM room,roomcategory WHERE room.roomcate_id = roomcategory.roomcategory_id AND roomcategory.roomcategory_id = $roomcategory_id");
         
-                            $results = $query->result_array();?>    
+                            $results = $query->result_array();
+                            ?>    
 						<?php	foreach ($results as $data) {
                                 ?>
-        <div class="col-lg-3 col-md-4 col-sm-12">
-            <div class="card product_item" id="exampleModal">
-                <div class="body">
+                                <?php  $status = $data['roomstatus']; ?>
+        <div class="col-lg-3 col-md-4 col-sm-12" <?php if ($status != 0) { ?>  <?php   echo 'style="display:none"'; } ?>>
+            <div class="card product_item" id="exampleModal" >
+                <div class="body" >
                     <div class="cp_img">    
                         <img src="<?php echo base_url('./assets/69524.png')?>" alt="Room" class="img-fluid">
                         
@@ -432,7 +434,7 @@
                         <td>  
                                             <?php //สถานะ
                                             
-                                             $status = $data['roomstatus'];
+                                            
                                 if ($status == 1) {
                                     ?>
                                                 <a href="RoomController/update_status?sid=<?php echo $data['room_id']; ?>&sval=<?php echo $data['roomstatus']; ?>" disabled class="btn btn-danger">ไม่ว่าง</a>
