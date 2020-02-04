@@ -85,7 +85,7 @@ class Bookaroom extends CI_Controller
             if (isset($_POST['submit'])) {
                 $user_id=$ord_id;//Pass the userid here
                 $checkbox = $_POST['customCheck1'];
-                print_r($checkbox);
+                // print_r($checkbox);
                 for ($i=0;$i<count($checkbox);$i++) {
                     $sss=array(
                         'reservations_id' => $user_id,
@@ -129,8 +129,9 @@ class Bookaroom extends CI_Controller
                 // }
             echo "<script>";
             echo "alert('จองห้องพักเรียบร้อย');";
-            echo "window.location.href = '". base_url()."';";
+            echo "window.location.href = '". base_url()."page/staff';";
             echo "</script>";
+            
         
             // redirect('ReservationsController');
         }
