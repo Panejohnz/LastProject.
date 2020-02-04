@@ -121,34 +121,34 @@ color: #000;
   </div> -->
   <!--  -->
   <div class="snowflake">
-  🌹
+  ไม่ดรอป
   </div>
   <div class="snowflake">
-  🌹
+  ไม่ดรอป
   </div>
   <div class="snowflake">
-  🌹
+  ไม่ดรอป
   </div>
   <div class="snowflake">
-  🌹
+  ไม่ดรอป
   </div>
   <div class="snowflake">
-  🌹
+  ไม่ดรอป
   </div>
   <div class="snowflake">
-  🌹
+  ไม่ดรอป
   </div>
   <div class="snowflake">
-  🌹
+  ไม่ดรอป
   </div>
   <div class="snowflake">
-  🌹
+  ไม่ดรอป
   </div>
   <div class="snowflake">
-  🌹
+  ไม่ดรอป
   </div>
   <div class="snowflake">
-  🌹
+  ไม่ดรอป
   </div>
 </div>
 	<!-- Logo -->

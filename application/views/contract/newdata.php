@@ -31,7 +31,53 @@
                     <!-- <div class="form-group">
                         <label for="exampleInputEmail1">สัญญาเช่า</label> <?php echo $this->session->flashdata('error_roomname'); ?>
                         <input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $this->session->flashdata('roomname'); ?>">
-                    </div> -->
+                    </div> --> <div class="col-sm-4">
+                        <label for="exampleInputEmail1">
+                           ชื่อ
+                        </label> 
+                        <?php echo $this->session->flashdata('error_username')?>
+                        <input type="text" id="username" class="form-control" name="username" value="">
+                </div>
+                <div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                            นามสกุล
+                        </label> <?php echo $this->session->flashdata('error_password')?>
+                        <input type="text" id="password" class="form-control" name="password" value="">
+                </div>
+                <div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                           เบอร์โทร
+                        </label> <?php echo $this->session->flashdata('error_password')?>
+                        <input type="text" id="password" class="form-control" name="password" value="">
+                </div>
+                <div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                          เลขบัตรประชาชน
+                        </label> <?php echo $this->session->flashdata('error_password')?>
+                        <input type="text" id="password" class="form-control" name="password" value="">
+                </div>
+                <div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                          วันที่ทำสัญญา
+                        </label> <?php echo $this->session->flashdata('error_password')?>
+                        <input type="date" id="password" class="form-control" name="password" value="">
+                </div>
+                <div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                        ระยะเวลาสัญญา
+                        </label> <?php echo $this->session->flashdata('error_password')?>
+                        <input type="text" id="password" class="form-control" name="password" value="">
+                </div>
+                <div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                       วันที่สินสุดสัญญา
+                        </label> <?php echo $this->session->flashdata('error_password')?>
+                        <input type="date" id="password" class="form-control" name="password" value="">
+                </div>
+
+
+            </div>
+            
                     <div class="form-group">
                         <label for="exampleInputEmail1">
                             อัพโหลดไฟล์

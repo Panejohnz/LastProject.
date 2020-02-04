@@ -115,22 +115,20 @@ class Bookaroom extends CI_Controller
            
             //     $this->db->update('room', $data2);
 
-                // if (isset($_POST['submit'])) {
-                //     $user_id=$rrr['reservations_id'];//Pass the userid here
-                //     $checkbox = $_POST['customCheck1'];
-                //     print_r($checkbox);
-                //     for ($i=0;$i<count($checkbox);$i++) {
-                //         $sss=array(
-                //             'reservations_id' => $user_id,
-                //             'furniture_id' => $checkbox[$i]
-                //         );
-                //         $this->db->insert('reservationsfurniture', $sss);//Call the modal
-                //     }
-                // }
-            echo "<script>";
-            echo "alert('จองห้องพักเรียบร้อย');";
-            echo "window.location.href = '". base_url()."page/staff';";
-            echo "</script>";
+            // if (isset($_POST['submit'])) {
+            //     $user_id=$rrr['reservations_id'];//Pass the userid here
+            //     $checkbox = $_POST['customCheck1'];
+            //     print_r($checkbox);
+            //     for ($i=0;$i<count($checkbox);$i++) {
+            //         $sss=array(
+            //             'reservations_id' => $user_id,
+            //             'furniture_id' => $checkbox[$i]
+            //         );
+            //         $this->db->insert('reservationsfurniture', $sss);//Call the modal
+            //     }
+            // }
+            echo "<script> alert('จองห้องพักเรียบร้อย')window.location.href = '". base_url()."page/staff'</script>";
+
             
         
             // redirect('ReservationsController');
