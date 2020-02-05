@@ -22,6 +22,7 @@
                 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                     <div class="row">
                     <div class="col-sm-1">
+                        
                             <?php 
                             $query = $this->db->query("SELECT * FROM room JOIN roomcategory ON roomcategory.roomcategory_id = room.roomcate_id WHERE roomstatus = '0' ");
                             $aa = $query->result_array();

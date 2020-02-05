@@ -134,10 +134,10 @@
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">
-                    <button class="btn btn-success" name="submit" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
+                    <button class="btn btn-success" name="submit"  type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
                     <a class="btn btn-danger" href="<?php echo  base_url('ReservationsController'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
                 </div>
-                
+                <!-- //onclick="myFunction()" -->
             </form>
             </div>
             <script src="<?php echo base_url(); ?>./assets2/vendor/jquery/jquery.min.js"></script>
@@ -148,6 +148,8 @@
   <script src="<?php echo base_url(); ?>./assets2/js/argon.js?v=1.1.0"></script>
   <!--Datepicker -->
   <script src="<?php echo base_url('./assets2/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
+
+
 </body>
 </html>
  

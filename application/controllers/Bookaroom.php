@@ -111,7 +111,8 @@ class Bookaroom extends CI_Controller
             //     $data2 = array(
             //     'roomstatus' => '1'
             //   );
-   
+                $this->load->view('Hee');
+                
            
             //     $this->db->update('room', $data2);
 
@@ -127,7 +128,8 @@ class Bookaroom extends CI_Controller
             //         $this->db->insert('reservationsfurniture', $sss);//Call the modal
             //     }
             // }
-            echo "<script> alert('จองห้องพักเรียบร้อย')window.location.href = '". base_url()."page/staff'</script>";
+            // echo "<script> alert('จองห้องพักเรียบร้อย')window.location.href = '". base_url()."page/staff'</script>";
+
 
             
         
