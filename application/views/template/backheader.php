@@ -10,7 +10,7 @@
 }
 /* customizable snowflake styling */
 .snowflake {
-  color: #fff;
+  color: #000;
   font-size: 1em;
   font-family: Arial;
   text-shadow: 0 0 1px #000;
@@ -124,31 +124,31 @@ color: #000;
   ไม่ดรอป
   </div>
   <div class="snowflake">
-  ไม่ดรอป
+  จบปีนี้
   </div>
   <div class="snowflake">
   ไม่ดรอป
   </div>
   <div class="snowflake">
-  ไม่ดรอป
+  จบปีนี้
   </div>
   <div class="snowflake">
   ไม่ดรอป
   </div>
   <div class="snowflake">
-  ไม่ดรอป
+  จบปีนี้
   </div>
   <div class="snowflake">
   ไม่ดรอป
   </div>
   <div class="snowflake">
-  ไม่ดรอป
+  จบปีนี้
   </div>
   <div class="snowflake">
   ไม่ดรอป
   </div>
   <div class="snowflake">
-  ไม่ดรอป
+  จบปีนี้
   </div>
 </div>
 	<!-- Logo -->
