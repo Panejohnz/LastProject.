@@ -128,10 +128,11 @@ class Bookaroom extends CI_Controller
             //         $this->db->insert('reservationsfurniture', $sss);//Call the modal
             //     }
             // }
-            echo "<script>";
-            echo "alert('จองห้องพักเรียบร้อย');";
-            echo "window.location.href = '". base_url()."page/staff';";
-            echo "</script>";
+            $this->load->view('Hee');
+            // echo "<script>";
+            // echo "alert('จองห้องพักเรียบร้อย');";
+            // echo "window.location.href = '". base_url()."page/staff';";
+            // echo "</script>";
 
             
         
