@@ -11,6 +11,6 @@ class contractcontroller extends CI_Controller
     public function index()
     {
         $this->load->view('contract/contract');
-      
+        $this->load->model('Contract_model');
     }
 }
