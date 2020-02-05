@@ -1,18 +1,36 @@
 <html>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+       
+        <ol class="breadcrumb">
+            <li><a href="<?php echo  base_url('contract'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+            <li class="active">จัดการสัญญาเช่า</li>
+        </ol>
+ 
    <b> <head> <center>สัญญาเช่า</center></head></b>
     <body>
         <style>
         p.ex1{
             margin-right: 5%;
+            color: #000;
         }
         p.ex2{
             margin-left: 10%;
+            color: #000;
         }
         p.ex3{
             margin-left: 7%;
+            color: #000;
         }
         </style>
-        
+          <section class="content">
+          <div class="box">
+            <div class="box-header">
+            <div class="box-body">
+                <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                    <div class="row">
+                        <div class="col-sm-6">
      
     <p class="ex1" align="right">วันที่ทำสัญญา...............................................</p>
     <p class="ex2" align="left">สัญญาเช่าห้องพักฉบับนี้ ทำขึ้นระหว่าง</p>
@@ -74,7 +92,7 @@
 <p class="ex1" align="right">(..........................................................)</p>
 <p class="ex1" align="right">ลงชื่อ.................................................ผู้ให้เช่า</p>
 <p class="ex1" align="right">(..........................................................)</p>
-
+</div>  </div>  </div>
 
 
     </body>

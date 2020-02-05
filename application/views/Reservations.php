@@ -70,7 +70,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">ชื่อ-นามสกุล</label> <?php echo $this->session->flashdata('error_name'); ?>
-                        <input type="text" id="name" class="form-control" name="name" value="<?php echo $this->session->userdata('firstname')?>" style="width: 500px;">
+                        <input type="text" id="name" class="form-control" name="name" value="<?php echo $this->session->userdata1('firstname')?>" style="width: 500px;">
                     </div>
 
                   

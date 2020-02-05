@@ -57,7 +57,7 @@ class Contract extends CI_Controller
             $file = 'uploads/'.$fileInfo['insurance'];
             
             //download file from directory
-            force_download($file, NULL);
+            force_download($file, null);
         }
     }
 
@@ -341,5 +341,26 @@ class Contract extends CI_Controller
     {
         $this->contract_model->remove_contract($id);
         redirect('contract', 'refresh');
+    }
+    public function ee()
+    {
+        $config = array();
+        $config['base_url'] = base_url('contract/index');
+        $config['total_rows'] = $this->contract_model->record_count($this->input->get('keyword'));
+        $config['per_page'] = $this->input->get('keyword') == null ? 14 : 999;
+        $config['uri_segment'] = 3;
+        $choice = $config['total_rows'] / $config['per_page'];
+        $config['num_links'] = round($choice);
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $data['results'] = $this->contract_model->fetch_Contract($config['per_page'], $page, $this->input->get('keyword'));
+        $data['link'] = $this->pagination->create_links();
+        $data['total_rows'] = $config['total_rows'];
+        $data['files'] = $this->contract_model->getRows();
+        $this->load->view('template/backheader');
+        $this->load->view('contract/contract');
+        $this->load->view('template/backfooter');
     }
 }

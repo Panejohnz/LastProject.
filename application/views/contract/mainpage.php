@@ -40,7 +40,11 @@
                                     <tr role="row">
                                        
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
-                                        
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
 
                                         
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px; height:50px;">&nbsp;</th>
@@ -62,10 +66,24 @@
         <a href="<?php echo base_url().'contract/download/'.$f['contract_id']; ?>" class="dwn"> <?php echo $data->insurance; ?></a>
     </div>
 </div>
-        <?php  
+        <?php
      ?>
                                               
                                          
+                                           <td>
+
+                                           </td>
+
+                                           <td>
+
+</td>
+<td>
+
+</td>  <td>
+
+</td>  <td>
+
+</td>
                                              
                                             <td>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('contract/confrm/'.$data->contract_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>

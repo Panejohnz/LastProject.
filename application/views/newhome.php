@@ -276,7 +276,7 @@
     		<div class="row">
     			<div class="col-lg-12">
 				
-					<?php echo "ควย". $his; ?>
+					<?php $his; ?>
     				<form action="<?php echo base_url('RoomController/ss/') ?>" method="post" class="booking-form">
 	        		<div class="row">
 	        			<div class="col-md-3 d-flex">
