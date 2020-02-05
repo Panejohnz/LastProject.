@@ -104,16 +104,17 @@ class Bookaroom extends CI_Controller
             //         'reservations_id' => $rrr['reservations_id'],
             //     );
             //     $this->db->insert('reservationsroom', $ss);
-            //     $this->db->where('room_id', $id);
+            $id = $this->input->post('roomnum');
+            $this->db->where('room_id', $id);
             //     // $query = $this->db->get('room');
             //     // $imf = $query->row_array();
 
-            //     $data2 = array(
-            //     'roomstatus' => '1'
-            //   );
+            $data2 = array(
+                'roomstatus' => '1'
+              );
    
            
-            //     $this->db->update('room', $data2);
+            $this->db->update('room', $data2);
 
             // if (isset($_POST['submit'])) {
             //     $user_id=$rrr['reservations_id'];//Pass the userid here
@@ -127,7 +128,10 @@ class Bookaroom extends CI_Controller
             //         $this->db->insert('reservationsfurniture', $sss);//Call the modal
             //     }
             // }
-            echo "<script> alert('จองห้องพักเรียบร้อย')window.location.href = '". base_url()."page/staff'</script>";
+            echo "<script>";
+            echo "alert('จองห้องพักเรียบร้อย');";
+            echo "window.location.href = '". base_url()."page/staff';";
+            echo "</script>";
 
             
         
