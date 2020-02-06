@@ -17,7 +17,7 @@
 				</a>
 			</li>
 			<li class="active">
-				<?php echo $result->id ?>
+				<!-- <?php echo $result->id ?> -->
 			</li>
 		</ol>
 	</section>

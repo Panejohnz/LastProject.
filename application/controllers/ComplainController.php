@@ -46,7 +46,7 @@ class ComplainController extends CI_Controller
 	public function postdata()
 	{
 		$object = array(
-			'detail' => $this->input->post('detail'),
+			'complaindetail' => $this->input->post('complaindetail'),
 			'user_id' => $this->input->post('user_id'),
 			
 		);
@@ -64,7 +64,7 @@ redirect('complain');
 
 	public function edcom($idcom){
 		$object = array(
-			'detail' => $this->input->post('detail'),
+			'complaindetail' => $this->input->post('complaindetail'),
 			'user_id' => $this->input->post('user_id'),
 			
 			

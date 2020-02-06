@@ -32,7 +32,7 @@
                             Detail
                         </label> 
                         <?php echo $this->session->flashdata('error_username')?>
-                        <input type="text" id="detail" class="form-control" name="detail" value="<?php echo $this->session->flashdata('detail'); ?>">
+                        <input type="text" id="complaindetail" class="form-control" name="complaindetail" value="<?php echo $this->session->flashdata('complaindetail'); ?>">
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
