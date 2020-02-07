@@ -38,7 +38,7 @@
                     <label for="exampleInputEmail1">
                             ราคา
                         </label> <?php echo $this->session->flashdata('error_price')?>
-                        <input type="price" id="password" class="form-control" name="price" value="<?php echo  $this->session->flashdata('price'); ?>">
+                        <input type="price" id="password" class="form-control" name="price" value="<?php echo  $this->session->flashdata('price'); ?>" pattern="/^[0]+[0-9]+$/">
                 </div>
 
             </div>

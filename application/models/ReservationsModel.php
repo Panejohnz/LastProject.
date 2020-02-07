@@ -22,7 +22,15 @@ class ReservationsModel extends CI_Model
         $this->db->select('*')  //join
             ->from('reservations')
             ->from('users')
-            ->where('users.user_id = reservations.id_users');
+            ->where('users.user_id = reservations.id_users')
+            ->from('reservationsroom')
+            ->from('room')
+            ->where('room.room_id = reservationsroom.room_id');
+        //  ->from('reservationsfurniture')
+        //  ->from('furniture')
+        // ->where('furniture.furniture_id = reservationsfurniture.furniture_id');
+
+
         $query = $this->db->get(); //join
 
         if ($query->num_rows() > 0) {
@@ -48,6 +56,12 @@ class ReservationsModel extends CI_Model
     public function remove_reservations($id)
     {
         $this->db->delete('reservations', array('reservations_id' => $id));
+
+        $this->db->from("reservations");
+        $this->db->join("reservationsfurniture", "reservations.reservations_id = reservationsfurniture.reservationsfurniture_id");
+        $this->db->join("reservationsroom", "reservationsroom.reservations_id = reservations.reservations_id");
+        $this->db->where("reservationsfurniture.reservationsfurniture_id", $id);
+        $this->db->delete("reservations");
     }
 
     // public function search_room($cateid)

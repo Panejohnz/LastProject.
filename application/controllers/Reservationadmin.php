@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 class Reservationadmin extends CI_Controller
 {
 
@@ -8,7 +8,6 @@ class Reservationadmin extends CI_Controller
 		parent::__construct();
 		$this->load->library('pagination');
 		$this->load->model('ReservationsModel');
-		
 	}
 
 	public function index()
@@ -32,7 +31,7 @@ class Reservationadmin extends CI_Controller
 		$this->load->view('template/backfooter');
 	}
 
-	
+
 
 	public function postdata()
 	{
@@ -45,10 +44,10 @@ class Reservationadmin extends CI_Controller
 			'email' => $this->input->post('email'),
 			'gender' => $this->input->post('gender')
 		);
-$this->db->insert('users', $object);
-redirect('room');
-		}
-	
+		$this->db->insert('users', $object);
+		redirect('room');
+	}
+
 	public function edit($id)
 	{
 		$data['result'] = $this->room_model->read_room($id);
@@ -57,36 +56,41 @@ redirect('room');
 		$this->load->view('template/backfooter');
 	}
 
-	public function edroom($idroom){
+	public function edroom($idroom)
+	{
 		$object = array(
 			'roomnum' => $this->input->post('roomnum'),
 			'roomcate' => $this->input->post('roomcate'),
 			'roomprice' => $this->input->post('roomprice')
-			
+
 		);
 		$this->db->where('room_id', $idroom);
-		
+
 		$this->db->update('room', $object);
 		redirect('room');
 	}
 
 	public function confrm($id)
 	{
-		$data = array
-		(
+		$data = array(
 			'backlink'  => 'Reservationadmin',
-			'deletelink'=> 'Reservationadmin/remove/' . $id
+			'deletelink' => 'Reservationadmin/remove/' . $id
 		);
 		$this->load->view('template/backheader');
-		$this->load->view('reservations/confrm',$data);
+		$this->load->view('reservations/confrm', $data);
 		$this->load->view('template/backfooter');
 	}
 
-	public function remove($id)
+	public function remove($reservations_id)
 	{
-		$this->ReservationsModel->remove_reservations($id);
+		//$this->ReservationsModel->remove_reservations($id);
+
+		$this->db->query("DELETE reservations,reservationsroom,reservationsfurniture 
+        FROM reservations,reservationsroom,reservationsfurniture
+        WHERE reservations.reservations_id=reservationsroom.reservations_id 
+        AND reservationsroom.reservations_id =reservationsfurniture.reservations_id 
+        AND reservationsroom.reservations_id = $reservations_id"); //ลบหลายตาราง
+
 		redirect('Reservationadmin');
 	}
-
-
 }

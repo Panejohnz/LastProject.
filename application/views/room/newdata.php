@@ -32,7 +32,7 @@
                             เลขห้อง
                         </label> 
                         <?php echo $this->session->flashdata('error_roomnum')?>
-                        <input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo $this->session->flashdata('roomnum'); ?>">
+                        <input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo $this->session->flashdata('roomnum'); ?>" pattern="/^[0]+[0-9]+$/">
                 </div>
                 <div class="form-group">
                     <div class="col-sm-4">  
@@ -60,7 +60,7 @@
                         <label for="exampleInputEmail1">
                             ราคา
                         </label> <?php echo $this->session->flashdata('error_roomprice')?>
-                        <input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo $this->session->flashdata('roomprice'); ?>">
+                        <input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo $this->session->flashdata('roomprice'); ?>" pattern="/^[0]+[0-9]+$/">
                     </div>
 
                     <div class="form-group">

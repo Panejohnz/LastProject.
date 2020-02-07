@@ -60,14 +60,17 @@
                                             <td>
                                             
                                             <!-- <?php echo  $data->id_users; ?><br> -->
-                                            <?php echo  $data->firstname; ?>&nbsp;<?php echo  $data->lastname; ?><br>
-                                            <?php echo  $data->tel; ?><br>
-                                            <?php echo  $data->email; ?>
+                                            ชื่อ-นามสกุล: <?php echo   $data->firstname; ?>&nbsp;<?php echo  $data->lastname; ?><br>
+                                            เบอร์โทรศัพท์: <?php echo  $data->tel; ?><br>
+                                            อีเมล: <?php echo  $data->email; ?><br>    
+                                            ห้อง: <?php echo  $data->roomnum; ?><br>
+                                            <!-- เฟอร์นิเจอร์: <?php echo  $data->name; ?> -->
+
                                             <br>
                                            
                                             
                                             </td>
-                                            <td>
+                                            <td> <?php echo $data->reservations_id; ?>
                                             <?php echo  $data->slip_date; ?>
                                             </td>
                                             <!-- <td>
@@ -88,7 +91,7 @@
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('Reservationadmin/confrm/'.$data->reservations_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
-                                    <?php } } ?>
+                                    <?php }} ?>
                                 </tbody>
 
                             </table>

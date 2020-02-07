@@ -18,7 +18,9 @@
 			<div class="inner">
 				<img src="<?php echo base_url(); ?>./assets/colorlib-regform-26/images/image-1.png" alt="" class="image-1">
 				<form method="post" action="<?php echo base_url(); ?>RegisController/Register">
+				
 					<h3>New Account?</h3>
+					
 					<div class="form-holder">
 						<span class="lnr lnr-user"></span>
 						<input type="text" class="form-control" placeholder="Firstname" name="firstname" id="firstname">
@@ -48,10 +50,10 @@
 						<span class="lnr lnr-lock"></span>
 						<input type="password" class="form-control" placeholder="Password" name="password">
 					</div>
-					<div class="form-holder">
+					<!-- <div class="form-holder">
 						<span class="lnr lnr-lock"></span>
 						<input type="password" class="form-control" placeholder="Confirm Password">
-					</div>
+					</div> -->
 					
 					<button  type="submit" name="register" class="btn">
 						<span>Register</span>
