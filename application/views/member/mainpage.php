@@ -44,7 +44,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(!empty($results)){ foreach ($results as $data) { ?>
+                                    <?php if (!empty($results)) {
+    foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
                                             <a href="<?php echo base_url('member/edit/'.$data->user_id); ?>">
@@ -68,7 +69,8 @@
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('member/confrm/'.$data->user_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
-                                    <?php } } ?>
+                                    <?php }
+} ?>
                                 </tbody>
 
                             </table>

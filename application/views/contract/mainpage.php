@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -11,6 +12,7 @@
     </section>
     <!-- Top menu -->
     <?php echo $this->session->flashdata('msginfo'); ?>
+    
     <!-- Main content -->
     <section class="content">
         <!-- Your Page Content Here -->
@@ -33,58 +35,49 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-sm-12">
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
+                                    
                                     <tr role="row">
                                        
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ไฟล์สัญญา</th>
+                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">ไอดีสัญญา</th>
+                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">หมายเลขห้อง</th>
+                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">ชื่อลูกค้า</th>
+                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">เลขบัตรประชาชนลูกค้า</th>
+                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">วันที่เรื่มสัญญา</th>
+                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">ระยะเวลาสัญญา</th>
+                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">วันสิ้นสุดสัญญา</th>
+                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">ไฟล์สัญญา</th>
 
                                         
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px; height:50px;">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                
                                     <?php if (!empty($results)) {
     foreach ($results as $data) { ?>
+    
                                         <tr role="row">
                                           
-                                             <td>
-                                             <?php $this->db->where('contract_id', $data->contract_id);
-                                                   $files =  $this->db->get('contract');
-                                                    $f = $files->row_array();?>
-<div class="file-box">
-    <div class="box-content">
-     
-    <embed src="<?php echo base_url().'uploads/'.$f['insurance']; ?>" width="100%" height="500px"><br>
-        <a href="<?php echo base_url().'contract/download/'.$f['contract_id']; ?>" class="dwn"> <?php echo $data->insurance; ?></a>
-    </div>
-</div>
-        <?php
-     ?>
-                                              
-                                         
-                                           <td>
+                                           <td>  <?php echo $data->contract_id; ?>  </td>
+                                           <td>  <?php echo $data->identity_card; ?> </td>
+                                           <td>  <?php echo $data->firstname; ?>  </td>
+                                           <td>  <?php echo $data->identity_card; ?>  </td>
+                                           <td>  <?php echo $data->datecontract_start; ?>  </td>
+                                           <td>  1  </td>
+                                           <td>  <?php echo $data->datecontract_end; ?>  </td>
+                                         <td>
+                                        
+                                            
+                                       <a href="<?php echo base_url('Welcome/hee/'.$data->contract_id)?>">View in PDF</a> 
+   
+  </td>
 
-                                           </td>
-
-                                           <td>
-
-</td>
-<td>
-
-</td>  <td>
-
-</td>  <td>
-
-</td>
-                                             
+   
                                             <td>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('contract/confrm/'.$data->contract_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>

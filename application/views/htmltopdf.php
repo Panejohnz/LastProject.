@@ -8,7 +8,7 @@
 <body>
  <div class="container box">
   <br />
-  <h3 align="center">Convert HTML to PDF in CodeIgniter using Dompdf</h3>
+  <h3 align="center">สัญญาเช่า</h3>
   <br />
   <?php
   if(isset($customer_data))

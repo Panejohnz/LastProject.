@@ -15,7 +15,7 @@ class Contract extends CI_Controller
     public function index()
     {
         $config = array();
-        $config['base_url'] = base_url('contract/index');
+        $config['base_url'] = base_url('contract');
         $config['total_rows'] = $this->contract_model->record_count($this->input->get('keyword'));
         $config['per_page'] = $this->input->get('keyword') == null ? 14 : 999;
         $config['uri_segment'] = 3;
@@ -28,7 +28,7 @@ class Contract extends CI_Controller
         $data['results'] = $this->contract_model->fetch_Contract($config['per_page'], $page, $this->input->get('keyword'));
         $data['link'] = $this->pagination->create_links();
         $data['total_rows'] = $config['total_rows'];
-        $data['files'] = $this->contract_model->getRows();
+
         $this->load->view('template/backheader');
         $this->load->view('contract/mainpage', $data);
         $this->load->view('template/backfooter');
@@ -44,23 +44,22 @@ class Contract extends CI_Controller
         $this->load->view('contract/newdata');
         $this->load->view('template/backfooter');
     }
-    public function download($contract_id)
-    {
-        if (!empty($contract_id)) {
-            //load download helper
-            $this->load->helper('download');
+    // public function download($contract_id)
+    // {
+    //     if (!empty($contract_id)) {
+    //         //load download helper
+    //         $this->load->helper('download');
             
-            //get file info from database
-            $fileInfo = $this->contract_model->getRows(array('contract_id' => $contract_id));
+    //         //get file info from database
+    //         $fileInfo = $this->contract_model->getRows(array('contract_id' => $contract_id));
             
-            //file path
-            $file = 'uploads/'.$fileInfo['insurance'];
+    //         //file path
+    //         $file = 'uploads/'.$fileInfo['insurance'];
             
-            //download file from directory
-            force_download($file, null);
-        }
-    }
-
+    //         //download file from directory
+    //         force_download($file, null);
+    //     }
+    
     /*
         public function postdata()
 
@@ -163,12 +162,10 @@ class Contract extends CI_Controller
             //$imgtype_name = $data['imgtype_name'];
 
             $arr=array(
-                'date_create' => date('Y-m-d'),
-                                "insurance"=>$filename,
-                //                 'startrcontract' => $dat,
-                // 'endrcontractct' => $dat2,
-                // 'numroom' => $this->input->post('numroom'),
-                // 'idcustomer' => $this->input->post('idcustomer')
+                            "user_id" => $this->input->post(),
+                                "identity_card"=>$this->input->post('card'),
+                             "datecontract_start" => $this->input->post('datestart'),
+                             "datecontract_end" => $this->input->post('dateend')
                             );
             $this->db->insert('contract', $arr);
 

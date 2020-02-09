@@ -3,25 +3,24 @@ class Htmltopdf_model extends CI_Model
 {
  function fetch()
  {
-  $this->db->order_by('CustomerID', 'DESC');
-  return $this->db->get('tbl_customer');
+  $this->db->order_by('contract_id');
+  return $this->db->get('contract');
  }
- function fetch_single_details($customer_id)
+ function fetch_single_details($contract_id)
  {
-  $this->db->where('CustomerID', $customer_id);
-  $data = $this->db->get('tbl_customer');
+  $this->db->where('contract_id', $contract_id);
+  $data = $this->db->get('contract');
   $output = '<table width="100%" cellspacing="5" cellpadding="5">';
   foreach($data->result() as $row)
   {
    $output .= '
    <tr>
-    <td width="25%"><img src="'.base_url().'images/'.$row->images.'" /></td>
+   
     <td width="75%">
-     <p><b>Name : </b>'.$row->CustomerName.'</p>
-     <p><b>Address : </b>'.$row->Address.'</p>
-     <p><b>City : </b>'.$row->City.'</p>
-     <p><b>Postal Code : </b>'.$row->PostalCode.'</p>
-     <p><b>Country : </b> '.$row->Country.' </p>
+     <p><b>Name: </b>'.$row->contract_id.'</p>
+     <p><b>Address : </b>'.$row->identity_card.'</p>
+     <p><b>Postal Code : </b>'.$row->identity_card.'</p>
+     <p><b>Country : </b> '.$row->datecontract_start.' </p>
     </td>
    </tr>
    ';

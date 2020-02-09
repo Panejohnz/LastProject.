@@ -22,7 +22,7 @@ class HtmltoPDF extends CI_Controller {
   {
    $customer_id = $this->uri->segment(3);
    $data['customer_details'] = $this->htmltopdf_model->fetch_single_details($customer_id);
-   $this->load->view('htmltopdf', $data);
+   $this->load->view('contract/mainpage', $data);
   }
  }
 
@@ -31,14 +31,15 @@ class HtmltoPDF extends CI_Controller {
   if($this->uri->segment(3))
   {
    $customer_id = $this->uri->segment(3);
-   $html_content = '<h3 align="center">Convert HTML to PDF in CodeIgniter using Dompdf</h3>';
+  // print_r($customer_id);
+   $html_content = '<h3 align="center">Convert HTML to PDF in CodeIgniter using Dompdfh';
    $html_content .= $this->htmltopdf_model->fetch_single_details($customer_id);
    $this->pdf->loadHtml($html_content);
    $this->pdf->render();
    $this->pdf->stream("".$customer_id.".pdf", array("Attachment"=>0));
+   
   }
  }
 
 }
 
-?>
