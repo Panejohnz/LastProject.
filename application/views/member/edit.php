@@ -49,7 +49,7 @@
 					<label for="exampleInputEmail1">
 							password
 						</label> <?php echo $this->session->flashdata('error_password')?>
-						<input type="text" readonly id="password" class="form-control" name="password" value="<?php echo  $result->password ?>">
+						<input type="text"  id="password" class="form-control" name="password" value="<?php echo  $result->password ?>">
 				</div>
 
 			</div>
@@ -82,7 +82,7 @@
 						<label for="exampleInputEmail1">
 						 เบอร์โทร
 						</label> <?php echo $this->session->flashdata('error_tel')?>
-						<input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $result->tel ?>" pattern="/^[0]+[0-9]+$/">
+						<input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $result->tel ?>" >
 					</div>
 					<div class="col-sm-4">	
 					

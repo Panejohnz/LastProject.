@@ -22,10 +22,10 @@ class ReservationsModel extends CI_Model
         $this->db->select('*')  //join
             ->from('reservations')
             ->from('users')
-            ->where('users.user_id = reservations.id_users')
-            ->from('reservationsroom')
-            ->from('room')
-            ->where('room.room_id = reservationsroom.room_id');
+            ->where('users.user_id = reservations.id_users');
+            // ->from('reservationsroom');
+            // ->from('room')
+            // ->where('room.room_id = reservationsroom.room_id');
         //  ->from('reservationsfurniture')
         //  ->from('furniture')
         // ->where('furniture.furniture_id = reservationsfurniture.furniture_id');

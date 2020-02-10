@@ -52,8 +52,8 @@ class Member extends CI_Controller
 			'firstname' => $this->input->post('firstname'),
 			'lastname' => $this->input->post('lastname'),
 			'tel' => $this->input->post('tel'),
-			'email' => $this->input->post('email'),
-			'gender' => $this->input->post('gender')
+			'email' => $this->input->post('email')
+			
 		);
 $this->db->insert('users', $object);
 redirect('member');
