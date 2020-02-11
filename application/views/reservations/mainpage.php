@@ -47,11 +47,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(!empty($results)){ foreach ($results as $data) { ?>
+                                    
+                                    <?php        $query = $this->db->query("SELECT * FROM `reservations`
+                                                    LEFT JOIN users
+                                                    ON reservations.id_users = users.user_id
+                                                    LEFT JOIN reservationsroom
+                                                    ON reservations.reservations_id = reservationsroom.reservations_id 
+                                                    LEFT JOIN room
+                                                    ON  room.room_id = reservationsroom.room_id");
+
+                                                     
+                                                       
+                                                             ?>
+                                      
                                         <tr role="row">
+                                            <?php  foreach($query->result_array() as $data)
+                                                    { ?>
                                             <td>
-                                            <a href="<?php echo base_url('reservations/edit/'.$data->reservations_id); ?>">
-                                            <?php echo  $data->reservationsstart; ?>
+                                            <a href="<?php echo base_url('reservations/edit/'.$data['reservations_id']); ?>">
+                                            <?php echo  $data['reservationsstart']; ?>
                                             </a> 
                                             <br>
                                           
@@ -59,39 +73,59 @@
                                             
                                             <td>
                                             
-                                            <!-- <?php echo  $data->id_users; ?><br> -->
-                                            ชื่อ-นามสกุล: <?php echo   $data->firstname; ?>&nbsp;<?php echo  $data->lastname; ?><br>
-                                            เบอร์โทรศัพท์: <?php echo  $data->tel; ?><br>
-                                            อีเมล: <?php echo  $data->email; ?><br>    
-                                            ห้อง: <?php echo  $data->roomnum; ?><br>
-                                             เฟอร์นิเจอร์: <?php echo  $data->name; ?>
+                                            
+                                            ชื่อ-นามสกุล: <?php echo   $data['firstname']; ?>&nbsp;<?php echo  $data['lastname']; ?><br>
+                                            เบอร์โทรศัพท์: <?php echo  $data['tel']; ?><br>
+                                            อีเมล: <?php echo  $data['email']; ?><br>    
+                                            ห้อง: <?php echo  $data['roomnum']; ?><br>
+                                            <?php  if($data['Type'] == 'มีเฟอร์นิเจอร์')
+                                                        {
+
+                                                            $hee = $data['reservations_id'];
+
+                                                            $qq = $this->db->query("SELECT * FROM `reservationsfurniture`
+                                                            LEFT JOIN furniture
+                                                            ON furniture.furniture_id = reservationsfurniture.furniture_id
+                                                            WHERE reservationsfurniture.reservations_id = $hee ");
+
+                                                            foreach($qq->result_array() as $data2)
+                                                            { ?>
+                                                                | <?php echo  $data2['name']; ?>
+
+
+                                                        <?php     } 
+                                                            
+                                                        } ?>
+                                                
 
                                             <br>
                                            
                                             
                                             </td>
-                                            <td> <?php echo $data->reservations_id; ?>
-                                            <?php echo  $data->slip_date; ?>
+                                            <td> 
+                                            <?php echo  $data['slip_date']; ?>
                                             </td>
                                             <!-- <td>
-                                            <?php echo  $data->telephone; ?>
+                                            <?php echo  $data['telephone']; ?>
                                             </td>
                                             <td>
-                                            <?php echo  $data->reservationsprice; ?>  
+                                            <?php echo  $data['reservationsprice']; ?>  
                                             </td> -->
                                             <td>
-                                            <a target="_blank" href="<?php echo  base_url('uploads/'.$data->slip_file); ?>">
-                                            <img src="<?php echo base_url(); ?>./uploads/<?php echo $data->slip_file; ?>" width="50px"></a>
+                                            <a target="_blank" href="<?php echo  base_url('uploads/' .$data['slip_file']); ?>">
+                                            <img src="<?php echo base_url(); ?>./uploads/<?php echo $data['slip_file']; ?>" width="50px"></a>
                                             
                                             </td>
                                             <td>
-                                            <a class="btn btn-success" href="<?php echo  base_url('contract/newdata'.$data->reservations_id); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> ทำสัญญา</a>
+                                            <a class="btn btn-success" href="<?php echo  base_url('contract/newdata'.$data['reservations_id']); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> ทำสัญญา</a>
                                             </td>
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('Reservationadmin/confrm/'.$data->reservations_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('Reservationadmin/confrm/'.$data['reservations_id']); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
+                                           
+                                            
                                         </tr>
-                                    <?php }} ?>
+                                                <?php } ?>
                                 </tbody>
 
                             </table>

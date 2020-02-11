@@ -28,7 +28,8 @@ class ReservationsModel extends CI_Model
             ->join('furniture','furniture.furniture_id = reservationsfurniture.furniture_id')
             ->join('room','room.room_id = reservationsroom.room_id')
             ->join('users','users.user_id = reservations.id_users');
-           
+            
+            
            
 
         $query = $this->db->get(); //join

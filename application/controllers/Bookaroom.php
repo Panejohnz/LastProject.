@@ -77,6 +77,7 @@ class Bookaroom extends CI_Controller
                                 'room_id' => $this->input->post('roomnum'),
                               'reservations_id' => $ord_id
                             );
+                        
 
             
                     
@@ -86,23 +87,34 @@ class Bookaroom extends CI_Controller
             
             if (isset($_POST['submit'])) {
                 $user_id=$ord_id;//Pass the userid here
-                $checkbox = $_POST['customCheck1'];
+                $checkbox = $_POST['customCheck1']; //กูว่าบัคไลน์นี้ 
+              
                 // print_r($checkbox);
                 for ($i=0;$i<count($checkbox);$i++) {
                     $sss=array(
                         'reservations_id' => $user_id,
                         'furniture_id' => $checkbox[$i]
                     );
+                    $ds = array('Type' => "มีเฟอร์นิเจอร์");
+                    $this->db->where('reservations_id', $user_id);
+                    $ff = $this->db->update('reservations', $ds);
+                    
                     $cust_id = $this->ReservationsModel->insert_order_detail1($sss);//Call the modal
+               }
+               if ($checkbox == '') {
+                $sss=array(
+                    'reservations_id' => $user_id,
+                    'furniture_id' => $checkbox[$i]
+                );
+                $dss = array('Type' => "ไม่มีเฟอร์นิเจอร์");
+                $this->db->where('reservations_id', $user_id);
+                $ff = $this->db->update('reservations', $dss);
+                
                
-           
-
-                    $roomfur = array(
-                'room_id' => $this->input->post('roomnum'),
-              'furniture_id' => $checkbox[$i]
-            );
-                    $this->ReservationsModel->insert_order_detail2($roomfur);//Call the modal
-                }
+            }
+            }else 
+            {   
+               
             }
             //     $this->db->insert('reservations', $arr);
 

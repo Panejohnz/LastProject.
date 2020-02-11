@@ -17,9 +17,10 @@ class Hee extends CI_Controller {
         foreach($query->result_array() as $data)
         {
             echo "</br>";
+            echo "วันที่ :". $data['reservationsstart']." ".$data['slip_date'];
             echo "ชื่อ :" . $data['firstname']." ".$data['lastname'];
             echo "TEL :" . $data['tel'];
-            echo "Email :". $data['email'];
+            echo "Email :". $data['email'];  
             echo "Room:" . $data['room_id'];
 
             if($data['Type'] == 'มีเฟอร์นิเจอร์')
@@ -34,7 +35,7 @@ class Hee extends CI_Controller {
 
                 foreach($qq->result_array() as $data2)
                 {
-                    echo "เฟอร์นิเจอร์" . $data2['name'];
+                    echo "เฟอร์นิเจอร์" . $data2['name']; 
                 }
                 
             }

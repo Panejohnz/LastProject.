@@ -29,6 +29,39 @@ class Reservationadmin extends CI_Controller
 		$this->load->view('template/backheader');
 		$this->load->view('reservations/mainpage', $data);
 		$this->load->view('template/backfooter');
+
+		$query = $this->db->query("SELECT * FROM `reservations`
+        LEFT JOIN users
+        ON reservations.id_users = users.user_id
+        LEFT JOIN reservationsroom
+        ON reservations.reservations_id = reservationsroom.reservations_id  ");
+
+        foreach($query->result_array() as $data)
+        {
+            // echo "</br>";
+            // echo "วันที่ :". $data['reservationsstart']." ".$data['slip_date'];
+            // echo "ชื่อ :" . $data['firstname']." ".$data['lastname'];
+            // echo "TEL :" . $data['tel'];
+            // echo "Email :". $data['email'];
+            // echo "Room:" . $data['room_id'];
+
+            if($data['Type'] == 'มีเฟอร์นิเจอร์')
+            {
+
+                $hee = $data['reservations_id'];
+
+                $qq = $this->db->query("SELECT * FROM `reservationsfurniture`
+                LEFT JOIN furniture
+                ON furniture.furniture_id = reservationsfurniture.furniture_id
+                WHERE reservationsfurniture.reservations_id = $hee ");
+
+                foreach($qq->result_array() as $data2)
+                {
+                    // echo "เฟอร์นิเจอร์" . $data2['name'];
+                }
+                
+            }
+        }
 	}
 
 
