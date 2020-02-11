@@ -28,7 +28,7 @@
   </style>
 </head>
 <body class="A4 portrait">
-  <section class="sheet padding-10mm" id="pdf">
+<section class="sheet padding-20mm" id="pdf">
   <p class="ex1" align="right">วันที่ทำสัญญา...............................................</p>
     <p class="ex2" align="left">สัญญาเช่าห้องพักฉบับนี้ ทำขึ้นระหว่าง</p>
     <p class="ex3" align="left">(ก) นาย/นาง/นางสาว .......................................................... (ผู้มีอำนาจในการทำสัญญา)</p>

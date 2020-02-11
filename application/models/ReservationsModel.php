@@ -23,9 +23,9 @@ class ReservationsModel extends CI_Model
             ->from('reservations')
             ->from('users')
             ->where('users.user_id = reservations.id_users');
-            // ->from('reservationsroom');
-            // ->from('room')
-            // ->where('room.room_id = reservationsroom.room_id');
+        //     ->from('reservationsroom');
+        //     ->from('room')
+        //     ->where('room.room_id = reservationsroom.room_id');
         //  ->from('reservationsfurniture')
         //  ->from('furniture')
         // ->where('furniture.furniture_id = reservationsfurniture.furniture_id');
@@ -107,5 +107,9 @@ class ReservationsModel extends CI_Model
     public function insert_order_detail1($data)
     {
         $this->db->insert('reservationsfurniture', $data);
+    }
+    public function insert_order_detail2($data)
+    {
+        $this->db->insert('roomfur', $data);
     }
 }
