@@ -108,4 +108,8 @@ class ReservationsModel extends CI_Model
     {
         $this->db->insert('reservationsfurniture', $data);
     }
+    public function insert_order_detail2($data)
+    {
+        $this->db->insert('roomfur', $data);
+    }
 }

@@ -94,9 +94,16 @@ class Bookaroom extends CI_Controller
                         'furniture_id' => $checkbox[$i]
                     );
                     $cust_id = $this->ReservationsModel->insert_order_detail1($sss);//Call the modal
+               
+           
+
+                    $roomfur = array(
+                'room_id' => $this->input->post('roomnum'),
+              'furniture_id' => $checkbox[$i]
+            );
+                    $this->ReservationsModel->insert_order_detail2($roomfur);//Call the modal
                 }
             }
-           
             //     $this->db->insert('reservations', $arr);
 
             //     $rr = $this->db->get('reservations');
