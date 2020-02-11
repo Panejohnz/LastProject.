@@ -120,7 +120,7 @@ color: #000;
   ❄
   </div> -->
   <!--  -->
-  <div class="snowflake">
+  <!-- <div class="snowflake">
   ไม่ดรอป
   </div>
   <div class="snowflake">
@@ -149,7 +149,7 @@ color: #000;
   </div>
   <div class="snowflake">
   จบปีนี้
-  </div>
+  </div> -->
 </div>
 	<!-- Logo -->
 	<a href="<?php base_url(); ?>" class="logo">

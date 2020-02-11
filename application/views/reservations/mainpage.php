@@ -63,8 +63,8 @@
                                             ชื่อ-นามสกุล: <?php echo   $data->firstname; ?>&nbsp;<?php echo  $data->lastname; ?><br>
                                             เบอร์โทรศัพท์: <?php echo  $data->tel; ?><br>
                                             อีเมล: <?php echo  $data->email; ?><br>    
-                                            <!-- ห้อง: <?php echo  $data->roomnum; ?><br> -->
-                                            <!-- เฟอร์นิเจอร์: <?php echo  $data->name; ?> -->
+                                            ห้อง: <?php echo  $data->roomnum; ?><br>
+                                             เฟอร์นิเจอร์: <?php echo  $data->name; ?>
 
                                             <br>
                                            

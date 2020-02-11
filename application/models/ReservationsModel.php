@@ -20,16 +20,16 @@ class ReservationsModel extends CI_Model
         $this->db->like('reservationsstart', $keryword);
         $this->db->limit($limit, $start);
         $this->db->select('*')  //join
+        
+           
             ->from('reservations')
-            ->from('users')
-            ->where('users.user_id = reservations.id_users');
-            // ->from('reservationsroom');
-            // ->from('room')
-            // ->where('room.room_id = reservationsroom.room_id');
-        //  ->from('reservationsfurniture')
-        //  ->from('furniture')
-        // ->where('furniture.furniture_id = reservationsfurniture.furniture_id');
-
+            ->join('reservationsroom','reservationsroom.reservations_id = reservations.reservations_id')
+            ->join('reservationsfurniture','reservationsfurniture.reservations_id = reservations.reservations_id')
+            ->join('furniture','furniture.furniture_id = reservationsfurniture.furniture_id')
+            ->join('room','room.room_id = reservationsroom.room_id')
+            ->join('users','users.user_id = reservations.id_users');
+           
+           
 
         $query = $this->db->get(); //join
 
