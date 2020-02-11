@@ -8,11 +8,13 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('url'));
+		$this->load->model('contract_model');
 		//include(APPPATH."third_party/mpdf/mpdf.php");
 	}
-	public function index(){
-		
-		$this->load->view("receipt_view"); 
+	public function hee(){
+		$config = array();
+		$data['results'] = $this->contract_model->fetch_Contract($config['per_page'], $page, $this->input->get('keyword'));
+		$this->load->view("receipt_view" , $data); 
 	}
 	public function save()
 	{
