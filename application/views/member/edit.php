@@ -43,13 +43,13 @@
 							username
 						</label> 
 						<?php echo $this->session->flashdata('error_username')?>
-						<input type="text" readonly id="username" class="form-control" name="username" value="<?php echo  $result->username ?>">
+						<input type="text" readonly id="username" class="form-control" name="username" value="<?php echo  $result->username ?>" required>
 				</div>
 				<div class="col-sm-4">	
 					<label for="exampleInputEmail1">
 							password
 						</label> <?php echo $this->session->flashdata('error_password')?>
-						<input type="text"  id="password" class="form-control" name="password" value="<?php echo  $result->password ?>">
+						<input type="text"  id="password" class="form-control" name="password" value="<?php echo  $result->password ?>" required>
 				</div>
 
 			</div>
@@ -61,14 +61,14 @@
 						<label for="exampleInputEmail1">
 							ชื่อ
 						</label> <?php echo $this->session->flashdata('error_name')?>
-						<input type="text" id="name" class="form-control" name="firstname" value="<?php echo  $result->firstname ?>">
+						<input type="text" id="name" class="form-control" name="firstname" value="<?php echo  $result->firstname ?>" required>
 					</div>
 
 				 	<div class="col-sm-4">		
 						<label for="exampleInputEmail1">
 							สกุล
 						</label> <?php echo $this->session->flashdata('error_lastname')?>
-						<input type="text" id="lastname" class="form-control" name="lastname" value="<?php echo  $result->lastname ?>">
+						<input type="text" id="lastname" class="form-control" name="lastname" value="<?php echo  $result->lastname ?>" required>
 					</div>
 
 			</div>
@@ -82,14 +82,14 @@
 						<label for="exampleInputEmail1">
 						 เบอร์โทร
 						</label> <?php echo $this->session->flashdata('error_tel')?>
-						<input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $result->tel ?>" >
+						<input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $result->tel ?>" required maxlength="10" >
 					</div>
 					<div class="col-sm-4">	
 					
 						<label for="exampleInputEmail1">
 							อีเมล
 						</label> <?php echo $this->session->flashdata('error_email')?>
-						<input type="email" id="email" class="form-control" name="email" value="<?php echo  $result->email ?>">
+						<input type="email" id="email" class="form-control" name="email" value="<?php echo  $result->email ?>" required>
 					</div>
 					
 					</div>

@@ -38,12 +38,12 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ประเภท</th>
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 50%;">รายละเอียด</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 50%;">ประเภท</th>
+                                        <!-- <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 50%;">รายละเอียด</th> -->
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ราคา</th>
 
                                         
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  30px;">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,9 +56,9 @@
                                             <br>
                                            
                                             </td>
-                                            <td>
+                                            <!-- <td>
                                             <?php echo  $data->detail; ?>
-                                            </td>
+                                            </td> -->
                                              <!-- <td>
                                              <img src="./uploads/<?php echo $data->typeimg; ?>" width="100px">
                                               

@@ -48,7 +48,7 @@ class Room extends CI_Controller
         $object = array(
             'roomnum' => $this->input->post('roomnum'),
             'roomcate_id' => $this->input->post('roomcate'),
-            'roomprice' => $this->input->post('roomprice'),
+            // 'roomprice' => $this->input->post('roomprice'),
             'roomstatus' => $this->input->post('roomstatus')
         );
         $this->db->insert('room', $object);
@@ -67,8 +67,9 @@ class Room extends CI_Controller
     {
         $object = array(
             'roomnum' => $this->input->post('roomnum'),
-            'roomcate' => $this->input->post('roomcate'),
-            'roomprice' => $this->input->post('roomprice')
+            'roomcate_id' => $this->input->post('roomcate'),
+            // 'roomprice' => $this->input->post('roomprice'),
+            'roomstatus' => $this->input->post('roomstatus')
             
         );
         $this->db->where('room_id', $idroom);

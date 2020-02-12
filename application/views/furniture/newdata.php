@@ -32,13 +32,13 @@
                             ชื่อ
                         </label> 
                         <?php echo $this->session->flashdata('error_name')?>
-                        <input type="text" id="name" class="form-control" name="name" value="<?php echo $this->session->flashdata('name'); ?>">
+                        <input type="text" id="name" class="form-control" name="name" value="<?php echo $this->session->flashdata('name'); ?>" required>
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
                             ราคา
                         </label> <?php echo $this->session->flashdata('error_price')?>
-                        <input type="price" id="password" class="form-control" name="price" value="<?php echo  $this->session->flashdata('price'); ?>">
+                        <input type="price" id="password" class="form-control" name="price" value="<?php echo  $this->session->flashdata('price'); ?>" pattern="\d{1,9}" maxlength="5" required>
                 </div>
 
             </div>

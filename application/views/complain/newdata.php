@@ -32,13 +32,13 @@
                             Detail
                         </label> 
                         <?php echo $this->session->flashdata('error_username')?>
-                        <input type="text" id="complaindetail" class="form-control" name="complaindetail" value="<?php echo $this->session->flashdata('complaindetail'); ?>">
+                        <input type="text" id="complaindetail" class="form-control" name="complaindetail" value="<?php echo $this->session->flashdata('complaindetail'); ?>" required>
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
                             user_id
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="text" id="user_id" class="form-control" name="user_id" value="<?php echo  $this->session->flashdata('user_id'); ?>">
+                        <input type="text" id="user_id" class="form-control" name="user_id" value="<?php echo  $this->session->flashdata('user_id'); ?>" required>
                 </div>
 
             </div>

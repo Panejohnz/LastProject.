@@ -26,15 +26,15 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">ชื่อประเภท</label> <?php echo $this->session->flashdata('error_roomname'); ?>
-                        <input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $this->session->flashdata('roomname'); ?>">
+                        <input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $this->session->flashdata('roomname'); ?>" required>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="exampleInputEmail1">รายละเอียด</label> <?php echo $this->session->flashdata('error_roomname'); ?>
-                        <input type="text" id="detail" class="form-control" name="detail" value="<?php echo  $this->session->flashdata('detail'); ?>">
-                    </div>
+                        <input type="text" id="detail" class="form-control" name="detail" value="<?php echo  $this->session->flashdata('detail'); ?>" >
+                    </div> -->
                     <div class="form-group">
                         <label for="exampleInputEmail1">ราคา</label> <?php echo $this->session->flashdata('error_roomname'); ?>
-                        <input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo  $this->session->flashdata('roomprice'); ?>">
+                        <input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo  $this->session->flashdata('roomprice'); ?>" required pattern="\d{1,9}" maxlength="5">
                     </div>
                     <!-- <div class="form-group">
                         <label for="exampleInputEmail1">

@@ -129,7 +129,7 @@ class imgtype extends CI_Controller
 
             $arr=array(
                                 'roomname'=> $this->input->post('roomname'),
-                                'detail'=> $this->input->post('detail'),
+                                // 'detail'=> $this->input->post('detail'),
                                 'roomprice'=> $this->input->post('roomprice')
                                
                             );
@@ -224,7 +224,7 @@ class imgtype extends CI_Controller
         $object = array(
             'roomcategory_id'=> $this->input->post('id'),
             'roomname'=> $this->input->post('roomname'),
-                                'detail'=> $this->input->post('detail'),
+                                // 'detail'=> $this->input->post('detail'),
                                 'roomprice'=> $this->input->post('roomprice')
 		);
 		$this->db->where('roomcategory_id', $idtype);

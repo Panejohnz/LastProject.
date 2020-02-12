@@ -37,7 +37,7 @@
 					<span id="username_result"></span> 
 					<div class="form-holder">
 						<span class="lnr lnr-phone-handset"></span>
-						<input type="text" class="form-control" placeholder="Phone Number" name="tel">
+						<input type="text" class="form-control" placeholder="Phone Number" name="tel" pattern="\d{1,9}" maxlength="10">
 					</div>
 					<div class="form-holder">
 						<span class="lnr lnr-envelope"></span>

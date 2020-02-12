@@ -96,7 +96,7 @@
                                             </td>
                                             
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('imgtype/confrm/'.$data->repair_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('repair/confrm/'.$data->repair_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
                                     <?php } } ?>

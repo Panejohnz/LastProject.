@@ -47,14 +47,14 @@
 						<label for="exampleInputEmail1">
 							ชื่อ
 						</label> <?php echo $this->session->flashdata('error_name')?>
-						<input type="text" id="name" class="form-control" name="name" value="<?php echo  $result->name ?>">
+						<input type="text" id="name" class="form-control" name="name" value="<?php echo  $result->name ?>" required>
 					</div>
 
 				 	<div class="col-sm-4">		
 						<label for="exampleInputEmail1">
 							ราคา
 						</label> <?php echo $this->session->flashdata('error_lastname')?>
-						<input type="text" id="price" class="form-control" name="price" value="<?php echo  $result->price ?>">
+						<input type="text" id="price" class="form-control" name="price" value="<?php echo  $result->price ?>" pattern="\d{1,9}" maxlength="5" required>
 					</div>
 
 			</div>

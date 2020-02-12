@@ -38,12 +38,14 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 15%;">วันที่</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 1%;">วันที่</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ห้อง</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 20%;">เฟอร์นิเจอร์</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">วันที่จอง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">หลักฐานการจอง</th>
                                         
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  20px;">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,8 +78,11 @@
                                             
                                             ชื่อ-นามสกุล: <?php echo   $data['firstname']; ?>&nbsp;<?php echo  $data['lastname']; ?><br>
                                             เบอร์โทรศัพท์: <?php echo  $data['tel']; ?><br>
-                                            อีเมล: <?php echo  $data['email']; ?><br>    
-                                            ห้อง: <?php echo  $data['roomnum']; ?><br>
+                                            อีเมล: <?php echo  $data['email']; ?><br> 
+                                            <td>   
+                                         <?php echo  $data['roomnum']; ?>
+                                            </td>
+                                            <td>
                                             <?php  if($data['Type'] == 'มีเฟอร์นิเจอร์')
                                                         {
 

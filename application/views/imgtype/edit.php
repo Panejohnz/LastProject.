@@ -39,19 +39,19 @@
 						<label for="exampleInputEmail1">
 							ชื่อประเภท
 						</label> <?php echo $this->session->flashdata('error_roomname')?>
-						<input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $result->roomname ?>">
+						<input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $result->roomname ?>" required>
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label for="exampleInputEmail1">
 							รายละเอียด
 						</label> <?php echo $this->session->flashdata('error_detail')?>
 						<input type="text" id="detail" class="form-control" name="detail" value="<?php echo  $result->detail ?>">
-					</div>
+					</div> -->
 					<div class="form-group">
 						<label for="exampleInputEmail1">
 							ราคา
 						</label> <?php echo $this->session->flashdata('error_detail')?>
-						<input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo  $result->roomprice ?>">
+						<input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo  $result->roomprice ?>" required pattern="\d{1,9}" maxlength="5">
 					</div>
 
 			 <!-- <div class="form-group">

@@ -91,13 +91,13 @@ redirect('admin');
 			'deletelink'=> 'admin/remove/' . $employee_id
 		);
 		$this->load->view('template/backheader');
-		$this->load->view('admimn/confrm',$data);
+		$this->load->view('admin/confrm',$data);
 		$this->load->view('template/backfooter');
 	}
 
 	public function remove($employee_id)
 	{
-		$this->admin_model->remove_member($employee_id);
+		$this->Admin_model->remove_member($employee_id);
 		redirect('admin');
 	}
 

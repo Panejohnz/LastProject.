@@ -43,14 +43,24 @@
 							เลขห้อง
 						</label> 
 						<?php echo $this->session->flashdata('error_roomnum')?>
-						<input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo  $result->roomnum ?>" pattern="/^[0]+[0-9]+$/">
+						<input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo  $result->roomnum ?>" pattern="\d{1,9}" maxlength="5" required>
 				</div>
-				<div class="col-sm-4">	
-					<label for="exampleInputEmail1">
-							ประเภทห้อง
-						</label> <?php echo $this->session->flashdata('error_roomcate')?>
-						<input type="text" id="roomcate" class="form-control" name="roomcate" value="<?php echo  $result->roomname ?>">
-				</div>
+				<div class="form-group">
+                    <div class="col-sm-4">  
+                        <label for="exampleInputEmail1">
+                            ประเภทห้อง
+                        </label> <br>
+                        <?php // echo $this->session->flashdata('error_gender')?>
+
+                        <select name="roomcate" id="roomcate">
+                            <option value="1">ห้องแอร์</option>
+                            <option value="2">ห้องพัดลม</option>
+                             
+                        </select>
+
+                    </div>
+                    
+                    </div>
 
 			</div>
 				 
@@ -59,12 +69,30 @@
 			<div class="form-group">
 					
 
-				 	<div class="col-sm-4">		
+				 	<!-- <div class="col-sm-4">		
 						<label for="exampleInputEmail1">
-							ราคาห้อง
+							ราคา
 						</label> <?php echo $this->session->flashdata('error_roomprice')?>
-						<input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo  $result->roomprice ?>" pattern="/^[0]+[0-9]+$/">
-					</div>
+						<input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo  $result->roomprice ?>" pattern="\d{1,9}" maxlength="5" required>
+					</div> -->
+
+					<div class="form-group">
+                    <div class="col-sm-4">  
+                        <label for="exampleInputEmail1">
+                            สถานะ
+                        </label> 
+                        <br>
+                        <?php // echo $this->session->flashdata('error_gender')?>
+
+                        <select name="roomstatus" id="roomstatus">
+                            <option value="0">ว่าง</option>
+                            <option value="1">ไม่ว่าง</option>
+                             
+                        </select>
+
+                    </div>
+                    
+                    </div>
 
 			</div>
 
