@@ -87,6 +87,7 @@ class Bookaroom extends CI_Controller
             
             if (isset($_POST['submit'])) {
                 $user_id=$ord_id;//Pass the userid here
+                
                 $checkbox = $_POST['customCheck1']; //กูว่าบัคไลน์นี้ 
               
                 // print_r($checkbox);
@@ -100,7 +101,7 @@ class Bookaroom extends CI_Controller
                     $ff = $this->db->update('reservations', $ds);
                     
                     $cust_id = $this->ReservationsModel->insert_order_detail1($sss);//Call the modal
-               }
+             }
                if ($checkbox == '') {
                 $sss=array(
                     'reservations_id' => $user_id,
@@ -109,6 +110,8 @@ class Bookaroom extends CI_Controller
                 $dss = array('Type' => "ไม่มีเฟอร์นิเจอร์");
                 $this->db->where('reservations_id', $user_id);
                 $ff = $this->db->update('reservations', $dss);
+
+                
                 
                
             }
@@ -149,8 +152,9 @@ class Bookaroom extends CI_Controller
             //         $this->db->insert('reservationsfurniture', $sss);//Call the modal
             //     }
             // }
-            $this->data0['his'] = $this->ReservationsModel->historybill($id);
-            $this->load->view('Hee',$this->data0,false);
+           
+                $this->data0['his'] = $this->ReservationsModel->historybill($id);
+               $this->load->view('Hee', $this->data0, false);
             // echo "<script>";
             // echo "alert('จองห้องพักเรียบร้อย');";
             // echo "window.location.href = '". base_url()."page/staff';";

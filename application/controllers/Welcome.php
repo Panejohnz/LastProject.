@@ -11,7 +11,7 @@ class Welcome extends CI_Controller {
 		$this->load->model('contract_model');
 		//include(APPPATH."third_party/mpdf/mpdf.php");
 	}
-	public function hee($contract_id){
+	public function gee($contract_id){
 		// $config = array();
 		// $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 		$data['results'] = $this->contract_model->fetch_Contract($contract_id);

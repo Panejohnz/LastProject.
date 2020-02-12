@@ -56,13 +56,21 @@ class ReservationsModel extends CI_Model
 
     public function remove_reservations($id)
     {
-        $this->db->delete('reservations', array('reservations_id' => $id));
+        // $this->db->query("DELETE reservations,reservationsfurniture,reservationsroom 
+        // FROM user,pemohon,peserta 
+        // WHERE user.id_user=pemohon.id_pemohon 
+        // AND pemohon.id_pemohon=peserta.id_peserta 
+        // AND pemohon.id_pemohon= $id");
+      //  $this->db->delete('reservations', array('reservations_id' => $id));
 
-        $this->db->from("reservations");
-        $this->db->join("reservationsfurniture", "reservations.reservations_id = reservationsfurniture.reservationsfurniture_id");
-        $this->db->join("reservationsroom", "reservationsroom.reservations_id = reservations.reservations_id");
-        $this->db->where("reservationsfurniture.reservationsfurniture_id", $id);
-        $this->db->delete("reservations");
+        // $this->db->from("reservations");
+        // $this->db->join("reservationsfurniture", "reservationsfurniture.reservations_id = reservations.reservations_id");
+        // $this->db->join("reservationsroom", "reservationsroom.reservations_id = reservations.reservations_id");
+        // $this->db->join("users", "users.user_id = reservations.id_users");
+        // $this->db->join("room" , "room.room_id = reservationsroom.room_id");
+        // $this->db->join("furniture", "reservationsfurniture.furniture_id = furniture.furniture_id");
+        // $this->db->where("reservationsfurniture.reservationsfurniture_id", $id);
+       // $this->db->delete(array('reservations','reservationsfurniture','reservationsroom'));
     }
 
     // public function search_room($cateid)

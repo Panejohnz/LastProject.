@@ -73,7 +73,7 @@
                                          <td>
                                         
                                             
-                                       <a href="<?php echo base_url('Welcome/hee/'.$data->contract_id)?>">View in PDF</a> 
+                                       <a href="<?php echo base_url('Welcome/gee/'.$data->contract_id)?>">View in PDF</a> 
    
   </td>
 
