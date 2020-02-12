@@ -34,12 +34,15 @@ class Contract extends CI_Controller
         $this->load->view('template/backfooter');
     }
 
-    public function newdata()
+    public function newdata($reservations_id)
     {
         // $this->db->where('id', $id);
         // $this->db->get('Table', limit, offset);
-        
-        
+        // $this->db->where('reservations_id',$reservations_id);
+        // $qq = $this->db->get('reservations');
+        // $data = $qq->result_array();
+       // $data['results'] = $this->contract_model->fetch_Contract($reservations_id);
+        //print_r($data);
         $this->load->view('template/backheader');
         $this->load->view('contract/newdata');
         $this->load->view('template/backfooter');
@@ -130,7 +133,7 @@ class Contract extends CI_Controller
         }
 
     */
-    public function adding($value='')
+    public function adding($user_id = null)
     {
 
         // $Date = $this->input->post("datepickerstart");
@@ -139,44 +142,56 @@ class Contract extends CI_Controller
         //     $dat2 = date("Y-m-d", strtotime($Date2));
 
 
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png|doc|docx|pptx|xlsx|pdf';
-        $config['max_size']     = '10000000';
-        $config['max_width'] = '2000';
-        $config['max_height'] = '2000';
+        // $config['upload_path'] = './uploads/';
+        // $config['allowed_types'] = 'gif|jpg|png|doc|docx|pptx|xlsx|pdf';
+        // $config['max_size']     = '10000000';
+        // $config['max_width'] = '2000';
+        // $config['max_height'] = '2000';
 
 
-        $this->load->library('upload', $config);
+        // $this->load->library('upload', $config);
 
-        if (! $this->upload->do_upload('typeimg')) {
-            //$error = array('error' => $this->upload->display_errors());
-            echo $this->upload->display_errors();
+        // if (! $this->upload->do_upload('typeimg')) {
+        //     //$error = array('error' => $this->upload->display_errors());
+        //     echo $this->upload->display_errors();
         //$this->load->view('upload_form', $error);
-        } else {
-            $data = $this->upload->data();
+        // } else {
+        // $data = $this->upload->data();
 
-            //print_r($data);
-            //$this->load->view('upload_success', $data);
+        //print_r($data);
+        //$this->load->view('upload_success', $data);
 
-            $filename = $data['file_name'];
-            //$imgtype_name = $data['imgtype_name'];
+        /// $filename = $data['file_name'];
+        //$imgtype_name = $data['imgtype_name'];
+        //$cust_id = $this->session->userdata('user_id');
+        // $this->db->where('user_id',$user_id);
+        // $qq = $this->db->get('users');
+        // $hee = $qq->row_array();
+    
 
-            $arr=array(
-                            "user_id" => $this->input->post(),
-                                "identity_card"=>$this->input->post('card'),
+        $stringrow = base_url(uri_string());
+        $arraystate = (explode("/", $stringrow));
+        $idtestt = ($arraystate[6]);
+        $idtest = ($arraystate[7]);
+        // $idtest1 = ($arraystate[8]);
+        // $idtest2 = ($arraystate[9]);
+
+        $arr=array(
+                             "user_id" => $idtestt,
+                             "identity_card"=>$this->input->post('card'),
                              "datecontract_start" => $this->input->post('datestart'),
-                             "datecontract_end" => $this->input->post('dateend')
+                             "datecontract_end" => $this->input->post('dateend'),
+                             "room_id" => $idtest
                             );
-            $this->db->insert('contract', $arr);
+        $this->db->insert('contract', $arr);
 
-            $this->session->set_flashdata(
+        $this->session->set_flashdata(
                 array(
                         'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                     )
             );
 
-            redirect('contract');
-        }
+        redirect('contract');
     }
 
 
