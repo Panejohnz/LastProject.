@@ -51,8 +51,9 @@ class admin extends CI_Controller
 			'password' => $this->input->post('password'),
 			'firstname' => $this->input->post('firstname'),
 			'lastname' => $this->input->post('lastname'),
-			
+			'tel' => $this->input->post('tel'),
 			'email' => $this->input->post('email'),
+			
 			'statusem' => $this->input->post('statusem')
 		);
 $this->db->insert('emmployee', $object);
@@ -73,7 +74,7 @@ redirect('admin');
 			'password' => $this->input->post('password'),
 			'firstname' => $this->input->post('firstname'),
 			'lastname' => $this->input->post('lastname'),
-			
+			'tel' => $this->input->post('tel'),
 			'email' => $this->input->post('email'),
 			'statusem' => $this->input->post('statusem')
 		);

@@ -56,8 +56,10 @@
                                             </td>
                                             
                                             <td>
+                                            เบอร์โทรศัพท์ : 
+                                            <?php echo $data->tel; ?>  
                                             <br>
-                                            อีเมล์ : 
+                                            อีเมล : 
                                             <?php echo $data->email; ?>  
                                             <br>
                                           

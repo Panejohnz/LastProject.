@@ -95,6 +95,12 @@
                         </label> <?php echo $this->session->flashdata('error_password')?>
                         <input type="date" id="dateend" class="form-control" name="dateend" value="">
                 </div>
+                <div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                          ที่อยู่
+                        </label> <?php echo $this->session->flashdata('error_password')?>
+                        <input type="text" id="address" class="form-control" name="address" value="">
+                </div>
 
 
             </div>
