@@ -80,41 +80,38 @@
 					<div class="form-group">
 					<div class="col-sm-4">	
 						<label for="exampleInputEmail1">
+						 เบอร์โทรศัพท์
+						</label> <?php echo $this->session->flashdata('error_tel')?>
+						<input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $result->tel ?>">
+					</div>
+					<div class="col-sm-4">	
+						<label for="exampleInputEmail1">
 							อีเมล
 						</label> <?php echo $this->session->flashdata('error_email')?>
 						<input type="email" id="email" class="form-control" name="email" value="<?php echo  $result->email ?>" required>
 					</div>
-					<!-- <div class="col-sm-4">	
-						<label for="exampleInputEmail1">
-						 สถานะ
-						</label> <?php echo $this->session->flashdata('error_tel')?>
-						<input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $result->statusem ?>">
-					</div> -->
+					
 					</div>
 					<div class="form-group">
 					<div class="col-sm-4">	
-						<label for="exampleInputEmail1">
+						<!-- <label for="exampleInputEmail1">
 							สถานะ
-						</label> 
+						</label>  -->
 						<?php // echo $this->session->flashdata('error_gender')?>
 
-						<select name="gender" id="gender">
-							<option value="<?php echo  $result->statusem ?>">
-							<?php 
-							$chk = $result->statusem;
-								if($chk==1){
-									echo "ผู้ดูแลระบบ";
-								}else{
-									echo "พนักงาน";
-								}
+						<div class="col-sm-4">  
+                        <label for="exampleInputEmail1">
+                            สถานะ
+                        </label> 
+                        <?php // echo $this->session->flashdata('error_gender')?>
 
-							?>
-								
-							</option>
-							
-							<option value="2">พนักงาน</option>
-							 
-						</select>
+                        <select name="statusem" id="statusem">
+                            <option value="1">ผู้ดูแลระบบ</option>
+                            <option value="2">พนักงาน</option>
+                             
+                        </select>
+
+                    </div>
 
 					</div>
 					

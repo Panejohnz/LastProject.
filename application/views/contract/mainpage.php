@@ -24,7 +24,7 @@
                 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                     <div class="row">
                         <div class="col-sm-6">
-                            <a class="btn btn-success" href="<?php echo  base_url('contract/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a>
+                            <!-- <a class="btn btn-success" href="<?php echo  base_url('contract/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a> -->
                             <a class="btn btn-default" href="<?php echo  base_url('contract'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
                         </div>
                         <div class="col-sm-6">
@@ -47,6 +47,7 @@
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">หมายเลขห้อง</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ชื่อลูกค้า</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">เลขบัตรประชาชนลูกค้า</th>
+                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">ที่อยู่</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">วันที่เรื่มสัญญา</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ระยะเวลาสัญญา</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">วันสิ้นสุดสัญญา</th>
@@ -67,6 +68,7 @@
                                            <td>  <?php echo $data->roomnum; ?> </td>
                                            <td>  <?php echo $data->firstname; ?>  </td>
                                            <td>  <?php echo $data->identity_card; ?>  </td>
+                                           <td>  <?php echo $data->address; ?>  </td>
                                            <td>  <?php echo $data->datecontract_start; ?>  </td>
                                            <td>  1  </td>
                                            <td>  <?php echo $data->datecontract_end; ?>  </td>

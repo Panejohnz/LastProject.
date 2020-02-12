@@ -67,12 +67,12 @@
             
 
                     <div class="form-group">
-                    <!-- <div class="col-sm-4">      
+                    <div class="col-sm-4">      
                         <label for="exampleInputEmail1">
-                            สถานะ
+                            เบอร์โทรศัพท์
                         </label> <?php echo $this->session->flashdata('error_tel')?>
-                        <input type="text" id="statusem" class="form-control" name="statusem" value="<?php echo  $this->session->flashdata('statusem'); ?>">
-                    </div> -->
+                        <input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $this->session->flashdata('tel'); ?>">
+                    </div>
 
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
