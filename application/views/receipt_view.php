@@ -27,27 +27,41 @@
     article { border: 4px double black; padding: 5mm 10mm; border-radius: 3mm }
   </style>
 </head>
-<?php if (!empty($results)) {
-    foreach ($results as $data) { ?>
+<?php   $stringrow = base_url(uri_string());
+        $arraystate = (explode("/", $stringrow));
+        $idtestt = ($arraystate[6]);
+       ?>
+    <?php $this->db->where('contract_id',$idtestt);
+   $qq =  $this->db->get('contract');
+   $data = $qq->row_array();
+   
+   $this->db->where('user_id', $data['user_id']);
+        $qq2 = $this->db->get('users');
+        $data2 = $qq2->row_array();
+        
+        $this->db->where('room_id', $data['room_id']);
+        $qq3 = $this->db->get('room');
+        $data3 = $qq3->row_array();
+        ?>
 <body class="A4-L portrait">
 <section class="sheet padding-20mm" id="pdf">
-  <p class="ex1" align="right">วันที่ทำสัญญา...............................................</p>
+  <p class="ex1" align="right">วันที่ทำสัญญา  <?php echo $data['datecontract_start']; ?></p>
     <p class="ex2" align="left">สัญญาเช่าห้องพักฉบับนี้ ทำขึ้นระหว่าง</p>
     <p class="ex3" align="left">(ก) นาย/นาง/นางสาว .......................................................... (ผู้มีอำนาจในการทำสัญญา)</p>
     <p class="ex3" align="left">อยู่บ้านเลขที่.............ถนน...................................ตำบล/แขวง.....................</p>
     <p class="ex3" align="left">อำเภอ/เขต.......................... จังหวัด...................................... หมายเลขโทรศัพท์....................</p>
     <p class="ex3" align="left">ซึ่งต่อไปสัญญาฉบับนี้ จะเรียกว่า “ผู้ให้เช่า” ฝ่ายหนึ่งกับ</p>
-    <p class="ex3" align="left">นาย/นาง/นางสาว ......................................... หมายเลขโทรศัพท์..............................</p>
-    <p class="ex3" align="left">หมายเลขบัตรประชาชนเลขที่ ......................................................</p>
+    <p class="ex3" align="left">นาย/นาง/นางสาว <?php echo $data2['firstname']; ?> นามสกุล <?php echo $data2['lastname']?> หมายเลขโทรศัพท์ <?php echo $data2['tel'] ?></p>
+    <p class="ex3" align="left">หมายเลขบัตรประชาชนเลขที่ <?php echo $data['identity_card'] ?></p>
     <p class="ex3" align="left">ซึ่งต่อไปสัญญาฉบับนี้ จะเรียกว่า “ผู้เช่า”</p>
         <br>
         <p class="ex2" align="left">ทั้งสองฝ่ายตกลงทำสัญญาโดยมีสาระสำคัญ ดังนี้</p>
 <br>
-<p class="ex3" align="left">ข้อ ๑ ผู้เช่าตกลงเช่าและผู้ให้เช่าตกลงให้เช่าห้องพักเลขที่  <?php echo $data->identity_card; ?></p>
+<p class="ex3" align="left">ข้อ ๑ ผู้เช่าตกลงเช่าและผู้ให้เช่าตกลงให้เช่าห้องพักเลขที่  <?php echo $data3['roomnum']; ?></p>
 <p class="ex3" align="left">ตั้งอยู่..............ถนน.........................ตำบล/แขวง....................</p>
 <p class="ex3" align="left">อำเภอ/เขต.......................จังหวัด.........</p>
-<p class="ex3" align="left">เพื่อใช้เป็นที่อยู่อาศัยเท่านั้น ในอัตราค่าเช่าเดือนละ .................. บาท</p>
-<p class="ex3" align="left">โดยมีกำหนดระยะเวลาในการเช่า ตั้งแต่วันที่ ถึงวันท</p>
+<p class="ex3" align="left">เพื่อใช้เป็นที่อยู่อาศัยเท่านั้น ในอัตราค่าเช่าเดือนละ <?php echo $data3['roomprice']; ?> บาท</p>
+<p class="ex3" align="left">โดยมีกำหนดระยะเวลาในการเช่า ตั้งแต่วันที่ <?php echo $data['datecontract_start']; ?> ถึงวันที่ <?php echo $data['datecontract_end']; ?></p>
 <p class="ex3" align="left">โดยมีกำหนดชำระค่าบริการก่อนวันที่ 25 ของทุกเดือน</p>
 <br>
 <p class="ex3" align="left">ข้อ ๒ ผู้เช่าตกลงเช่าและผู้ให้เช่าตกลงให้เช่า อุปกรณ์ไฟฟ้าและเฟอร์นิเจอร์ ภายในห้องพัก</p>
@@ -91,11 +105,10 @@
 <p class="ex3" align="left">และยืดถือไว้ฝ่ายละฉบับ</p>
 <br>
 <p class="ex1" align="right">ลงชื่อ.................................................ผู้เช่า</p>
-<p class="ex1" align="right">(..........................................................)</p>
+<p class="ex1" align="right">(.............................<?php echo $data2['firstname']; ?>.............................)</p>
 <p class="ex1" align="right">ลงชื่อ.................................................ผู้ให้เช่า</p>
 <p class="ex1" align="right">(..........................................................)</p>
-<?php }
-} ?>
+
   </section>
 
 

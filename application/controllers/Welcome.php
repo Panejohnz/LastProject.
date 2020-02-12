@@ -11,9 +11,10 @@ class Welcome extends CI_Controller {
 		$this->load->model('contract_model');
 		//include(APPPATH."third_party/mpdf/mpdf.php");
 	}
-	public function hee(){
-		$config = array();
-		$data['results'] = $this->contract_model->fetch_Contract($config['per_page'], $page, $this->input->get('keyword'));
+	public function hee($contract_id){
+		// $config = array();
+		// $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+		$data['results'] = $this->contract_model->fetch_Contract($contract_id);
 		$this->load->view("receipt_view" , $data); 
 	}
 	public function save()

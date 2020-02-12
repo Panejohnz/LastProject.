@@ -17,14 +17,16 @@ class Contract_model extends CI_Model
         return $this->db->count_all_results();
     }
 
-    public function fetch_contract($limit, $start, $keryword)
+    public function fetch_contract()
     {
-        $this->db->like('contract_id', $keryword);
-        $this->db->limit($limit, $start);
+        // $this->db->like('contract_id', $keryword);
+        // $this->db->limit($limit, $start);
         $this->db->select('*')
          ->from('contract')
-		 ->from('users')
-		 ->where('users.user_id = contract.user_id');
+         ->from('users')
+         ->from('room')
+         ->where('contract.room_id = room.room_id')
+         ->where('users.user_id = contract.user_id');
         $query = $this->db->get();
         
         if ($query->num_rows() > 0) {

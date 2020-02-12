@@ -26,29 +26,50 @@
                 <h3 class="box-title">เพิ่มข้อมูล</h3>
             </div><!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="<?php echo  base_url('contract/adding'); ?>" method="post" enctype="multipart/form-data">
+         <?php   $stringrow = base_url(uri_string());
+        $arraystate = (explode("/", $stringrow));
+        $idtestt = ($arraystate[6]);
+        ?>
+         <?php   $this->db->where('reservations_id',$idtestt);
+        $qq = $this->db->get('reservations');
+        $data = $qq->row_array();
+        
+        $this->db->where('reservations_id', $data['reservations_id']);
+        $qq1 = $this->db->get('reservationsroom');
+        $data1 = $qq1->row_array();
+        
+        $this->db->where('user_id', $data['id_users']);
+        $qq2 = $this->db->get('users');
+        $data2 = $qq2->row_array();
+        
+        
+        
+        
+        ?>
+            <form role="form" action="<?php echo  base_url('contract/adding/' . $data['id_users']. '/'.$data1['room_id']); ?>" method="post" enctype="multipart/form-data">
                 <div class="box-body">
                     <!-- <div class="form-group">
                         <label for="exampleInputEmail1">สัญญาเช่า</label> <?php echo $this->session->flashdata('error_roomname'); ?>
                         <input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $this->session->flashdata('roomname'); ?>">
                     </div> --> <div class="col-sm-4">
+                   
                         <label for="exampleInputEmail1">
                            ชื่อ
                         </label> 
                         <?php echo $this->session->flashdata('error_username')?>
-                        <input readonly type="text" id="firstname" class="form-control" name="firstname" value="">
+                        <input readonly type="text" id="firstname" class="form-control" name="firstname" value="<?php echo $data2['firstname'] ?>">
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
                             นามสกุล
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input readonly type="text" id="lastname" class="form-control" name="lastname" value="">
+                        <input readonly type="text" id="lastname" class="form-control" name="lastname" value="<?php echo $data2['lastname'] ?>">
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
                            เบอร์โทร
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input readonly type="text" id="phone" class="form-control" name="phone" value="">
+                        <input readonly type="text" id="phone" class="form-control" name="phone" value="<?php echo $data2['tel'] ?>">
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
@@ -78,7 +99,7 @@
 
             </div>
             
-                   
+   
                     
                   
 

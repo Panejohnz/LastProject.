@@ -64,7 +64,7 @@
                                         <tr role="row">
                                           
                                            <td>  <?php echo $data->contract_id; ?>  </td>
-                                           <td>  <?php echo $data->identity_card; ?> </td>
+                                           <td>  <?php echo $data->roomnum; ?> </td>
                                            <td>  <?php echo $data->firstname; ?>  </td>
                                            <td>  <?php echo $data->identity_card; ?>  </td>
                                            <td>  <?php echo $data->datecontract_start; ?>  </td>
