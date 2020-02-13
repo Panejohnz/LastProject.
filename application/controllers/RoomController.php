@@ -8,7 +8,7 @@ class RoomController extends CI_Controller
         parent::__construct();
         $this->load->model('login_model');
         $this->load->model('room_model');
-        if (!$this->session->userdata('firstname')) { //ดัก user บังคับล็อกอิน
+        if (!$this->session->userdata('firstname_emp')) { //ดัก user บังคับล็อกอิน
             echo "<script>";
             echo "alert('กรุณาเข้าสู่ระบบ');";
             echo "window.location.href = '". base_url()."ReservationsController';";

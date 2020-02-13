@@ -46,7 +46,7 @@
         
         
         ?>
-            <form role="form" action="<?php echo  base_url('contract/adding/' . $data['id_users']. '/'.$data1['room_id']); ?>" method="post" enctype="multipart/form-data">
+            <form role="form" action="<?php echo  base_url('contract/adding/' . $data['id_users']. '/'.$data1['room_id'] .'/' . $data['reservations_id']); ?>" method="post" enctype="multipart/form-data">
                 <div class="box-body">
                     <!-- <div class="form-group">
                         <label for="exampleInputEmail1">สัญญาเช่า</label> <?php echo $this->session->flashdata('error_roomname'); ?>

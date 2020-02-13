@@ -25,7 +25,9 @@ class Contract_model extends CI_Model
          ->from('contract')
          ->from('users')
          ->from('room')
+         ->from('emmployee')
          ->where('contract.room_id = room.room_id')
+         ->where('emmployee.employee_id = contract.employee_id')
          ->where('users.user_id = contract.user_id');
         $query = $this->db->get();
         

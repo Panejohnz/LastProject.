@@ -11,7 +11,7 @@ class admin extends CI_Controller
 		parent::__construct();
 		$this->load->library('pagination');
 		$this->load->model('Admin_model');
-		if (!$this->session->userdata('firstname')) { //ดัก user บังคับล็อกอิน
+		if (!$this->session->userdata('firstname_emp')) { //ดัก user บังคับล็อกอิน
             redirect('LoginController');
         }
 	}

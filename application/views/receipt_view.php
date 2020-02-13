@@ -42,14 +42,18 @@
         $this->db->where('room_id', $data['room_id']);
         $qq3 = $this->db->get('room');
         $data3 = $qq3->row_array();
+
+        $this->db->where('employee_id', $data['employee_id']);
+        $qq4= $this->db->get('emmployee');
+        $data4 = $qq4->row_array();
         ?>
 <body class="A4-L portrait">
 <section class="sheet padding-20mm" id="pdf">
   <p class="ex1" align="right">วันที่ทำสัญญา  <?php echo $data['datecontract_start']; ?></p>
     <p class="ex2" align="left">สัญญาเช่าห้องพักฉบับนี้ ทำขึ้นระหว่าง</p>
-    <p class="ex3" align="left">(ก) นาย/นาง/นางสาว .......................................................... (ผู้มีอำนาจในการทำสัญญา)</p>
-    <p class="ex3" align="left">ที่อยู่ <?php echo $data['address']; ?></p>
-    <p class="ex3" align="left"> หมายเลขโทรศัพท์....................</p>
+    <p class="ex3" align="left">(ก) นาย/นาง/นางสาว <?php echo $data4['firstname_emp']; ?> <?php echo $data4['lastname']; ?> (ผู้มีอำนาจในการทำสัญญา)</p>
+    <p class="ex3" align="left">ที่อยู่ .............................................</p>
+    <p class="ex3" align="left"> หมายเลขโทรศัพท์ <?php echo $data4['tel']; ?></p>
     <p class="ex3" align="left">ซึ่งต่อไปสัญญาฉบับนี้ จะเรียกว่า “ผู้ให้เช่า” ฝ่ายหนึ่งกับ</p>
     <p class="ex3" align="left">นาย/นาง/นางสาว ..<?php echo $data2['firstname']; ?>.. นามสกุล ..<?php echo $data2['lastname']?>.. หมายเลขโทรศัพท์ ..<?php echo $data2['tel'] ?>..</p>
     <p class="ex3" align="left">หมายเลขบัตรประชาชนเลขที่ ..<?php echo $data['identity_card'] ?>..</p>
@@ -69,7 +73,7 @@
 <p class="ex3" align="left">การตรวจรับสภาพอาคารแนบท้ายสัญญาฉบับนี้และถือว่าเป็นส่วนหนึ่งของสัญญาเช่า</p>
 <br>
 <br>
-<br>
+<br><br><br><br>
 
 <p class="ex3" align="left">ข้อ ๓ ผู้ให้เช่าจะจัดส่งใบแจ้งค่าใช้จ่ายต่าง ๆ ที่ผู้เช่าต้องชำระให้แก่ผู้เช่าทราบล่วงหน้า</p>
 <p class="ex3" align="left">ไม่น้อยกว่า ๗ วันก่อนถึงกำหนดวันชำระค่าใช้จ่ายต่าง ๆ โดยผู้ให้เช่ามีสิทธิตรวจสอบความถูกต้อง</p>

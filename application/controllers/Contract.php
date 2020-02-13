@@ -7,7 +7,7 @@ class Contract extends CI_Controller
         parent::__construct();
         $this->load->library('pagination');
         $this->load->model('contract_model');
-        if (!$this->session->userdata('firstname')) { //ดัก user บังคับล็อกอิน
+        if (!$this->session->userdata('firstname_emp')) { //ดัก user บังคับล็อกอิน
             redirect('LoginController');
         }
     }
@@ -133,7 +133,7 @@ class Contract extends CI_Controller
         }
 
     */
-    public function adding($user_id = null)
+    public function adding($reservations_id)
     {
 
         // $Date = $this->input->post("datepickerstart");
@@ -173,7 +173,7 @@ class Contract extends CI_Controller
         $arraystate = (explode("/", $stringrow));
         $idtestt = ($arraystate[6]);
         $idtest = ($arraystate[7]);
-        // $idtest1 = ($arraystate[8]);
+         $idtest1 = ($arraystate[8]);
         // $idtest2 = ($arraystate[9]);
 
         $arr=array(
@@ -182,7 +182,8 @@ class Contract extends CI_Controller
                              "datecontract_start" => $this->input->post('datestart'),
                              "datecontract_end" => $this->input->post('dateend'),
                              "room_id" => $idtest,
-                             "address" => $this->input->post('address')
+                             "address" => $this->input->post('address'),
+                             "employee_id" => $this->session->userdata("id")
                             );
         $this->db->insert('contract', $arr);
 
@@ -191,7 +192,14 @@ class Contract extends CI_Controller
                         'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                     )
             );
+            $this->db->where('reservations_id', $idtest1);
+        $this->db->delete('reservations');
 
+        $this->db->where('reservations_id', $idtest1);
+        $this->db->delete('reservationsroom');
+
+        $this->db->where('reservations_id', $idtest1);
+        $this->db->delete('reservationsfurniture');
         redirect('contract');
     }
 
