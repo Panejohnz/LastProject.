@@ -115,10 +115,8 @@ class Bookaroom extends CI_Controller
                 
                
             }
-            }else 
-            {   
-               
             }
+            
             //     $this->db->insert('reservations', $arr);
 
             //     $rr = $this->db->get('reservations');
