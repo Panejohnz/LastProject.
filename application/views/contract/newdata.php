@@ -75,31 +75,31 @@
                     <label for="exampleInputEmail1">
                           เลขบัตรประชาชน
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="text" id="card" class="form-control" name="card" value="">
+                        <input type="text" id="card" class="form-control" name="card" value="" maxlength="13" required>
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
                           วันที่ทำสัญญา
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="date" id="datestart" class="form-control" name="datestart" value="">
+                        <input type="date" id="datestart" class="form-control" name="datestart" value="" required>
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
                         ระยะเวลาสัญญา
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="text" id="time" class="form-control" name="time" value="">
+                        <input type="text" id="time" class="form-control" name="time" value="" required>
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
                        วันที่สินสุดสัญญา
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="date" id="dateend" class="form-control" name="dateend" value="">
+                        <input type="date" id="dateend" class="form-control" name="dateend" value="" required>
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
                           ที่อยู่
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="text" id="address" class="form-control" name="address" value="">
+                        <input type="text" id="address" class="form-control" name="address" value="" required>
                 </div>
 
 
