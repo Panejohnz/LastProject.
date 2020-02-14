@@ -31,12 +31,12 @@ class LoginController extends CI_Controller
         $validate = $this->login_model->validate($username, $password);
         if ($validate->num_rows() > 0) {
             $data  = $validate->row_array();
-            $id = $data['user_id'];
+            $id = $data['employee_id'];
             $name  = $data['firstname_emp'];
             $email = $data['email'];
             $level = $data['statusem'];
             $sesdata = array(
-                'user_id' => $id,
+                'employee_id' => $id,
                 'firstname_emp'  => $name,
                 'email'     => $email,
                 'statusem'     => $level,

@@ -135,7 +135,7 @@ class Contract extends CI_Controller
     */
     public function adding($reservations_id)
     {
-
+        $emp_id = $this->session->userdata('employee_id');
         // $Date = $this->input->post("datepickerstart");
         //     $dat = date("Y-m-d", strtotime($Date));
         //     $Date2 = $this->input->post("datepickerend");
@@ -168,7 +168,7 @@ class Contract extends CI_Controller
         // $qq = $this->db->get('users');
         // $hee = $qq->row_array();
     
-
+            
         $stringrow = base_url(uri_string());
         $arraystate = (explode("/", $stringrow));
         $idtestt = ($arraystate[6]);
@@ -183,7 +183,7 @@ class Contract extends CI_Controller
                              "datecontract_end" => $this->input->post('dateend'),
                              "room_id" => $idtest,
                              "address" => $this->input->post('address'),
-                             "employee_id" => $this->session->userdata("id")
+                             "employee_id" => $emp_id
                             );
         $this->db->insert('contract', $arr);
 

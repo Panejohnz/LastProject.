@@ -68,7 +68,17 @@
                                            <td>  <?php echo $data->contract_id; ?>  </td>
                                            <td>  <?php echo $data->roomnum; ?> </td>
                                            <td>  <?php echo $data->firstname; ?>  </td>
-                                           <td>  <?php echo $data->firstname_emp; ?>  </td>
+                                           <?php $this->db->where('contract_id',$data->contract_id);
+                                          $ff = $this->db->get('contract');
+                                          $qq = $ff->row_array(); 
+                                          
+                                                $this->db->where('employee_id',$qq['contract_id']);
+                                                $fff = $this->db->get('emmployee');
+                                                $qqq = $fff->row_array();
+
+                                          ?>
+    
+                                           <td> <?php echo $qqq['firstname_emp']; ?>   </td>
                                            <td>  <?php echo $data->identity_card; ?>  </td>
                                            <td>  <?php echo $data->address; ?>  </td>
                                            <td>  <?php echo $data->datecontract_start; ?>  </td>
