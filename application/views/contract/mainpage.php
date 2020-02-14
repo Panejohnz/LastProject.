@@ -82,7 +82,7 @@
                                            <td>  <?php echo $data->identity_card; ?>  </td>
                                            <td>  <?php echo $data->address; ?>  </td>
                                            <td>  <?php echo $data->datecontract_start; ?>  </td>
-                                           <td>  1  </td>
+                                           <td>  1 ปี  </td>
                                            <td>  <?php echo $data->datecontract_end; ?>  </td>
                                          <td>
                                         
