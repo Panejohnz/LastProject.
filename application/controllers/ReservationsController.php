@@ -14,6 +14,8 @@ class ReservationsController extends CI_Controller
        $this->data['his'] = $this->ReservationsModel->historybill($id);
        
        $this->load->view('newhome',$this->data,false);
+
+    //    $this->load->view('testdate');
     }
 
     

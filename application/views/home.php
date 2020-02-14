@@ -19,13 +19,15 @@
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/jquery.timepicker.css">
+    <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/jquery.timepicker.css"> -->
 
     
     <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/flaticon.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/icomoon.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/style.css">
+
+	<script src="<?php echo base_url('./datetime/js/jquery.min.js')?>"></script>
 	
 <style type="text/css">
 	body{
@@ -260,8 +262,9 @@
 	        			<div class="col-md-3 d-flex">
 	        				<div class="form-group p-4 align-self-stretch d-flex align-items-end">
 	        					<div class="wrap">
-				    					<label for="#">Check-in Date</label>
-				    					<input id="datepicker" name="datepicker" type="text" class="form-control checkin_date" required placeholder="Check-in date" autocomplete="off" >
+										<label for="#">Check-in Date</label>
+										<input id="datetimepicker" name="datepicker" type="text" >
+				    					<!-- <input id="datepicker" name="datepicker" type="text" class="form-control checkin_date" required placeholder="Check-in date" autocomplete="off" > -->
 									</div>
 									<script>$(function () {
      $('#datepicker').datepicker({  
@@ -824,12 +827,28 @@
   <script src="<?php echo base_url('./assets/deluxe/js/jquery.magnific-popup.min.js')?>"></script>
   <script src="<?php echo base_url('./assets/deluxe/js/aos.js')?>"></script>
   <script src="<?php echo base_url('./assets/deluxe/js/jquery.animateNumber.min.js')?>"></script>
-  <script src="<?php echo base_url('./assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
-  <script src="<?php echo base_url('./assets/deluxe/js/jquery.timepicker.min.js')?>"></script>
+  <!-- <script src="<?php echo base_url('./assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/jquery.timepicker.min.js')?>"></script> -->
   <script src="<?php echo base_url('./assets/deluxe/js/scrollax.min.js')?>"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php echo base_url('./assets/deluxe/js/google-map.js')?>"></script>
   <script src="<?php echo base_url('./assets/deluxe/js/main.js')?>"></script>
     
   </body>
+
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>./datetime/css/jquery.datetimepicker.min.css"/>
+<script src="<?php echo base_url('./datetime/js/jquery.datetimepicker.js')?>"></script>
+
+<script type="text/javascript">
+    // $(document).ready(function() {
+        // $('#datetimepicker').datetimepicker();
+        
+    // });
+    $('#datetimepicker').datetimepicker({
+     format:'Y-m-d',
+     timepicker:false,
+     minDate:'-1970/01/01', //yesterday is minimum date
+    //  maxDate:'+1970/01/03' //tomorrow is maximum date
+    });
+</script>
 </html>
