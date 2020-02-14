@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>RegistrationForm_v10 by Colorlib</title>
+		<link rel="icon" type="image/png" href="<?php echo base_url(); ?>./assets/bluesky/images/goldd.png">
+		<title>Register</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- LINEARICONS -->
@@ -23,32 +24,33 @@
 					
 					<div class="form-holder">
 						<span class="lnr lnr-user"></span>
-						<input type="text" class="form-control" placeholder="Firstname" name="firstname" id="firstname">
+						<input type="text" class="form-control" placeholder="Firstname" name="firstname" id="firstname" required>
 					</div>
 					<div class="form-holder">
 						<span class="lnr lnr-user"></span>
-						<input type="text" class="form-control" placeholder="Lastname" name="lastname">
+						<input type="text" class="form-control" placeholder="Lastname" name="lastname" required>
 					</div>
 					<div class="form-holder">
 						<span class="lnr lnr-user"></span>
-						<input type="text" class="form-control" placeholder="Username" name="username" id="username">
+						<input type="text" class="form-control" placeholder="Username" name="username" id="username" required>
 						
 					</div>
 					<span id="username_result"></span> 
 					<div class="form-holder">
 						<span class="lnr lnr-phone-handset"></span>
-						<input type="text" class="form-control" placeholder="Phone Number" name="tel" pattern="\d{1,9}" maxlength="10">
+						<input type="text" class="form-control" placeholder="Phone Number" name="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" title="กรุณากรอกให้ครบ 10 หลัก 0800000000" maxlength="10">
+						
 					</div>
 					<div class="form-holder">
 						<span class="lnr lnr-envelope"></span>
-						<input type="text" class="form-control" placeholder="Mail" name="email" id="email">
+						<input type="text" class="form-control" placeholder="Mail" name="email" id="email" required>
 					
 					</div>
 					<span id="email_result"></span>  
 					<span id="email_result"></span>  
 					<div class="form-holder">
 						<span class="lnr lnr-lock"></span>
-						<input type="password" class="form-control" placeholder="Password" name="password">
+						<input type="password" class="form-control" placeholder="Password" name="password" required>
 					</div>
 					<!-- <div class="form-holder">
 						<span class="lnr lnr-lock"></span>
