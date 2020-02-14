@@ -71,7 +71,7 @@
                         <label for="exampleInputEmail1">
                             เบอร์โทร
                         </label> <?php echo $this->session->flashdata('error_tel')?>
-                        <input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $this->session->flashdata('tel'); ?>" maxlength="10" required>
+                        <input type="text" id="tel" class="form-control" name="tel" value="<?php echo  $this->session->flashdata('tel'); ?>" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" title="กรุณากรอกให้ครบ 10 หลัก 0800000000" maxlength="10">
                     </div>
 
                     <div class="col-sm-4">  
