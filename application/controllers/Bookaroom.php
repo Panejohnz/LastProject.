@@ -88,7 +88,7 @@ class Bookaroom extends CI_Controller
             if (isset($_POST['submit'])) {
                 $user_id=$ord_id;//Pass the userid here
                 
-                $checkbox = $_POST['customCheck1']; //กูว่าบัคไลน์นี้ 
+                $checkbox = $_POST['customCheck1']; //บัคไลน์นี้
               
                 // print_r($checkbox);
                 for ($i=0;$i<count($checkbox);$i++) {
@@ -101,22 +101,40 @@ class Bookaroom extends CI_Controller
                     $ff = $this->db->update('reservations', $ds);
                     
                     $cust_id = $this->ReservationsModel->insert_order_detail1($sss);//Call the modal
-             }
-               if ($checkbox == '') {
-                $sss=array(
+                    $nan = $sss['furniture_id'];
+             
+
+                    if ($checkbox == '') {
+                        $sss=array(
                     'reservations_id' => $user_id,
                     'furniture_id' => $checkbox[$i]
                 );
-                $dss = array('Type' => "ไม่มีเฟอร์นิเจอร์");
-                $this->db->where('reservations_id', $user_id);
-                $ff = $this->db->update('reservations', $dss);
-                
-                
-               
-            }
-            }
+                        $dss = array('Type' => "ไม่มีเฟอร์นิเจอร์");
+                        $this->db->where('reservations_id', $user_id);
+                        $ff = $this->db->update('reservations', $dss);
+
+
+                      
+
             
-            //     $this->db->insert('reservations', $arr);
+
+                        // $this->db->where('furniture_id', $nan);
+                        // $chompoo = $this->db->get('furniture');
+                        // $plamy = $chompoo->row_array();
+
+                        // $this->db->where('furniture_id', $nan);
+                        // $chompoo = $this->db->get('furniture');
+                        // $plamy = $chompoo->row_array();
+                    
+                        // echo $plamy['price'];
+                    }
+                    
+                }
+                $queryy=$this->db->query("SELECT SUM(furniture.price) as pp FROM reservationsfurniture,furniture WHERE reservationsfurniture.reservations_id = $user_id GROUP BY reservationsfurniture.furniture_id DESC LIMIT 1");
+                $yy = $queryy->row_array();
+                echo $yy['pp']. "บาท";
+
+                //     $this->db->insert('reservations', $arr);
 
             //     $rr = $this->db->get('reservations');
             //     $rrr = $rr->row_array();
@@ -127,8 +145,8 @@ class Bookaroom extends CI_Controller
             //     $this->db->insert('reservationsroom', $ss);
             $id = $this->input->post('roomnum');
             $this->db->where('room_id', $id);
-            //     // $query = $this->db->get('room');
-            //     // $imf = $query->row_array();
+            // //     // $query = $this->db->get('room');
+            // //     // $imf = $query->row_array();
 
             $data2 = array(
                 'roomstatus' => '1'
@@ -137,21 +155,22 @@ class Bookaroom extends CI_Controller
            
             $this->db->update('room', $data2);
 
-            // if (isset($_POST['submit'])) {
-            //     $user_id=$rrr['reservations_id'];//Pass the userid here
-            //     $checkbox = $_POST['customCheck1'];
-            //     print_r($checkbox);
-            //     for ($i=0;$i<count($checkbox);$i++) {
-            //         $sss=array(
-            //             'reservations_id' => $user_id,
-            //             'furniture_id' => $checkbox[$i]
-            //         );
-            //         $this->db->insert('reservationsfurniture', $sss);//Call the modal
-            //     }
-            // }
-           
-                $this->data0['his'] = $this->ReservationsModel->historybill($id);
-               $this->load->view('Hee', $this->data0, false);
+            // // if (isset($_POST['submit'])) {
+            // //     $user_id=$rrr['reservations_id'];//Pass the userid here
+            // //     $checkbox = $_POST['customCheck1'];
+            // //     print_r($checkbox);
+            // //     for ($i=0;$i<count($checkbox);$i++) {
+            // //         $sss=array(
+            // //             'reservations_id' => $user_id,
+            // //             'furniture_id' => $checkbox[$i]
+            // //         );
+            // //         $this->db->insert('reservationsfurniture', $sss);//Call the modal
+            // //     }
+            // // }
+            //echo $this->input->post($_POST['customCheck1']);
+        
+            //     $this->data0['his'] = $this->ReservationsModel->historybill($id);
+            //    $this->load->view('Hee', $this->data0, false);
             // echo "<script>";
             // echo "alert('จองห้องพักเรียบร้อย');";
             // echo "window.location.href = '". base_url()."page/staff';";
@@ -160,9 +179,10 @@ class Bookaroom extends CI_Controller
             
         
             // redirect('ReservationsController');
+            }
         }
+      
     }
-    
     
 
     public function up($id)

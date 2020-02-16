@@ -50,8 +50,8 @@
             $arraystate = (explode("/", $stringrow));
             $idtestt = ($arraystate[6]);
             $idtest = ($arraystate[7]);
-            $idtest1 = ($arraystate[8]);
-            $idtest2 = ($arraystate[9]); ?>
+           // $idtest1 = ($arraystate[8]);
+            //$idtest2 = ($arraystate[9]); ?>
     <!-- Content Header (Page header) -->
             <!-- form start -->
             <?php  $this->db->where('room_id', $room_id);
@@ -68,7 +68,7 @@
                     </div>
             <div class="form-group">
                         <label for="exampleInputEmail1">วันที่จอง  <?php echo $this->session->flashdata('error_roomnum'); ?>
-                        <input readonly type="text" id="reservationsstart" class="form-control" name="reservationsstart" value="<?php echo $idtest ?>/<?php echo $idtest1 ?>/<?php echo $idtest2 ?>">
+                        <input readonly type="text" id="reservationsstart" class="form-control" name="reservationsstart" value="<?php echo $idtest ?>">
                     </div>
                     
                     <div class="form-group">
