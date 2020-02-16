@@ -47,6 +47,8 @@
         $qq4= $this->db->get('emmployee');
         $data4 = $qq4->row_array();
         ?>
+        
+        <button onClick="window.print()">Print this page</button>
 <body class="A4-L portrait">
 <section class="sheet padding-20mm" id="pdf">
   <p class="ex1" align="right">วันที่ทำสัญญา  <?php echo $data['datecontract_start']; ?></p>
