@@ -12,8 +12,14 @@ class bill_model extends CI_Model
 
     public function record_count($keyword)
     {
-        $this->db->like('roomnum', $keyword);
-        $this->db->from('room');
+        $this->db->like('bill_id', $keyword);
+        $this->db->from('bill');
+        return $this->db->count_all_results();
+    }
+    public function record_his($room_id)
+    {
+        $this->db->where('room_id', $room_id);
+        $this->db->get('bill');
         return $this->db->count_all_results();
     }
 
@@ -22,8 +28,8 @@ class bill_model extends CI_Model
         $this->db->like('roomnum', $keryword);
         $this->db->limit($limit, $start);
         $this->db->select('*')
-       				 ->from('room')
-                     ->join('bill', 'bill.bill_id = room.room_id');
+       				 ->from('room');
+                    // ->join('bill', 'bill.bill_id = room.room_id');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {

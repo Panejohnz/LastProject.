@@ -33,24 +33,53 @@ class BillController extends CI_Controller
         $this->load->view('template/backfooter');
     }
 
-    public function cal($id)
+    public function cal()
     {
-        $this->db->where('bill_id', $id);
-        $query = $this->db->get('bill');
+        $room_id = $this->input->post('room_id');
+        // $this->input->post('waternew');
+        $this->db->where('room_id', $room_id);
+        $query = $this->db->get('room');
         $imf = $query->row_array();
 
-        $this->db->where('bill_id', $imf['pricebill_id']);
+        $this->db->where('pricebill_id', 1);
         $query1 = $this->db->get('pricebill');
         $imf2 = $query1->row_array();
 
+        $this->db->where('pricebill_id', 2);
+        $query2 = $this->db->get('pricebill');
+        $imf3 = $query2->row_array();
+        // print_r($room_id);
+        //$water = 15 * $postData['waternew'];
+        // echo $water;
+        // echo $this->input->post('electricnew');
+        // echo '<br>';
+        // echo $this->input->post('waternew');
+        // echo '<br>';
+        // echo $imf2['pricemeter'] * $this->input->post('electricnew');
+        // echo '<br>';
+        // echo $imf3['pricemeter']  * $this->input->post('waternew');
+
+        $arr=array(
+        'room_id' => $room_id,
+        'electricbill'=>$this->input->post('electricnew'),
+        'waterbill' => $this->input->post('waternew'),
+        'electric_price	' => $imf2['pricemeter'] * $this->input->post('electricnew'),
+        'water_price' => $imf3['pricemeter'] * $this->input->post('waternew'),
+        'roomprice' => $imf['roomprice'],
+        'date' => date('Y-m-d')
+    );
+        $this->db->insert('bill', $arr);
+
+        redirect('Billcontroller');
+        //$this->db->where('');
         // POST data
-        $postData = $this->input->post();
-       
-        // Read POST data
-        echo $postData['waternew'];
-           
-       
-       
-        echo $imf['electricbill']*7;
+    }
+    public function edit($room_id)
+    {
+    //     $this->db->where('room_id', $room_id);
+    //   $data = $this->db->get('bill');
+       // $this->load->view('template/backheader');
+        $this->load->view('bill/edit');
+        //$this->load->view('template/backfooter');
     }
 }
