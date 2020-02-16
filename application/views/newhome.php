@@ -209,7 +209,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="<?php echo site_url('ReservationsController') ?>" class="nav-link">หน้าแรก</a></li>
-	          <li class="nav-item"><a  href="<?php echo site_url('repair/newdata') ?>" class="nav-link">แจ้งซ่อม</a></li>
+	          <!-- <li class="nav-item"><a  href="<?php echo site_url('repair/newdata') ?>" class="nav-link">แจ้งซ่อม</a></li> -->
 	          <ul class="nav navbar-nav navbar-right ml-auto">			
 			<li class="nav-item">
 				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>

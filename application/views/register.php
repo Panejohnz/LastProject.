@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="icon" type="image/png" href="<?php echo base_url(); ?>./assets/bluesky/images/goldd.png">
-		<title>Register</title>
+		<title>Rianthong</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- LINEARICONS -->

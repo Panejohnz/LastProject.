@@ -110,7 +110,6 @@ class Bookaroom extends CI_Controller
                 $dss = array('Type' => "ไม่มีเฟอร์นิเจอร์");
                 $this->db->where('reservations_id', $user_id);
                 $ff = $this->db->update('reservations', $dss);
-
                 
                 
                
@@ -176,4 +175,76 @@ class Bookaroom extends CI_Controller
         $this->db->update('room', $data2);
         redirect('Room');
     }
+
+    // public function selectfur($id)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('furniture');
+    //     $query = $this->db->get();
+    //     $qa = $query->result_array();
+        
+    //     $fa = $qa[0]['price'];
+        
+    //     // $total = $fa + 
+    //     $dd = 500;
+    //     echo $fa;
+
+    // }
+    // public function selectfur2($id)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('furniture');
+    //     $query = $this->db->get();
+    //     $qa = $query->result_array();
+      
+    //     $fa1 = $qa[1]['price'];
+      
+    //     // $total = $fa + 
+    //     $dd = 500;
+    //     echo $fa1;
+
+        
+        
+        
+        
+
+    // }
+    // public function selectfur3($id)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('furniture');
+    //     $query = $this->db->get();
+    //     $qa = $query->result_array();
+      
+    //     $fa = $qa[2]['price'];
+      
+    //     // $total = $fa + 
+    //     $dd = 500;
+    //     echo $fa;
+
+        
+        
+        
+        
+
+    // }
+    // public function selectfur4($id)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('furniture');
+    //     $query = $this->db->get();
+    //     $qa = $query->result_array();
+      
+    //     $fa = $qa[3]['price'];
+      
+    //     // $total = $fa + 
+    //     $dd = 500;
+    //     echo $fa;
+
+        
+        
+        
+        
+
+    // }
 }

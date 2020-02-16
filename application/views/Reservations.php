@@ -1,4 +1,7 @@
 <head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="<?php echo base_url(); ?>./assets/bluesky/images/goldd.png">
+		<title>Rianthong</title>
  <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
   <!-- Icons -->
@@ -59,6 +62,7 @@
            
             <div class="box-body">
             <div class="form-group">
+                
                         <label for="exampleInputEmail1">เลขห้อง <?php echo $this->session->flashdata('error_roomnum'); ?>
                         <input readonly type="hidden" id="roomnum" class="form-control" name="roomnum"   value="<?php echo $idtestt ?>"> <?php echo $qq['roomnum'] ?> </input>
                     </div>
@@ -67,11 +71,12 @@
                         <input readonly type="text" id="reservationsstart" class="form-control" name="reservationsstart" value="<?php echo $idtest ?>/<?php echo $idtest1 ?>/<?php echo $idtest2 ?>">
                     </div>
                     
-
                     <div class="form-group">
                         <label for="exampleInputEmail1">ชื่อ-นามสกุล</label> <?php echo $this->session->flashdata('error_name'); ?>
                         <input type="text" id="name" class="form-control" name="name" value="<?php echo $this->session->userdata('firstname')?>" style="width: 500px;">
                     </div>
+                    <!-- ราคาห้อง  <?php echo $qq['roomprice'] ?><br> -->
+                    
 
                   
                     <label for="exampleInputEmail1">เลือกเฟอร์นิเจอร์เพิ่มเติม</label>
@@ -86,7 +91,7 @@
 
                     <!-- <div class="custom-control custom-checkbox mb-3" > -->
                     <input type="checkbox" id="customCheck1" name="customCheck1[]" value="<?php echo $result['furniture_id']; ?>" ><?php echo $result['name']; ?> 
-                    <!-- <label class="custom-control-label" for="customCheck1"><?php echo $result['name']; ?></label> -->
+                    <!-- <label class="custom-control-label" for="customCheck1"><?php echo $result['name']; ?></label> --> 
                    
                    
                     
@@ -94,7 +99,8 @@
                     </div>                    
                        <?php
                    } ?>
-                   
+                   <!-- <label>ราคารวมทั้งหมด</label> &nbsp;<label id="total"></label>&nbsp;<label>บาท</label>
+                   <input type="hidden" id="hgo"> -->
                     <!-- <div class="custom-control custom-checkbox mb-3">
                     <input class="custom-control-input" id="customCheck3" type="checkbox" disabled>
                     <label class="custom-control-label" for="customCheck3">Disabled Unchecked</label>
@@ -104,12 +110,16 @@
                     <label class="custom-control-label" for="customCheck4">Disabled Checked</label>
                     </div> -->
 
+
+                    
+
                     <div class="row">
                     <div class="col-sm">
                     <img src="<?php echo base_url('./assets/Kbank.jpg')?>" alt="Room" class="img-fluid"style="width: 400px;"><br>
                     </div>
                     <div class="col-sm">
-                    <img src="<?php echo base_url('./assets/Kbank.jpg')?>" alt="Room" class="img-fluid"style="width: 400px;">
+                    <!-- <img src="<?php echo base_url('./assets/Kbank.jpg')?>" alt="Room" class="img-fluid"style="width: 400px;"> -->
+
                     </div>
                     </div>
                     <br>
@@ -149,7 +159,54 @@
   <!--Datepicker -->
   <script src="<?php echo base_url('./assets2/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
 
+<!-- <script>
+    var total = 0;
+    var id = <?php echo $room_id ?>;
+        console.log(<?php echo $room_id ?>);
 
+    $("#customCheck1").change(function(){
+        if(this.value =='13'){
+        $.get("<?=base_url('Bookaroom/selectfur/')?>"+id,
+        function(data){
+            var go = data;
+            var tot = go;
+            $("#total").text(tot)
+            console.log(tot)
+        }
+        );
+        }
+        else if(this.value =='15'){
+            $.get("<?=base_url('Bookaroom/selectfur2/')?>"+id,
+        function(data){
+            var go = data;
+            var tot = go;
+            $("#total").text(tot)
+            console.log(tot)
+        }
+        );
+
+        }else if(this.value =='16'){
+            $.get("<?=base_url('Bookaroom/selectfur3/')?>"+id,
+        function(data){
+            var go = data;
+            var tot = go;
+            $("#total").text(tot)
+            console.log(tot)
+        }
+        );
+        }else if(this.value =='17'){
+            $.get("<?=base_url('Bookaroom/selectfur4/')?>"+id,
+        function(data){
+            var go = data;
+            var tot = go;
+            $("#total").text(tot)
+            console.log(tot)
+        }
+        );
+        }
+    });
+    
+</script> -->
 </body>
 </html>
  

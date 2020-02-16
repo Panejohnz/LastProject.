@@ -48,7 +48,7 @@
                                         <tr role="row">
                                             <td>
                                             <a href="<?php echo base_url('admin/edit/'.$data->employee_id); ?>">
-                                            <?php echo  $data->firstname; ?>
+                                            <?php echo  $data->firstname_emp; ?>
                                             <?php echo $data->lastname; ?>
                                             </a> 
                                             <br>

@@ -50,12 +50,13 @@ class LoginController extends CI_Controller
                 // access login for staff
             } elseif ($level === '0') {
                 redirect('page/staff');
-
+                
                 // access login for author
             }
         } else {
             echo $this->session->set_flashdata('msg', 'Username or Password is Wrong');
             redirect('LoginController');
+            
         }
     }
 
@@ -91,7 +92,7 @@ class LoginController extends CI_Controller
             
         } else {
             echo $this->session->set_flashdata('msg', 'Username or Password is Wrong');
-            redirect('LoginController');
+            redirect('ReservationsController');
         }
     }
     public function logoutMember()

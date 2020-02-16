@@ -49,7 +49,7 @@ class admin extends CI_Controller
 		$object = array(
 			'username' => $this->input->post('username'),
 			'password' => $this->input->post('password'),
-			'firstname' => $this->input->post('firstname'),
+			'firstname_emp' => $this->input->post('firstname'),
 			'lastname' => $this->input->post('lastname'),
 			'tel' => $this->input->post('tel'),
 			'email' => $this->input->post('email'),
@@ -72,7 +72,7 @@ redirect('admin');
 		$object = array(
 			'username' => $this->input->post('username'),
 			'password' => $this->input->post('password'),
-			'firstname' => $this->input->post('firstname'),
+			'firstname_emp' => $this->input->post('firstname'),
 			'lastname' => $this->input->post('lastname'),
 			'tel' => $this->input->post('tel'),
 			'email' => $this->input->post('email'),

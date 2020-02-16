@@ -18,7 +18,7 @@
 				</a>
 			</li>
 			<li class="active">
-				<?php echo $result->firstname?>
+				<?php echo $result->firstname_emp?>
 			</li>
 		</ol>
 	</section>
@@ -61,7 +61,7 @@
 						<label for="exampleInputEmail1">
 							ชื่อ
 						</label> <?php echo $this->session->flashdata('error_name')?>
-						<input type="text" id="name" class="form-control" name="firstname" value="<?php echo  $result->firstname ?>" required>
+						<input type="text" id="name" class="form-control" name="firstname" value="<?php echo  $result->firstname_emp ?>" required>
 					</div>
 
 				 	<div class="col-sm-4">		
