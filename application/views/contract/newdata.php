@@ -85,12 +85,6 @@
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
-                        ระยะเวลาสัญญา
-                        </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="text" id="time" class="form-control" name="time" value="" required>
-                </div>
-                <div class="col-sm-4">  
-                    <label for="exampleInputEmail1">
                        วันที่สินสุดสัญญา
                         </label> <?php echo $this->session->flashdata('error_password')?>
                         <input type="date" id="dateend" class="form-control" name="dateend" value="" required>
