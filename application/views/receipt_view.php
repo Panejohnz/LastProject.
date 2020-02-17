@@ -43,6 +43,11 @@
         $qq3 = $this->db->get('room');
         $data3 = $qq3->row_array();
 
+        $this->db->where('roomcategory_id', $data3['roomcate_id']);
+        $mana1 = $this->db->get('roomcategory');
+        $hh1 = $mana1->row_array();
+
+
         $this->db->where('employee_id', $data['employee_id']);
         $qq4= $this->db->get('emmployee');
         $data4 = $qq4->row_array();
@@ -65,12 +70,12 @@
 <br>
 <p class="ex3" align="left">ข้อ ๑ ผู้เช่าตกลงเช่าและผู้ให้เช่าตกลงให้เช่าห้องพักเลขที่  ..<?php echo $data3['roomnum']; ?>..</p>
 <p class="ex3" align="left">ตั้งอยู่ <?php echo $data['address']; ?></p>
-<p class="ex3" align="left">เพื่อใช้เป็นที่อยู่อาศัยเท่านั้น ในอัตราค่าเช่าเดือนละ ..<?php echo $data3['roomprice']; ?>.. บาท</p>
+<p class="ex3" align="left">เพื่อใช้เป็นที่อยู่อาศัยเท่านั้น ในอัตราค่าเช่าเดือนละ ..<?php echo $data['totalprice']; ?>.. บาท</p>
 <p class="ex3" align="left">โดยมีกำหนดระยะเวลาในการเช่า ตั้งแต่วันที่ ..<?php echo $data['datecontract_start']; ?>.. ถึงวันที่ ..<?php echo $data['datecontract_end']; ?>..</p>
 <p class="ex3" align="left">โดยมีกำหนดชำระค่าบริการก่อนวันที่ 25 ของทุกเดือน</p>
 <br>
 <p class="ex3" align="left">ข้อ ๒ ผู้เช่าตกลงเช่าและผู้ให้เช่าตกลงให้เช่า อุปกรณ์ไฟฟ้าและเฟอร์นิเจอร์ ภายในห้องพัก</p>
-<p class="ex3" align="left">ในอัตราค่าเช่าเดือนละ .. <?php echo $data3['roomprice']; ?>.. บาท โดยมีกำหนดชำระค่าบริการก่อนวันที่ 25</p>
+<p class="ex3" align="left">ในอัตราค่าเช่าเดือนละ .. <?php echo $data['totalprice']; ?>.. บาท โดยมีกำหนดชำระค่าบริการก่อนวันที่ 25</p>
 <p class="ex3" align="left">ของทุกเดือน โดยมีสภาพของอุปกรณ์ไฟฟ้าและเฟอร์นิเจอร์ ปรากฎตามรายละเอียดหลักฐาน</p>
 <p class="ex3" align="left">การตรวจรับสภาพอาคารแนบท้ายสัญญาฉบับนี้และถือว่าเป็นส่วนหนึ่งของสัญญาเช่า</p>
 <br>

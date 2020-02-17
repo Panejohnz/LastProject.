@@ -54,7 +54,7 @@
                     </div> --> <div class="col-sm-4">
                    
                         <label for="exampleInputEmail1">
-                           ชื่อ
+                           ชื่อ <?php echo $this->session->flashdata('item'); ?> 
                         </label> 
                         <?php echo $this->session->flashdata('error_username')?>
                         <input readonly type="text" id="firstname" class="form-control" name="firstname" value="<?php echo $data2['firstname'] ?>">
@@ -100,6 +100,12 @@
                           ที่อยู่
                         </label> <?php echo $this->session->flashdata('error_password')?>
                         <input type="text" id="address" class="form-control" name="address" value="" required>
+                </div>
+                <div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                          ราคาค่าเช่าห้อง
+                        </label> <?php echo $this->session->flashdata('error_password')?>
+                        <input readonly type="text" id="totalprice" class="form-control" name="totalprice" value="<?php echo $data1['totalprice'] ?>" required>
                 </div>
 
 

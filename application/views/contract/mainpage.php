@@ -46,6 +46,7 @@
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ไอดีสัญญา</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">หมายเลขห้อง</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ชื่อลูกค้า</th>
+                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">ราคาห้อง</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ชื่อพนักงานทำสัญญา</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">เลขบัตรประชาชนลูกค้า</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ที่อยู่</th>
@@ -72,13 +73,13 @@
                                           $ff = $this->db->get('contract');
                                           $qq = $ff->row_array(); 
                                           
-                                                $this->db->where('employee_id',$qq['contract_id']);
+                                                $this->db->where('employee_id',$qq['employee_id']);
                                                 $fff = $this->db->get('emmployee');
                                                 $qqq = $fff->row_array();
 
                                           ?>
-    
-                                           <td>  <?php echo $qqq['firstname_emp'];?>   </td>
+                                            <td>  <?php echo $data->totalprice; ?>  </td>
+                                           <td>  <?php echo $qqq['firstname_emp']?>   </td>
                                            <td>  <?php echo $data->identity_card; ?>  </td>
                                            <td>  <?php echo $data->address; ?>  </td>
                                            <td>  <?php echo $data->datecontract_start; ?>  </td>

@@ -133,7 +133,7 @@ class Bookaroom extends CI_Controller
                 $queryy=$this->db->query("SELECT SUM(furniture.price) as pp FROM reservationsfurniture JOIN furniture ON furniture.furniture_id = reservationsfurniture.furniture_id WHERE reservationsfurniture.reservations_id = $user_id ");
                 $yy = $queryy->row_array();
                // echo $yy['pp']. "บาท";
-
+               $this->load->library('session');
                 $stringrow = base_url(uri_string());
                 $arraystate = (explode("/", $stringrow));
                 $idtestt = ($arraystate[6]);
@@ -141,8 +141,22 @@ class Bookaroom extends CI_Controller
                 $this->db->where('room_id', $idtestt);
                 $mana = $this->db->get('room');
                 $hh = $mana->row_array();
-                $sum = $yy['pp'] + $hh['roomprice'];
+
+                $this->db->where('roomcategory_id', $hh['roomcate_id']);
+                $mana1 = $this->db->get('roomcategory');
+                $hh1 = $mana1->row_array();
+
+                $sum = $yy['pp'] + $hh1['roomprice'];
                // echo "ราคารวม " . $sum;
+              
+               $this->db->where('reservations_id', $ord_id);
+               $oo = array(
+              'totalprice' => $sum
+            );
+            $this->db->update('reservationsroom', $oo);
+            
+               
+               
                 
                 
                 //     $this->db->insert('reservations', $arr);
@@ -181,15 +195,15 @@ class Bookaroom extends CI_Controller
             //echo $this->input->post($_POST['customCheck1']);
         
                 $this->data0['his'] = $this->ReservationsModel->historybill($id);
-               $this->load->view('Hee', $this->data0, false);
+               $this->load->view('Hee', $this->data0, $sum,false);
             echo "<script>";
-            echo "alert('จองห้องพักเรียบร้อย' . $sum);";
+            echo "alert('จองห้องพักเรียบร้อย  $sum');";
             echo "window.location.href = '". base_url()."page/staff';";
             echo "</script>";
 
             
         
-            redirect('ReservationsController');
+           // redirect('ReservationsController');
             }
         }
       

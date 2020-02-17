@@ -174,7 +174,7 @@ class Contract extends CI_Controller
         $idtestt = ($arraystate[6]);
         $idtest = ($arraystate[7]);
          $idtest1 = ($arraystate[8]);
-        // $idtest2 = ($arraystate[9]);
+        // $idtest2 = ($arraystate[9]);totalprice
 
         $arr=array(
                              "user_id" => $idtestt,
@@ -183,7 +183,8 @@ class Contract extends CI_Controller
                              "datecontract_end" => $this->input->post('dateend'),
                              "room_id" => $idtest,
                              "address" => $this->input->post('address'),
-                             "employee_id" => $emp_id
+                             "employee_id" => $emp_id,
+                             "totalprice" => $this->input->post('totalprice')
                             );
         $this->db->insert('contract', $arr);
 
