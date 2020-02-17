@@ -31,6 +31,7 @@
                         <label for="exampleInputEmail1">
                             username
                         </label> 
+                        
                         <?php echo $this->session->flashdata('error_username')?>
                         <input type="text" id="username" class="form-control" name="username" value="<?php echo $this->session->flashdata('username'); ?>" required>
                 </div>

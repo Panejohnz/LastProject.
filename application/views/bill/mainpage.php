@@ -2,11 +2,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            ห้องพัก
+            ค่าน้ำค่าไฟ
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo  base_url('room'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-            <li class="active">ห้องพัก</li>
+            <li><a href="<?php echo  base_url('BillController'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+            <li class="active">ค่าน้ำค่าไฟ</li>
         </ol>
     </section>
     <!-- Top menu -->

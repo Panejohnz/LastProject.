@@ -1,4 +1,5 @@
-<?php $stringrow = base_url(uri_string());
+
+<!-- <?php $stringrow = base_url(uri_string());
             $arraystate = (explode("/", $stringrow));
             $idtestt = ($arraystate[6]); ?>
 <?php $this->db->where('room_id', $idtestt);
@@ -19,4 +20,4 @@ $result = $qq->row_array(); ?>
 <br>
 วันที่:<?php echo $data['date']; ?>
 <br>=========================<br>
-                                                    <?php } ?>
+ <?php } ?> -->

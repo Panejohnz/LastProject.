@@ -78,7 +78,7 @@ class BillController extends CI_Controller
     {
     //     $this->db->where('room_id', $room_id);
     //   $data = $this->db->get('bill');
-       // $this->load->view('template/backheader');
+        $this->load->view('template/argon');
         $this->load->view('bill/edit');
         //$this->load->view('template/backfooter');
     }

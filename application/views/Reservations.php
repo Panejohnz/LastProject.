@@ -145,7 +145,7 @@
 
                 <div class="box-footer">
                     <button class="btn btn-success" name="submit"  type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
-                    <a class="btn btn-danger" href="<?php echo  base_url('ReservationsController'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
+                    <a class="btn btn-danger" href="<?php echo  base_url('page/staff'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
                 </div>
                 <!-- //onclick="myFunction()" -->
             </form>

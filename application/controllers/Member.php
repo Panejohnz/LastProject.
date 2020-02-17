@@ -58,6 +58,8 @@ class Member extends CI_Controller
 $this->db->insert('users', $object);
 redirect('member');
 		}
+
+
 	
 	public function edit($user_id)
 	{
@@ -100,6 +102,7 @@ redirect('member');
 		$this->member_model->remove_member($user_id);
 		redirect('member');
 	}
+	
 
 
 }
