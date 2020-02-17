@@ -130,10 +130,21 @@ class Bookaroom extends CI_Controller
                     }
                     
                 }
-                $queryy=$this->db->query("SELECT SUM(furniture.price) as pp FROM reservationsfurniture,furniture WHERE reservationsfurniture.reservations_id = $user_id GROUP BY reservationsfurniture.furniture_id DESC LIMIT 1");
+                $queryy=$this->db->query("SELECT SUM(furniture.price) as pp FROM reservationsfurniture JOIN furniture ON furniture.furniture_id = reservationsfurniture.furniture_id WHERE reservationsfurniture.reservations_id = $user_id ");
                 $yy = $queryy->row_array();
-                echo $yy['pp']. "บาท";
+               // echo $yy['pp']. "บาท";
 
+                $stringrow = base_url(uri_string());
+                $arraystate = (explode("/", $stringrow));
+                $idtestt = ($arraystate[6]);
+
+                $this->db->where('room_id', $idtestt);
+                $mana = $this->db->get('room');
+                $hh = $mana->row_array();
+                $sum = $yy['pp'] + $hh['roomprice'];
+                echo "ราคารวม " . $sum;
+                
+                
                 //     $this->db->insert('reservations', $arr);
 
             //     $rr = $this->db->get('reservations');
