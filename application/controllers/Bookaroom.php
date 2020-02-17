@@ -142,7 +142,7 @@ class Bookaroom extends CI_Controller
                 $mana = $this->db->get('room');
                 $hh = $mana->row_array();
                 $sum = $yy['pp'] + $hh['roomprice'];
-                echo "ราคารวม " . $sum;
+               // echo "ราคารวม " . $sum;
                 
                 
                 //     $this->db->insert('reservations', $arr);
@@ -180,16 +180,16 @@ class Bookaroom extends CI_Controller
             // // }
             //echo $this->input->post($_POST['customCheck1']);
         
-            //     $this->data0['his'] = $this->ReservationsModel->historybill($id);
-            //    $this->load->view('Hee', $this->data0, false);
-            // echo "<script>";
-            // echo "alert('จองห้องพักเรียบร้อย');";
-            // echo "window.location.href = '". base_url()."page/staff';";
-            // echo "</script>";
+                $this->data0['his'] = $this->ReservationsModel->historybill($id);
+               $this->load->view('Hee', $this->data0, false);
+            echo "<script>";
+            echo "alert('จองห้องพักเรียบร้อย' . $sum);";
+            echo "window.location.href = '". base_url()."page/staff';";
+            echo "</script>";
 
             
         
-            // redirect('ReservationsController');
+            redirect('ReservationsController');
             }
         }
       

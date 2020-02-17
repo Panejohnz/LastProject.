@@ -78,7 +78,7 @@
 
                                           ?>
     
-                                           <td> <?php echo $qqq['firstname_emp']; ?>   </td>
+                                           <td>  <?php echo $qqq['firstname_emp'];?>   </td>
                                            <td>  <?php echo $data->identity_card; ?>  </td>
                                            <td>  <?php echo $data->address; ?>  </td>
                                            <td>  <?php echo $data->datecontract_start; ?>  </td>
