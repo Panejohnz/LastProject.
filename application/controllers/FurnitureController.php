@@ -47,7 +47,8 @@ class FurnitureController extends CI_Controller
     {
         $object = array(
             'name' => $this->input->post('name'),
-            'price' => $this->input->post('price')
+            'price' => $this->input->post('price'),
+            'stock' => $this->input->post('stock')
             
         );
         $this->db->insert('furniture', $object);
@@ -66,7 +67,8 @@ class FurnitureController extends CI_Controller
     {
         $object = array(
             'name' => $this->input->post('name'),
-            'price' => $this->input->post('price')
+            'price' => $this->input->post('price'),
+            'stock' => $this->input->post('stock')
         
         );
         $this->db->where('furniture_id', $idfur);
