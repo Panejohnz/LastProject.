@@ -8,11 +8,11 @@
         <h1>
         จัดการสัญญาเช่า
          </h1>
-        <ol class="breadcrumb">
+        <!-- <ol class="breadcrumb">
             <li><a href="<?php echo  base_url('contract'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
             <li><a href="<?php echo  base_url('contract'); ?>">จัดการสัญญาเช่า</a></li>
             <li class="active">เพิ่มข้อมูลใหม่</li>
-        </ol>
+        </ol> -->
     </section>
     <!-- Main content -->
     <section class="content">
@@ -51,7 +51,7 @@
                     <!-- <div class="form-group">
                         <label for="exampleInputEmail1">สัญญาเช่า</label> <?php echo $this->session->flashdata('error_roomname'); ?>
                         <input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $this->session->flashdata('roomname'); ?>">
-                    </div> --> <div class="col-sm-4">
+                    </div> --> <div class="col-sm-6">
                    
                         <label for="exampleInputEmail1">
                            ชื่อ <?php echo $this->session->flashdata('item'); ?> 
@@ -59,19 +59,19 @@
                         <?php echo $this->session->flashdata('error_username')?>
                         <input readonly type="text" id="firstname" class="form-control" name="firstname" value="<?php echo $data2['firstname'] ?>">
                 </div>
-                <div class="col-sm-4">  
+                <div class="col-sm-6">  
                     <label for="exampleInputEmail1">
                             นามสกุล
                         </label> <?php echo $this->session->flashdata('error_password')?>
                         <input readonly type="text" id="lastname" class="form-control" name="lastname" value="<?php echo $data2['lastname'] ?>">
                 </div>
-                <div class="col-sm-4">  
+                <div class="col-sm-6">  
                     <label for="exampleInputEmail1">
                            เบอร์โทร
                         </label> <?php echo $this->session->flashdata('error_password')?>
                         <input readonly type="text" id="phone" class="form-control" name="phone" value="<?php echo $data2['tel'] ?>">
                 </div>
-                <div class="col-sm-4">  
+                <div class="col-sm-6">  
                     <label for="exampleInputEmail1">
                           เลขบัตรประชาชน
                         </label> <?php echo $this->session->flashdata('error_password')?>
@@ -81,19 +81,20 @@
                     <label for="exampleInputEmail1">
                           วันที่ทำสัญญา
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="date" id="datestart" class="form-control" name="datestart" value="" required>
+                        <input id="hee" class="form-control" name="datestart" value="" required>
                 </div>
+                
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
                        วันที่สินสุดสัญญา
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="date" id="dateend" class="form-control" name="dateend" value="" required>
+                        <input id="datetimepicker1" class="form-control" name="dateend" value="" required readonly>
                 </div>
-                <div class="col-sm-4">  
+                <div class="col-sm-8">  
                     <label for="exampleInputEmail1">
                           ที่อยู่
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="text" id="address" class="form-control" name="address" value="" required>
+                        <textarea type="textArea" id="address" class="form-control" name="address" readonly>926 ถนนสุ ทธิสารวินิจฉัย แขวง ดินแดง เขตดินแดง กรุงเทพมหานคร 10400</textarea>
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
@@ -103,7 +104,7 @@
                 </div>
 
 
-            </div>
+            </div><br>
             
    
                     
@@ -111,14 +112,14 @@
 
                 <div class="box-footer">
                     <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
-                    <a class="btn btn-danger" href="<?php echo  base_url('contract'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
+                    <a class="btn btn-danger" href="<?php echo  base_url('Reservationadmin'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
                 </div>
             </form>
         </div>
         </div> </div> </div> 
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-<script src="<?php echo base_url('./assets/deluxe/js/jquery.min.js')?>"></script>
+<!-- <script src="<?php echo base_url('./assets/deluxe/js/jquery.min.js')?>"></script>
   <script src="<?php echo base_url('./assets/deluxe/js/jquery-migrate-3.0.1.min.js')?>"></script>
   <script src="<?php echo base_url('./assets/deluxe/js/jquery.waypoints.min.js')?>"></script>
   <script src="<?php echo base_url('./assets/deluxe/js/jquery.stellar.min.js')?>"></script>
@@ -129,4 +130,63 @@
   <script src="<?php echo base_url('./assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
   <script src="<?php echo base_url('./assets/deluxe/js/jquery.timepicker.min.js')?>"></script>
   <script src="<?php echo base_url('./assets/deluxe/js/scrollax.min.js')?>"></script>
-  <script src="<?php echo base_url('./assets/deluxe/js/main.js')?>"></script>
+  <script src="<?php echo base_url('./assets/deluxe/js/main.js')?>"></script> -->
+
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>./datetime/css/jquery.datetimepicker.min.css"/>
+<script src="<?php echo base_url('./datetime/js/jquery.datetimepicker.js')?>"></script>
+
+<script type="text/javascript">
+    // $(document).ready(function() {
+        // $('#datetimepicker').datetimepicker();
+        
+    // });
+    $('#hee').datetimepicker({
+     format:'Y-m-d',
+     timepicker:false,
+     minDate:'-1970/01/01', //yesterday is minimum date
+    //  maxDate:'+1970/01/03' //tomorrow is maximum date
+    });
+</script>
+
+<script type="text/javascript">
+    // $(document).ready(function() {
+        // $('#datetimepicker').datetimepicker();
+        
+    // });
+    $('#datetimepicker1').datetimepicker({
+     format:'Y-m-d',
+    //  timepicker:false,
+    //  minDate:'-1970/01/01', //yesterday is minimum date
+    //  maxDate:'+1970/01/03' //tomorrow is maximum date
+    });
+</script>
+<script>
+
+var s = 0;
+var dateSong = 0;
+$('#datetimepicker').change(function(){
+    s = document.getElementById("datetimepicker").value; 
+    dateSong = moment(s, 'YYYY-MM-DD');
+    var start = dateSong.format('YYYY/MM/DD').toString();
+    var end = (dateSong).add(365,'days').format('YYYY/MM/DD').toString();
+    console.log("hi" + end);
+});</script>
+
+<script>
+    $('#hee').change(function (e) { 
+        Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+    
+}
+console.log($('#hee').val());
+var date = new Date($('#hee').val());
+        let formatted_date = (date.getFullYear()+1) + "-" + (date.getMonth()+1) + "-" + date.getDate();
+        console.log(formatted_date)
+
+        $('#datetimepicker1').val(formatted_date);
+        
+        
+    });
+</script>

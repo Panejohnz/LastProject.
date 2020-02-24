@@ -43,7 +43,7 @@ class Contract extends CI_Controller
         // $data = $qq->result_array();
        // $data['results'] = $this->contract_model->fetch_Contract($reservations_id);
         //print_r($data);
-        $this->load->view('template/backheader');
+        $this->load->view('template/contract');
         $this->load->view('contract/newdata');
         $this->load->view('template/backfooter');
     }

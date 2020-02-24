@@ -41,6 +41,13 @@
                         <input type="price" id="password" class="form-control" name="price" value="<?php echo  $this->session->flashdata('price'); ?>" pattern="\d{1,9}" maxlength="5" required>
                 </div>
 
+                <div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                            จำนวน
+                        </label> <?php echo $this->session->flashdata('error_price')?>
+                        <input type="stock" id="password" class="form-control" name="stock" value="<?php echo  $this->session->flashdata('stock'); ?>" pattern="\d{1,9}" maxlength="5" required>
+                </div>
+
             </div>
                  
                         

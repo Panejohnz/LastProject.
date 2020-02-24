@@ -40,6 +40,7 @@
                                     <tr role="row">
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ชื่อ</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">ราคา</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">จำนวน</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -62,6 +63,9 @@
                                             <br>
                                             
                                             
+                                            </td>
+                                            <td>
+                                            <?php echo $data->stock; ?>   
                                             </td>
                                             <td>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('FurnitureController/confrm/'.$data->furniture_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
