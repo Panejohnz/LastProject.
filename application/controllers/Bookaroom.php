@@ -177,7 +177,7 @@ class Bookaroom extends CI_Controller
                 'roomstatus' => '1'
               );
    
-           
+            
             $this->db->update('room', $data2);
 
             // // if (isset($_POST['submit'])) {

@@ -54,11 +54,14 @@
             //$idtest2 = ($arraystate[9]); ?>
     <!-- Content Header (Page header) -->
             <!-- form start -->
-            <?php  $this->db->where('room_id', $room_id);
-       $query = $this->db->get('room');
+            <?php $this->db->select('*');
+            $this->db->from('room');
+            $this->db->join('roomcategory','roomcategory.roomcategory_id = room.roomcate_id');
+             $this->db->where('room_id', $room_id);
+       $query = $this->db->get();
          $qq = $query->row_array(); ?>
             <div class="container"><br>
-            <form role="form" action="<?php echo base_url('Bookaroom/postdata/'.$room_id); ?>" method="post" enctype="multipart/form-data">
+            <form role="form" action="<?php echo base_url('Bookaroom/postdata/'.$room_id); ?>" id="kuay" method="post" enctype="multipart/form-data">
            
             <div class="box-body">
             <div class="form-group">
@@ -82,6 +85,7 @@
                     <label for="exampleInputEmail1">เลือกเฟอร์นิเจอร์เพิ่มเติม</label>
                     <?php $this->db->select('furniture.*');
                    $this->db->from('furniture');
+
                    $query = $this->db->get();
                    $results = $query->result_array();?>
                    	<?php	foreach ($results as $result) {
@@ -90,15 +94,16 @@
                     <div style="display:flex;">
 
                     <!-- <div class="custom-control custom-checkbox mb-3" > -->
-                    <input type="checkbox" id="customCheck1" name="customCheck1[]" value="<?php echo $result['furniture_id']; ?>" ><?php echo $result['name']; ?> 
+                    <input type="checkbox"  name="customCheck1[]" onclick="heegrace()" value="<?php echo $result['price']; ?>" ><?php echo $result['name']; ?> <?php echo $result['price']; ?>
                     <!-- <label class="custom-control-label" for="customCheck1"><?php echo $result['name']; ?></label> --> 
-                   
-                   
+                    </div>    
                     
-                
-                    </div>                    
+                                    
                        <?php
                    } ?>
+                   <p id="Heeee">ราคาห้อง &nbsp;<?php echo $qq['roomprice']; ?></p>
+                   <input type="hidden" name="hee" id="hee" value="<?php echo $qq['roomprice']; ?>">
+
                    <!-- <label>ราคารวมทั้งหมด</label> &nbsp;<label id="total"></label>&nbsp;<label>บาท</label>
                    <input type="hidden" id="hgo"> -->
                     <!-- <div class="custom-control custom-checkbox mb-3">
@@ -158,6 +163,18 @@
   <script src="<?php echo base_url(); ?>./assets2/js/argon.js?v=1.1.0"></script>
   <!--Datepicker -->
   <script src="<?php echo base_url('./assets2/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
+<script>
+    function heegrace()
+    {
+        console.log("hi");
+        $.post("<?php echo base_url("kidmaiook/HeeEGrace") ?>", $("#kuay").serialize(),
+            function (data) {
+                $("#Heeee").html("ราคาห้อง " + data)
+            },
+        );
+    }
+</script>
+  
 
 <!-- <script>
     var total = 0;

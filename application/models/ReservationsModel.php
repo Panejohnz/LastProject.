@@ -27,6 +27,7 @@ class ReservationsModel extends CI_Model
             ->join('reservationsfurniture','reservationsfurniture.reservations_id = reservations.reservations_id')
             ->join('furniture','furniture.furniture_id = reservationsfurniture.furniture_id')
             ->join('room','room.room_id = reservationsroom.room_id')
+            ->join('roomcategory','roomcategory.roomcategory_id = room.roomcate_id')
             ->join('users','users.user_id = reservations.id_users');
             
             
