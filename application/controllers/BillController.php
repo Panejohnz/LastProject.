@@ -41,6 +41,14 @@ class BillController extends CI_Controller
         $query = $this->db->get('room');
         $imf = $query->row_array();
 
+        $this->db->where('room_id', $imf['room_id']);
+        $cc = $this->db->get('contract');
+        $cc1 = $cc->row_array();
+
+        $this->db->where('roomcategory_id', $imf['roomcate_id']);
+        $queryy = $this->db->get('roomcategory');
+        $imff = $queryy->row_array();
+
         $this->db->where('pricebill_id', 1);
         $query1 = $this->db->get('pricebill');
         $imf2 = $query1->row_array();
@@ -65,7 +73,7 @@ class BillController extends CI_Controller
         'waterbill' => $this->input->post('waternew'),
         'electric_price	' => $imf2['pricemeter'] * $this->input->post('electricnew'),
         'water_price' => $imf3['pricemeter'] * $this->input->post('waternew'),
-        'roomprice' => $imf['roomprice'],
+        'roomprice' => $cc1['totalprice'],
         'date' => date('Y-m-d')
     );
         $this->db->insert('bill', $arr);
