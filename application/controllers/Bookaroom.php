@@ -68,7 +68,8 @@ class Bookaroom extends CI_Controller
             $arr=array(         'reservationsstart' => $this->input->post('reservationsstart'),
                                 'slip_date' => date('Y-m-d'),
                                 'slip_file'=>$filename,
-                                'id_users' => $cust_id
+                                'id_users' => $cust_id,
+                                'deposit' => $this->input->post('deposit')
                             );
             $ord_id = $this->ReservationsModel->insert_order($arr);
            

@@ -94,13 +94,14 @@
                     <div style="display:flex;">
 
                     <!-- <div class="custom-control custom-checkbox mb-3" > -->
-                    <input type="checkbox"  name="customCheck1[]" onclick="heegrace()" value="<?php echo $result['price']; ?>" ><?php echo $result['name']; ?> <?php echo $result['price']; ?>
+                    <input type="checkbox"  name="customCheck1[]" onclick="heegrace()" value="<?php echo $result['furniture_id']; ?>" ><?php echo $result['name']; ?> <?php echo $result['price']; ?>
                     <!-- <label class="custom-control-label" for="customCheck1"><?php echo $result['name']; ?></label> --> 
-                    </div>    
+                    </div> 
                     
                                     
                        <?php
                    } ?>
+                   
                    <p id="Heeee">ราคาห้อง &nbsp;<?php echo $qq['roomprice']; ?></p>
                    <input type="hidden" name="hee" id="hee" value="<?php echo $qq['roomprice']; ?>">
 
@@ -115,7 +116,22 @@
                     <label class="custom-control-label" for="customCheck4">Disabled Checked</label>
                     </div> -->
 
-
+                    <div class="p-2 alert alert-warning clearfix" style="width:370px; height:50px; border-radius: 2px; background-color:green;">
+                            <div class="pull-left">
+                                <i class="fa fa-shield fa-fw"></i> เงินมัดจำการจองห้อง
+                                <!--
+                                จำนวนเงินมัดจำ 
+                                <i tabindex="0" class="fa fa-info-circle secondary-color" style="display: inline-block;" aria-hidden="true" role="button" data-toggle="popover" data-trigger="focus" data-placement="top"  data-content='ระบบจะทำการคืนวงเงินมัดจำภายหลังจากการเช่าสิ้นสุดลง ภายใน 7-15 วัน ขึ้นอยู่กับธนาคารและผู้ให้บริการบัตรเครดิต '></i>
+                                -->
+                                <div class="small text-gray">
+                                ชำระ ณ ตอนจอง และได้รับคืนเมื่อสิ้นสุดสัญญาเช่า
+                                </div>
+                            </div>
+                            <div class="pull-right number-format text-bold">
+                                <span class="currency-after" style="color:white;">500฿</span> 
+                                <input type="hidden" name='deposit' style="color:white;" value="500">
+                            </div>
+                            </div>
                     
 
                     <div class="row">

@@ -77,24 +77,26 @@ $result = $qq->row_array(); ?>
 <table class="table">
     <thead>
         <tr>
+        <th class="text-center">วันที่</th>
             <th class="text-center">เลขมิเตอร์ค่าไฟ</th>
-            <th>เลขมิเตอร์ค่าน้ำ</th>
-            <th>ค่าไฟ</th>
-            <th>ค่าน้ำ</th>
-            <th class="text-right">ค่าห้อง</th>
-            <th class="text-right">วันที่</th>
+            <th class="text-center">เลขมิเตอร์ค่าน้ำ</th>
+            <th class="text-center">ค่าไฟ</th>
+            <th class="text-center">ค่าน้ำ</th>
+            <th class="text-center">ค่าห้อง</th>
+            
         </tr>
     </thead>
     <tbody>
 
     <?php  foreach ($qq->result_array() as $data) { ?>
         <tr>
+        <td class="text-center"><?php echo $data['date']; ?></td>
             <td class="text-center"><?php echo $data['electricbill']; ?>&nbsp; หน่วย</td>
-            <td><?php echo $data['waterbill']; ?>&nbsp;หน่วย</td>
-            <td><?php echo $data['electric_price']; ?>&nbsp;บาท</td>
-            <td><?php echo $data['water_price']; ?>&nbsp;บาท</td>
-            <td class="text-right"><?php echo $data['roomprice']; ?>&nbsp;บาท</td>
-            <td class="td-actions text-right"><?php echo $data['date']; ?></td>
+            <td class="text-center"><?php echo $data['waterbill']; ?>&nbsp;หน่วย</td>
+            <td class="text-center"><?php echo $data['electric_price']; ?>&nbsp;บาท</td>
+            <td class="text-center"><?php echo $data['water_price']; ?>&nbsp;บาท</td>
+            <td class="text-center"><?php echo $data['roomprice']; ?>&nbsp;บาท</td>
+            
         </tr>
         
         

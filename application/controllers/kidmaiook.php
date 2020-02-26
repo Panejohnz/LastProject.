@@ -11,12 +11,16 @@ class kidmaiook extends CI_Controller {
         {
             foreach($usertotal as $index => $usertotal)
             {
-                $total = $usertotal+$total;
+                $this->db->where('furniture_id', $usertotal);
+                $query = $this->db->get('furniture', 1);
+                $data =  $query->row_array();
+                
+                $total = $data['price']+$total;
             }
         }else{
             
         }
-
+    
         echo $total;
 
     }

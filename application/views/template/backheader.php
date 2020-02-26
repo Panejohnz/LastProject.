@@ -245,6 +245,24 @@ color: #000;
 					</span>
 				</a>
 			</li>
+			<li class="<?php echo base_url('watercontroller'); ?>">
+				<a href="<?php echo base_url('watercontroller'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span>
+						- ค่าน้ำ
+					</span>
+				</a>
+			</li>
+			<li class="<?php echo base_url('electriccontroller'); ?>">
+				<a href="<?php echo base_url('electriccontroller'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span>
+						- ค่าไฟ
+					</span>
+				</a>
+			</li>
 			<li class="<?php echo base_url('Reservationadmin'); ?>">
 				<a href="<?php echo base_url('Reservationadmin'); ?>">
 					<i class="fa fa-link">

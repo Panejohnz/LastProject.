@@ -51,6 +51,7 @@
         $this->db->where('employee_id', $data['employee_id']);
         $qq4= $this->db->get('emmployee');
         $data4 = $qq4->row_array();
+        
         ?>
         
         <button onClick="window.print()">Print this page</button>
