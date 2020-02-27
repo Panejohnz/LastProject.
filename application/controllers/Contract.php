@@ -43,8 +43,9 @@ class Contract extends CI_Controller
         // $data = $qq->result_array();
        // $data['results'] = $this->contract_model->fetch_Contract($reservations_id);
         //print_r($data);
+        $data['id'] = $reservations_id;
         $this->load->view('template/contract');
-        $this->load->view('contract/newdata');
+        $this->load->view('contract/newdata',$data);
         $this->load->view('template/backfooter');
     }
     // public function download($contract_id)
@@ -184,7 +185,8 @@ class Contract extends CI_Controller
                              "room_id" => $idtest,
                              "address" => $this->input->post('address'),
                              "employee_id" => $emp_id,
-                             "totalprice" => $this->input->post('totalprice')
+                             "totalprice" => $this->input->post('totalprice'),
+                             'reservations_id'=>$this->input->post('kuykwai')
                             );
         $this->db->insert('contract', $arr);
 
@@ -193,14 +195,14 @@ class Contract extends CI_Controller
                         'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                     )
             );
-            $this->db->where('reservations_id', $idtest1);
-        $this->db->delete('reservations');
+        //     $this->db->where('reservations_id', $idtest1);
+        // $this->db->delete('reservations');
 
-        $this->db->where('reservations_id', $idtest1);
-        $this->db->delete('reservationsroom');
+        // $this->db->where('reservations_id', $idtest1);
+        // $this->db->delete('reservationsroom');
 
-        $this->db->where('reservations_id', $idtest1);
-        $this->db->delete('reservationsfurniture');
+        // $this->db->where('reservations_id', $idtest1);
+        // $this->db->delete('reservationsfurniture');
         redirect('contract');
     }
 

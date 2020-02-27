@@ -52,6 +52,23 @@
         $qq4= $this->db->get('emmployee');
         $data4 = $qq4->row_array();
         
+        $this->db->select('*'); //
+        $this->db->from('pricebill');
+       $aa =  $this->db->get();
+        $data6 = $aa->row_array();
+    
+        $this->db->where('pricebill_id', $data6['pricebill_id']);
+        $qq5= $this->db->get('pricebill');
+        $data5 = $qq5->row_array(); //
+
+
+        $this->db->select('*');//
+        $this->db->from('pricebillelec');
+       $bb =  $this->db->get();
+        $data7 = $bb->row_array();
+        $this->db->where('pricebillelec_id', $data7['pricebillelec_id']);
+        $qq6= $this->db->get('pricebillelec');
+        $data8 = $qq6->row_array();//
         ?>
         
         <button onClick="window.print()">Print this page</button>
@@ -71,8 +88,10 @@
 <br>
 <p class="ex3" align="left">ข้อ ๑ ผู้เช่าตกลงเช่าและผู้ให้เช่าตกลงให้เช่าห้องพักเลขที่  ..<?php echo $data3['roomnum']; ?>..</p>
 <p class="ex3" align="left">ตั้งอยู่ <?php echo $data['address']; ?></p>
+<p class="ex3" align="left">ค่าน้ำยูนิตละ......<?php echo $data5['pricemeter']; ?>......บาท &nbsp; ค่าไฟยูนิตละ....<?php echo $data8['pricemeter']; ?>....บาท</p>
 <p class="ex3" align="left">เพื่อใช้เป็นที่อยู่อาศัยเท่านั้น ในอัตราค่าเช่าเดือนละ ..<?php echo $data['totalprice']; ?>.. บาท</p>
 <p class="ex3" align="left">โดยมีกำหนดระยะเวลาในการเช่า ตั้งแต่วันที่ ..<?php echo $data['datecontract_start']; ?>.. ถึงวันที่ ..<?php echo $data['datecontract_end']; ?>..</p>
+
 <p class="ex3" align="left">โดยมีกำหนดชำระค่าบริการก่อนวันที่ 25 ของทุกเดือน</p>
 <br>
 <p class="ex3" align="left">ข้อ ๒ ผู้เช่าตกลงเช่าและผู้ให้เช่าตกลงให้เช่า อุปกรณ์ไฟฟ้าและเฟอร์นิเจอร์ ภายในห้องพัก</p>

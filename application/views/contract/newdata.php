@@ -102,8 +102,8 @@
                         </label> <?php echo $this->session->flashdata('error_password')?>
                         <input readonly type="text" id="totalprice" class="form-control" name="totalprice" value="<?php echo $data1['totalprice'] ?>" required>
                 </div>
-
-
+      <?php $reservations_id = $data['reservations_id'];?>
+                <input type="hidden" name="kuykwai" value="<?php echo $reservations_id ?>">
             </div><br>
             
    

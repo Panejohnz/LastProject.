@@ -80,7 +80,7 @@
                     </div>
                     <!-- ราคาห้อง  <?php echo $qq['roomprice'] ?><br> -->
                     
-
+    
                   
                     <label for="exampleInputEmail1">เลือกเฟอร์นิเจอร์เพิ่มเติม</label>
                     <?php $this->db->select('furniture.*');
@@ -94,17 +94,20 @@
                     <div style="display:flex;">
 
                     <!-- <div class="custom-control custom-checkbox mb-3" > -->
-                    <input type="checkbox"  name="customCheck1[]" onclick="heegrace()" value="<?php echo $result['furniture_id']; ?>" ><?php echo $result['name']; ?> <?php echo $result['price']; ?>
+                    <input type="checkbox"  name="customCheck1[]" onclick="heegrace()" value="<?php echo $result['furniture_id']; ?>" ><?php echo $result['name']; ?> 
                     <!-- <label class="custom-control-label" for="customCheck1"><?php echo $result['name']; ?></label> --> 
                     </div> 
                     
                                     
                        <?php
                    } ?>
+                   <br>
+
+                   
                    
                    <p id="Heeee">ราคาห้อง &nbsp;<?php echo $qq['roomprice']; ?></p>
                    <input type="hidden" name="hee" id="hee" value="<?php echo $qq['roomprice']; ?>">
-
+                   
                    <!-- <label>ราคารวมทั้งหมด</label> &nbsp;<label id="total"></label>&nbsp;<label>บาท</label>
                    <input type="hidden" id="hgo"> -->
                     <!-- <div class="custom-control custom-checkbox mb-3">
