@@ -116,7 +116,7 @@ class Bookaroom extends CI_Controller
                         $ff = $this->db->update('reservations', $dss);
 
 
-                      
+                       
 
             
 
@@ -130,7 +130,9 @@ class Bookaroom extends CI_Controller
                     
                         // echo $plamy['price'];
                     }
-                    
+                    $this->db->set('stock', 'stock-' . 1, false);
+                    $this->db->where('furniture_id',$checkbox[$i]);
+                    $this->db->update('furniture');
                 }
                 $queryy=$this->db->query("SELECT SUM(furniture.price) as pp FROM reservationsfurniture JOIN furniture ON furniture.furniture_id = reservationsfurniture.furniture_id WHERE reservationsfurniture.reservations_id = $user_id ");
                 $yy = $queryy->row_array();
