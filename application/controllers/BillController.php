@@ -57,7 +57,7 @@ class BillController extends CI_Controller
         $query2 = $this->db->get('pricebill');
         $imf3 = $query2->row_array();
         // print_r($room_id);
-        //$water = 15 * $postData['waternew'];
+        // $water = 15 * $postData['waternew'];
         // echo $water;
         // echo $this->input->post('electricnew');
         // echo '<br>';
@@ -69,15 +69,26 @@ class BillController extends CI_Controller
 
         $arr=array(
         'room_id' => $room_id,
-        'electricbill'=>$this->input->post('electricnew'),
-        'waterbill' => $this->input->post('waternew'),
-        'electric_price	' => $imf2['pricemeter'] * $this->input->post('electricnew'),
-        'water_price' => $imf3['pricemeter'] * $this->input->post('waternew'),
-        'roomprice' => $cc1['totalprice'],
-        'date' => date('Y-m-d')
+        'unit'=> $imf3['pricemeter'],
+       // 'waterbill' => $this->input->post('waternew'),
+       // 'electric_price	' => $imf2['pricemeter'] * $this->input->post('electricnew'),
+        //'water_price' => $imf3['pricemeter'] * $this->input->post('waternew'),
+        'price' => $imf3['pricemeter'] * $this->input->post('electricnew'),
+       // 'date' => date('Y-m-d')
     );
-        $this->db->insert('bill', $arr);
+        $this->db->insert('electricbill', $arr);
 
+
+        $arrr=array(
+            'room_id' => $room_id,
+            'unit'=> $imf2['pricemeter'],
+           // 'waterbill' => $this->input->post('waternew'),
+           // 'electric_price	' => $imf2['pricemeter'] * $this->input->post('electricnew'),
+            //'water_price' => $imf3['pricemeter'] * $this->input->post('waternew'),
+            'price' => $imf2['pricemeter'] * $this->input->post('waternew'),
+           // 'date' => date('Y-m-d')
+        );
+            $this->db->insert('waterbill', $arrr);
         redirect('Billcontroller');
         //$this->db->where('');
         // POST data
