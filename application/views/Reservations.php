@@ -91,10 +91,10 @@
                    	<?php	foreach ($results as $result) {
                        ?>
                    
-                    <div style="display:flex;">
+                    <div style="display:flex;" <?php if($result['stock'] == 0) {?> style="display:none" <?php } ?>>
 
                     <!-- <div class="custom-control custom-checkbox mb-3" > -->
-                    <input type="checkbox"  name="customCheck1[]" onclick="heegrace()" value="<?php echo $result['furniture_id']; ?>" ><?php echo $result['name']; ?> 
+                       <input type="checkbox"  name="customCheck1[]" <?php if($result['stock'] == 0) {?> style="display:none" <?php } ?> onclick="heegrace()" value="<?php echo $result['furniture_id']; ?>" > <?php if($result['stock'] == 0){ ?> <?php } else { echo $result['name'];} ?> 
                     <!-- <label class="custom-control-label" for="customCheck1"><?php echo $result['name']; ?></label> --> 
                     </div> 
                     
