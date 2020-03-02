@@ -74,6 +74,8 @@
 <?php $this->db->where('room_id', $idtestt);
 $qq = $this->db->get('bill');
 $result = $qq->row_array(); ?>
+
+
 <table class="table">
     <thead>
         <tr>

@@ -6,9 +6,13 @@
 $qq = $this->db->get('bill');
 $result = $qq->row_array(); ?>
 
-<?php  foreach ($qq->result_array() as $data) { ?>
+<?php $this->db->where('room_id', $idtestt);
+$qqe = $this->db->get('electricbill');
+$resulte = $qqe->row_array(); ?>
 
-เลขมิเตอร์ค่าไฟ: <?php echo $data['electricbill']; ?>
+<?php  foreach ($qqe->result_array() as $data) { ?>
+
+เลขมิเตอร์ค่าไฟ: <?php echo $data['meternumber']; ?>
 <br>
 เลขมิเตอร์ค่าน้ำ:<?php echo $data['waterbill']; ?>
 <br>

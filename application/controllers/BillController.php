@@ -62,6 +62,10 @@ class BillController extends CI_Controller
       $oop = $this->db->get('electricbill',1);
         $rr = $oop->row_array();
         
+        $this->db->where('room_id',$imf['room_id']);
+        $this->db->order_by('water_id', 'DESC');
+      $oop1 = $this->db->get('waterbill',1);
+        $rr1 = $oop1->row_array();
         // print_r($room_id);
         // $water = 15 * $postData['waternew'];
         // echo $water;
@@ -92,7 +96,8 @@ class BillController extends CI_Controller
            // 'waterbill' => $this->input->post('waternew'),
            // 'electric_price	' => $imf2['pricemeter'] * $this->input->post('electricnew'),
             //'water_price' => $imf3['pricemeter'] * $this->input->post('waternew'),
-            'price' => $imf2['pricemeter'] * $this->input->post('waternew'),
+            'meternumber'=> $this->input->post('waternew'),
+            'price' => ($this->input->post('waternew') - $rr1['meternumber'] ) * $imf2['pricemeter'],
            // 'date' => date('Y-m-d')
         );
             $this->db->insert('waterbill', $arrr);
