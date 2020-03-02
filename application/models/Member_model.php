@@ -12,6 +12,7 @@ class Member_model extends CI_Model
 	{
 		parent::__construct();
 	}
+	
 
 	public function record_count($keyword)
 	{
@@ -69,5 +70,32 @@ class Member_model extends CI_Model
 	public function remove_member($user_id){
 		$this->db->delete('users',array('user_id'=>$user_id));
 	}
+	
+	function is_email_available($email)  
+    {  
+         $this->db->where('email', $email);  
+         $query = $this->db->get("users");  
+         if($query->num_rows() > 0)  
+         {  
+              return true;  
+         }  
+         else  
+         {  
+              return false;  
+         }  
+    }  
+    function is_username_available($username)  
+    {  
+         $this->db->where('username', $username);  
+         $query = $this->db->get("users");  
+         if($query->num_rows() > 0)  
+         {  
+              return true;  
+         }  
+         else  
+         {  
+              return false;  
+         }  
+    }  
 
 }

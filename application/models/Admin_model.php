@@ -70,4 +70,31 @@ class Admin_model extends CI_Model
 		$this->db->delete('emmployee',array('employee_id'=>$employee_id));
 	}
 
+	function is_email_available($email)  
+    {  
+         $this->db->where('email', $email);  
+         $query = $this->db->get("emmployee");  
+         if($query->num_rows() > 0)  
+         {  
+              return true;  
+         }  
+         else  
+         {  
+              return false;  
+         }  
+    }  
+    function is_username_available($username)  
+    {  
+         $this->db->where('username', $username);  
+         $query = $this->db->get("emmployee");  
+         if($query->num_rows() > 0)  
+         {  
+              return true;  
+         }  
+         else  
+         {  
+              return false;  
+         }  
+    }  
+
 }

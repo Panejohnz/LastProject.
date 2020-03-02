@@ -102,5 +102,28 @@ redirect('admin');
 		redirect('admin');
 	}
 
+	public function checkmail()
+    {
+        $this->load->model("Admin_model");
+        if ($this->Admin_model->is_email_available($_POST["email"])) {
+			// echo '<label class="text-danger"><span class="glyphicon glyphicon-remove"></span> email นี้ได้ถูกใช้ไปแล้ว</label>';
+			echo 'true';
+        } else {
+			// echo '<label class="text-success"><span class="glyphicon glyphicon-ok"></span> Email นี้สามารถใช้ได้</label>';
+			echo 'false';
+        }
+    }
+    public function checkusername()
+    {
+        $this->load->model("Admin_model");
+        if ($this->Admin_model->is_username_available($_POST["username"])) {
+			// echo '<label class="text-danger"><span class="glyphicon glyphicon-remove"></span> username นี้ได้ถูกใช้ไปแล้ว</label>';
+			echo 'true';
+        } else {
+			// echo '<label class="text-success"><span class="glyphicon glyphicon-ok"></span> username นี้สามารถใช้ได้</label>';
+			echo 'false';
+        }
+    }
+
 
 }

@@ -49,7 +49,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+                                        
+                                <?php           $this->db->select('*');
+                                                $this->db->from('contract');
+                                                $this->db->join('reservations', 'reservations.reservations_id = contract.contract_id');
+                                                $this->db->where('reservations.reservations_id = contract.reservations_id');
+                                                $query = $this->db->get(); 
+
+                                                $da = $query->num_rows();
+
+
+                                                
+                                                
+                                                
+
+                                 ?>               
+
+
                                     <?php        $query = $this->db->query("SELECT * FROM `reservations`
                                                     LEFT JOIN users
                                                     ON reservations.id_users = users.user_id
@@ -61,7 +77,12 @@
                                                      
                                                        
                                                              ?>
-                                      
+                                    <?php  if($da > 0){
+
+                                    }else{ ?>
+
+
+                                
                                         <tr role="row">
                                             <?php  foreach($query->result_array() as $data)
                                                     { ?>
@@ -121,7 +142,8 @@
                                             <img src="<?php echo base_url(); ?>./uploads/<?php echo $data['slip_file']; ?>" width="50px"></a>
                                             
                                             </td>
-                                            <!-- <?php $this->db->select('*');
+                                            
+                                            <?php $this->db->select('*');
                                                 $this->db->from('room');
                                                 $this->db->join('contract', 'contract.room_id = room.room_id');
                                                 $this->db->join('reservations', 'reservations.reservations_id = contract.reservations_id');
@@ -131,7 +153,7 @@
                                                 $rr = $query->result_array();
                                                 
                                                 
-                                            ?> -->
+                                            ?>
                                        <td>
                                             <a class="btn btn-success" href="<?php echo  base_url('contract/newdata/'.$data['reservations_id']); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> ทำสัญญา</a>
                                             </td>
@@ -143,6 +165,7 @@
                                             
                                         </tr>
                                                 <?php } ?>
+                                                <?php  }?>
                                 </tbody>
 
                             </table>

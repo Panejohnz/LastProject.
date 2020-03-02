@@ -40,6 +40,7 @@ color: #000;
 	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>./assets/bluesky/images/goldd.png">
 	<!-- bootstrap 3.3.4-->
 	
+	
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
@@ -82,6 +83,8 @@ color: #000;
 	<!-- AdminLTE App -->
 	<script src="<?php echo base_url(); ?>./dist/js/app.min.js" type="text/javascript">
 	</script>
+	
+	
 </head>
 <body class="skin-blue sidebar-mini">
 <div class="wrapper">
