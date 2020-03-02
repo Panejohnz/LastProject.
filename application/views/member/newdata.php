@@ -34,6 +34,8 @@
                         
                         <?php echo $this->session->flashdata('error_username')?>
                         <input type="text" id="username" class="form-control" name="username" value="<?php echo $this->session->flashdata('username'); ?>" required>
+                        <label class="text-danger" hidden id="falseusername"><span class="glyphicon glyphicon-remove"></span> username นี้ได้ถูกใช้ไปแล้ว</label>
+                        <label class="text-success" hidden id="trueusername"><span class="glyphicon glyphicon-ok"></span> username นี้สามารถใช้ได้</label>
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
@@ -80,6 +82,8 @@
                             อีเมล
                         </label> <?php echo $this->session->flashdata('error_email')?>
                         <input type="email" id="email" class="form-control" name="email" value="<?php echo  $this->session->flashdata('email'); ?>" required>
+                        <label class="text-danger" hidden id="falseemail"><span class="glyphicon glyphicon-remove"></span> email นี้ได้ถูกใช้ไปแล้ว</label>
+                        <label class="text-success" hidden id="trueemail"><span class="glyphicon glyphicon-ok"></span> Email นี้สามารถใช้ได้</label>
                     </div>
                     
                     </div>
@@ -104,9 +108,10 @@
 
                 </div><!-- /.box-body -->
 
+
                 <div class="box-footer">
-                    <button class="btn btn-primary" type="submit">
-                        <i class="fa fa-fw fa-save">
+                    <button class="btn btn-primary" type="submit" id="button" disabled>
+                        <i class="fa fa-fw fa-save"> 
                         </i>บันทึกข้อมูล
                     </button>
                     <a class="btn btn-danger" href="<?php echo  base_url('member'); ?>" role="button">
@@ -115,7 +120,71 @@
                     </a>
                 </div>
             </form>
+    
         </div>
         </div> </div> </div> 
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+<script>  
+
+
+ $(document).ready(function(){ 
+     
+      $('#email').change(function(){  
+           var email = $('#email').val();  
+           if(email != '')  
+           {  
+                $.ajax({  
+                     url:"<?php echo base_url(); ?>member/checkmail",  
+                     method:"POST",  
+                     data:{email:email},  
+                     success:function(data){  
+                         // $('#email_result').html(data);  
+                         console.log(data)
+                    if(data.trim() === "true"){
+                        console.log('kk')
+                        $('#falseemail').removeAttr('hidden')
+                        $('#trueemail').attr('hidden',true)
+                        $('#button').attr('disabled',true)
+                    }else
+                    {
+                        $('#trueemail').removeAttr('hidden')
+                        $('#falseemail').attr('hidden',true)
+                        $('#button').removeAttr('disabled')
+                    }
+                     }  
+                });  
+           }
+      });  
+ });  
+ $(document).ready(function(){  
+      $('#username').change(function(){  
+           var username = $('#username').val();  
+           if(username != '')  
+           {  
+                $.ajax({  
+                     url:"<?php echo base_url(); ?>member/checkusername",  
+                     method:"POST",  
+                     data:{username:username},  
+                     success:function(data){  
+                          //$('#username_result').html(data);  
+                          console.log(data)
+                    if(data.trim() === "true"){
+                        console.log('kk')
+                        $('#falseusername').removeAttr('hidden')
+                        $('#trueusername').attr('hidden',true)
+                        $('#button').attr('disabled',true)
+                    }else
+                    {
+                        $('#trueusername').removeAttr('hidden')
+                        $('#falseusername').attr('hidden',true)
+                        $('#button').removeAttr('disabled')
+                    }
+                     }  
+                });  
+           }  
+      });  
+ });  
+ </script>
+ 
+
