@@ -1,6 +1,6 @@
 <?php
 
-class bill_model extends CI_Model
+class Bill_model extends CI_Model
 {
     public $name;
     //public $description;

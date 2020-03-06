@@ -1,6 +1,6 @@
 <?php
 
-class furniture_model extends CI_Model
+class Furniture_model extends CI_Model
 {
     public $name;
     //public $description;

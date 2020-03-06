@@ -29,7 +29,7 @@
 </head>
 <?php   $stringrow = base_url(uri_string());
         $arraystate = (explode("/", $stringrow));
-        $idtestt = ($arraystate[6]);
+        $idtestt = ($arraystate[5]);
        ?>
     <?php $this->db->where('contract_id',$idtestt);
    $qq =  $this->db->get('contract');

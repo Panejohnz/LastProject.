@@ -172,9 +172,9 @@ class Contract extends CI_Controller
             
         $stringrow = base_url(uri_string());
         $arraystate = (explode("/", $stringrow));
-        $idtestt = ($arraystate[6]);
-        $idtest = ($arraystate[7]);
-         $idtest1 = ($arraystate[8]);
+        $idtestt = ($arraystate[5]);
+        $idtest = ($arraystate[6]);
+         $idtest1 = ($arraystate[7]);
         // $idtest2 = ($arraystate[9]);totalprice
 
         $arr=array(

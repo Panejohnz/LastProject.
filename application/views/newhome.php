@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/icomoon.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/style.css">
 
-	<script src="<?php echo base_url('./datetime/js/jquery.min.js')?>"></script>
+	<!-- <script src="<?php echo base_url('./datetime/js/jquery.min.js')?>"></script> -->
 	
 <style type="text/css">
 	body{

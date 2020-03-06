@@ -140,7 +140,7 @@ class Bookaroom extends CI_Controller
                $this->load->library('session');
                 $stringrow = base_url(uri_string());
                 $arraystate = (explode("/", $stringrow));
-                $idtestt = ($arraystate[6]);
+                $idtestt = ($arraystate[5]);
 
                 $this->db->where('room_id', $idtestt);
                 $mana = $this->db->get('room');
@@ -202,7 +202,7 @@ class Bookaroom extends CI_Controller
                $this->load->view('Hee', $this->data0, $sum,false);
             echo "<script>";
             echo "alert('จองห้องพักเรียบร้อย  $sum');";
-            echo "window.location.href = '". base_url()."page/staff';";
+            echo "window.location.href = '". base_url()."Page/staff';";
             echo "</script>";
 
             

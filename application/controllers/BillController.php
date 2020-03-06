@@ -6,7 +6,7 @@ class BillController extends CI_Controller
     {
         parent::__construct();
         $this->load->library('pagination');
-        $this->load->model('bill_model');
+        $this->load->model('Bill_model');
         if (!$this->session->userdata('firstname_emp')) { //ดัก user บังคับล็อกอิน
             redirect('LoginController');
         }
@@ -16,7 +16,7 @@ class BillController extends CI_Controller
     {
         $config = array();
         $config['base_url'] = base_url('bill/index');
-        $config['total_rows'] = $this->bill_model->record_count($this->input->get('keyword'));
+        $config['total_rows'] = $this->Bill_model->record_count($this->input->get('keyword'));
         $config['per_page'] = $this->input->get('keyword') == null ? 40 : 999;
         $config['uri_segment'] = 3;
         $choice = $config['total_rows'] / $config['per_page'];
@@ -25,7 +25,7 @@ class BillController extends CI_Controller
         $this->pagination->initialize($config);
 
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['results'] = $this->bill_model->fetch_room($config['per_page'], $page, $this->input->get('keyword'));
+        $data['results'] = $this->Bill_model->fetch_room($config['per_page'], $page, $this->input->get('keyword'));
         $data['link'] = $this->pagination->create_links();
         $data['total_rows'] = $config['total_rows'];
         $this->load->view('template/backheader');
@@ -101,7 +101,7 @@ class BillController extends CI_Controller
            // 'date' => date('Y-m-d')
         );
             $this->db->insert('waterbill', $arrr);
-        redirect('Billcontroller');
+        redirect('BillController');
         //$this->db->where('');
         // POST data
     }

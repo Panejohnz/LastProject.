@@ -203,8 +203,8 @@ color: #000;
 			
 			<!-- Optionally, you can add icons to the links -->
 			
-			<li class="<?php echo base_url('member'); ?>">
-				<a href="<?php echo base_url('member'); ?>">
+			<li class="<?php echo base_url('Member'); ?>">
+				<a href="<?php echo base_url('Member'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>
@@ -212,8 +212,8 @@ color: #000;
 					</span>
 				</a>
 			</li>
-			<li class="<?php echo base_url('admin'); ?>">
-				<a href="<?php echo base_url('admin'); ?>">
+			<li class="<?php echo base_url('Admin'); ?>">
+				<a href="<?php echo base_url('Admin'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>
@@ -221,8 +221,8 @@ color: #000;
 					</span>
 				</a>
 			</li>
-			<li class="<?php echo base_url('imgtype'); ?>">
-				<a href="<?php echo base_url('imgtype'); ?>">
+			<li class="<?php echo base_url('Imgtype'); ?>">
+				<a href="<?php echo base_url('Imgtype'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>
@@ -230,8 +230,8 @@ color: #000;
 					</span>
 				</a>
 			</li>
-			<li class="<?php echo base_url('room'); ?>">
-				<a href="<?php echo base_url('room'); ?>">
+			<li class="<?php echo base_url('Room'); ?>">
+				<a href="<?php echo base_url('Room'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>
@@ -248,8 +248,8 @@ color: #000;
 					</span>
 				</a>
 			</li>
-			<li class="<?php echo base_url('watercontroller'); ?>">
-				<a href="<?php echo base_url('watercontroller'); ?>">
+			<li class="<?php echo base_url('Watercontroller'); ?>">
+				<a href="<?php echo base_url('Watercontroller'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>
@@ -257,8 +257,8 @@ color: #000;
 					</span>
 				</a>
 			</li>
-			<li class="<?php echo base_url('electriccontroller'); ?>">
-				<a href="<?php echo base_url('electriccontroller'); ?>">
+			<li class="<?php echo base_url('Electriccontroller'); ?>">
+				<a href="<?php echo base_url('Electriccontroller'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>
@@ -275,8 +275,8 @@ color: #000;
 					</span>
 				</a>
 			</li>
-			<li class="<?php echo base_url('contract'); ?>">
-				<a href="<?php echo base_url('contract'); ?>">
+			<li class="<?php echo base_url('Contract'); ?>">
+				<a href="<?php echo base_url('Contract'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>
@@ -293,8 +293,8 @@ color: #000;
 					</span>
 				</a>
 			</li>
-			<li class="<?php echo base_url('Billcontroller'); ?>">
-				<a href="<?php echo base_url('Billcontroller'); ?>">
+			<li class="<?php echo base_url('BillController'); ?>">
+				<a href="<?php echo base_url('BillController'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>

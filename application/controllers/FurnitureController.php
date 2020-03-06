@@ -9,7 +9,7 @@ class FurnitureController extends CI_Controller
     {
         parent::__construct();
         $this->load->library('pagination');
-        $this->load->model('furniture_model');
+        $this->load->model('Furniture_model');
         // if (!$this->session->userdata('firstname')) { //ดัก user บังคับล็อกอิน
         //     redirect('LoginController');
         // }
@@ -19,7 +19,7 @@ class FurnitureController extends CI_Controller
     {
         $config = array();
         $config['base_url'] = base_url('furniture/index');
-        $config['total_rows'] = $this->furniture_model->record_count($this->input->get('keyword'));
+        $config['total_rows'] = $this->Furniture_model->record_count($this->input->get('keyword'));
         $config['per_page'] = $this->input->get('keyword') == null ? 14 : 999;
         $config['uri_segment'] = 3;
         $choice = $config['total_rows'] / $config['per_page'];
@@ -28,7 +28,7 @@ class FurnitureController extends CI_Controller
         $this->pagination->initialize($config);
 
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['results'] = $this->furniture_model->fetch_Member($config['per_page'], $page, $this->input->get('keyword'));
+        $data['results'] = $this->Furniture_model->fetch_Member($config['per_page'], $page, $this->input->get('keyword'));
         $data['link'] = $this->pagination->create_links();
         $data['total_rows'] = $config['total_rows'];
         $this->load->view('template/backheader');
@@ -57,7 +57,7 @@ class FurnitureController extends CI_Controller
     
     public function edit($furniture_id)
     {
-        $data['result'] = $this->furniture_model->read_member($furniture_id);
+        $data['result'] = $this->Furniture_model->read_member($furniture_id);
         $this->load->view('template/backheader');
         $this->load->view('furniture/edit', $data);
         $this->load->view('template/backfooter');
@@ -90,13 +90,13 @@ class FurnitureController extends CI_Controller
 
     public function remove($furniture_id)
     {
-        $this->furniture_model->remove_member($furniture_id);
+        $this->Furniture_model->remove_member($furniture_id);
         redirect('FurnitureController');
     }
     public function furniture_list()
     {
         
-        $furniture_list = $this->furniture_model->furniture_list();
+        $furniture_list = $this->Furniture_model->furniture_list();
         $this->load->view('furniture', ['furniture_list'=>$furniture_list]);
 	}
 	public function add_selected_student()

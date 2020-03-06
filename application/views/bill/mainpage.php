@@ -55,7 +55,7 @@
                                     <?php if (!empty($results)) {
                                              foreach ($results as $data) { ?>
                                 <?php $status = $data->roomstatus ?>
-                                <form role="form" method='post' action="<?php echo base_url('Billcontroller/cal/') ?>"  >
+                                <form role="form" method='post' action="<?php echo base_url('BillController/cal/') ?>"  >
                                         <tr role="row" <?php if ($status == 0) { ?> style="display:none" <?php } ?>>
                                             <td>
                                             <a href="<?php echo base_url('billcontroller/edit/'.$data->room_id); ?>" >

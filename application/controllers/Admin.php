@@ -57,7 +57,7 @@ class admin extends CI_Controller
 			'statusem' => $this->input->post('statusem')
 		);
 $this->db->insert('emmployee', $object);
-redirect('admin');
+redirect('Admin');
 		}
 	
 	public function edit($employee_id)
@@ -81,15 +81,15 @@ redirect('admin');
 		$this->db->where('employee_id', $idad);
 		
 		$this->db->update('emmployee', $object);
-		redirect('admin');
+		redirect('Admin');
 	}
 
 	public function confrm($employee_id)
 	{
 		$data = array
 		(
-			'backlink'  => 'admin',
-			'deletelink'=> 'admin/remove/' . $employee_id
+			'backlink'  => 'Admin',
+			'deletelink'=> 'Admin/remove/' . $employee_id
 		);
 		$this->load->view('template/backheader');
 		$this->load->view('admin/confrm',$data);
@@ -99,7 +99,7 @@ redirect('admin');
 	public function remove($employee_id)
 	{
 		$this->Admin_model->remove_member($employee_id);
-		redirect('admin');
+		redirect('Admin');
 	}
 
 	public function checkmail()

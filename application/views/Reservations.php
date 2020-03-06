@@ -48,8 +48,8 @@
     </div>
 </nav><?php $stringrow = base_url(uri_string());
             $arraystate = (explode("/", $stringrow));
-            $idtestt = ($arraystate[6]);
-            $idtest = ($arraystate[7]);
+            $idtestt = ($arraystate[5]);
+            $idtest = ($arraystate[6]);
            // $idtest1 = ($arraystate[8]);
             //$idtest2 = ($arraystate[9]); ?>
     <!-- Content Header (Page header) -->
