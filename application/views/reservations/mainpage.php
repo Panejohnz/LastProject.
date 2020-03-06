@@ -71,17 +71,14 @@
                                                     ON reservations.id_users = users.user_id
                                                     LEFT JOIN reservationsroom
                                                     ON reservations.reservations_id = reservationsroom.reservations_id 
+                                                   
                                                     LEFT JOIN room
-                                                    ON  room.room_id = reservationsroom.room_id");
+                                                    ON  room.room_id = reservationsroom.room_id  WHERE reservations.reservations_id NOT IN ( SELECT contract.reservations_id FROM contract WHERE contract.reservations_id = reservations.reservations_id )");
 
                                                      
                                                        
                                                              ?>
-                                    <?php  if($da > 0){
-
-                                    }else{ ?>
-
-
+                                    
                                 
                                         <tr role="row">
                                             <?php  foreach($query->result_array() as $data)
@@ -165,7 +162,6 @@
                                             
                                         </tr>
                                                 <?php } ?>
-                                                <?php  }?>
                                 </tbody>
 
                             </table>
