@@ -48,6 +48,7 @@ class ComplainController extends CI_Controller
 		$object = array(
 			'complaindetail' => $this->input->post('complaindetail'),
 			'user_id' => $this->input->post('user_id'),
+			'date' => $this->input->post('date')
 			
 		);
 $this->db->insert('complain', $object);
