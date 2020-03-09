@@ -39,7 +39,7 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ค่า</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">มิเตอร์</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ราคาต่อหน่วย</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -63,7 +63,7 @@
                                             
                                            
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('watercontroller/confrm/'.$data->pricebill_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<!-- <a class="btn btn-danger btn-xs" href="<?php echo  base_url('watercontroller/confrm/'.$data->pricebill_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a> -->
                                             </td>
                                         </tr>
                                     <?php } } ?>

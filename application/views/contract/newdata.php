@@ -74,8 +74,8 @@
                 <div class="col-sm-6">  
                     <label for="exampleInputEmail1">
                           เลขบัตรประชาชน
-                        </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="text" id="card" class="form-control" name="card" value="" maxlength="13" required>
+                        </label>
+                        <input type="text" id="cards" class="form-control" name="cards" value="" maxlength="13" required>
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">

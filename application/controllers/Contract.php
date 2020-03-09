@@ -179,7 +179,7 @@ class Contract extends CI_Controller
 
         $arr=array(
                              "user_id" => $idtestt,
-                             "identity_card"=>$this->input->post('card'),
+                             "identity_card"=>$this->input->post('cards'),
                              "datecontract_start" => $this->input->post('datestart'),
                              "datecontract_end" => $this->input->post('dateend'),
                              "room_id" => $idtest,

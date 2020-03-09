@@ -12,14 +12,14 @@ class Bill_model extends CI_Model
 
     public function record_count($keyword)
     {
-        $this->db->like('bill_id', $keyword);
-        $this->db->from('bill');
+        $this->db->like('electricbill_id', $keyword);
+        $this->db->from('electricbill');
         return $this->db->count_all_results();
     }
     public function record_his($room_id)
     {
         $this->db->where('room_id', $room_id);
-        $this->db->get('bill');
+        $this->db->get('electricbill');
         return $this->db->count_all_results();
     }
 

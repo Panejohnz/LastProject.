@@ -29,16 +29,16 @@
                 <div class="form-group">
                 <div class="col-sm-4">
                         <label for="exampleInputEmail1">
-                        typebill
+                        รายการสาธารณูปโภค
                         </label> 
                         <?php echo $this->session->flashdata('error_typebill')?>
-                        <input type="text" id="typebill" class="form-control" name="typebill" value="<?php echo $this->session->flashdata('typebill'); ?>" required>
+                        <input type="text" id="typebill" class="form-control" maxlength="255" name="typebill" value="<?php echo $this->session->flashdata('typebill'); ?>" required>
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
-                    pricemeter
+                    ราคาต่อหน่วย
                         </label> <?php echo $this->session->flashdata('error_pricemeter')?>
-                        <input type="text" id="pricemeter" class="form-control" name="pricemeter" value="<?php echo  $this->session->flashdata('pricemeter'); ?>" required>
+                        <input type="text" id="pricemeter" class="form-control" min="1"  name="pricemeter" value="<?php echo  $this->session->flashdata('pricemeter'); ?>" required>
                 </div>
 
             </div>

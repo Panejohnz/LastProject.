@@ -3,7 +3,7 @@
             $arraystate = (explode("/", $stringrow));
             $idtestt = ($arraystate[6]); ?>
 <?php $this->db->where('room_id', $idtestt);
-$qq = $this->db->get('bill');
+$qq = $this->db->get('electricbill');
 $result = $qq->row_array(); ?>
 
 <?php $this->db->where('room_id', $idtestt);

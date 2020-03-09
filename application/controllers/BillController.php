@@ -40,6 +40,8 @@ class BillController extends CI_Controller
         $this->db->where('room_id', $room_id);
         $query = $this->db->get('room');
         $imf = $query->row_array();
+        
+        $roomnum = $imf['roomnum'];
 
         $this->db->where('room_id', $imf['room_id']);
         $cc = $this->db->get('contract');
@@ -80,35 +82,58 @@ class BillController extends CI_Controller
         $arr=array(
         'room_id' => $room_id,
         'unit'=> $imf3['pricemeter'],
+        'pricebill_id'=> $imf3['pricebill_id'],
        // 'waterbill' => $this->input->post('waternew'),
        // 'electric_price	' => $imf2['pricemeter'] * $this->input->post('electricnew'),
         //'water_price' => $imf3['pricemeter'] * $this->input->post('waternew'),
         'meternumber'=> $this->input->post('electricnew'),
         'price' => ($this->input->post('electricnew') - $rr['meternumber'] ) * $imf3['pricemeter'],
-       // 'date' => date('Y-m-d')
+        'date_create' => date('Y-m-d')
     );
-        $this->db->insert('electricbill', $arr);
-
+        
 
         $arrr=array(
             'room_id' => $room_id,
-            'unit'=> $imf2['pricemeter'],
+            'unitw'=> $imf2['pricemeter'],
+            'pricebill_id'=> $imf2['pricebill_id'],
            // 'waterbill' => $this->input->post('waternew'),
            // 'electric_price	' => $imf2['pricemeter'] * $this->input->post('electricnew'),
             //'water_price' => $imf3['pricemeter'] * $this->input->post('waternew'),
-            'meternumber'=> $this->input->post('waternew'),
-            'price' => ($this->input->post('waternew') - $rr1['meternumber'] ) * $imf2['pricemeter'],
-           // 'date' => date('Y-m-d')
+            'meternumberw'=> $this->input->post('waternew'),
+            'pricew' => ($this->input->post('waternew') - $rr1['meternumberw'] ) * $imf2['pricemeter'],
+            'date_createw' => date('Y-m-d')
         );
+        if ($this->input->post('waternew') < $rr1['meternumberw']) {
+            echo "<script>";
+            echo "alert('กรอกเลขมิเตอร์ไม่ถูกต้อง');";
+            echo "window.location.href = '". base_url()."BillController';";
+            echo "</script>";
+        }
+        elseif($this->input->post('electricnew') < $rr['meternumber']){
+            echo "<script>";
+            echo "alert('กรอกเลขมิเตอร์ไม่ถูกต้อง');";
+            echo "window.location.href = '". base_url()."BillController';";
+            echo "</script>";
+            
+        }else{
+            
+            echo "<script>";
+            echo "alert('บันทึกข้อมูลห้อง $roomnum แล้ว');";
+            echo "window.location.href = '". base_url()."BillController';";
+            echo "</script>";
+            $this->db->insert('electricbill', $arr);
             $this->db->insert('waterbill', $arrr);
-        redirect('BillController');
+        }
+           
+           
+      //  redirect('BillController');
         //$this->db->where('');
         // POST data
     }
     public function edit($room_id)
     {
-    //     $this->db->where('room_id', $room_id);
-    //   $data = $this->db->get('bill');
+        // $this->db->where('room_id', $room_id);
+        //  $data = $this->db->get('electricbill');
         $this->load->view('template/argon');
         $this->load->view('bill/edit');
         //$this->load->view('template/backfooter');

@@ -101,7 +101,7 @@ class Reservationadmin extends CI_Controller
     {
         $stringrow = base_url(uri_string());
         $arraystate = (explode("/", $stringrow));
-        $idtestt = ($arraystate[7]);
+        $idtestt = ($arraystate[6]);
         $data = array(
             'backlink'  => 'Reservationadmin',
             'deletelink' => 'Reservationadmin/remove/' . $id ."/" .$idtestt
@@ -134,7 +134,7 @@ class Reservationadmin extends CI_Controller
 
         $stringrow = base_url(uri_string());
         $arraystate = (explode("/", $stringrow));
-        $idtestt = ($arraystate[7]);
+        $idtestt = ($arraystate[6]);
         // $room_id = $this->input->post('roomnum');
         $this->db->where('room_id', $idtestt);
         //$ze = $this->db->get('room');

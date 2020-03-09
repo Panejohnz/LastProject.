@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                            
-                            <a class="btn btn-default" href="<?php echo  base_url('Billcontroller'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
+                            <a class="btn btn-default" href="<?php echo  base_url('BillController'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
                         </div>
                         <div class="col-sm-6">
                             <div id="" class="dataTables_filter">
@@ -58,7 +58,7 @@
                                 <form role="form" method='post' action="<?php echo base_url('BillController/cal/') ?>"  >
                                         <tr role="row" <?php if ($status == 0) { ?> style="display:none" <?php } ?>>
                                             <td>
-                                            <a href="<?php echo base_url('billcontroller/edit/'.$data->room_id); ?>" >
+                                            <a href="<?php echo base_url('BillController/edit/'.$data->room_id); ?>" >
                                             <?php echo  $data->roomnum;  ?>
                                             
                                             </a> 
