@@ -203,6 +203,17 @@ class Contract extends CI_Controller
 
         // $this->db->where('reservations_id', $idtest1);
         // $this->db->delete('reservationsfurniture');
+      
+        $this->db->where('room_id', $idtest);
+        // //     // $query = $this->db->get('room');
+        // //     // $imf = $query->row_array();
+
+        $data2 = array(
+            'roomstatus' => '1'
+          );
+
+        
+        $this->db->update('room', $data2);
         redirect('contract');
     }
 

@@ -52,9 +52,21 @@
                         </label> <br>
                         <?php // echo $this->session->flashdata('error_gender')?>
 
-                        <select name="roomcate" id="roomcate">
-                            <option value="1">ห้องแอร์</option>
-                            <option value="2">ห้องพัดลม</option>
+                        <select name="roomcate" id="roomname" class="form-control">
+									
+								<?php $this->db->select('roomcategory.*');
+							$this->db->from('roomcategory');
+							$query = $this->db->get();
+							$results = $query->result_array();?>
+						<?php	foreach($results as $result){
+								?>
+											
+											<h1><option value="<?php echo $result['roomcategory_id'] . ' '?>" > 
+											<?php echo $result['roomname'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?>
+								</option>
+											<?php $eiei = $result['roomcategory_id'];
+							} ?>
+										</select>
                              
                         </select>
 

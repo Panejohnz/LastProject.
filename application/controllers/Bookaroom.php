@@ -178,7 +178,7 @@ class Bookaroom extends CI_Controller
             // //     // $imf = $query->row_array();
 
             $data2 = array(
-                'roomstatus' => '1'
+                'roomstatus' => '2'
               );
    
             

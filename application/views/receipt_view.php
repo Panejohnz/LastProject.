@@ -52,23 +52,32 @@
         $qq4= $this->db->get('emmployee');
         $data4 = $qq4->row_array();
         
-        $this->db->select('*'); //
-        $this->db->from('pricebill');
-       $aa =  $this->db->get();
-        $data6 = $aa->row_array();
+        //$this->db->where('room_id',$data['room_id']);
+        $this->db->where('pricebill_id', 1);
+        $query1 = $this->db->get('pricebill');
+        $data5 = $query1->row_array();
+
+        $this->db->where('pricebill_id', 2);
+        $query2 = $this->db->get('pricebill');
+        $data8 = $query2->row_array();
+        
+      //   $this->db->select('*'); //
+      //   $this->db->from('pricebill');
+      //  $aa =  $this->db->get();
+      //   $data6 = $aa->row_array();
     
-        $this->db->where('pricebill_id', $data6['pricebill_id']);
-        $qq5= $this->db->get('pricebill');
-        $data5 = $qq5->row_array(); //
+      //   $this->db->where('pricebill_id', $data6['pricebill_id']);
+      //   $qq5= $this->db->get('pricebill');
+      //   $data5 = $qq5->row_array(); //
 
 
-        $this->db->select('*');//
-        $this->db->from('pricebillelec');
-       $bb =  $this->db->get();
-        $data7 = $bb->row_array();
-        $this->db->where('pricebillelec_id', $data7['pricebillelec_id']);
-        $qq6= $this->db->get('pricebillelec');
-        $data8 = $qq6->row_array();//
+      //   $this->db->select('*');//
+      //   $this->db->from('pricebillelec');
+      //  $bb =  $this->db->get();
+      //   $data7 = $bb->row_array();
+      //   $this->db->where('pricebillelec_id', $data7['pricebillelec_id']);
+      //   $qq6= $this->db->get('pricebillelec');
+      //   $data8 = $qq6->row_array();//
         ?>
         
         <button onClick="window.print()">Print this page</button>

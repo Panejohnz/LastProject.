@@ -32,7 +32,7 @@
                            <a class="btn btn-success" href="<?php echo base_url('room/status2/'); ?>" role="button">ห้องว่าง</a>
                        </div>
                        <div class="col-sm-1">
-                           <a class="btn btn-warning" href="<?php echo base_url('room'); ?>" role="button">ไม่ว่าง</a>
+                           <a class="btn btn-danger" href="<?php echo base_url('room'); ?>" role="button">ไม่ว่าง</a>
                        </div>
                         <div class="col-sm-1">
                            
@@ -92,7 +92,7 @@
                                             $status = $data['roomstatus'];
                                             if ($status == 1) {
                                                 ?>
-                                               <a href="RoomController/update_status?sval=<?php echo $data['room_id']; ?>&sval=<?php echo $data['roomstatus']; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-warning">ไม่ว่าง</a>
+                                               <a href="RoomController/update_status?sval=<?php echo $data['room_id']; ?>&sval=<?php echo $data['roomstatus']; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-danger">ไม่ว่าง</a>
                                                
                                             <?php
                                                
