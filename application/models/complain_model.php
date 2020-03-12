@@ -1,6 +1,6 @@
 <?php
 
-class complain_model extends CI_Model
+class Complain_model extends CI_Model
 {
     public $contract_name;
     //public $description;
@@ -21,7 +21,11 @@ class complain_model extends CI_Model
     {
         $this->db->like('complaindetail', $keryword);
         $this->db->limit($limit, $start);
-        $query = $this->db->get('complain');
+        $this->db->select('*')
+        ->from('complain')
+        ->join('contract', 'contract.contract_id = complain.contract_id ', 'left')
+        ->join('emmployee', 'emmployee.employee_id = complain.employee_id', 'left');
+        $query = $this->db->get();
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
                 $data[] = $row;

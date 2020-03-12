@@ -12,7 +12,7 @@ class Bookaroom extends CI_Controller
     public function index()
     {
     }
-    public function dd($id = null)
+    public function dd($id)
     {
         $this->db->where('room_id', $id);
         $query = $this->db->get('room');
@@ -47,28 +47,28 @@ class Bookaroom extends CI_Controller
 
     public function postdata($user_id)
     {
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png|pdf';
-        $config['max_size']  = '1000000000';
-        $config['max_width']  = '1000000000';
-        $config['max_height']  = '1000000000';
+        // $config['upload_path'] = './uploads/';
+        // $config['allowed_types'] = 'gif|jpg|png|pdf';
+        // $config['max_size']  = '1000000000';
+        // $config['max_width']  = '1000000000';
+        // $config['max_height']  = '1000000000';
         
-        $this->load->library('upload', $config);
+        // $this->load->library('upload', $config);
         
         $cust_id = $this->session->userdata('user_id');
       
         
-        if (! $this->upload->do_upload('file')) {
-            echo $this->upload->display_errors();
-        } else {
-            $data = $this->upload->data();
+        // if (! $this->upload->do_upload('file')) {
+        //     echo $this->upload->display_errors();
+        // } else {
+        //     $data = $this->upload->data();
 
-            $filename = $data['file_name'];
+        //     $filename = $data['file_name'];
             //$imgtype_name = $data['imgtype_name'];
-            $arr=array(         'reservationsstart' => $this->input->post('reservationsstart'),
+            $arr=array(         'start_date' => $this->input->post('reservationsstart'),
                                 'slip_date' => date('Y-m-d'),
-                                'slip_file'=>$filename,
-                                'id_users' => $cust_id,
+                                //'slip_file'=>$filename,
+                                'user_id' => $cust_id,
                                 'deposit' => $this->input->post('deposit'),
                                 
                             );
@@ -84,7 +84,7 @@ class Bookaroom extends CI_Controller
             
                     
             // Insert product imformation with order detail, store in cart also store in database.
-                    
+           
             $f_id = $this->ReservationsModel->insert_order_detail($order_detail);
             
             if (isset($_POST['submit'])) {
@@ -95,25 +95,25 @@ class Bookaroom extends CI_Controller
                 // print_r($checkbox);
                 for ($i=0;$i<count($checkbox);$i++) {
                     $sss=array(
-                        'reservations_id' => $user_id,
+                        // 'reservationsroom_id' => $user_id,
                         'furniture_id' => $checkbox[$i]
                     );
-                    $ds = array('Type' => "มีเฟอร์นิเจอร์");
-                    $this->db->where('reservations_id', $user_id);
-                    $ff = $this->db->update('reservations', $ds);
+                    // $ds = array('Type' => "มีเฟอร์นิเจอร์");
+                    // $this->db->where('reservations_id', $user_id);
+                    // $ff = $this->db->update('reservations', $ds);
                     
                     $cust_id = $this->ReservationsModel->insert_order_detail1($sss);//Call the modal
                     $nan = $sss['furniture_id'];
              
 
-                    if ($checkbox == '') {
-                        $sss=array(
-                    'reservations_id' => $user_id,
-                    'furniture_id' => $checkbox[$i]
-                );
-                        $dss = array('Type' => "ไม่มีเฟอร์นิเจอร์");
-                        $this->db->where('reservations_id', $user_id);
-                        $ff = $this->db->update('reservations', $dss);
+                //     if ($checkbox == '') {
+                //         $sss=array(
+                //     'reservations_id' => $user_id,
+                //     'furniture_id' => $checkbox[$i]
+                // );
+                        // $dss = array('Type' => "ไม่มีเฟอร์นิเจอร์");
+                        // $this->db->where('reservations_id', $user_id);
+                        // $ff = $this->db->update('reservations', $dss);
 
 
                        
@@ -209,9 +209,9 @@ class Bookaroom extends CI_Controller
         
            // redirect('ReservationsController');
             }
-        }
+        // }
       
-    }
+    // }
     
 
     public function up($id)

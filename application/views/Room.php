@@ -412,7 +412,7 @@
     
 <?php
                             // $query  = $this->db->query("SELECT room.id as he ,roomcategory.* ,room.* FROM room,roomcategory WHERE room.roomcate_id = roomcategory.id AND roomcategory.id = $id");
-        $query  = $this->db->query("SELECT room.room_id as he ,roomcategory.* ,room.* FROM room,roomcategory WHERE room.roomcate_id = roomcategory.roomcategory_id AND roomcategory.roomcategory_id = $roomcategory_id");
+        $query  = $this->db->query("SELECT room.room_id as he ,roomcategory.* ,room.* FROM room,roomcategory WHERE room.roomcategory_id = roomcategory.roomcategory_id AND roomcategory.roomcategory_id = $roomcategory_id");
         
                             $results = $query->result_array();
                             ?>    
@@ -428,7 +428,7 @@
                     </div>
                     <div class="product_details" >
                         <h2><?php echo  $data['roomnum']; ?></a></h2>
-                        <h5><?php echo  $data['roomname']; ?></h5>
+                        <h5><?php echo  $data['roomcategory_name']; ?></h5>
                         <ul class="product_price list-unstyled">
                         <h4> <li class="new_price"><?php echo  $data['roomprice']; ?>฿</li></h4>
                         <td>  

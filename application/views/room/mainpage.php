@@ -72,7 +72,7 @@
                                             
                                             <td>
                                                                                       
-                                            <?php echo $data->roomname; ?>  
+                                            <?php echo $data->roomcategory_name; ?>  
                                             <br>
                                             
                                             

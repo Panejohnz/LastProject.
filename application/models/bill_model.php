@@ -72,4 +72,9 @@ class Bill_model extends CI_Model
     {
         $this->db->delete('room', array('room_id'=>$id));
     }
+    function insert_stat($dataSet)
+{
+    $this->db->insert_batch('waterbill', $dataSet);
+    return $this->db->insert_id(); // this will return the id of last item inserted.
+}
 }

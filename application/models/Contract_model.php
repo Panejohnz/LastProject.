@@ -25,10 +25,10 @@ class Contract_model extends CI_Model
          ->from('contract')
          ->from('users')
          ->from('room')
-         ->from('reservations')
+         ->from('reservationsroom')
          ->where('contract.room_id = room.room_id')
          ->where('users.user_id = contract.user_id')
-         ->where('contract.reservations_id = reservations.reservations_id');
+         ->where('contract.reservationsroom_id = reservationsroom.reservationsroom_id');
         //  ->from('emmployee')
         //  ->where('emmployee.employee_id = contract.employee_id');
         $query = $this->db->get();

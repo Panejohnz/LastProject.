@@ -10,25 +10,25 @@ class ReservationsModel extends CI_Model
 
     public function record_count($keyword)
     {
-        $this->db->like('reservationsstart', $keyword);
+        $this->db->like('reservations_id', $keyword);
         $this->db->from('reservations');
         return $this->db->count_all_results();
     }
 
     public function fetch_room($limit, $start, $keryword)
     {
-        $this->db->like('reservationsstart', $keryword);
+        $this->db->like('start_date', $keryword);
         $this->db->limit($limit, $start);
         $this->db->select('*')  //join
         
            
             ->from('reservations')
             ->join('reservationsroom','reservationsroom.reservations_id = reservations.reservations_id')
-            ->join('reservationsfurniture','reservationsfurniture.reservations_id = reservations.reservations_id')
+            ->join('reservationsfurniture','reservationsroom.reservationsroom_id = reservationsfurniture.reservationsroom_id ')
             ->join('furniture','furniture.furniture_id = reservationsfurniture.furniture_id')
             ->join('room','room.room_id = reservationsroom.room_id')
-            ->join('roomcategory','roomcategory.roomcategory_id = room.roomcate_id')
-            ->join('users','users.user_id = reservations.id_users');
+            ->join('roomcategory','roomcategory.roomcategory_id = room.roomcategory_id')
+            ->join('users','users.user_id = reservations.user_id');
             
             
            

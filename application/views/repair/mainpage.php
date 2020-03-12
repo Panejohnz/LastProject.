@@ -25,6 +25,7 @@
                         
                             <a class="btn btn-default" href="<?php echo  base_url('repair'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
                         </div>
+                       
                         <div class="col-sm-6">
                             <div id="" class="dataTables_filter">
                             <form action="" method="GET" name="search">
@@ -38,11 +39,11 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1">ID</th>
+                                        <!-- <th class="sorting" tabindex="0"  rowspan="1" colspan="1">ID</th> -->
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">ผู้แจ้ง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">ห้อง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">พนักงาน</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">พนักงานรับผิดชอบ</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">สถานะ</th>
 
 
@@ -53,13 +54,13 @@
                                 <tbody>
                                     <?php if(!empty($results)){ foreach ($results as $data) { ?>
                                         <tr role="row">
-                                            <td>
+                                            <!-- <td>
                                             <a href="<?php echo base_url('repair/edit/'.$data->repair_id); ?>">
                                             <?php echo  $data->repair_id; ?>
-                                            </a> 
-                                            <br>
+                                            </a>  -->
+                                           
                                            <td>
-                                           <?php echo  $data->user_id; ?>
+                                           <?php echo  $data->firstname; ?>
                                     </td>
                                     <td>
                                            <?php echo  $data->roomnum; ?>
@@ -68,22 +69,24 @@
                                            <?php echo  $data->job_description; ?>
                                     </td>
                                     <td>
-                                           <!-- <?php echo  $data->operator_id; ?> -->
+                                           <?php echo  $data->firstname_emp; ?>
                                     </td>
 
                                     <td>
                                             <?php //สถานะ
-                                            
+                                            $emp_id = $this->session->userdata('employee_id');
                                             $status = $data->statusrepair;
                                             if ($status == 1) {
                                                 ?>
-                                               <a href="repair/update_status?sval=<?php echo $data->id; ?>&sval=<?php echo $data->statusrepair; ?>"  class="btn btn-success">รับเรื่องแล้ว</a>
+                                               <a href="repair/update_status/<?php echo $data->repair_id; ?>" class="btn btn-warning" <?php if($data->employee_id != $emp_id){ ?> style="display:none" <?php } ?>>อยู่ในระหว่างการซ่อมแซม</a>
                                                <!-- <?php if ($status == 1) { ?> disabled <?php   } ?> -->
                                             <?php
+                                            }  elseif($status == 2){ ?>
+                                                <a disabled href="repair/update_repair/<?php echo $data->repair_id; ?>" class="btn btn-success">เสร็จสิ้น</a>
                                                
-                                            } else {
+                                           <?php } else {
                                                 ?>
-                                                <a href="repair/update_repair/<?php echo $data->repair_id; ?>" class="btn btn-danger">กำลังตรวจสอบ</a>
+                                                <a href="repair/update_repair/<?php echo $data->repair_id; ?>" class="btn btn-danger">รอการยืนยันซ่อม</a>
                                                
                                           <?php
                                             }
