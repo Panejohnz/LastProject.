@@ -51,7 +51,7 @@
                                         <tr role="row">
                                             <td>
                                             <a href="<?php echo base_url('imgtype/edit/'.$data->roomcategory_id); ?>">
-                                            <?php echo  $data->roomname; ?>
+                                            <?php echo  $data->roomcategory_name; ?>
                                             </a> 
                                             <br>
                                            

@@ -25,11 +25,11 @@ class RoomController extends CI_Controller
     public function ss()
     {
         $id = $this->input->post('Hee');
-        $this->db->where('roomname', $id);
+        $this->db->where('roomcategory_name', $id);
         $this->db->select('*')
                             ->from('room')
                             ->from('roomcategory')
-                         ->where('roomcategory.roomcategory_id = room.roomcate_id');
+                         ->where('roomcategory.roomcategory_id = room.roomcategory_id');
                          
                          
         $query = $this->db->get();
@@ -38,7 +38,7 @@ class RoomController extends CI_Controller
         //     'reservationsstart' => $this->input->post('datepicker'),
         //     'reservationsprice' => '2000');
         // $this->db->insert('reservations', $qq);
-        $this->data['roomcategory_id'] = $hee['roomcate_id'];
+        $this->data['roomcategory_id'] = $hee['roomcategory_id'];
         $this->load->view('Room', $this->data, false);
     }
     public function get_room()

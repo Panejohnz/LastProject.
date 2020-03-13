@@ -103,13 +103,13 @@ class BillController extends CI_Controller
             'pricew' => ($this->input->post('waternew') - $rr1['meternumberw'] ) * $imf2['pricemeter'],
             'date_createw' => date('Y-m-d')
         );
-        if ($this->input->post('waternew') < $rr1['meternumberw']) {
+        if ($this->input->post('waternew') <= $rr1['meternumberw']) {
             echo "<script>";
             echo "alert('กรอกเลขมิเตอร์ไม่ถูกต้อง');";
             echo "window.location.href = '". base_url()."BillController';";
             echo "</script>";
         }
-        elseif($this->input->post('electricnew') < $rr['meternumber']){
+        elseif($this->input->post('electricnew') <= $rr['meternumber']){
             echo "<script>";
             echo "alert('กรอกเลขมิเตอร์ไม่ถูกต้อง');";
             echo "window.location.href = '". base_url()."BillController';";
@@ -137,5 +137,19 @@ class BillController extends CI_Controller
         $this->load->view('template/argon');
         $this->load->view('bill/edit');
         //$this->load->view('template/backfooter');
+    }
+
+    public function cal1(){
+       
+
+            $points = $this->input->post('electricnew');
+            $passes = $this->input->post('waternew'); 
+            for($i=0;$i<sizeof($points);$i++)
+            {
+              $dataSet[$i] = array ('electricnew' => $points[$i], 'waternew' => $passes[$i]);
+            }
+            // $dataSet is an array of array
+            $this->Bill_model->insert_stat($dataSet);
+          
     }
 }

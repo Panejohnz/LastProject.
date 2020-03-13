@@ -67,7 +67,7 @@
                                             </td>
                                           <td>
                                                 เลขมิเตอร์ไฟ
-                                                 <input required type="input" name="electricnew" id="electricnew" class="form-control input-sm" style="width:30%">
+                                                 <input <?php if(date('d') != 25){ ?> disabled <?php } ?> required type="input" name="electricnew" id="electricnew" class="form-control input-sm" style="width:30%">
                                                   <input type="hidden" name="room_id" value="<?php echo  $data->room_id ?>">
                                             
                                         <!-- จำนวนเงิน :  <span id="resulte"></span>
@@ -78,11 +78,11 @@
 });</script> -->
                                             </td>
                                             <td>
-                                            เลขมิเตอร์น้ำ <input type="text" name="waternew" id="waternew" class="form-control input-sm" style="width:30%"> 
+                                            เลขมิเตอร์น้ำ <input <?php if(date('d') != 25){ ?> disabled <?php } ?> type="text" name="waternew" id="waternew" class="form-control input-sm" style="width:30%"> 
                                            
                                             <br>
                                            
-                                            <td><button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button></td>
+                                            <td><button  class="btn btn-primary" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button></td>
                                             </form>  <!-- จำนวนเงิน :  <span id="resultw"></span>
                                             <script>$(document).ready(function(){
     $('#waternew').keyup(function(){

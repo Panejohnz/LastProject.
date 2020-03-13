@@ -46,7 +46,7 @@
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ไอดีสัญญา</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">หมายเลขห้อง</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ชื่อลูกค้า</th>
-                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">ราคาห้อง</th>
+                                        <!-- <th class="sorting" tabindex="1" rowspan="1" colspan="1">ราคาห้อง</th> -->
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ชื่อพนักงานทำสัญญา</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">เลขบัตรประชาชนลูกค้า</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ที่อยู่</th>
@@ -78,7 +78,7 @@
                                                 $qqq = $fff->row_array();
 
                                           ?>
-                                            <td>  <?php echo $data->totalprice; ?>  </td>
+                                            <!-- <td>  <?php echo $data->totalprice; ?>  </td> -->
                                            <td>  <?php echo $qqq['firstname_emp']?>   </td>
                                            <td>  <?php echo $data->identity_card; ?>  </td>
                                            <td>  <?php echo $data->address; ?>  </td>

@@ -31,7 +31,7 @@ class Reservationadmin extends CI_Controller
 
         $query = $this->db->query("SELECT * FROM `reservations`
         LEFT JOIN users
-        ON reservations.id_users = users.user_id
+        ON reservations.user_id  = users.user_id
         LEFT JOIN reservationsroom
         ON reservations.reservations_id = reservationsroom.reservations_id  ");
 

@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class repair extends CI_Controller
+class Repair extends CI_Controller
 {
     public function __construct()
     {
@@ -284,7 +284,8 @@ redirect('ReservationsController');
     {
         
         $data2 = array(
-            'statusrepair' => '1'
+            'statusrepair' => '1',
+            'employee_id' => $this->session->userdata('employee_id')
           );
    
             $this->db->where('repair_id', $id);
@@ -324,7 +325,7 @@ redirect('ReservationsController');
 
 
         $data2 = array(
-            'statusrepair' => '1'
+            'statusrepair' => '2'
           );
    
            

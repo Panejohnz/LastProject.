@@ -13,14 +13,14 @@ class Imgtype_model extends CI_Model
 
 	public function record_count($keyword)
 	{
-		$this->db->like('roomname',$keyword);
+		$this->db->like('roomcategory_name',$keyword);
 		$this->db->from('roomcategory');
 		return $this->db->count_all_results();
 	}
 
 	public function fetch_imgtype($limit, $start,$keryword)
 	{
-		$this->db->like('roomname',$keryword);
+		$this->db->like('roomcategory_name',$keryword);
 		$this->db->limit($limit, $start);
 		$query = $this->db->get('roomcategory');
 		if($query->num_rows() > 0)

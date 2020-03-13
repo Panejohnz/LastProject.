@@ -95,5 +95,43 @@ redirect('complain');
 	}
 
 
-  
+	public function update_status($id)
+    {
+        // if (isset($_REQUEST['sval'])) {
+        //     $this->load->model('Room_model', 'RoomController');
+        //     $up_status = $this->RoomController->update_status();
+
+        //     if ($up_status > 0) {
+        //         $this->session->set_flashdata('msg', "updated success");
+        //         $this->session->set_flashdata('msg_class', "alert-success");
+        //     } else {
+        //         $this->session->set_flashdata('msg', ";not updated success");
+        //         $this->session->set_flashdata('msg_class', "alert-danger");
+        //     }
+        //     return redirect('RoomController');
+        // }
+
+        $this->db->where('complain_id', $id);
+
+
+        $data2 = array(
+            'statuscomplain' => '2'
+          );
+   
+           
+        $this->db->update('complain', $data2);
+        redirect('ComplainController');
+	}
+	public function update_complain($id)
+    {
+        $data2 = array(
+            'statuscomplain' => '1',
+            'employee_id' => $this->session->userdata('employee_id')
+          );
+   
+        $this->db->where('complain_id', $id);
+        $this->db->update('complain', $data2);
+        redirect('ComplainController');
+    }
+
 }

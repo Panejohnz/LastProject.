@@ -47,8 +47,8 @@
                                     <?php if(!empty($results)){ foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('watercontroller/edit/'.$data->pricebill_id); ?>">
-                                            <?php echo  $data->typebill; ?>
+                                            <a href="<?php echo base_url('watercontroller/edit/'.$data->utility_id); ?>">
+                                            <?php echo  $data->utility_name; ?>
                                             
                                             </a> 
                                            
@@ -57,7 +57,7 @@
                                             
                                             <td>
                                            
-                                            <?php echo $data->pricemeter; ?>  
+                                            <?php echo $data->utilityprice; ?>  
                                             <br>
                                           
                                             

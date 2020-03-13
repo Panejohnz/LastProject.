@@ -101,7 +101,27 @@
                           ราคาค่าเช่าห้อง
                         </label> <?php echo $this->session->flashdata('error_password')?>
                         <input readonly type="text" id="totalprice" class="form-control" name="totalprice" value="<?php echo $data1['totalprice'] ?>" required>
+                </div><div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                         ค่าน้ำ
+                        </label> <?php echo 14?>
+                     <br>   <label for="exampleInputEmail1">
+                         ค่าไฟ
+                        </label> <?php echo 7?>
                 </div>
+                <div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                          มิเตอร์ค่าน้ำ
+                        </label> <?php echo $this->session->flashdata('error_password')?>
+                        <input  type="text" id="totalprice" class="form-control" name="fire" required>
+                </div>
+                <div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                          มิเตอร์ค่าไฟ
+                        </label> <?php echo $this->session->flashdata('error_password')?>
+                        <input type="text" id="totalprice" class="form-control" name="nam" required>
+                </div>
+                <div class="col-sm-4">  
       <?php $reservations_id = $data['reservations_id'];?>
                 <input type="hidden" name="kuykwai" value="<?php echo $reservations_id ?>">
             </div><br>

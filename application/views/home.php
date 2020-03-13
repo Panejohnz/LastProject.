@@ -209,7 +209,8 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="<?php echo site_url('ReservationsController') ?>" class="nav-link">หน้าแรก</a></li>
-	          <!-- <li class="nav-item"><a  href="<?php echo site_url('repair/newdata') ?>" class="nav-link">แจ้งซ่อม</a></li> -->
+			  <li class="nav-item active"><a href="<?php echo site_url('HistoryController') ?>" class="nav-link">รายการค้างชำระ</a></li>
+			  <!-- <li class="nav-item"><a  href="<?php echo site_url('repair/newdata') ?>" class="nav-link">แจ้งซ่อม</a></li> -->
 	          <ul class="nav navbar-nav navbar-right ml-auto">			
 			<li class="nav-item">
 				<a data-toggle="" class="nav-link" href="<?php echo base_url('LoginController/logoutMember') ?>">ออกจากระบบ</a>
@@ -289,8 +290,8 @@
 						<?php	foreach($results as $result){
 								?>
 											
-											<h1><option value="<?php echo $result['roomname'] . ' '?>"> 
-											<?php echo $result['roomname'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?>
+											<h1><option value="<?php echo $result['roomcategory_name'] . ' '?>"> 
+											<?php echo $result['roomcategory_name'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?>
 								</option>
 											<?php $eiei = $result['roomcategory_id'];
 							} ?>

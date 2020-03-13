@@ -24,7 +24,10 @@
         <a class="navbar-brand" href="<?php echo site_url('page/staff') ?>">กลับ</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+        </button><?php   $stringrow = base_url(uri_string());
+                $arraystate = (explode("/", $stringrow));
+                $idtestt = ($arraystate[5]); ?>
+        <form role="form" action="<?php echo  base_url('Slipcontroller/paylatelate/' . $idtestt); ?>" method="post" enctype="multipart/form-data">
         <div class="collapse navbar-collapse" id="navbar-default">
             <div class="navbar-collapse-header">
                 <div class="row">
@@ -110,7 +113,7 @@
                 </div>
                 </center>
                 <!-- //onclick="myFunction()" -->
-            </form>
+            
             </div>
             <script src="<?php echo base_url(); ?>./assets2/vendor/jquery/jquery.min.js"></script>
   <script src="<?php echo base_url(); ?>./assets2/vendor/popper/popper.min.js"></script>

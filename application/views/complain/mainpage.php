@@ -41,6 +41,8 @@
                                         
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">รายะเอียด</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">รหัสลูกค้า</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">พนักงานรับเรื่องร้องเรียน</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">สถานะการเรื่องร้องเรียน</th>
 
                                         
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
@@ -59,7 +61,30 @@
                                             <?php echo $data->user_id; ?>
                                               
                                             </td> 
-                                            
+                                            <td>
+                                            <?php echo $data->firstname_emp; ?>
+                                              
+                                            </td> 
+                                            <td>
+                                            <?php //สถานะ
+                                            $emp_id = $this->session->userdata('employee_id');
+                                            $status = $data->statuscomplain;
+                                            if ($status == 1) {
+                                                ?>
+                                               <a href="ComplainController/update_status/<?php echo $data->complain_id; ?>" class="btn btn-warning" <?php if($data->employee_id != $emp_id){ ?> style="display:none" <?php } ?>>รับเรื่องร้องเรียน</a>
+                                               <!-- <?php if ($status == 1) { ?> disabled <?php   } ?> -->
+                                            <?php
+                                            }  elseif($status == 2){ ?>
+                                                <a disabled href="ComplainController/update_complain/<?php echo $data->complain_id; ?>" class="btn btn-success">เสร็จสิ้น</a>
+                                               
+                                           <?php } else {
+                                                ?>
+                                                <a href="ComplainController/update_complain/<?php echo $data->complain_id; ?>" class="btn btn-danger">รอการตรวจสอบ</a>
+                                               
+                                          <?php
+                                            }
+                                           ?>
+                                            </td>
                                              
                                             <td>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('complain/confrm/'.$data->complain_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>

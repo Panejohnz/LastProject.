@@ -52,8 +52,8 @@
                                         
                                 <?php           $this->db->select('*');
                                                 $this->db->from('contract');
-                                                $this->db->join('reservations', 'reservations.reservations_id = contract.contract_id');
-                                                $this->db->where('reservations.reservations_id = contract.reservations_id');
+                                                $this->db->join('reservationsroom', 'reservationsroom.reservationsroom_id  = contract.reservationsroom_id ');
+                                                // $this->db->where('reservations.reservations_id = reservationsroom.reservations_id');
                                                 $query = $this->db->get(); 
 
                                                 $da = $query->num_rows();
@@ -68,12 +68,12 @@
 
                                     <?php        $query = $this->db->query("SELECT * FROM `reservations`
                                                     LEFT JOIN users
-                                                    ON reservations.id_users = users.user_id
+                                                    ON reservations.user_id = users.user_id
                                                     LEFT JOIN reservationsroom
                                                     ON reservations.reservations_id = reservationsroom.reservations_id 
                                                    
                                                     LEFT JOIN room
-                                                    ON  room.room_id = reservationsroom.room_id  WHERE reservations.reservations_id NOT IN ( SELECT contract.reservations_id FROM contract WHERE contract.reservations_id = reservations.reservations_id )");
+                                                    ON  room.room_id = reservationsroom.room_id  WHERE reservations.reservations_id NOT IN ( SELECT contract.reservationsroom_id FROM contract WHERE contract.reservationsroom_id = reservationsroom.reservationsroom_id )");
 
                                                      
                                                        

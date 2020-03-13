@@ -24,7 +24,7 @@ class Room_model extends CI_Model
         $this->db->select('*')
         ->from('room')
         ->from('roomcategory')
-     ->where('roomcategory.roomcategory_id = room.roomcate_id');
+     ->where('roomcategory.roomcategory_id = room.roomcategory_id');
      
      
 $query = $this->db->get();
@@ -61,7 +61,7 @@ $query = $this->db->get();
         $this->db->select('*')
         ->from('room')
         ->from('roomcategory')
-     ->where('roomcategory.roomcategory_id = room.roomcate_id');
+     ->where('roomcategory.roomcategory_id = room.roomcategory_id');
      
      
 $query = $this->db->get();
