@@ -31,9 +31,13 @@ class Login_api extends \Restserver\Libraries\REST_Controller
         
         $query =  $this->db->get('users', 1);
 
-        $this->db->select('user_id');
-        $this->db->from('users');
+        $this->db->select('*');
+        $this->db->from('contract');
+        $this->db->join('users', 'users.user_id = contract.user_id');
+
+        
         $this->db->where('username',  $username);
+
         $qq = $this->db->get();
         $qq = $qq->result_array();
         
@@ -44,7 +48,9 @@ class Login_api extends \Restserver\Libraries\REST_Controller
             // $this->session->set_userdata($data);
             $this->response(array(
                 'status' => 'yes',
-                'user_id' => $qq[0]['user_id']
+                'user_id' => $qq[0]['user_id'],
+                'contract_id' => $qq[0]['contract_id'],
+                'firstname' => $qq[0]['firstname']
             ));
             
         }else
