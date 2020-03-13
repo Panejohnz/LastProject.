@@ -30,12 +30,22 @@ class Login_api extends \Restserver\Libraries\REST_Controller
         
         
         $query =  $this->db->get('users', 1);
+
+        $this->db->select('user_id');
+        $this->db->from('users');
+        $this->db->where('username',  $username);
+        $qq = $this->db->get();
+        $qq = $qq->result_array();
+        
+        
         if($query->num_rows()== 1)
         {
             // $data = $query->row_array();
             // $this->session->set_userdata($data);
             $this->response(array(
-                'status' => 'yes'));
+                'status' => 'yes',
+                'user_id' => $qq[0]['user_id']
+            ));
             
         }else
         {

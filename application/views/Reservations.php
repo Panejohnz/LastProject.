@@ -83,6 +83,7 @@
     
                   
                     <label for="exampleInputEmail1">เลือกเฟอร์นิเจอร์เพิ่มเติม</label>
+                    
                     <?php $this->db->select('furniture.*');
                    $this->db->from('furniture');
 
