@@ -115,7 +115,7 @@ redirect('complain');
 
 
         $data2 = array(
-            'statuscomplain' => '2'
+            'complain_status' => '2'
           );
    
            
@@ -125,7 +125,7 @@ redirect('complain');
 	public function update_complain($id)
     {
         $data2 = array(
-            'statuscomplain' => '1',
+            'complain_status' => '1',
             'employee_id' => $this->session->userdata('employee_id')
           );
    

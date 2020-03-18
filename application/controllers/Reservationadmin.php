@@ -43,18 +43,18 @@ class Reservationadmin extends CI_Controller
             // echo "Email :". $data['email'];
             // echo "Room:" . $data['room_id'];
 
-            if ($data['Type'] == 'มีเฟอร์นิเจอร์') {
-                $hee = $data['reservations_id'];
+            // if ($data['Type'] == 'มีเฟอร์นิเจอร์') {
+            //     $hee = $data['reservations_id'];
 
-                $qq = $this->db->query("SELECT * FROM `reservationsfurniture`
-                LEFT JOIN furniture
-                ON furniture.furniture_id = reservationsfurniture.furniture_id
-                WHERE reservationsfurniture.reservations_id = $hee ");
+            //     $qq = $this->db->query("SELECT * FROM `reservationsfurniture`
+            //     LEFT JOIN furniture
+            //     ON furniture.furniture_id = reservationsfurniture.furniture_id
+            //     WHERE reservationsfurniture.reservations_id = $hee ");
 
-                foreach ($qq->result_array() as $data2) {
-                    // echo "เฟอร์นิเจอร์" . $data2['name'];
-                }
-            }
+            //     foreach ($qq->result_array() as $data2) {
+            //         // echo "เฟอร์นิเจอร์" . $data2['name'];
+            //     }
+            // }
         }
     }
 

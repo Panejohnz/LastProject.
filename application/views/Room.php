@@ -419,7 +419,7 @@
 						<?php	foreach ($results as $data) {
                                 ?>
                                 <?php  $status = $data['roomstatus']; ?>
-        <div class="col-lg-3 col-md-4 col-sm-12" <?php if ($status != 0) { ?>  <?php   echo 'style="display:none"'; } ?>>
+        <div class="col-lg-3 col-md-4 col-sm-12" <?php if ($status != 1) { ?>  <?php   echo 'style="display:none"'; } ?>>
             <div class="card product_item" id="exampleModal" >
                 <div class="body" >
                     <div class="cp_img">    
@@ -435,7 +435,7 @@
                                             <?php //สถานะ
                                             
                                             
-                                if ($status == 1) {
+                                if ($status == 3) {
                                     ?>
                                                 <a href="RoomController/update_status?sid=<?php echo $data['room_id']; ?>&sval=<?php echo $data['roomstatus']; ?>" disabled class="btn btn-danger">ไม่ว่าง</a>
                                                 

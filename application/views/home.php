@@ -209,7 +209,54 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="<?php echo site_url('ReservationsController') ?>" class="nav-link">หน้าแรก</a></li>
-			  <li class="nav-item active"><a href="<?php echo site_url('HistoryController') ?>" class="nav-link">รายการค้างชำระ</a></li>
+			  <!-- <li class="nav-item active"><a href="<?php echo site_url('HistoryController') ?>" class="nav-link">รายการค้างชำระ</a></li> -->
+			  <ul class="nav navbar-nav navbar-right ml-auto">			
+			<li class="nav-item">
+				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">รายการค้างชำระ</a>
+				<ul class="dropdown-menu login-form">					
+					<li>
+					<?php
+					 $user_id = $this->session->userdata('user_id');
+					 // $this->db->where('user_id', $this->session->userdata('user_id'));
+					  $query = $this->db->query("SELECT * FROM reservations 
+					  JOIN reservationsroom ON reservationsroom.reservations_id = reservations.reservations_id 
+					  JOIN reservationsfurniture ON reservationsfurniture.reservationsroom_id = reservationsroom.reservationsroom_id
+					  JOIN room ON room.room_id = reservationsroom.room_id
+					  WHERE reservations.user_id = $user_id
+					  GROUP BY reservations.reservations_id");
+			  
+					  $his = $query->result_array();
+				if(empty($his)){
+					echo 'ไม่มีรายการค้างชำระ';
+				}else{
+                    foreach ($his as $data) {
+                        ?>
+       <a <?php if ($data['slip_file'] != null || $data['reservations_status'] == 2) { ?> style="display:none" <?php } ?> href="<?php echo base_url('Slipcontroller/paylate/'.$data['reservations_id'].'/'.$data['room_id'])?>">
+       <!-- <?php echo $data['reservations_id']; ?>
+  <?php echo $data['roomprice']; ?> -->
+  <?php echo 'เลขห้อง' . $data['roomnum']; ?><br>
+  
+
+  <?php
+                $re = $data['reservations_id'];
+                        //x $this->db->where('reservations_id', $data['reservations_id']);
+                        $query = $this->db->query("SELECT * FROM reservationsfurniture
+                JOIN furniture ON furniture.furniture_id = reservationsfurniture.furniture_id
+                JOIN reservationsroom ON reservationsroom.reservationsroom_id = reservationsfurniture.reservationsroom_id
+                JOIN room ON room.room_id = reservationsroom.room_id
+                WHERE reservationsfurniture.reservationsroom_id = $re");
+               
+                        foreach ($query->result_array() as $a) {
+                            //  echo  "<td>   " . $a['name']   . "</td>";
+                        } ?>
+           
+    <?php
+                    }
+                }
+?>
+					</li>
+				</ul>
+			</li>
 			  <!-- <li class="nav-item"><a  href="<?php echo site_url('repair/newdata') ?>" class="nav-link">แจ้งซ่อม</a></li> -->
 	          <ul class="nav navbar-nav navbar-right ml-auto">			
 			<li class="nav-item">
@@ -284,17 +331,17 @@
 			                    <select name="Hee" id="roomname" class="form-control">
 									
 								<?php $this->db->select('roomcategory.*');
-							$this->db->from('roomcategory');
-							$query = $this->db->get();
-							$results = $query->result_array();?>
-						<?php	foreach($results as $result){
-								?>
+                            $this->db->from('roomcategory');
+                            $query = $this->db->get();
+                            $results = $query->result_array();?>
+						<?php	foreach ($results as $result) {
+                                ?>
 											
 											<h1><option value="<?php echo $result['roomcategory_name'] . ' '?>"> 
 											<?php echo $result['roomcategory_name'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?>
 								</option>
 											<?php $eiei = $result['roomcategory_id'];
-							} ?>
+                            } ?>
 										</select>
 			                  </div>
 				              </div>

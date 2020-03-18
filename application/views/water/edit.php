@@ -18,7 +18,7 @@
 				</a>
 			</li>
 			<li class="active">
-				<?php echo $result->typebill?>
+				<?php echo $result->utility_name?>
 			</li>
 		</ol>
 	</section>
@@ -34,8 +34,8 @@
 			<!-- form start -->
 		<div class="col-md-1"></div>
 		<div class="col-md-9">
-			<form role="form" action="<?php echo  base_url(''); ?>watercontroller/edad/<?php echo $result->pricebill_id ?>" method="post" class="form-horizontal">
-				<input type="hidden" name="user_id" value="<?php echo $result->pricebill_id?>">
+			<form role="form" action="<?php echo  base_url(''); ?>watercontroller/edad/<?php echo $result->utility_id ?>" method="post" class="form-horizontal">
+				<input type="hidden" name="user_id" value="<?php echo $result->utility_id?>">
 				<div class="box-body">
 				<div class="form-group">
 				<div class="col-sm-4">
@@ -43,13 +43,13 @@
 						typebill
 						</label> 
 						<?php echo $this->session->flashdata('error_typebill')?>
-						<input type="text" id="typebill" class="form-control" name="typebill" value="<?php echo  $result->typebill ?>" required>
+						<input type="text" id="typebill" class="form-control" name="typebill" value="<?php echo  $result->utility_name ?>" required>
 				</div>
 				<div class="col-sm-4">	
 					<label for="exampleInputEmail1">
 					pricemeter
 						</label> <?php echo $this->session->flashdata('error_pricemeter')?>
-						<input type="text" id="pricemeter" class="form-control" name="pricemeter" value="<?php echo  $result->pricemeter ?>" required>
+						<input type="text" id="pricemeter" class="form-control" name="pricemeter" value="<?php echo  $result->utilityprice ?>" required>
 				</div>
 
 			</div>

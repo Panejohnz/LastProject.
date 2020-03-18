@@ -17,7 +17,7 @@
 				</a>
 			</li>
 			<li class="active">
-				<?php echo $result->roomname ?>
+				<?php echo $result->roomcategory_name ?>
 			</li>
 		</ol>
 	</section>
@@ -39,7 +39,7 @@
 						<label for="exampleInputEmail1">
 							ชื่อประเภท
 						</label> <?php echo $this->session->flashdata('error_roomname')?>
-						<input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $result->roomname ?>" required>
+						<input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $result->roomcategory_name ?>" required>
 					</div>
 					<!-- <div class="form-group">
 						<label for="exampleInputEmail1">

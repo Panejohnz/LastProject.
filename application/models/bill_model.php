@@ -12,14 +12,14 @@ class Bill_model extends CI_Model
 
     public function record_count($keyword)
     {
-        $this->db->like('electricbill_id', $keyword);
-        $this->db->from('electricbill');
+        $this->db->like('utility_id', $keyword);
+        $this->db->from('publicutility');
         return $this->db->count_all_results();
     }
     public function record_his($room_id)
     {
-        $this->db->where('room_id', $room_id);
-        $this->db->get('electricbill');
+        $this->db->where('utility_id', $room_id);
+        $this->db->get('publicutility');
         return $this->db->count_all_results();
     }
 
@@ -76,5 +76,11 @@ class Bill_model extends CI_Model
 {
     $this->db->insert_batch('waterbill', $dataSet);
     return $this->db->insert_id(); // this will return the id of last item inserted.
+}
+public function insert_order($data)
+{
+    $this->db->insert('bill', $data);
+    $id = $this->db->insert_id();
+    return (isset($id)) ? $id : FALSE;
 }
 }

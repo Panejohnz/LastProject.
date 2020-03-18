@@ -121,4 +121,10 @@ class Contract_model extends CI_Model
     //     //return fetched data
     //     return $result;
     // }
+    public function insert_order($data)
+{
+    $this->db->insert('contract', $data);
+    $id = $this->db->insert_id();
+    return (isset($id)) ? $id : FALSE;
+}
 }

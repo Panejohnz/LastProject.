@@ -35,6 +35,11 @@ class Login_api extends \Restserver\Libraries\REST_Controller
         $this->db->from('contract');
         $this->db->join('users', 'users.user_id = contract.user_id');
         $this->db->join('repair', 'repair.contract_id = contract.contract_id');
+        $this->db->join('reservations', 'reservations.user_id = users.user_id');
+        $this->db->join('reservationsroom', 'reservationsroom.reservations_id = reservations.reservations_id');
+        $this->db->join('reservationsfurniture', 'reservationsfurniture.reservationsroom_id = reservationsroom.reservationsroom_id');
+        
+        
         
         
         $this->db->where('username',  $username);

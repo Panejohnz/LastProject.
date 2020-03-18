@@ -54,7 +54,7 @@ class water_modal extends CI_Model
 		}
 	}
 	public function read_member($utility_id){
-		$this->db->where('publicutility_id',$utility_id);
+		$this->db->where('utility_id',$utility_id);
 		$query = $this->db->get('publicutility');
 		if($query->num_rows() > 0){
 			$data = $query->row();

@@ -85,7 +85,7 @@
                                                     { ?>
                                             <td>
                                             <a href="<?php echo base_url('reservations/edit/'.$data['reservations_id']); ?>">
-                                            <?php echo  $data['reservationsstart']; ?>
+                                            <?php echo  $data['reservation_date']; ?>
                                             </a> 
                                             <br>
                                           
@@ -101,15 +101,14 @@
                                          <?php echo  $data['roomnum']; ?>
                                             </td>
                                             <td>
-                                            <?php  if($data['Type'] == 'มีเฟอร์นิเจอร์')
-                                                        {
+                                            <?php  
 
                                                             $hee = $data['reservations_id'];
 
                                                             $qq = $this->db->query("SELECT * FROM `reservationsfurniture`
                                                             LEFT JOIN furniture
                                                             ON furniture.furniture_id = reservationsfurniture.furniture_id
-                                                            WHERE reservationsfurniture.reservations_id = $hee ");
+                                                            WHERE reservationsfurniture.reservationsroom_id = $hee ");
 
                                                             foreach($qq->result_array() as $data2)
                                                             { ?>
@@ -118,7 +117,7 @@
 
                                                         <?php     } 
                                                             
-                                                        } ?>
+                                                         ?>
                                                 
 
                                             <br>
@@ -134,16 +133,16 @@
                                             <td>
                                             <?php echo  $data['reservationsprice']; ?>  
                                             </td> -->
-                                            <td>
+                                            <td><?php if($data['slip_file'] == null){ echo 'ยังไม่มีหลักฐานการจอง';}else{ ?>
                                             <a target="_blank" href="<?php echo  base_url('uploads/' .$data['slip_file']); ?>">
-                                            <img src="<?php echo base_url(); ?>./uploads/<?php echo $data['slip_file']; ?>" width="50px"></a>
+                                                            <img src="<?php echo base_url(); ?>./uploads/<?php echo $data['slip_file']; ?>"  width="50px"></a><?php } ?>
                                             
                                             </td>
                                             
                                             <?php $this->db->select('*');
                                                 $this->db->from('room');
                                                 $this->db->join('contract', 'contract.room_id = room.room_id');
-                                                $this->db->join('reservations', 'reservations.reservations_id = contract.reservations_id');
+                                                $this->db->join('reservationsroom', 'reservationsroom.reservationsroom_id = contract.reservationsroom_id');
                                                 $this->db->where('room.room_id = contract.room_id');
                                                 
                                                $query = $this->db->get();

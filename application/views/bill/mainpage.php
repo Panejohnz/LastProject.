@@ -56,7 +56,7 @@
                                              foreach ($results as $data) { ?>
                                 <?php $status = $data->roomstatus ?>
                                 <form role="form" method='post' action="<?php echo base_url('BillController/cal/') ?>"  >
-                                        <tr role="row" <?php if ($status == 0) { ?> style="display:none" <?php } ?>>
+                                        <tr role="row" <?php if ($status == 1) { ?> style="display:none" <?php } ?>>
                                             <td>
                                             <a href="<?php echo base_url('BillController/edit/'.$data->room_id); ?>" >
                                             <?php echo  $data->roomnum;  ?>
@@ -67,7 +67,7 @@
                                             </td>
                                           <td>
                                                 เลขมิเตอร์ไฟ
-                                                 <input <?php if(date('d') != 25){ ?> disabled <?php } ?> required type="input" name="electricnew" id="electricnew" class="form-control input-sm" style="width:30%">
+                                                 <input <?php if(date('d') == 25){ ?> disabled <?php } ?> required type="input" name="electricnew" id="electricnew" class="form-control input-sm" style="width:30%">
                                                   <input type="hidden" name="room_id" value="<?php echo  $data->room_id ?>">
                                             
                                         <!-- จำนวนเงิน :  <span id="resulte"></span>
@@ -78,7 +78,7 @@
 });</script> -->
                                             </td>
                                             <td>
-                                            เลขมิเตอร์น้ำ <input <?php if(date('d') != 25){ ?> disabled <?php } ?> type="text" name="waternew" id="waternew" class="form-control input-sm" style="width:30%"> 
+                                            เลขมิเตอร์น้ำ <input <?php if(date('d') == 25){ ?> disabled <?php } ?> type="text" name="waternew" id="waternew" class="form-control input-sm" style="width:30%"> 
                                            
                                             <br>
                                            

@@ -6,7 +6,7 @@ class Contract extends CI_Controller
     {
         parent::__construct();
         $this->load->library('pagination');
-        $this->load->model('contract_model');
+        $this->load->model('Contract_model');
         if (!$this->session->userdata('firstname_emp')) { //ดัก user บังคับล็อกอิน
             redirect('LoginController');
         }
@@ -16,7 +16,7 @@ class Contract extends CI_Controller
     {
         $config = array();
         $config['base_url'] = base_url('contract');
-        $config['total_rows'] = $this->contract_model->record_count($this->input->get('keyword'));
+        $config['total_rows'] = $this->Contract_model->record_count($this->input->get('keyword'));
         $config['per_page'] = $this->input->get('keyword') == null ? 14 : 999;
         $config['uri_segment'] = 3;
         $choice = $config['total_rows'] / $config['per_page'];
@@ -25,7 +25,7 @@ class Contract extends CI_Controller
         $this->pagination->initialize($config);
 
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['results'] = $this->contract_model->fetch_Contract($config['per_page'], $page, $this->input->get('keyword'));
+        $data['results'] = $this->Contract_model->fetch_Contract($config['per_page'], $page, $this->input->get('keyword'));
         $data['link'] = $this->pagination->create_links();
         $data['total_rows'] = $config['total_rows'];
 
@@ -183,12 +183,28 @@ class Contract extends CI_Controller
                              "datecontract_start" => $this->input->post('datestart'),
                              "datecontract_end" => $this->input->post('dateend'),
                              "room_id" => $idtest,
-                             "address" => $this->input->post('address'),
+                             //"address" => $this->input->post('address'),
                              "employee_id" => $emp_id,
-                             "totalprice" => $this->input->post('totalprice'),
-                             'reservations_id'=>$this->input->post('kuykwai')
+                             "roomprice" => $this->input->post('totalprice'),
+                             'reservationsroom_id' => $this->input->post('kuykwai'),
+                             'start_eletrict' => $this->input->post('fire'),
+                             'start_water' => $this->input->post('nam')
                             );
-        $this->db->insert('contract', $arr);
+        // $this->db->insert('contract', $arr);
+        $ord_id = $this->Contract_model->insert_order($arr);
+
+        $this->db->where('reservationsroom_id', $idtest1);
+       $furni = $this->db->get('reservationsfurniture');
+       $ferniture = $furni->result_array();
+        foreach ($ferniture as $hee):
+        $fur=array(
+                'contract_id' => $ord_id,
+                'furniture_id' => $hee['furniture_id'],
+              'furniture_amount' => $hee['furniture_amount'],
+              'furnitureprice' => $hee['furnitureprice']
+        );
+        $this->db->insert('contractfurniture', $fur);
+    endforeach;
 
         $this->session->set_flashdata(
                 array(
@@ -209,12 +225,12 @@ class Contract extends CI_Controller
         // //     // $imf = $query->row_array();
 
         $data2 = array(
-            'roomstatus' => '1'
+            'roomstatus' => '3'
           );
 
         
         $this->db->update('room', $data2);
-        redirect('contract');
+       // redirect('contract');
     }
 
 

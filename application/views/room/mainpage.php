@@ -85,7 +85,7 @@
                                             <?php //สถานะ
                                             
                                             $status = $data->roomstatus;
-                                            if ($status == 1) {
+                                            if ($status == 3) {
                                                 ?>
                                                <a href="RoomController/update_status?sval=<?php echo $data->room_id; ?>&sval=<?php echo $data->roomstatus; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-danger">ไม่ว่าง</a>
                                                
@@ -98,7 +98,7 @@
                                             <?php
                                             } else {
                                                 ?>
-                                                <a href="Bookaroom/up/<?php echo $data->room_id?>" class="btn btn-success">ห้องว่าง</a>
+                                                <a disabled href="Bookaroom/up/<?php echo $data->room_id?>" class="btn btn-success">ห้องว่าง</a>
                                                
                                           <?php
                                             }

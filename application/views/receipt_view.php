@@ -43,7 +43,7 @@
         $qq3 = $this->db->get('room');
         $data3 = $qq3->row_array();
 
-        $this->db->where('roomcategory_id', $data3['roomcate_id']);
+        $this->db->where('roomcategory_id', $data3['roomcategory_id']);
         $mana1 = $this->db->get('roomcategory');
         $hh1 = $mana1->row_array();
 
@@ -53,13 +53,23 @@
         $data4 = $qq4->row_array();
         
         //$this->db->where('room_id',$data['room_id']);
-        $this->db->where('pricebill_id', 1);
-        $query1 = $this->db->get('pricebill');
+        $this->db->where('biillutility_id');
+        $query1 = $this->db->get('billutility');
         $data5 = $query1->row_array();
 
-        $this->db->where('pricebill_id', 2);
-        $query2 = $this->db->get('pricebill');
+        $this->db->where('biillutility_id');
+        $query2 = $this->db->get('billutility');
         $data8 = $query2->row_array();
+        
+        $this->db->where('reservationsroom_id', $data['reservationsroom_id']);
+        $heee = $this->db->get('reservationsroom');
+        $heeee = $heee->row_array();
+
+        $this->db->where('reservationsroom_id', $data['reservationsroom_id']);
+        $heee = $this->db->get('reservationsfurniture');
+        $heeee = $heee->row_array();
+
+        
         
       //   $this->db->select('*'); //
       //   $this->db->from('pricebill');
@@ -86,7 +96,7 @@
   <p class="ex1" align="right">วันที่ทำสัญญา  <?php echo $data['datecontract_start']; ?></p>
     <p class="ex2" align="left">สัญญาเช่าห้องพักฉบับนี้ ทำขึ้นระหว่าง</p>
     <p class="ex3" align="left">(ก) นาย/นาง/นางสาว <?php echo $data4['firstname_emp']; ?> <?php echo $data4['lastname']; ?> (ผู้มีอำนาจในการทำสัญญา)</p>
-    <p class="ex3" align="left">ที่อยู่ <?php echo $data['address']; ?></p>
+    <p class="ex3" align="left">ที่อยู่ 926 ถนนสุ ทธิสารวินิจฉัย แขวง ดินแดง เขตดินแดง กรุงเทพมหานคร 10400</p>
     <p class="ex3" align="left"> หมายเลขโทรศัพท์ <?php echo $data4['tel']; ?></p>
     <p class="ex3" align="left">ซึ่งต่อไปสัญญาฉบับนี้ จะเรียกว่า “ผู้ให้เช่า” ฝ่ายหนึ่งกับ</p>
     <p class="ex3" align="left">นาย/นาง/นางสาว ..<?php echo $data2['firstname']; ?>.. นามสกุล ..<?php echo $data2['lastname']?>.. หมายเลขโทรศัพท์ ..<?php echo $data2['tel'] ?>..</p>
@@ -96,15 +106,15 @@
         <p class="ex2" align="left">ทั้งสองฝ่ายตกลงทำสัญญาโดยมีสาระสำคัญ ดังนี้</p>
 <br>
 <p class="ex3" align="left">ข้อ ๑ ผู้เช่าตกลงเช่าและผู้ให้เช่าตกลงให้เช่าห้องพักเลขที่  ..<?php echo $data3['roomnum']; ?>..</p>
-<p class="ex3" align="left">ตั้งอยู่ <?php echo $data['address']; ?></p>
+<p class="ex3" align="left">ตั้งอยู่ 926 ถนนสุ ทธิสารวินิจฉัย แขวง ดินแดง เขตดินแดง กรุงเทพมหานคร 10400</p>
 <p class="ex3" align="left">ค่าน้ำยูนิตละ......<?php echo $data5['pricemeter']; ?>......บาท &nbsp; ค่าไฟยูนิตละ....<?php echo $data8['pricemeter']; ?>....บาท</p>
-<p class="ex3" align="left">เพื่อใช้เป็นที่อยู่อาศัยเท่านั้น ในอัตราค่าเช่าเดือนละ ..<?php echo $data['totalprice']; ?>.. บาท</p>
+<p class="ex3" align="left">เพื่อใช้เป็นที่อยู่อาศัยเท่านั้น ในอัตราค่าเช่าเดือนละ ..<?php echo $data['roomprice']; ?>.. บาท</p>
 <p class="ex3" align="left">โดยมีกำหนดระยะเวลาในการเช่า ตั้งแต่วันที่ ..<?php echo $data['datecontract_start']; ?>.. ถึงวันที่ ..<?php echo $data['datecontract_end']; ?>..</p>
 
 <p class="ex3" align="left">โดยมีกำหนดชำระค่าบริการก่อนวันที่ 25 ของทุกเดือน</p>
 <br>
 <p class="ex3" align="left">ข้อ ๒ ผู้เช่าตกลงเช่าและผู้ให้เช่าตกลงให้เช่า อุปกรณ์ไฟฟ้าและเฟอร์นิเจอร์ ภายในห้องพัก</p>
-<p class="ex3" align="left">ในอัตราค่าเช่าเดือนละ .. <?php echo $data['totalprice']; ?>.. บาท โดยมีกำหนดชำระค่าบริการก่อนวันที่ 25</p>
+<p class="ex3" align="left">ในอัตราค่าเช่าเดือนละ .. <?php echo $heeee['furnitureprice']; ?>.. บาท โดยมีกำหนดชำระค่าบริการก่อนวันที่ 25</p>
 <p class="ex3" align="left">ของทุกเดือน โดยมีสภาพของอุปกรณ์ไฟฟ้าและเฟอร์นิเจอร์ ปรากฎตามรายละเอียดหลักฐาน</p>
 <p class="ex3" align="left">การตรวจรับสภาพอาคารแนบท้ายสัญญาฉบับนี้และถือว่าเป็นส่วนหนึ่งของสัญญาเช่า</p>
 <br>

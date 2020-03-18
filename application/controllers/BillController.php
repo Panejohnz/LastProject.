@@ -28,7 +28,7 @@ class BillController extends CI_Controller
         $data['results'] = $this->Bill_model->fetch_room($config['per_page'], $page, $this->input->get('keyword'));
         $data['link'] = $this->pagination->create_links();
         $data['total_rows'] = $config['total_rows'];
-        $this->load->view('template/backheader');
+        $this->load->view('template/backheader');   
         $this->load->view('bill/mainpage', $data);
         $this->load->view('template/backfooter');
     }
@@ -43,31 +43,44 @@ class BillController extends CI_Controller
         
         $roomnum = $imf['roomnum'];
 
-        $this->db->where('room_id', $imf['room_id']);
+        $this->db->where('room_id', $room_id);
         $cc = $this->db->get('contract');
         $cc1 = $cc->row_array();
 
-        $this->db->where('roomcategory_id', $imf['roomcate_id']);
+        $this->db->where('roomcategory_id', $imf['roomcategory_id']);
         $queryy = $this->db->get('roomcategory');
         $imff = $queryy->row_array();
 
-        $this->db->where('pricebill_id', 1);
-        $query1 = $this->db->get('pricebill');
-        $imf2 = $query1->row_array();
+        // $this->db->where('pricebill_id', 1);
+        // $query1 = $this->db->get('pricebill');
+        // $imf2 = $query1->row_array();
 
-        $this->db->where('pricebill_id', 2);
-        $query2 = $this->db->get('pricebill');
-        $imf3 = $query2->row_array();
+        // $this->db->where('pricebill_id', 2);
+        // $query2 = $this->db->get('pricebill');
+        // $imf3 = $query2->row_array();
 
-        $this->db->where('room_id',$imf['room_id']);
-        $this->db->order_by('electricbill_id', 'DESC');
-      $oop = $this->db->get('electricbill',1);
-        $rr = $oop->row_array();
+    //     $this->db->where('room_id',$imf['room_id']);
+    //     $this->db->order_by('electricbill_id', 'DESC');
+    //   $oop = $this->db->get('electricbill',1);
+    //     $rr = $oop->row_array();
         
-        $this->db->where('room_id',$imf['room_id']);
-        $this->db->order_by('water_id', 'DESC');
-      $oop1 = $this->db->get('waterbill',1);
-        $rr1 = $oop1->row_array();
+    //     $this->db->where('room_id',$imf['room_id']);
+    //     $this->db->order_by('water_id', 'DESC');
+    //   $oop1 = $this->db->get('waterbill',1);
+    //     $rr1 = $oop1->row_array();
+
+        $this->db->where('utility_id', 2);
+        $this->db->order_by('utility_id', 'DESC');
+        $f = $this->db->get('publicutility');
+        $f1 = $f->row_array();
+
+        $this->db->where('utility_id', 1);
+        $this->db->order_by('utility_id', 'DESC');
+        $n = $this->db->get('publicutility');
+        $n1 = $n->row_array();
+        
+        
+        
         // print_r($room_id);
         // $water = 15 * $postData['waternew'];
         // echo $water;
@@ -79,51 +92,65 @@ class BillController extends CI_Controller
         // echo '<br>';
         // echo $imf3['pricemeter']  * $this->input->post('waternew');
 
-        $arr=array(
-        'room_id' => $room_id,
-        'unit'=> $imf3['pricemeter'],
-        'pricebill_id'=> $imf3['pricebill_id'],
-       // 'waterbill' => $this->input->post('waternew'),
-       // 'electric_price	' => $imf2['pricemeter'] * $this->input->post('electricnew'),
-        //'water_price' => $imf3['pricemeter'] * $this->input->post('waternew'),
-        'meternumber'=> $this->input->post('electricnew'),
-        'price' => ($this->input->post('electricnew') - $rr['meternumber'] ) * $imf3['pricemeter'],
-        'date_create' => date('Y-m-d')
-    );
+    //     $arr=array(
+    //     'room_id' => $room_id,
+    //     'unit'=> $imf3['pricemeter'],
+    //     'pricebill_id'=> $imf3['pricebill_id'],
+    //    // 'waterbill' => $this->input->post('waternew'),
+    //    // 'electric_price	' => $imf2['pricemeter'] * $this->input->post('electricnew'),
+    //     //'water_price' => $imf3['pricemeter'] * $this->input->post('waternew'),
+    //     'meternumber'=> $this->input->post('electricnew'),
+    //     'price' => ($this->input->post('electricnew') - $rr['meternumber'] ) * $imf3['pricemeter'],
+    //     'date_create' => date('Y-m-d')
+    // );
         
 
         $arrr=array(
-            'room_id' => $room_id,
-            'unitw'=> $imf2['pricemeter'],
-            'pricebill_id'=> $imf2['pricebill_id'],
-           // 'waterbill' => $this->input->post('waternew'),
-           // 'electric_price	' => $imf2['pricemeter'] * $this->input->post('electricnew'),
-            //'water_price' => $imf3['pricemeter'] * $this->input->post('waternew'),
-            'meternumberw'=> $this->input->post('waternew'),
-            'pricew' => ($this->input->post('waternew') - $rr1['meternumberw'] ) * $imf2['pricemeter'],
-            'date_createw' => date('Y-m-d')
-        );
-        if ($this->input->post('waternew') <= $rr1['meternumberw']) {
-            echo "<script>";
-            echo "alert('กรอกเลขมิเตอร์ไม่ถูกต้อง');";
-            echo "window.location.href = '". base_url()."BillController';";
-            echo "</script>";
-        }
-        elseif($this->input->post('electricnew') <= $rr['meternumber']){
-            echo "<script>";
-            echo "alert('กรอกเลขมิเตอร์ไม่ถูกต้อง');";
-            echo "window.location.href = '". base_url()."BillController';";
-            echo "</script>";
+            'contract_id' => $cc1['contract_id'],
+            'bill_date' => date('Y-m-d'),
+            'bill_month' => date('m'),
+            'bill_year' => date('Y'),
+            'employee_id' => $this->session->userdata('employee_id'),
+            'bill_status' => 1,
+            );
+            $ord_id = $this->Bill_model->insert_order($arrr);
+            $fi=array(
+                'bill_id' => $ord_id,
+                'utility_id' => 1,
+                'unit' => $this->input->post('electricnew'),
+                'utilitypricetotal' => ($this->input->post('electricnew')- $f1['meternumber']) * $f1['utilityprice'],
+            );
+
+            $na=array(
+                'bill_id' => $ord_id,
+                'utility_id' => 2,
+                'unit' => $this->input->post('waternew'),
+                'utilitypricetotal' => $this->input->post('waternew') * $n1['utilityprice'],
+            );
+
+        // if ($this->input->post('waternew') <= $rr1['meternumberw']) {
+        //     echo "<script>";
+        //     echo "alert('กรอกเลขมิเตอร์ไม่ถูกต้อง');";
+        //     echo "window.location.href = '". base_url()."BillController';";
+        //     echo "</script>";
+        // }
+        // elseif($this->input->post('electricnew') <= $rr['meternumber']){
+        //     echo "<script>";
+        //     echo "alert('กรอกเลขมิเตอร์ไม่ถูกต้อง');";
+        //     echo "window.location.href = '". base_url()."BillController';";
+        //     echo "</script>";
             
-        }else{
+        // }else{
             
             echo "<script>";
             echo "alert('บันทึกข้อมูลห้อง $roomnum แล้ว');";
             echo "window.location.href = '". base_url()."BillController';";
             echo "</script>";
-            $this->db->insert('electricbill', $arr);
-            $this->db->insert('waterbill', $arrr);
-        }
+            
+            // $this->db->insert('bill', $arrr);
+            $this->db->insert('billutility', $fi);
+            $this->db->insert('billutility', $na);
+        // }
            
            
       //  redirect('BillController');
@@ -135,7 +162,7 @@ class BillController extends CI_Controller
         // $this->db->where('room_id', $room_id);
         //  $data = $this->db->get('electricbill');
         $this->load->view('template/argon');
-        $this->load->view('bill/edit');
+        // $this->load->view('bill/edit');
         //$this->load->view('template/backfooter');
     }
 

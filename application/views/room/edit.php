@@ -62,7 +62,7 @@
 								?>
 											
 											<h1><option value="<?php echo $result['roomcategory_id'] . ' '?>" > 
-											<?php echo $result['roomname'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?>
+											<?php echo $result['roomcategory_name'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?>
 								</option>
 											<?php $eiei = $result['roomcategory_id'];
 							} ?>

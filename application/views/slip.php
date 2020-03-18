@@ -26,7 +26,8 @@
             <span class="navbar-toggler-icon"></span>
         </button><?php   $stringrow = base_url(uri_string());
                 $arraystate = (explode("/", $stringrow));
-                $idtestt = ($arraystate[5]); ?>
+                $idtestt = ($arraystate[5]);
+                 ?>
         <form role="form" action="<?php echo  base_url('Slipcontroller/paylatelate/' . $idtestt); ?>" method="post" enctype="multipart/form-data">
         <div class="collapse navbar-collapse" id="navbar-default">
             <div class="navbar-collapse-header">
@@ -108,8 +109,11 @@
                 </div><!-- /.box-body -->
 
                <center> <div class="box-footer">
+               <?php   $stringrow = base_url(uri_string());
+                $arraystate = (explode("/", $stringrow));
+                $idtestt1 = ($arraystate[6]); ?>
                     <button class="btn btn-success" name="submit"  type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
-                    <a class="btn btn-danger" href="<?php echo  base_url('page/staff'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
+                    <a class="btn btn-danger" href="<?php echo  base_url('Slipcontroller/delete/'. $idtestt.'/'.$idtestt1); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
                 </div>
                 </center>
                 <!-- //onclick="myFunction()" -->

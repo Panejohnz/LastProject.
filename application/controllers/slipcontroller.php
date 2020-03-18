@@ -50,4 +50,34 @@ class Slipcontroller extends CI_Controller
             redirect('Page/Staff');
         }
     }
+    public function delete($idtestt1 = null,$idtestt2 = null)
+    {
+        $stringrow = base_url(uri_string());
+        $arraystate = (explode("/", $stringrow));
+        $idtestt2 = ($arraystate[6]);
+
+        $this->db->where('room_id', $idtestt2);
+        $one1 = array(
+            'roomstatus' => 1
+        );
+        $this->db->update('room', $one1);
+
+        $this->db->where('reservations_id', $idtestt1);
+        $one = array(
+            'reservations_status' => 2
+        );
+        $this->db->update('reservations', $one);
+
+       
+        redirect('Page/Staff');
+        // $this->db->delete('reservations');
+
+        // $this->db->where('reservations_id', $idtestt);
+        // $this->db->delete('reservationsroom');
+
+        // $this->db->where('reservationsroom_id', $idtestt);
+        // $this->db->delete('reservationsfurniture');
+
+
+    }
 }

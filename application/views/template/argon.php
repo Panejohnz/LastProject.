@@ -72,9 +72,29 @@
             $arraystate = (explode("/", $stringrow));
             $idtestt = ($arraystate[5]); ?>
 
+
+<!-- <?php 
+
+        $this->db->where('room_id', $idtestt);
+        $cc = $this->db->get('contract');
+        $cc1 = $cc->row_array();
+        
+        $this->db->where('contract_id', $cc1['contract_id']);
+        $bb = $this->db->get('bill');
+        $bb1 = $bb->row_array();
+
+        $this->db->where('bill_id', $bb1['bill_id']);
+        $bi = $this->db->get('billutility');
+        $bi1 = $bi->row_array();
+        
+ ?> -->
             <?php
             
-            $query = $this->db->query("SELECT * FROM electricbill,waterbill WHERE waterbill.water_id = electricbill.electricbill_id AND waterbill.room_id = $idtestt AND electricbill.room_id = $idtestt");
+            $query = $this->db->query("SELECT * FROM billutility 
+            JOIN bill ON bill.bill_id = billutility.bill_id 
+            JOIN contract ON contract.contract_id = bill.contract_id  
+            JOIN publicutility ON publicutility.utility_id = billutility.utility_id 
+            WHERE contract.room_id = $idtestt");
       $qq = $query->result_array(); ?>
 
 <!-- <?php //$this->db->where('room_id', $idtestt);
@@ -90,8 +110,8 @@
 <table class="table">
     <thead>
         <tr>
-        <th class="text-center">วันที่</th>
-            <th class="text-center">เลขมิเตอร์ค่าไฟ</th>
+        <!-- <th class="text-center">วันที่</th> -->
+            <th class="text-center">เลขมิเตอร์ค่าไฟ</th> -->
             <th class="text-center">ค่าไฟ</th>
             <th class="text-center">เลขมิเตอร์ค่าน้ำ</th>
             <th class="text-center">ค่าน้ำ</th>
@@ -103,19 +123,19 @@
 
     <?php  foreach ($qq as $row) { ?>
         <tr>
-        <td class="text-center"><?php echo $row['date_create']; ?></td>
-            <td class="text-center"><?php echo $row['meternumber']; ?>&nbsp; หน่วย</td>
+        <!-- <td class="text-center"><?php echo $row['date_create']; ?></td> -->
+            <td class="text-center"><?php echo $row['unit']; ?>&nbsp; หน่วย</td>
             <!-- <td class="text-center"><?php echo $data['waterbill']; ?>&nbsp;หน่วย</td> -->
-            <td class="text-center"><?php echo $row['price']; ?>&nbsp;บาท</td>
+            <td class="text-center"><?php echo $row['utilitypricetotal']; ?>&nbsp;บาท</td>
             <!-- <td class="text-center"><?php echo $data['water_price']; ?>&nbsp;บาท</td> -->
             <!-- <td class="text-center"><?php echo $data['roomprice']; ?>&nbsp;บาท</td> -->
             
         
 
         <!-- <td class="text-center"><?php echo $data['date']; ?></td> -->
-            <td class="text-center"><?php echo $row['meternumberw']; ?>&nbsp; หน่วย</td>
+            <td class="text-center"><?php echo $row['unit']; ?>&nbsp; หน่วย</td>
             <!-- <td class="text-center"><?php echo $data['waterbill']; ?>&nbsp;หน่วย</td> -->
-            <td class="text-center"><?php echo $row['pricew']; ?>&nbsp;บาท</td>
+            <td class="text-center"><?php echo $row['utilitypricetotal']; ?>&nbsp;บาท</td>
             <!-- <td class="text-center"><?php echo $data['water_price']; ?>&nbsp;บาท</td> -->
             <!-- <td class="text-center"><?php echo $data['roomprice']; ?>&nbsp;บาท</td> -->
             

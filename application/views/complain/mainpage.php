@@ -68,7 +68,7 @@
                                             <td>
                                             <?php //สถานะ
                                             $emp_id = $this->session->userdata('employee_id');
-                                            $status = $data->statuscomplain;
+                                            $status = $data->complain_status;
                                             if ($status == 1) {
                                                 ?>
                                                <a href="ComplainController/update_status/<?php echo $data->complain_id; ?>" class="btn btn-warning" <?php if($data->employee_id != $emp_id){ ?> style="display:none" <?php } ?>>รับเรื่องร้องเรียน</a>

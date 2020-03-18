@@ -49,7 +49,7 @@
                                         <!-- <th class="sorting" tabindex="1" rowspan="1" colspan="1">ราคาห้อง</th> -->
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ชื่อพนักงานทำสัญญา</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">เลขบัตรประชาชนลูกค้า</th>
-                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">ที่อยู่</th>
+                                        <!-- <th class="sorting" tabindex="1" rowspan="1" colspan="1">ที่อยู่</th> -->
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">วันที่เรื่มสัญญา</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ระยะเวลาสัญญา</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">วันสิ้นสุดสัญญา</th>
@@ -80,8 +80,8 @@
                                           ?>
                                             <!-- <td>  <?php echo $data->totalprice; ?>  </td> -->
                                            <td>  <?php echo $qqq['firstname_emp']?>   </td>
-                                           <td>  <?php echo $data->identity_card; ?>  </td>
-                                           <td>  <?php echo $data->address; ?>  </td>
+                                           <td>  <?php echo $qq['identity_card']; ?>  </td>
+                                           <!-- <td>  <?php echo $data->address; ?>  </td> -->
                                            <td>  <?php echo $data->datecontract_start; ?>  </td>
                                            <td>  1 ปี  </td>
                                            <td>  <?php echo $data->datecontract_end; ?>  </td>

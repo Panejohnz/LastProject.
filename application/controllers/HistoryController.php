@@ -14,7 +14,7 @@ class HistoryController extends CI_Controller
         $result['his'] = $this->History_model->historybill();
       
         // print_r($result);
-        $this->load->view('History', $result);
+        $this->load->view('', $result);
     }
    
 }

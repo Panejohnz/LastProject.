@@ -38,7 +38,7 @@
         $qq1 = $this->db->get('reservationsroom');
         $data1 = $qq1->row_array();
         
-        $this->db->where('user_id', $data['id_users']);
+        $this->db->where('user_id', $data['user_id']);
         $qq2 = $this->db->get('users');
         $data2 = $qq2->row_array();
         
@@ -46,7 +46,7 @@
         
         
         ?>
-            <form role="form" action="<?php echo  base_url('contract/adding/' . $data['id_users']. '/'.$data1['room_id'] .'/' . $data['reservations_id']); ?>" method="post" enctype="multipart/form-data">
+            <form role="form" action="<?php echo  base_url('contract/adding/' . $data['user_id']. '/'.$data1['room_id'] .'/' . $data['reservations_id']); ?>" method="post" enctype="multipart/form-data">
                 <div class="box-body">
                     <!-- <div class="form-group">
                         <label for="exampleInputEmail1">สัญญาเช่า</label> <?php echo $this->session->flashdata('error_roomname'); ?>
@@ -100,7 +100,7 @@
                     <label for="exampleInputEmail1">
                           ราคาค่าเช่าห้อง
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input readonly type="text" id="totalprice" class="form-control" name="totalprice" value="<?php echo $data1['totalprice'] ?>" required>
+                        <input readonly type="text" id="totalprice" class="form-control" name="totalprice" value="<?php echo $data1['roomprice'] ?>" required>
                 </div><div class="col-sm-4">  
                     <label for="exampleInputEmail1">
                          ค่าน้ำ
