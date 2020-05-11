@@ -22,9 +22,11 @@ class Repair_api extends \Restserver\Libraries\REST_Controller{
 
 	{
         $id = $this->input->post('idu');
+        $title = $this->input->post('title');
         $detail = $this->input->post('description');
         $dat = date("Y-m-d");
 		$object = array(
+            'title' => $title,
             'description' => $detail,
             'repair_date '=> $dat,
             'contract_id' => $id

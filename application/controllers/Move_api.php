@@ -16,19 +16,17 @@ require APPPATH . '/libraries/REST_Controller.php';
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
-class Complain_api extends \Restserver\Libraries\REST_Controller{
+class Move_api extends \Restserver\Libraries\REST_Controller{
 
     public function index_post()
 
 	{
         $id = $this->input->post('idu');
-        $title = $this->input->post('title');
-        $detail = $this->input->post('complaindetail');
+        $detail = $this->input->post('moveroomdetail');
         $dat = date("Y-m-d");
 		$object = array(
-            'title' => $title,
-            'complaindetail' => $detail,
-            'complain_date'=> $dat,
+            'moveroomdetail ' => $detail,
+            'moveroom_date '=> $dat,
             'contract_id' => $id
 			// 'user_id' => $this->input->post('user_id'),
 			// 'date' => $this->input->post('date')
@@ -39,7 +37,7 @@ class Complain_api extends \Restserver\Libraries\REST_Controller{
                 'status' => 'no'
             ));
         }else{
-            $this->db->insert('complain', $object);
+            $this->db->insert('moveroom', $object);
             $this->response(array(
                 'status' => 'insert'
             ));

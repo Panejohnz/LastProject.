@@ -16,15 +16,16 @@ require APPPATH . '/libraries/REST_Controller.php';
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
-class Selectcomp_api extends \Restserver\Libraries\REST_Controller {
+class Selectcon_api extends \Restserver\Libraries\REST_Controller {
 
     public function index_post($id)
     {
 
             $this->db->select('*');
-            $this->db->from('complain');
-            $this->db->join('contract', 'contract.contract_id  = complain.contract_id');
-            $this->db->join('users', 'users.user_id = contract.user_id ');
+            $this->db->from('users');
+            $this->db->join('contract', 'contract.user_id  = users.user_id');
+            $this->db->join('room', 'contract.room_id  = room.room_id');
+            $this->db->join('roomcategory', 'roomcategory.roomcategory_id  = room.roomcategory_id');
             
             $this->db->where('contract.user_id', $id);
             $data = $this->db->get();
@@ -41,9 +42,8 @@ class Selectcomp_api extends \Restserver\Libraries\REST_Controller {
                     'status' => 'false'));
             }
        
+                           
        
-        
-    
     
     }
 }
