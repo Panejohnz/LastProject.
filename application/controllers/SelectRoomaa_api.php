@@ -25,12 +25,9 @@ class SelectRoomaa_api extends \Restserver\Libraries\REST_Controller {
             $this->db->from('moveroom');
             $this->db->join('contract', 'contract.contract_id  = moveroom.contract_id');
             $this->db->join('users', 'users.user_id = contract.user_id ');
-<<<<<<< HEAD
             $this->db->join('emmployee','emmployee.employee_id = moveroom.employee_id','LEFT');
             $this->db->join('employeestatus', 'employeestatus.employeestatus_id = emmployee.statusem','LEFT');
             $this->db->join('approvestatus','approvestatus.approvestatus_id = moveroom.moveroom_status','LEFT');
-=======
->>>>>>> 3588236fa7fed00d3b180629b813a77e77440522
             
             $this->db->where('contract.user_id', $id);
             $data = $this->db->get();

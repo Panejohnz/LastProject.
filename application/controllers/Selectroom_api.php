@@ -20,16 +20,13 @@ class Selectroom_api extends \Restserver\Libraries\REST_Controller {
 
     public function index_post()
     {
-<<<<<<< HEAD
 
             // $this->db->select('*');
             // $this->db->from('room');
             // $this->db->join('roomcategory', 'roomcategory.roomcategory_id  = room.roomcategory_id');
             // $this->db->join('', '');
             
-=======
  
->>>>>>> 3588236fa7fed00d3b180629b813a77e77440522
             // $this->db->where('room.roomcategory_id', $id);
             // $this->db->query('SELECT * FROM room 
             // INNER JOIN roomcategory on roomcategory.roomcategory_id = room.roomcategory_id
