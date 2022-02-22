@@ -40,14 +40,15 @@
 				<div class="form-group">
 				<div class="col-sm-4">
 						<label for="exampleInputEmail1">
-						typebill
+						รายการสาธารณูปโภค
 						</label> 
 						<?php echo $this->session->flashdata('error_typebill')?>
 						<input type="text" id="typebill" class="form-control" name="typebill" value="<?php echo  $result->utility_name ?>" required>
-				</div>
+						<label class="text-success" hidden id="trueusername"><span class="glyphicon glyphicon-ok"></span> ชื่อนี้สามารถใช้ได้</label>
+					</div>
 				<div class="col-sm-4">	
 					<label for="exampleInputEmail1">
-					pricemeter
+					ราคาต่อหน่วย
 						</label> <?php echo $this->session->flashdata('error_pricemeter')?>
 						<input type="text" id="pricemeter" class="form-control" name="pricemeter" value="<?php echo  $result->utilityprice ?>" required>
 				</div>
@@ -83,3 +84,65 @@
 		</div>
 	</section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+
+<script>  
+
+
+ $(document).ready(function(){ 
+     
+      $('#typebill').change(function(){  
+           var typebill = $('#typebill').val();  
+           if(typebill != '')  
+           {  
+                $.ajax({  
+                     url:"<?php echo base_url(); ?>Watercontroller/checkmail",  
+                     method:"POST",  
+                     data:{typebill:typebill},  
+                     success:function(data){  
+                         // $('#email_result').html(data);  
+                         console.log(data)
+                    if(data.trim() === "true"){
+                        console.log('kk')
+                        $('#falseusername').removeAttr('hidden')
+                        $('#trueusername').attr('hidden',true)
+                        $('#button').attr('disabled',true)
+                    }else
+                    {
+                        $('#trueusername').removeAttr('hidden')
+                        $('#falseusername').attr('hidden',true)
+                        $('#button').removeAttr('disabled')
+                    }
+                     }  
+                });  
+           }
+      });  
+ });  
+ $(document).ready(function(){  
+      $('#username').change(function(){  
+           var username = $('#username').val();  
+           if(username != '')  
+           {  
+                $.ajax({  
+                     url:"<?php echo base_url(); ?>admin/checkusername",  
+                     method:"POST",  
+                     data:{username:username},  
+                     success:function(data){  
+                          //$('#username_result').html(data);  
+                          console.log(data)
+                    if(data.trim() === "true"){
+                        console.log('kk')
+                        $('#falseusername').removeAttr('hidden')
+                        $('#trueusername').attr('hidden',true)
+                        $('#button').attr('disabled',true)
+                    }else
+                    {
+                        $('#trueusername').removeAttr('hidden')
+                        $('#falseusername').attr('hidden',true)
+                        $('#button').removeAttr('disabled')
+                    }
+                     }  
+                });  
+           }  
+      });  
+ });  
+ </script>

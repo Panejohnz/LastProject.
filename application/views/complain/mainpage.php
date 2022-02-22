@@ -1,3 +1,4 @@
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -22,7 +23,6 @@
                 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                     <div class="row">
                         <div class="col-sm-6">
-                        <a class="btn btn-success" href="<?php echo  base_url('ComplainController/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a>
                             <a class="btn btn-default" href="<?php echo  base_url('ComplainController'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
                         </div>
                         <div class="col-sm-6">
@@ -39,26 +39,34 @@
                                 <thead>
                                     <tr role="row">
                                         
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">ห้อง</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">รายะเอียด</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">รหัสลูกค้า</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">พนักงานรับเรื่องร้องเรียน</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">สถานะการเรื่องร้องเรียน</th>
-
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  200px;">ตอบกลับลูกค้า</th>
                                         
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php $query = $this->db->query('SELECT * FROM complain 
+                                
+                                 JOIN contract ON contract.contract_id = complain.contract_id
+                                 JOIN users ON users.user_id = contract.user_id
+                                 JOIN room ON room.room_id = contract.room_id
+                                 LEFT JOIN  emmployee ON emmployee.employee_id = complain.employee_id
+                                 ');
+                                             ?>
                                     <?php if (!empty($results)) {
     foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('complain/edit/'.$data->complain_id); ?>">
-                                            <?php echo  $data->complaindetail; ?>
+                                            
+                                            <?php echo  $data->roomnum; ?>
                                             <br>
                                            
                                             <td>
-                                            <?php echo $data->user_id; ?>
+                                            <?php echo $data->complaindetail; ?>
                                               
                                             </td> 
                                             <td>
@@ -71,20 +79,38 @@
                                             $status = $data->complain_status;
                                             if ($status == 1) {
                                                 ?>
-                                               <a href="ComplainController/update_status/<?php echo $data->complain_id; ?>" class="btn btn-warning" <?php if($data->employee_id != $emp_id){ ?> style="display:none" <?php } ?>>รับเรื่องร้องเรียน</a>
+                                                <a href="ComplainController/update_complain/<?php echo $data->complain_id; ?>" class="btn btn-success">อนุมัติ</a>
+                                                <a href="ComplainController/update_complain2/<?php echo $data->complain_id; ?>" class="btn btn-danger">ไม่อนุมัติ</a>
                                                <!-- <?php if ($status == 1) { ?> disabled <?php   } ?> -->
                                             <?php
-                                            }  elseif($status == 2){ ?>
-                                                <a disabled href="ComplainController/update_complain/<?php echo $data->complain_id; ?>" class="btn btn-success">เสร็จสิ้น</a>
-                                               
-                                           <?php } else {
-                                                ?>
-                                                <a href="ComplainController/update_complain/<?php echo $data->complain_id; ?>" class="btn btn-danger">รอการตรวจสอบ</a>
-                                               
-                                          <?php
-                                            }
-                                           ?>
+                                            }  elseif ($status == 2) { ?>
+                                                <a disabled href="ComplainController/update_complain/<?php echo $data->complain_id; ?>" class="btn btn-success">กำลังดำเนินการร้องเรียน</a>
+                                           <?php } elseif($status == 3) { ?>
+                                               <a disabled href="ComplainController/update_complainno/<?php echo $data->complain_id; ?>" class="btn btn-danger">ไม่อนุมัติ</a>
+                                           <?php  } elseif($status == 4) { ?>
+                                               <a disabled href="ComplainController/update_complain/<?php echo $data->complain_id; ?>" class="btn btn-primary">เสร็จสิ้น</a>
+                                               <?php  }  ?>
                                             </td>
+                                           
+                                                      <td><form method="post" action=<?php echo base_url('ComplainController/update_status/' . $data->complain_id) ?> >
+                                                      <input  onkeyup="stoppedTyping()" required type="text" name="send" id="send"  <?php if ($status == 1 || $status == 3) { ?>
+                                                            style="display: none;" <?php   }else {?> style="width:  200px;" <?php } ?><?php if($status == 4) {?> disabled <?php } ?> value=<?php echo $data->comment?>>
+                                                            <button  type="submit" id="submit" name="submit" value="submit" <?php if ($status == 1 || $status == 3) { ?>
+                                                                style="display: none" <?php   } ?> <?php if($data->comment != null) {?> disabled <?php } ?>
+
+                                                       > ตอบกลับลูกค้า</button>
+                                                       </form>
+                                                       <form method="post" action=<?php echo base_url('ComplainController/update_complainno/' . $data->complain_id) ?> >
+                                                       <input <?php if($data->comment != null) {?> disabled <?php } ?> onkeyup="stoppedTyping()" required type="text" name="send1" id="send1" <?php if ($status == 1 || $status == 2 || $status == 4) { ?>
+                                                            style="display: none" <?php   }else{?> style="width:  200px;" <?php } ?><?php if($status == 4) {?> disabled <?php } ?> value=<?php echo $data->comment?>>
+                                                            <button  type="submit" id="submit1" name="submit1" value="submit" <?php if ($status == 1 || $status == 2 ||  $status == 4) { ?>
+                                                                style="display: none" <?php   } ?> <?php if($data->comment != null) {?> disabled <?php } ?>
+
+                                                       > ตอบกลับลูกค้า</button>
+                                                       </form>
+                                                        </td>
+                                                        <td> <a target="_blank" href="<?php echo  base_url('imageapp/' .$data->image_filename); ?>">
+                                                            <img src="<?php echo base_url(); ?>./imageapp/<?php echo $data->image_filename; ?>"  width="50px"></a></td>
                                              
                                             <td>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('complain/confrm/'.$data->complain_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>

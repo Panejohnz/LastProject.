@@ -301,17 +301,17 @@
 			                    <select name="Hee" id="roomname" class="form-control">
 									
 								<?php $this->db->select('roomcategory.*');
-							$this->db->from('roomcategory');
-							$query = $this->db->get();
-							$results = $query->result_array();?>
-						<?php	foreach($results as $result){
-								?>
+                            $this->db->from('roomcategory');
+                            $query = $this->db->get();
+                            $results = $query->result_array();?>
+						<?php	foreach ($results as $result) {
+                                ?>
 											
 											<h1><option value="<?php echo $result['roomcategory_name'] . ' '?>"> 
 											<?php echo $result['roomcategory_name'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?>
 								</option>
 											<?php $eiei = $result['roomcategory_id'];
-							} ?>
+                            } ?>
 										</select>
 			                  </div>
 				              </div>
@@ -856,6 +856,9 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>./datetime/css/jquery.datetimepicker.min.css"/>
 <script src="<?php echo base_url('./datetime/js/jquery.datetimepicker.js')?>"></script>
 
+<?php  $a_date1 = date('Y-m-d',strtotime("+1 month")); 
+       
+	   $mdate = date("Y/m/t", strtotime($a_date1));?>
 <script type="text/javascript">
     // $(document).ready(function() {
         // $('#datetimepicker').datetimepicker();
@@ -864,7 +867,8 @@
     $('#datetimepicker').datetimepicker({
      format:'Y-m-d',
      timepicker:false,
-     minDate:'-1970/01/01', //yesterday is minimum date
+	 minDate:'-1970/01/01',
+	 maxDate: '<?php echo $mdate ?>'//yesterday is minimum date
     //  maxDate:'+1970/01/03' //tomorrow is maximum date
     });
 </script>

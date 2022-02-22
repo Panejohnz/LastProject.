@@ -18,6 +18,7 @@ class Member_model extends CI_Model
 	{
 		$this->db->like('username',$keyword);
 		$this->db->from('users');
+		$this->db->where('isactive', 1);
 		return $this->db->count_all_results();
 	}
 
@@ -25,6 +26,7 @@ class Member_model extends CI_Model
 	{
 		$this->db->like('username',$keryword);
 		$this->db->limit($limit, $start);
+		$this->db->where('isactive', 1);
 		$query = $this->db->get('users');
 		if($query->num_rows() > 0)
 		{

@@ -24,7 +24,7 @@
                     <div class="col-sm-1">
                         
                             <?php 
-                            $query = $this->db->query("SELECT * FROM room JOIN roomcategory ON roomcategory.roomcategory_id = room.roomcate_id WHERE roomstatus = '0' ");
+                            $query = $this->db->query("SELECT * FROM room JOIN roomcategory ON roomcategory.roomcategory_id = room.roomcategory_id WHERE roomstatus = '1' ");
                             $aa = $query->result_array();
                             
                             ?>
@@ -32,11 +32,14 @@
                            <a class="btn btn-success" href="<?php echo base_url('room/status1/'); ?>" role="button">ห้องว่าง</a>
                        </div>
                        <div class="col-sm-1">
-                           <a class="btn btn-warning" href="<?php echo base_url('room'); ?>" role="button">ไม่ว่าง</a>
+                           <a class="btn btn-danger" href="<?php echo base_url('room/status2'); ?>" role="button">ไม่ว่าง</a>
+                       </div>
+                       <div class="col-sm-1">
+                           <a class="btn btn-warning" href="<?php echo base_url('room/status3'); ?>" role="button">ติดจอง</a>
                        </div>
                         <div class="col-sm-1">
                            
-                            <a class="btn btn-default" href="<?php echo  base_url('room'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
+                            <a class="btn btn-default" href="<?php echo  base_url('room'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> ห้องทั้งหมด</a>
                              
                         </div>
                         
@@ -76,7 +79,7 @@
                                             
                                             <td>
                                         
-                                            <?php echo $data['roomname']; ?>  
+                                            <?php echo $data['roomcategory_name']; ?>  
                                             <br>
                                             
                                             
@@ -91,7 +94,7 @@
                                             $status = $data['roomstatus'];
                                             if ($status == 1) {
                                                 ?>
-                                               <a href="RoomController/update_status?sval=<?php echo $data->room_id; ?>&sval=<?php echo $data->roomstatus; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-danger">ติดจอง</a>
+                                               <a href="RoomController/update_status?sval=<?php echo $data['room_id']; ?>&sval=<?php echo $data['roomstatus']; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-success">ห้องว่าง</a>
                                                
                                             <?php
                                                

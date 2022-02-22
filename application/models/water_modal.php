@@ -65,5 +65,16 @@ class water_modal extends CI_Model
 	public function remove_member($utility_id){
 		$this->db->delete('publicutility',array('publicutility_id'=>$utility_id));
 	}
+	
+	public function is_email_available($name)
+    {
+        $this->db->where('utility_name', $name);
+        $query = $this->db->get("publicutility");
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

@@ -94,7 +94,7 @@
             JOIN bill ON bill.bill_id = billutility.bill_id 
             JOIN contract ON contract.contract_id = bill.contract_id  
             JOIN publicutility ON publicutility.utility_id = billutility.utility_id 
-            WHERE contract.room_id = $idtestt");
+            WHERE contract.room_id = $idtestt ORDER BY billutility.bill_id DESC");
       $qq = $query->result_array(); ?>
 
 <!-- <?php //$this->db->where('room_id', $idtestt);
@@ -109,12 +109,13 @@
 
 <table class="table">
     <thead>
-        <tr>
+    
+        
         <!-- <th class="text-center">วันที่</th> -->
-            <th class="text-center">เลขมิเตอร์ค่าไฟ</th> -->
-            <th class="text-center">ค่าไฟ</th>
-            <th class="text-center">เลขมิเตอร์ค่าน้ำ</th>
-            <th class="text-center">ค่าน้ำ</th>
+            <th class="text-center">วันที่</th>
+            <th class="text-center">หน่วยที่ใช้</th>
+            <th class="text-center">ราคา</th>
+            
             
         </tr>
         
@@ -122,9 +123,10 @@
     <tbody>
 
     <?php  foreach ($qq as $row) { ?>
-        <tr>
+
         <!-- <td class="text-center"><?php echo $row['date_create']; ?></td> -->
-            <td class="text-center"><?php echo $row['unit']; ?>&nbsp; หน่วย</td>
+        <td class="text-center"><?php echo $row['utility_name']; ?> วันที่ <?php echo $row['bill_date'] ?>&nbsp;</td>
+           <td class="text-center"><?php echo $row['unit']; ?>&nbsp; หน่วย</td>
             <!-- <td class="text-center"><?php echo $data['waterbill']; ?>&nbsp;หน่วย</td> -->
             <td class="text-center"><?php echo $row['utilitypricetotal']; ?>&nbsp;บาท</td>
             <!-- <td class="text-center"><?php echo $data['water_price']; ?>&nbsp;บาท</td> -->
@@ -133,18 +135,18 @@
         
 
         <!-- <td class="text-center"><?php echo $data['date']; ?></td> -->
-            <td class="text-center"><?php echo $row['unit']; ?>&nbsp; หน่วย</td>
+            <!-- <td class="text-center"><?php echo $row['unit']; ?>&nbsp; หน่วย</td> -->
             <!-- <td class="text-center"><?php echo $data['waterbill']; ?>&nbsp;หน่วย</td> -->
-            <td class="text-center"><?php echo $row['utilitypricetotal']; ?>&nbsp;บาท</td>
+            <!-- <td class="text-center"><?php echo $row['utilitypricetotal']; ?>&nbsp;บาท</td> -->
             <!-- <td class="text-center"><?php echo $data['water_price']; ?>&nbsp;บาท</td> -->
             <!-- <td class="text-center"><?php echo $data['roomprice']; ?>&nbsp;บาท</td> -->
-            
-        </tr>
+            </tr>
+        
         
         
         
 
- <?php } ?>
+ <?php } ?> 
     </tbody>
 </table>
 

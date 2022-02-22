@@ -44,10 +44,14 @@ class LoginController extends CI_Controller
             );
             $this->session->set_userdata($sesdata);
             // access login for admin
-            if ($level === '1' || $level === '2') {
+            if ($level === '1') {
                 redirect('page');
 
                 // access login for staff
+            }
+                elseif($level === '2'){
+                    redirect('Room');
+                
             } elseif ($level === '0') {
                 redirect('page/staff');
                 
@@ -74,7 +78,9 @@ class LoginController extends CI_Controller
             $id = $data['user_id'];
             $name  = $data['firstname'];
             $email = $data['email'];
-          
+
+            // print_r($validate);die();
+                
             $sesdata = array(
                 'user_id' => $id,
                 'firstname'  => $name,
@@ -82,7 +88,7 @@ class LoginController extends CI_Controller
                 'logged_in' => true
             );
             $this->session->set_userdata($sesdata);
-
+            
             // access login for author
         // access login for staff
            

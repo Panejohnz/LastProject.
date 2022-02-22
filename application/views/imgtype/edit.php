@@ -2,7 +2,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			 จัดการประเภทภาพ
+			 จัดการประเภทห้อง
 		</h1>
 		<ol class="breadcrumb">
 			<li>
@@ -13,11 +13,11 @@
 			</li>
 			<li>
 				<a href="<?php echo  base_url('imgtype'); ?>">
-					 จัดการประเภทภาพ
+				จัดการประเภทห้อง
 				</a>
 			</li>
 			<li class="active">
-				<?php echo $result->roomcategory_name ?>
+				<?php echo $resulthee->roomcategory_name ?>
 			</li>
 		</ol>
 	</section>
@@ -31,16 +31,58 @@
 				</h3>
 			</div><!-- /.box-header -->
 			<!-- form start -->
-			<form role="form" action="<?php echo  base_url(''); ?>imgtype/edittype/<?php echo $result->roomcategory_id ?>" method="post"  enctype="multipart/form-data" >
-				<input type="hidden" name="id" value="<?php echo $result->roomcategory_id ?>">
+			<form role="form" action="<?php echo  base_url(''); ?>imgtype/edittype/<?php echo $resulthee->roomcategory_id ?>" method="post"  enctype="multipart/form-data" >
+				<input type="hidden" name="id" value="<?php echo $resulthee->roomcategory_id ?>">
 				
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">
 							ชื่อประเภท
 						</label> <?php echo $this->session->flashdata('error_roomname')?>
-						<input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $result->roomcategory_name ?>" required>
+						<input type="text" id="roomname" class="form-control" name="roomname" value="<?php echo  $resulthee->roomcategory_name ?>" required>
 					</div>
+					<?php $this->db->select('furniture.*');
+                   $this->db->from('furniture');
+
+                   $query = $this->db->get();
+                   $results = $query->result_array();?>
+                   	<?php	foreach ($results as $result) {
+                       ?>
+                   
+                    <div id="hee2" name="hee2" <?php if ($result['stock'] == 0) {?> style="display:none" <?php } ?>>
+
+					<?php $furniture_id = $result['furniture_id']; ?>
+                        <?php $sql = "SELECT COUNT(*) AS furniturecount FROM `roomcategory_furniture` WHERE roomcategory_id = $resulthee->roomcategory_id  AND furniture_id = $furniture_id"?>
+                       
+                       <?php $query1 = $this->db->query($sql)->result();
+
+                       // echo $sql;echo '<br>'; ?> 
+                                
+
+
+                 
+                       
+                        
+                <?php
+                       if($result['stock'] == 0)
+                       { ?>
+
+                            <input type="checkbox" id="customCheck1" name="customCheck1[]" value="<?php echo $result['furniture_id'] ?>" disabled>
+                            <label for="vehicle1"><?php echo $result['name'] ?></label><br>
+
+                <?php  }else{ ?>
+				<input   <?php if ($query1[0]->furniturecount != 0) {?> checked <?php } ?> type="checkbox" id="customCheck1" name="customCheck1[]" value="<?php echo $result['furniture_id'] ?>">
+                            <label for="vehicle1"><?php echo $result['name'] ?></label><br>
+                <?php  } ?>
+                      
+				
+                    <!-- <label class="custom-control-label" for="customCheck1"><?php echo $result['name']; ?></label> --> 
+                    </div> 
+                    
+                                    
+                       <?php
+                   } ?>
+                   <br>
 					<!-- <div class="form-group">
 						<label for="exampleInputEmail1">
 							รายละเอียด
@@ -51,7 +93,7 @@
 						<label for="exampleInputEmail1">
 							ราคา
 						</label> <?php echo $this->session->flashdata('error_detail')?>
-						<input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo  $result->roomprice ?>" required pattern="\d{1,9}" maxlength="5">
+						<input type="text" id="roomprice" class="form-control" name="roomprice" value="<?php echo  $resulthee->roomprice ?>" required>
 					</div>
 
 			 <!-- <div class="form-group">
@@ -69,7 +111,7 @@
 				</div><!-- /.box-body -->
 
 				<div class="box-footer">
-					<button class="btn btn-primary" type="submit">
+					<button class="btn btn-primary" type="submit" name="submit">
 						<i class="fa fa-fw fa-save">
 						</i>บันทึกข้อมูล
 					</button>

@@ -21,10 +21,22 @@ class Repair_model extends CI_Model
     {
         $this->db->like('repair_id', $keryword);
         $this->db->limit($limit, $start);
+       
         $this->db->select('*')
         ->from('repair')
-		->join('contract', 'contract.contract_id  = repair.contract_id','left')
-		->join('emmployee','emmployee.employee_id = repair.employee_id','left');
+        ->from('contract')
+        ->from('users')
+        ->from('room')
+        ->from('reservationsroom')
+        ->from('emmployee')
+        ->where('contract.contract_id  = repair.contract_id')
+        ->where('contract.room_id = room.room_id')
+        ->where('users.user_id = contract.user_id')
+        ->where('emmployee.employee_id = repair.employee_id')
+        ->where('contract.reservationsroom_id = reservationsroom.reservationsroom_id');
+        // ->from('repair')
+		// ->join('contract', 'contract.contract_id  = repair.contract_id','left')
+		// ->join('emmployee','emmployee.employee_id = repair.employee_id','left');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {

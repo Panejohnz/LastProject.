@@ -134,27 +134,26 @@ class Reservationadmin extends CI_Controller
 
         $stringrow = base_url(uri_string());
         $arraystate = (explode("/", $stringrow));
+        $idtest = ($arraystate[5]);
         $idtestt = ($arraystate[6]);
         // $room_id = $this->input->post('roomnum');
         $this->db->where('room_id', $idtestt);
         //$ze = $this->db->get('room');
 
         $data2 = array(
-    'roomstatus' => '0'
+    'roomstatus' => '1'
   );
-
-
         $this->db->update('room', $data2);
-        $this->db->where('reservations_id', $reservations_id);
-        $this->db->delete('reservations');
-
-        $this->db->where('reservations_id', $reservations_id);
-        $this->db->delete('reservationsroom');
-
-        $this->db->where('reservations_id', $reservations_id);
-        $this->db->delete('reservationsfurniture');
+      
 
 
+       
+        $data85 = array(
+            'reservations_status' => '2',
+            'end_date' => date('Y-m-d')
+        );
+        $this->db->where('reservations_id', $idtest);
+        $this->db->update('reservations', $data85);
        
         redirect('Reservationadmin');
     }

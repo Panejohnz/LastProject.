@@ -20,7 +20,7 @@ class Room_model extends CI_Model
     public function fetch_room($limit, $start, $keryword)
     {
         $this->db->like('roomnum', $keryword);
-        $this->db->limit($limit, $start);
+        
         $this->db->select('*')
         ->from('room')
         ->from('roomcategory')
@@ -115,5 +115,15 @@ $query = $this->db->get();
             );
         $this->db->where('room_id',$id);
         return $this->db->update('room',$data);
+        }
+        public function is_email_available($email)
+        {
+            $this->db->where('roomnum', $email);
+            $query = $this->db->get("room");
+            if ($query->num_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
         }
 }

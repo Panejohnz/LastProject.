@@ -99,7 +99,15 @@ redirect('member');
 
 	public function remove($user_id)
 	{
-		$this->member_model->remove_member($user_id);
+		// $this->member_model->remove_member($user_id);
+		$this->db->where('user_id',$user_id);
+
+		$data = array(
+			'isactive' => 0
+		);
+
+		$this->db->update('users', $data);
+		
 		redirect('member');
 	}
 	

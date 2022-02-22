@@ -35,29 +35,29 @@ class Repair extends CI_Controller
 
     public function newdata()
     {
-         $this->load->view('template/backheader');
+        $this->load->view('template/backheader');
         $this->load->view('repair/newdata');
-         $this->load->view('template/backfooter');
+        $this->load->view('template/backfooter');
     }
 
     public function postdata()
-	{
-		$object = array(
-			'user_id' => $this->input->post('customer_id'),
-			'roomnum' => $this->input->post('roomnum'),
-			'job_description' => $this->input->post('job_description'),
-			'operator_id' => $this->input->post('operator_id'),
-			'statusrepair' => $this->input->post('statusrepair')    
-			
-		);
-$this->db->insert('Repair', $object);
-redirect('ReservationsController');
-		}
+    {
+        $object = array(
+            'user_id' => $this->input->post('customer_id'),
+            'roomnum' => $this->input->post('roomnum'),
+            'job_description' => $this->input->post('job_description'),
+            'operator_id' => $this->input->post('operator_id'),
+            'statusrepair' => $this->input->post('statusrepair')
+            
+        );
+        $this->db->insert('repair', $object);
+        redirect('ReservationsController');
+    }
 
 
     /*
         public function postdata()
-    
+
         {
             print_r($_FILES);
             exit;
@@ -67,19 +67,19 @@ redirect('ReservationsController');
                 $config['max_size']     = '2000';
                 $config['max_width'] = '2000';
                 $config['max_height'] = '2000';
-    
+
                 $this->load->library('upload', $config);
-    
-    
+
+
                 //$this->upload->initialize($config);
                 //$config['overwrite'] = TRUE;
                 $config['typeimg'] = ($this->input->post('datafile')=='') ? uniqid() : $this->input->post('datafile');
                 //$this->load->library('upload',$config);
-    
+
                 $no_file_error = "<p>You did not select a file to upload.</p>";
                 if(!$this->upload->do_upload('typeimg') && $this->upload->display_errors() != $no_file_error){
                     $checkfile = FALSE;
-    
+
                 }
                 else
                 {
@@ -92,7 +92,7 @@ redirect('ReservationsController');
                             'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                         )
                     );
-    
+
                     $data     = $this->upload->data();
                     $datafile = ($this->input->post('datafile')=='') ? $data['typeimg'] : $this->input->post('datafile');
                     $this->imgtype_model->entry_imgtype($this->input->post('imgtype_id'),$datafile);
@@ -105,14 +105,14 @@ redirect('ReservationsController');
                         'err_typeimg'     		=> $this->upload->display_errors(),
                         'imgtype_name'       	=> set_value('imgtype_name'),
                         'typeimg'       		=> set_value('typeimg')
-    
+
                     );
                     $this->session->set_flashdata($data);
-    
+
                     //print_r($data);
-    
+
                     //exit();
-    
+
                 }
                 if($this->input->post('imgtype_id') == NULL){
                     //redirect('imgtype/newdata');
@@ -123,7 +123,7 @@ redirect('ReservationsController');
                 }
             }
         }
-    
+
     */
     public function adding($value='')
     {
@@ -155,10 +155,10 @@ redirect('ReservationsController');
             $this->db->insert('roomcategory', $arr);
 
             $this->session->set_flashdata(
-                            array(
+                array(
                         'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                     )
-                        );
+            );
 
             redirect('repair');
         }
@@ -196,10 +196,10 @@ redirect('ReservationsController');
 
 
             $this->session->set_flashdata(
-                       array(
+                array(
                         'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-success"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ [ไม่เปลี่ยนภาพ]</div></div>'
                     )
-                   );
+            );
 
             redirect('repair', 'refresh');
         } else {
@@ -229,10 +229,10 @@ redirect('ReservationsController');
             $this->db->update('repair', $arr);
 
             $this->session->set_flashdata(
-                            array(
+                array(
                         'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                     )
-                        );
+            );
 
             redirect('repair', 'refresh');
         }
@@ -246,19 +246,20 @@ redirect('ReservationsController');
         $this->load->view('repair/edit', $data);
         $this->load->view('template/backfooter');
     }
-    public function editre($id){
-		$object = array(
-			'roomnum' => $this->input->post('roomnum'),
-			'job_description' => $this->input->post('job_description'),
-			'operator_id' => $this->input->post('operator_id'),
-			'statusrepair' => $this->input->post('statusrepair')
-			
-		);
-		$this->db->where('repair_id', $id);
-		
-		$this->db->update('Repair', $object);
-		redirect('repair');
-	}
+    public function editre($id)
+    {
+        $object = array(
+            'roomnum' => $this->input->post('roomnum'),
+            'job_description' => $this->input->post('job_description'),
+            'operator_id' => $this->input->post('operator_id'),
+            'statusrepair' => $this->input->post('statusrepair')
+            
+        );
+        $this->db->where('repair_id', $id);
+        
+        $this->db->update('repair', $object);
+        redirect('repair');
+    }
 
 
 
@@ -282,15 +283,14 @@ redirect('ReservationsController');
 
     public function update_repair($id)
     {
-        
         $data2 = array(
-            'statusrepair' => '1',
+            'repair_status' => '2',
             'employee_id' => $this->session->userdata('employee_id')
           );
    
-            $this->db->where('repair_id', $id);
-            $this->db->update('Repair', $data2);
-            redirect('repair');
+        $this->db->where('repair_id', $id);
+        $this->db->update('repair', $data2);
+        redirect('repair');
         
         // $this->load->model('repair_model', 'Repair');
         // $res = $this->Repair->update_repair();
@@ -302,8 +302,18 @@ redirect('ReservationsController');
         //     $this->session->set_flashdata('msg_class', "alert-danger");
         // }
         // return redirect('repair');
-    
-}
+    }
+    public function update_repair2($id)
+    {
+        $data2 = array(
+            'repair_status' => '3',
+            'employee_id' => $this->session->userdata('employee_id')
+          );
+   
+        $this->db->where('repair_id', $id);
+        $this->db->update('repair', $data2);
+        redirect('repair');
+    }
 
     public function update_status($id)
     {
@@ -320,17 +330,37 @@ redirect('ReservationsController');
         //     }
         //     return redirect('RoomController');
         // }
-
+            
         $this->db->where('repair_id', $id);
 
 
         $data2 = array(
-            'statusrepair' => '2'
+            'repair_status' => '4',
+            'comment' => $this->input->post('send')
           );
    
            
-        $this->db->update('Repair', $data2);
+        $this->db->update('repair', $data2);
+        
+      
         redirect('repair');
     }
-
+    public function hee1()
+    {
+        $data2 = array(
+            
+            'comment' => $this->input->post('detail')
+          );
+        $this->db->update('repair', $data2);
+    }
+    public function update_statusno($id){
+        $data2 = array(
+            'comment' => $this->input->post('send1'),
+            'employee_id' => $this->session->userdata('employee_id')
+          );
+   
+        $this->db->where('repair_id', $id);
+        $this->db->update('repair', $data2);
+        redirect('repair');
+    }
 }

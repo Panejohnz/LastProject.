@@ -3,7 +3,7 @@
 
 
 defined('BASEPATH') OR exit('No direct script access allowed');
-class watercontroller extends CI_Controller
+class Watercontroller extends CI_Controller
 {
 
 	public function __construct()
@@ -47,11 +47,11 @@ class watercontroller extends CI_Controller
 	public function postdata()
 	{
 		$object = array(
-			'typebill' => $this->input->post('typebill'),
-			'pricemeter' => $this->input->post('pricemeter')
+			'utility_name' => $this->input->post('typebill'),
+			'utilityprice' => $this->input->post('pricemeter')
 			
 		);
-$this->db->insert('pricebill', $object);
+$this->db->insert('publicutility', $object);
 redirect('watercontroller');
 		}
 	
@@ -65,12 +65,12 @@ redirect('watercontroller');
 
 	public function edad($idad){
 		$object = array(
-			'typebill' => $this->input->post('typebill'),
-			'pricemeter' => $this->input->post('pricemeter')
+			'utility_name' => $this->input->post('typebill'),
+			'utilityprice' => $this->input->post('pricemeter')
 		);
-		$this->db->where('pricebill_id', $idad);
+		$this->db->where('utility_id', $idad);
 		
-		$this->db->update('pricebill', $object);
+		$this->db->update('publicutility', $object);
 		redirect('watercontroller');
 	}
 
@@ -91,6 +91,18 @@ redirect('watercontroller');
 		$this->water_modal->remove_member($pricebill_id);
 		redirect('watercontroller');
 	}
+
+	public function checkmail()
+    {
+        $this->load->model("Water_modal");
+        if ($this->Water_modal->is_email_available($_POST["typebill"])) {
+            // echo '<label class="text-danger"><span class="glyphicon glyphicon-remove"></span> email นี้ได้ถูกใช้ไปแล้ว</label>';
+            echo 'true';
+        } else {
+            // echo '<label class="text-success"><span class="glyphicon glyphicon-ok"></span> Email นี้สามารถใช้ได้</label>';
+            echo 'false';
+        }
+    }
 
 
 }

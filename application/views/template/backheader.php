@@ -30,6 +30,29 @@
   font-family: 'Raleway', sans-serif;
 color: #000;		
 }
+.hee {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.hee:hover {
+  background: red;
+}
+
+.hee .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
 </style>
 	<meta charset="utf-8">
 	<title>
@@ -48,39 +71,18 @@ color: #000;
 	
   <link type="text/css" href="<?php echo base_url(); ?>./assets/css/argon.css?v=1.1.0" rel="stylesheet">
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./bootstrap/css/bootstrap.min.css">
-	<!-- font awesome icons-->
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./bootstrap/css/font-awesome.min.css">
-	<!-- ionicons-->
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./bootstrap/css/ionicons.min.css">
-	<!--Theme style-->
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./dist/css/AdminLTE.min.css">
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./dist/css/skins/skin-blue.min.css">
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./plugins/datatables/dataTables.bootstrap.css">
 	<link rel = "stylesheet" type = "text/css"  href = "<?php echo base_url(); ?>./dist/css/mycustom.css">
-
 	<link rel="stylesheet" href="<?php echo base_url(); ?>./assets/deluxe/css/bootstrap-datepicker.css">
-
-	
-	
-	
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-	<!-- REQUIRED JS SCRIPTS -->
-	
-
-	<!-- jQuery 2.1.4 -->
 	<script src="<?php echo base_url('./assets/deluxe/js/bootstrap-datepicker.js')?>"></script>
-
 	<script src="<?php echo base_url(); ?>./plugins/jQuery/jQuery-2.1.4.min.js" type="text/javascript">
 	</script>
-	<!-- Bootstrap 3.3.2 JS -->
 	<script src="<?php echo base_url(); ?>./bootstrap/js/bootstrap.min.js" type="text/javascript">
 	</script>
-	<!-- AdminLTE App -->
 	<script src="<?php echo base_url(); ?>./dist/js/app.min.js" type="text/javascript">
 	</script>
 	
@@ -204,7 +206,7 @@ color: #000;
 			<!-- Optionally, you can add icons to the links -->
 			
 			<li class="<?php echo base_url('Member'); ?>">
-				<a href="<?php echo base_url('Member'); ?>">
+	<a  href="<?php echo base_url('Member'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>
@@ -213,7 +215,7 @@ color: #000;
 				</a>
 			</li>
 			<li class="<?php echo base_url('Admin'); ?>">
-				<a href="<?php echo base_url('Admin'); ?>">
+				<a <?php if($this->session->userdata('statusem') != 1) { ?> style="display: none;" <?php } ?> href="<?php echo base_url('Admin'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>
@@ -251,6 +253,7 @@ color: #000;
 			<li class="<?php echo base_url('Watercontroller'); ?>">
 				<a href="<?php echo base_url('Watercontroller'); ?>">
 					<i class="fa fa-link">
+					<span class="badge"></span>
 					</i>
 					<span>
 						- จัดการค่าน้ำ-ค่าไฟ
@@ -276,6 +279,34 @@ color: #000;
 					</span>
 				</a>
 			</li>
+			
+			<li class="<?php echo base_url('BillController'); ?>">
+				<a href="<?php echo base_url('BillController'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span >
+						- ค่าน้ำ ค่าไฟ
+					</span>
+				</a>
+			</li>
+			<li class="<?php echo base_url('WalkinController'); ?>">
+				<a href="<?php echo base_url('WalkinController'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span >
+						- Walk IN
+					</span>
+				</a>
+			</li>
+			<li class="<?php echo base_url('Payment'); ?>">
+				<a href="<?php echo base_url('Payment'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span >
+						- ชำระเงิน
+					</span>
+				</a>
+			</li>
 			<li class="<?php echo base_url('Repair'); ?>">
 				<a href="<?php echo base_url('Repair'); ?>">
 					<i class="fa fa-link">
@@ -285,21 +316,30 @@ color: #000;
 					</span>
 				</a>
 			</li>
-			<li class="<?php echo base_url('BillController'); ?>">
-				<a href="<?php echo base_url('BillController'); ?>">
-					<i class="fa fa-link">
-					</i>
-					<span>
-						- ค่าน้ำ ค่าไฟ
-					</span>
-				</a>
-			</li>
 			<li class="<?php echo base_url('ComplainController'); ?>">
 				<a href="<?php echo base_url('ComplainController'); ?>">
 					<i class="fa fa-link">
 					</i>
 					<span>
 						- ร้องเรียน
+					</span>
+				</a>
+			</li>
+			<li class="<?php echo base_url('MoveroomController'); ?>">
+				<a href="<?php echo base_url('MoveroomController'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span>
+						- แจ้งย้ายห้อง
+					</span>
+				</a>
+			</li>
+			<li class="<?php echo base_url('CheckoutController'); ?>">
+				<a href="<?php echo base_url('CheckoutController'); ?>">
+					<i class="fa fa-link">
+					</i>
+					<span>
+						- ตรวจสอบออกห้องพัก
 					</span>
 				</a>
 			</li>

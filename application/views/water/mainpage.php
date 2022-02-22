@@ -62,9 +62,9 @@
                                           
                                             
                                            
-                                            <td>
+                                            <!-- <td>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('watercontroller/confrm/'.$data->pricebill_id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     <?php } } ?>
                                 </tbody>

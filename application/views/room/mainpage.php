@@ -30,6 +30,9 @@
                        <div class="col-sm-1">
                            <a class="btn btn-danger" href="<?php echo base_url('room/status2/'); ?>" role="button">ไม่ว่าง</a>
                        </div>
+                       <div class="col-sm-1">
+                           <a class="btn btn-warning" href="<?php echo base_url('room/status3'); ?>" role="button">ติดจอง</a>
+                       </div>
 
                         <div class="col-sm-1">
                             <a class="btn btn-default" href="<?php echo  base_url('room'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
@@ -87,18 +90,18 @@
                                             $status = $data->roomstatus;
                                             if ($status == 3) {
                                                 ?>
-                                               <a href="RoomController/update_status?sval=<?php echo $data->room_id; ?>&sval=<?php echo $data->roomstatus; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-danger">ไม่ว่าง</a>
+                                               <a disabled href="RoomController/update_status?sval=<?php echo $data->room_id; ?>&sval=<?php echo $data->roomstatus; ?>" <?php if ($status == 1) { ?> disabled <?php   } ?> class="btn btn-danger">ไม่ว่าง</a>
                                                
                                             <?php
                                             }
                                             elseif ($status == 2) {
                                                 ?>
-                                               <a href="RoomController/update_status?sval=<?php echo $data->room_id; ?>&sval=<?php echo $data->roomstatus; ?>" <?php if ($status == 2) { ?> disabled <?php   } ?> class="btn btn-warning">ติดจอง</a>
+                                               <a disabled href="RoomController/update_status?sval=<?php echo $data->room_id; ?>&sval=<?php echo $data->roomstatus; ?>" <?php if ($status == 2) { ?> disabled <?php   } ?> class="btn btn-warning">ติดจอง</a>
                                                
                                             <?php
                                             } else {
                                                 ?>
-                                                <a disabled href="Bookaroom/up/<?php echo $data->room_id?>" class="btn btn-success">ห้องว่าง</a>
+                                                <a disabled href="Bookaroom/up/<?php echo $data->room_id?>" disabled class="btn btn-success">ห้องว่าง</a>
                                                
                                           <?php
                                             }

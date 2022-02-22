@@ -11,4 +11,21 @@ $('img').EZView();
 
 });
 </script> -->
+<script>
+    var start = 0;
+ 
+        $('#detail').change(function () {
+             start = $("#detail").val()
+             
+            if (start != '') {
+                $('#sendButton').attr('disabled',false)
+
+                
+            } else {
+               $('#sendButton').attr('disabled', true)
+            }
+        });
+       
+  
+</script>
       </footer>

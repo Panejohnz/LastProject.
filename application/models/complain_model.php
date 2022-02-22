@@ -24,7 +24,8 @@ class Complain_model extends CI_Model
         $this->db->select('*')
         ->from('complain')
         ->join('contract', 'contract.contract_id = complain.contract_id ', 'left')
-        ->join('emmployee', 'emmployee.employee_id = complain.employee_id', 'left');
+        ->join('emmployee', 'emmployee.employee_id = complain.employee_id', 'left')
+        ->join('room','room.room_id = contract.room_id','left');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {

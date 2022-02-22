@@ -66,7 +66,7 @@
 
 				 	<div class="col-sm-4">		
 						<label for="exampleInputEmail1">
-							สกุล
+							นามสกุล
 						</label> <?php echo $this->session->flashdata('error_lastname')?>
 						<input type="text" id="lastname" class="form-control" name="lastname" value="<?php echo  $result->lastname ?>" required>
 					</div>

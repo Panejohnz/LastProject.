@@ -43,7 +43,7 @@
                                     
                                     <tr role="row">
                                        
-                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">ไอดีสัญญา</th>
+                                        <th class="sorting" tabindex="1" rowspan="1" colspan="1">เลขที่สัญญา</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">หมายเลขห้อง</th>
                                         <th class="sorting" tabindex="1" rowspan="1" colspan="1">ชื่อลูกค้า</th>
                                         <!-- <th class="sorting" tabindex="1" rowspan="1" colspan="1">ราคาห้อง</th> -->

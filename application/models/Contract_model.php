@@ -14,6 +14,7 @@ class Contract_model extends CI_Model
     {
         $this->db->like('contract_id', $keyword);
         $this->db->from('contract');
+        $this->db->where('contract.is_checkout = 1');
         return $this->db->count_all_results();
     }
 
@@ -28,7 +29,8 @@ class Contract_model extends CI_Model
          ->from('reservationsroom')
          ->where('contract.room_id = room.room_id')
          ->where('users.user_id = contract.user_id')
-         ->where('contract.reservationsroom_id = reservationsroom.reservationsroom_id');
+         ->where('contract.reservationsroom_id = reservationsroom.reservationsroom_id')
+         ->where('contract.is_checkout = 1');
         //  ->from('emmployee')
         //  ->where('emmployee.employee_id = contract.employee_id');
         $query = $this->db->get();

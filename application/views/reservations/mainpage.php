@@ -46,6 +46,8 @@
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">หลักฐานการจอง</th>
                                         
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  20px;">&nbsp;</th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1"></th>
+                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,18 +68,10 @@
                                  ?>               
 
 
-                                    <?php        $query = $this->db->query("SELECT * FROM `reservations`
-                                                    LEFT JOIN users
-                                                    ON reservations.user_id = users.user_id
-                                                    LEFT JOIN reservationsroom
-                                                    ON reservations.reservations_id = reservationsroom.reservations_id 
-                                                   
-                                                    LEFT JOIN room
-                                                    ON  room.room_id = reservationsroom.room_id  WHERE reservations.reservations_id NOT IN ( SELECT contract.reservationsroom_id FROM contract WHERE contract.reservationsroom_id = reservationsroom.reservationsroom_id )");
-
-                                                     
-                                                       
-                                                             ?>
+                                    <?php        $query = $this->db->query("SELECT * FROM `reservations` 
+                                    JOIN users ON reservations.user_id = users.user_id 
+                                    JOIN reservationsroom ON reservations.reservations_id = reservationsroom.reservations_id 
+                                    JOIN room ON room.room_id = reservationsroom.room_id WHERE reservations.reservations_id AND reservations.reservations_status = 1") ?>
                                     
                                 
                                         <tr role="row">
@@ -85,7 +79,7 @@
                                                     { ?>
                                             <td>
                                             <a href="<?php echo base_url('reservations/edit/'.$data['reservations_id']); ?>">
-                                            <?php echo  $data['reservation_date']; ?>
+                                            <?php echo  $data['start_date']; ?>
                                             </a> 
                                             <br>
                                           
@@ -125,7 +119,7 @@
                                             
                                             </td>
                                             <td> 
-                                            <?php echo  $data['slip_date']; ?>
+                                            <?php echo  $data['reservation_date']; ?>
                                             </td>
                                             <!-- <td>
                                             <?php echo  $data['telephone']; ?>
@@ -151,11 +145,28 @@
                                                 
                                             ?>
                                        <td>
-                                            <a class="btn btn-success" href="<?php echo  base_url('contract/newdata/'.$data['reservations_id']); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> ทำสัญญา</a>
+                                       <?php $datee =  $data['start_date']; 
+                                                      $dateend = date('Y-m-d', strtotime($datee. ' + 1 days'));
+                                                     
+                                                      $datest = date('Y-m-d');
+                                                
+                                                      ?>
+                                            <a <?php if($datest > $dateend){ ?> style="display: none;" <?php } ?> class="btn btn-success" href="<?php echo  base_url('contract/newdata/'.$data['reservations_id']); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> ทำสัญญา</a>
                                             </td>
                                            
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('Reservationadmin/confrm/'.$data['reservations_id']."/".$data['room_id']); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                           
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('Reservationadmin/confrm/'.$data['reservations_id']."/".$data['room_id']); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ยกเลิกการจอง</a>
+                                                </td>
+                                                <td>
+                                               
+
+                                                <?php if($datest > $dateend){
+                                                    echo "เกินเวลาทำสัญญา";
+                                                }
+                                                else{
+                                                    echo "รอทำสัญญา";
+                                                } ?>
                                             </td>
                                            
                                             

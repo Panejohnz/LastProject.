@@ -48,6 +48,7 @@ class FurnitureController extends CI_Controller
         $object = array(
             'name' => $this->input->post('name'),
             'price' => $this->input->post('price'),
+            'payinfull' => $this->input->post('fullprice'),
             'stock' => $this->input->post('stock')
             
         );
@@ -68,6 +69,7 @@ class FurnitureController extends CI_Controller
         $object = array(
             'name' => $this->input->post('name'),
             'price' => $this->input->post('price'),
+            'payinfull' => $this->input->post('fullprice'),
             'stock' => $this->input->post('stock')
         
         );
@@ -95,23 +97,32 @@ class FurnitureController extends CI_Controller
     }
     public function furniture_list()
     {
-        
         $furniture_list = $this->Furniture_model->furniture_list();
         $this->load->view('furniture', ['furniture_list'=>$furniture_list]);
-	}
-	public function add_selected_student()
-{
-    $furniture_id = $this->input->post('furniture_id'); //here i am getting student id from the checkbox
-
-    for ($i=0; $i < sizeof($furniture_id); $i++) 
-    { 
-       $data = array('furniture_id' => $furniture_id[$i]);
-       //$this->db->insert('added_student',$data);
     }
-    
-    // $this->session->set_flashdata('msg',"Students details has been added successfully");
-    // $this->session->set_flashdata('msg_class','alert-success');
+    public function add_selected_student()
+    {
+        $furniture_id = $this->input->post('furniture_id'); //here i am getting student id from the checkbox
 
-    return redirect('students');
-}
+        for ($i=0; $i < sizeof($furniture_id); $i++) {
+            $data = array('furniture_id' => $furniture_id[$i]);
+            //$this->db->insert('added_student',$data);
+        }
+    
+        // $this->session->set_flashdata('msg',"Students details has been added successfully");
+        // $this->session->set_flashdata('msg_class','alert-success');
+
+        return redirect('students');
+    }
+    public function checkmail()
+    {
+        $this->load->model("Furniture_model");
+        if ($this->Furniture_model->is_email_available($_POST["name"])) {
+            // echo '<label class="text-danger"><span class="glyphicon glyphicon-remove"></span> email นี้ได้ถูกใช้ไปแล้ว</label>';
+            echo 'true';
+        } else {
+            // echo '<label class="text-success"><span class="glyphicon glyphicon-ok"></span> Email นี้สามารถใช้ได้</label>';
+            echo 'false';
+        }
+    }
 }

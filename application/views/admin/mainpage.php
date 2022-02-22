@@ -38,8 +38,11 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ชื่อ สกุล</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>
+                                        <th class="" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ชื่อ นามสกุล</th>
+                                        <th class="" tabindex="0" rowspan="1" colspan="1">Username</th>
+                                        <th class="" tabindex="0" rowspan="1" colspan="1">Email</th>
+                                        <th class="" tabindex="0" rowspan="1" colspan="1">เบอร์โทรศัพท์</th>
+                                       
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -51,16 +54,22 @@
                                             <?php echo  $data->firstname_emp; ?>
                                             <?php echo $data->lastname; ?>
                                             </a> 
-                                            <br>
-                                            username : <?php echo $data->username; ?>
+                                           
                                             </td>
-                                            
                                             <td>
-                                            เบอร์โทรศัพท์ : 
-                                            <?php echo $data->tel; ?>  
-                                            <br>
-                                            อีเมล : 
+                                            <?php echo $data->username; ?>
+                                           
+                                            </td>
+                                            <td>
+                                            
+                                           
                                             <?php echo $data->email; ?>  
+                                            
+                                            <br>
+                                            </td>
+                                            <td>
+                                            <?php echo $data->tel; ?>  
+                                            
                                             <br>
                                           
                                             

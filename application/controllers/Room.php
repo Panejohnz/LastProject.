@@ -20,7 +20,7 @@ class Room extends CI_Controller
         $config = array();
         $config['base_url'] = base_url('room/index');
         $config['total_rows'] = $this->room_model->record_count($this->input->get('keyword'));
-        $config['per_page'] = $this->input->get('keyword') == null ? 40 : 999;
+        $config['per_page'] = $this->input->get('keyword') == null ? 50 : 999;
         $config['uri_segment'] = 3;
         $choice = $config['total_rows'] / $config['per_page'];
         $config['num_links'] = round($choice);
@@ -47,9 +47,9 @@ class Room extends CI_Controller
     {
         $object = array(
             'roomnum' => $this->input->post('roomnum'),
-            'roomcate_id' => $this->input->post('roomcate'),
+            'roomcategory_id' => $this->input->post('roomcate'),
             // 'roomprice' => $this->input->post('roomprice'),
-            'roomstatus' => $this->input->post('roomstatus')
+            'roomstatus' => 1
         );
         $this->db->insert('room', $object);
         redirect('room');
@@ -67,9 +67,9 @@ class Room extends CI_Controller
     {
         $object = array(
             'roomnum' => $this->input->post('roomnum'),
-            'roomcate_id' => $this->input->post('roomcate'),
+            'roomcategory_id' => $this->input->post('roomcate'),
             // 'roomprice' => $this->input->post('roomprice'),
-            'roomstatus' => $this->input->post('roomstatus')
+            // 'roomstatus' => $this->input->post('roomstatus')
             
         );
         $this->db->where('room_id', $idroom);
@@ -100,7 +100,7 @@ class Room extends CI_Controller
         $this->db->select('*')
         ->from('room')
         ->from('roomcategory')
-     ->where('roomcategory.roomcategory_id = room.roomcate_id');
+     ->where('roomcategory.roomcategory_id = room.roomcategory_id');
      
      
         $query = $this->db->get();
@@ -114,12 +114,36 @@ class Room extends CI_Controller
         $this->db->select('*')
         ->from('room')
         ->from('roomcategory')
-     ->where('roomcategory.roomcategory_id = room.roomcate_id');
+     ->where('roomcategory.roomcategory_id = room.roomcategory_id');
      
      
         $query = $this->db->get();
         $this->load->view('template/backheader');
         $this->load->view('room/status2', $query);
         $this->load->view('template/backfooter');
+    }
+    public function status3()
+    {
+        $this->db->select('*')
+        ->from('room')
+        ->from('roomcategory')
+     ->where('roomcategory.roomcategory_id = room.roomcategory_id');
+     
+     
+        $query = $this->db->get();
+        $this->load->view('template/backheader');
+        $this->load->view('room/status3', $query);
+        $this->load->view('template/backfooter');
+    }
+    public function checkroomnum()
+    {
+        $this->load->model("Room_model");
+        if ($this->Room_model->is_email_available($_POST["roomnum"])) {
+			// echo '<label class="text-danger"><span class="glyphicon glyphicon-remove"></span> email นี้ได้ถูกใช้ไปแล้ว</label>';
+			echo 'true';
+        } else {
+			// echo '<label class="text-success"><span class="glyphicon glyphicon-ok"></span> Email นี้สามารถใช้ได้</label>';
+			echo 'false';
+        }
     }
 }

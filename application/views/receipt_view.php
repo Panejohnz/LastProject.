@@ -53,22 +53,28 @@
         $data4 = $qq4->row_array();
         
         //$this->db->where('room_id',$data['room_id']);
-        $this->db->where('biillutility_id');
-        $query1 = $this->db->get('billutility');
+        $this->db->where('utility_id' , 1);
+        $query1 = $this->db->get('publicutility');
         $data5 = $query1->row_array();
 
-        $this->db->where('biillutility_id');
-        $query2 = $this->db->get('billutility');
+        $this->db->where('utility_id' , 2);
+        $query2 = $this->db->get('publicutility');
         $data8 = $query2->row_array();
         
         $this->db->where('reservationsroom_id', $data['reservationsroom_id']);
         $heee = $this->db->get('reservationsroom');
         $heeee = $heee->row_array();
 
+        $sss = $heeee['reservationsroom_id'];
+
+       $ku = $this->db->query("SELECT SUM(reservationsfurniture.furnitureprice) AS SumBudget FROM reservationsfurniture where reservationsfurniture.reservationsroom_id = $sss");
+        $ku1 = $ku->row_array();
+
         $this->db->where('reservationsroom_id', $data['reservationsroom_id']);
         $heee = $this->db->get('reservationsfurniture');
         $heeee = $heee->row_array();
 
+        
         
         
       //   $this->db->select('*'); //
@@ -107,14 +113,15 @@
 <br>
 <p class="ex3" align="left">ข้อ ๑ ผู้เช่าตกลงเช่าและผู้ให้เช่าตกลงให้เช่าห้องพักเลขที่  ..<?php echo $data3['roomnum']; ?>..</p>
 <p class="ex3" align="left">ตั้งอยู่ 926 ถนนสุ ทธิสารวินิจฉัย แขวง ดินแดง เขตดินแดง กรุงเทพมหานคร 10400</p>
-<p class="ex3" align="left">ค่าน้ำยูนิตละ......<?php echo $data5['pricemeter']; ?>......บาท &nbsp; ค่าไฟยูนิตละ....<?php echo $data8['pricemeter']; ?>....บาท</p>
+<p class="ex3" align="left">ค่าน้ำยูนิตละ......<?php echo $data5['utilityprice']; ?>......บาท &nbsp; ค่าไฟยูนิตละ....<?php echo $data8['utilityprice']; ?>....บาท</p>
+<p class="ex3" align="left">ค่าประกัน....<?php echo $data['roomprice'] + ($data['roomprice'] * 2) ?>....บาท</p>
 <p class="ex3" align="left">เพื่อใช้เป็นที่อยู่อาศัยเท่านั้น ในอัตราค่าเช่าเดือนละ ..<?php echo $data['roomprice']; ?>.. บาท</p>
 <p class="ex3" align="left">โดยมีกำหนดระยะเวลาในการเช่า ตั้งแต่วันที่ ..<?php echo $data['datecontract_start']; ?>.. ถึงวันที่ ..<?php echo $data['datecontract_end']; ?>..</p>
 
 <p class="ex3" align="left">โดยมีกำหนดชำระค่าบริการก่อนวันที่ 25 ของทุกเดือน</p>
 <br>
 <p class="ex3" align="left">ข้อ ๒ ผู้เช่าตกลงเช่าและผู้ให้เช่าตกลงให้เช่า อุปกรณ์ไฟฟ้าและเฟอร์นิเจอร์ ภายในห้องพัก</p>
-<p class="ex3" align="left">ในอัตราค่าเช่าเดือนละ .. <?php echo $heeee['furnitureprice']; ?>.. บาท โดยมีกำหนดชำระค่าบริการก่อนวันที่ 25</p>
+<p class="ex3" align="left">ในอัตราค่าเช่าเดือนละ .. <?php echo $ku1['SumBudget']; ?>.. บาท โดยมีกำหนดชำระค่าบริการก่อนวันที่ 25</p>
 <p class="ex3" align="left">ของทุกเดือน โดยมีสภาพของอุปกรณ์ไฟฟ้าและเฟอร์นิเจอร์ ปรากฎตามรายละเอียดหลักฐาน</p>
 <p class="ex3" align="left">การตรวจรับสภาพอาคารแนบท้ายสัญญาฉบับนี้และถือว่าเป็นส่วนหนึ่งของสัญญาเช่า</p>
 <br>
@@ -123,9 +130,9 @@
 
 <p class="ex3" align="left">ข้อ ๓ ผู้ให้เช่าจะจัดส่งใบแจ้งค่าใช้จ่ายต่าง ๆ ที่ผู้เช่าต้องชำระให้แก่ผู้เช่าทราบล่วงหน้า</p>
 <p class="ex3" align="left">ไม่น้อยกว่า ๗ วันก่อนถึงกำหนดวันชำระค่าใช้จ่ายต่าง ๆ โดยผู้ให้เช่ามีสิทธิตรวจสอบความถูกต้อง</p>
-<p class="ex3" align="left">เกี่ยวกับค่าใช้จ่ายต่าง ๆที่เรียกเก็บ หากไม่ถูกต้องผู้เช่าสามารถโต้แย้งได้ก่อนถึงกำหนดวันชำระค่าใช้จ่ายดังกล่าว</p>
+<p class="ex3" align="left">เกี่ยวกับค่าใช้จ่ายต่าง ๆ ที่เรียกเก็บ หากไม่ถูกต้องผู้เช่าสามารถโต้แย้งได้ก่อนถึงกำหนดวันชำระค่าใช้จ่ายดังกล่าว</p>
 ิ<br>
-<p class="ex3" align="left">ข้อ ๔ เมื่อสัญญาเช่าสิ้นสุดลง ผู้ให้เช่าจะทำการชำระเงินประกันคืนให้แก่ผู้เช่าทันที ในกรณ</p>
+<p class="ex3" align="left">ข้อ ๔ เมื่อสัญญาเช่าสิ้นสุดลง ผู้ให้เช่าจะทำการชำระเงินประกันคืนให้แก่ผู้เช่าทันที ในกรณี</p>
 <p class="ex3" align="left">ที่ต้องมีการตรวจสอบความเสียหายผู้ให้เช่าจะชำระเงินประกันคืนให้แก่ผู้เช่าภายใน ๗ วัน นับจาก</p>
 <p class="ex3" align="left">วันที่สัญญาเช่าสิ้นสุดและได้กลับเข้าครอบครองพื้นที่และทรัพย์สินที่ให้เช่า ทั้งนี้ ผู้ให้เช่าจะ</p>
 <p class="ex3" align="left">รับผิดชอบค่าใช้จ่ายเกี่ยวกับการชำระเงินประกันคืนให้แก่ผู้เช่าตามวิธีการที่ผู้เช่ากำหนด</p>

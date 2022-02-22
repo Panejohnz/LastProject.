@@ -21,7 +21,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-default">
     <div class="container">
-        <a class="navbar-brand" href="<?php echo site_url('page/staff') ?>">กลับ</a>
+        <a class="navbar-brand" href="<?php echo site_url('page/staff') ?>"> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button><?php   $stringrow = base_url(uri_string());
@@ -113,7 +113,7 @@
                 $arraystate = (explode("/", $stringrow));
                 $idtestt1 = ($arraystate[6]); ?>
                     <button class="btn btn-success" name="submit"  type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
-                    <a class="btn btn-danger" href="<?php echo  base_url('Slipcontroller/delete/'. $idtestt.'/'.$idtestt1); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
+                    <a class="btn btn-danger" href="<?php echo  base_url('Slipcontroller/delete/'. $idtestt.'/'.$idtestt1); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิกการจอง</a>
                 </div>
                 </center>
                 <!-- //onclick="myFunction()" -->

@@ -33,8 +33,8 @@
                         </label> 
                         <?php echo $this->session->flashdata('error_username')?>
                         <input type="text" id="username" class="form-control" name="username" value="<?php echo $this->session->flashdata('username'); ?>" required>
-                        <label class="text-danger" hidden id="falseusername"><span class="glyphicon glyphicon-remove"></span> username นี้ได้ถูกใช้ไปแล้ว</label>
-                        <label class="text-success" hidden id="trueusername"><span class="glyphicon glyphicon-ok"></span> username นี้สามารถใช้ได้</label>
+                            <label class="text-danger" hidden id="falseusername"><span class="glyphicon glyphicon-remove"></span> username นี้ได้ถูกใช้ไปแล้ว</label>
+                            <label class="text-success" hidden id="trueusername"><span class="glyphicon glyphicon-ok"></span> username นี้สามารถใช้ได้</label>
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">

@@ -7,6 +7,7 @@ class Kidmaiook extends CI_Controller {
     {
         $total = $this->input->post('hee');
         $usertotal = $this->input->post('customCheck1');
+        $quantity = $this->input->post('quantity');
         if($usertotal != null)
         {
             foreach($usertotal as $index => $usertotal)
@@ -15,7 +16,7 @@ class Kidmaiook extends CI_Controller {
                 $query = $this->db->get('furniture', 1);
                 $data =  $query->row_array();
                 
-                $total = $data['price']+$total;
+                $total = $total + $data['price'];
             }
         }else{
             

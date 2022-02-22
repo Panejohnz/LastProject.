@@ -39,6 +39,7 @@ class Login_api extends \Restserver\Libraries\REST_Controller
         $this->db->join('reservationsroom', 'reservationsroom.reservations_id = reservations.reservations_id');
         $this->db->join('reservationsfurniture', 'reservationsfurniture.reservationsroom_id = reservationsroom.reservationsroom_id');
         
+       
         
         
         

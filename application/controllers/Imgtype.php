@@ -6,7 +6,7 @@ class imgtype extends CI_Controller
     {
         parent::__construct();
         $this->load->library('pagination');
-        $this->load->model('imgtype_model');
+        $this->load->model('Imgtype_model');
         if (!$this->session->userdata('firstname_emp')) { //ดัก user บังคับล็อกอิน
             redirect('LoginController');
         }
@@ -16,7 +16,7 @@ class imgtype extends CI_Controller
     {
         $config = array();
         $config['base_url'] = base_url('imgtype/index');
-        $config['total_rows'] = $this->imgtype_model->record_count($this->input->get('keyword'));
+        $config['total_rows'] = $this->Imgtype_model->record_count($this->input->get('keyword'));
         $config['per_page'] = $this->input->get('keyword') == null ? 14 : 999;
         $config['uri_segment'] = 3;
         $choice = $config['total_rows'] / $config['per_page'];
@@ -25,7 +25,7 @@ class imgtype extends CI_Controller
         $this->pagination->initialize($config);
 
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['results'] = $this->imgtype_model->fetch_imgtype($config['per_page'], $page, $this->input->get('keyword'));
+        $data['results'] = $this->Imgtype_model->fetch_imgtype($config['per_page'], $page, $this->input->get('keyword'));
         $data['link'] = $this->pagination->create_links();
         $data['total_rows'] = $config['total_rows'];
         $this->load->view('template/backheader');
@@ -43,7 +43,7 @@ class imgtype extends CI_Controller
 
     /*
         public function postdata()
-    
+
         {
             print_r($_FILES);
             exit;
@@ -53,19 +53,19 @@ class imgtype extends CI_Controller
                 $config['max_size']     = '2000';
                 $config['max_width'] = '2000';
                 $config['max_height'] = '2000';
-    
+
                 $this->load->library('upload', $config);
-    
-    
+
+
                 //$this->upload->initialize($config);
                 //$config['overwrite'] = TRUE;
                 $config['typeimg'] = ($this->input->post('datafile')=='') ? uniqid() : $this->input->post('datafile');
                 //$this->load->library('upload',$config);
-    
+
                 $no_file_error = "<p>You did not select a file to upload.</p>";
                 if(!$this->upload->do_upload('typeimg') && $this->upload->display_errors() != $no_file_error){
                     $checkfile = FALSE;
-    
+
                 }
                 else
                 {
@@ -78,7 +78,7 @@ class imgtype extends CI_Controller
                             'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                         )
                     );
-    
+
                     $data     = $this->upload->data();
                     $datafile = ($this->input->post('datafile')=='') ? $data['typeimg'] : $this->input->post('datafile');
                     $this->imgtype_model->entry_imgtype($this->input->post('imgtype_id'),$datafile);
@@ -91,14 +91,14 @@ class imgtype extends CI_Controller
                         'err_typeimg'     		=> $this->upload->display_errors(),
                         'imgtype_name'       	=> set_value('imgtype_name'),
                         'typeimg'       		=> set_value('typeimg')
-    
+
                     );
                     $this->session->set_flashdata($data);
-    
+
                     //print_r($data);
-    
+
                     //exit();
-    
+
                 }
                 if($this->input->post('imgtype_id') == NULL){
                     //redirect('imgtype/newdata');
@@ -109,7 +109,7 @@ class imgtype extends CI_Controller
                 }
             }
         }
-    
+
     */
     public function adding($value='')
     {
@@ -121,28 +121,51 @@ class imgtype extends CI_Controller
 
         
 
-            //print_r($data);
-            //$this->load->view('upload_success', $data);
+        //print_r($data);
+        //$this->load->view('upload_success', $data);
 
-            
-            //$imgtype_name = $data['imgtype_name'];
-
+        
+        if (isset($_POST['submit'])) {
+            // $user_id=$ord_id;//Pass the userid here
             $arr=array(
-                                'roomname'=> $this->input->post('roomname'),
-                                // 'detail'=> $this->input->post('detail'),
-                                'roomprice'=> $this->input->post('roomprice')
-                               
-                            );
-            $this->db->insert('roomcategory', $arr);
+                'roomcategory_name'=> $this->input->post('roomname'),
+                // 'detail'=> $this->input->post('detail'),
+                'roomprice'=> $this->input->post('roomprice')
+               
+            );
+            $ord_id = $this->Imgtype_model->insert_order($arr);
+           
 
-            $this->session->set_flashdata(
-                            array(
+            $checkbox = $_POST['customCheck1']; //บัคไลน์นี้
+            for ($i=0;$i<count($checkbox);$i++) {
+                $this->db->where('furniture_id', $checkbox[$i]);
+                $fur = $this->db->get('furniture');
+                //$imgtype_name = $data['imgtype_name'];
+           
+              
+                $sss=array(
+                            'roomcategory_id' => $ord_id,
+                            'furniture_id' => $checkbox[$i],
+                            'furniture_amount' => '1',
+                           
+                        );
+                $this->db->insert('roomcategory_furniture', $sss);
+                // $ds = array('Type' => "มีเฟอร์นิเจอร์");
+                // $this->db->where('reservations_id', $user_id);
+                // $ff = $this->db->update('reservations', $ds);
+                
+                // $this->Imgtype_model->insert_order_detail1($sss);
+            }
+        }
+
+
+        $this->session->set_flashdata(
+            array(
                         'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                     )
-                        );
+        );
 
-            redirect('imgtype');
-        
+        redirect('Imgtype');
     }
 
 
@@ -220,23 +243,53 @@ class imgtype extends CI_Controller
     //     }
     // }
 
-    public function edittype($idtype){
+    public function edittype($idtype)
+    {
+
+      
+        
+        
+        if (isset($_POST['submit'])) {
+            // $user_id=$ord_id;//Pass the userid here
+       
+            $this->db->where('roomcategory_id', $idtype);
+            $this->db->delete('roomcategory_furniture');
+         
+
+            $checkbox = $_POST['customCheck1']; //บัคไลน์นี้
+            for ($i=0;$i<count($checkbox);$i++) {
+                $this->db->where('furniture_id', $checkbox[$i]);
+                $fur = $this->db->get('furniture');
+                //$imgtype_name = $data['imgtype_name'];
+           
+
+                $sss=array(
+                    'roomcategory_id' => $idtype,
+                    'furniture_id' => $checkbox[$i],
+                    'furniture_amount' => '1',
+                   
+                );
+                $this->db->insert('roomcategory_furniture', $sss);
+                
+              
+            }
+        }
+       
+         
+        $this->db->where('roomcategory_id', $idtype);
         $object = array(
-            'roomcategory_id'=> $this->input->post('id'),
-            'roomname'=> $this->input->post('roomname'),
+           'roomcategory_name'=> $this->input->post('roomname'),
                                 // 'detail'=> $this->input->post('detail'),
                                 'roomprice'=> $this->input->post('roomprice')
-		);
-		$this->db->where('roomcategory_id', $idtype);
-		
-		$this->db->update('roomcategory', $object);
-		redirect('imgtype');
+        );
+        
+        $this->db->update('roomcategory', $object);
+        redirect('Imgtype');
     }
-
-
+        
     public function edit($id)
     {
-        $data['result'] = $this->imgtype_model->read_imgtype($id);
+        $data['resulthee'] = $this->Imgtype_model->read_imgtype($id);
         $this->load->view('template/backheader');
         $this->load->view('imgtype/edit', $data);
         $this->load->view('template/backfooter');
@@ -255,7 +308,7 @@ class imgtype extends CI_Controller
 
     public function remove($id)
     {
-        $this->imgtype_model->remove_roomcategory($id);
+        $this->Imgtype_model->remove_roomcategory($id);
         redirect('imgtype', 'refresh');
     }
 }

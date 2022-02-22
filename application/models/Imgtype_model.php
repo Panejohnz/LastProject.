@@ -86,4 +86,14 @@ class Imgtype_model extends CI_Model
 		}
 		return FALSE;
 	}
+	public function insert_order($data)
+    {
+        $this->db->insert('roomcategory', $data);
+        $id = $this->db->insert_id();
+        return (isset($id)) ? $id : FALSE;
+	}
+	public function insert_order_detail1($data)
+    {
+        $this->db->insert('roomcategory_furniture', $data);
+    }
 }

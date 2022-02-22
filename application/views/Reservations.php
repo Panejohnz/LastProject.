@@ -50,18 +50,19 @@
             $arraystate = (explode("/", $stringrow));
             $idtestt = ($arraystate[5]);
             $idtest = ($arraystate[6]);
+            $idtest1 = ($arraystate[7]);
            // $idtest1 = ($arraystate[8]);
-            //$idtest2 = ($arraystate[9]); ?>
+            //$idtest2 = ($arraystate[9]);?>
     <!-- Content Header (Page header) -->
             <!-- form start -->
             <?php $this->db->select('*');
             $this->db->from('room');
-            $this->db->join('roomcategory','roomcategory.roomcategory_id = room.roomcategory_id');
+            $this->db->join('roomcategory', 'roomcategory.roomcategory_id = room.roomcategory_id');
              $this->db->where('room_id', $room_id);
        $query = $this->db->get();
          $qq = $query->row_array(); ?>
             <div class="container"><br>
-            <form role="form" action="<?php echo base_url('Bookaroom/postdata/'.$room_id); ?>" id="kuay" method="post" enctype="multipart/form-data">
+            <form role="form" action="<?php echo base_url('Bookaroom/postdata/'.$room_id.'/'.$idtest); ?>" id="kuay" method="post" enctype="multipart/form-data">
            
             <div class="box-body">
             <div class="form-group">
@@ -84,26 +85,58 @@
                   
                     <label for="exampleInputEmail1">เลือกเฟอร์นิเจอร์เพิ่มเติม</label>
                     
-                    <?php $this->db->select('furniture.*');
-                   $this->db->from('furniture');
+                    <?php $this->db->where('roomcategory_id', $idtest1);
+                          $roomcatef = $this->db->get('roomcategory_furniture');
+                          $roomcatefu = $roomcatef->row_array();
 
+
+                    ?>
+
+                    <?php //$query = $this->db->query("SELECT * FROM roomcategory_furniture JOIN furniture ON furniture.furniture_id = roomcategory_furniture.furniture_id");
+                   $this->db->from('furniture');
+                    
                    $query = $this->db->get();
-                   $results = $query->result_array();?>
+                   $results = $query->result_array();
+                   
+                   ?>
                    	<?php	foreach ($results as $result) {
                        ?>
                    
-                    <div style="display:flex;" <?php if($result['stock'] == 0) {?> style="display:none" <?php } ?>>
+                    <div style="display:flex;" <?php if ($result['stock'] == 0) {?> style="display:none" <?php } ?>>
 
+                    <?php $furniture_id = $result['furniture_id']; ?>
+                        <?php $sql = "SELECT COUNT(*) AS furniturecount FROM `roomcategory_furniture` WHERE roomcategory_id = $idtest1 AND furniture_id = $furniture_id"?>
+                       
+                       <?php $query1 = $this->db->query($sql)->result();
+
+                       // echo $sql;echo '<br>'; ?> 
+                                
+
+
+                   <?php if ($query1[0]->furniturecount == 0) {
+                       
+                           ?>
                     <!-- <div class="custom-control custom-checkbox mb-3" > -->
-                       <input type="checkbox"  name="customCheck1[]"  <?php if($result['stock'] == 0) {?> disabled <?php } ?> onclick="heegrace()" value="<?php echo $result['furniture_id']; ?>" >  <?php if($result['stock'] == 0){ echo $result['name'].' (หมด)' ?> <?php } else { echo $result['name'];} ?>  (<?php echo $result['price']; ?>) 
+                       <input type="checkbox"  name="customCheck1[]" 
+                       
+                       <?php if ($result['stock'] == 0) {?> disabled <?php } ?> onclick="heegrace()" value="<?php echo $result['furniture_id']; ?>" >  
+                       <?php
+                       } ?>
+                       <?php if ($result['stock'] == 0) {
+                           echo $result['name'].' (หมด)' ?> <?php
+                       }  else {
+                           echo $result['name'];
+                       } ?>  (<?php echo $result['price']; ?>) 
+                     
+                    
                     <!-- <label class="custom-control-label" for="customCheck1"><?php echo $result['name']; ?></label> --> 
                     </div> 
                     
                                     
                        <?php
-                   } ?>
+                   }   ?>
                    <br>
-
+                   <br>
                    
                    
                    <p id="Heeee">ราคาห้อง &nbsp;<?php echo $qq['roomprice']; ?></p>
@@ -194,7 +227,7 @@
         );
     }
 </script>
-  
+
 
 <!-- <script>
     var total = 0;

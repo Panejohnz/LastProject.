@@ -442,7 +442,7 @@
                                              <?php
                                 } else {
                                     ?>
-                                                <a href="<?php echo base_url(); ?>Bookaroom/dd/<?php echo $data['he']?>/<?php echo $datepicker ?>" class="btn btn-success">จอง</a>
+                                                <a href="<?php echo base_url(); ?>Bookaroom/dd/<?php echo $data['he']?>/<?php echo $datepicker ?>/<?php echo $data['roomcategory_id']?>" class="btn btn-success">จอง</a>
                                                 
                                            <?php
                                 } ?>

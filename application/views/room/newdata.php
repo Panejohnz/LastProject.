@@ -32,8 +32,11 @@
                             เลขห้อง
                         </label> 
                         <?php echo $this->session->flashdata('error_roomnum')?>
+                
                         <input type="text" id="roomnum" class="form-control" name="roomnum" value="<?php echo $this->session->flashdata('roomnum'); ?>" pattern="\d{1,9}" maxlength="5" required>
-                </div>
+                        <label class="text-danger" hidden id="falseusername"><span class="glyphicon glyphicon-remove"></span> เลขห้องนี้ได้ถูกใช้ไปแล้ว</label>
+                        <label class="text-success" hidden id="trueusername"><span class="glyphicon glyphicon-ok"></span> เลขห้องนี้สามารถใช้ได้</label>
+                    </div>
                 <div class="form-group">
                     <div class="col-sm-4">  
                         <label for="exampleInputEmail1">
@@ -42,8 +45,18 @@
                         <?php // echo $this->session->flashdata('error_gender')?>
 
                         <select name="roomcate" id="roomcate">
-                            <option value="1">ห้องแอร์</option>
-                            <option value="2">ห้องพัดลม</option>
+                        <?php $this->db->select('roomcategory.*');
+							$this->db->from('roomcategory');
+							$query = $this->db->get();
+							$results = $query->result_array();?>
+						<?php	foreach($results as $result){
+								?>
+											
+											<h1><option value="<?php echo $result['roomcategory_id'] . ' '?>"> 
+											<?php echo $result['roomcategory_name'] . ' '?> <?php echo $result['roomprice'] . '.- / เดือน'?>
+								</option>
+											<?php $eiei = $result['roomcategory_id'];
+							} ?>
                              
                         </select>
 
@@ -65,17 +78,7 @@
 
                     <div class="form-group">
                     <div class="col-sm-4">  
-                        <label for="exampleInputEmail1">
-                            สถานะ
-                        </label> 
-                        <br>
-                        <?php // echo $this->session->flashdata('error_gender')?>
-
-                        <select name="roomstatus" id="roomstatus">
-                            <option value="0">ว่าง</option>
-                            <option value="1">ไม่ว่าง</option>
-                             
-                        </select>
+                     
 
                     </div>
                     
@@ -104,3 +107,64 @@
         </div> </div> </div> 
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+<script>  
+
+
+ $(document).ready(function(){ 
+     
+      $('#roomnum').change(function(){  
+           var roomnum = $('#roomnum').val();  
+           if(roomnum != '')  
+           {  
+                $.ajax({  
+                     url:"<?php echo base_url(); ?>Room/checkroomnum",  
+                     method:"POST",  
+                     data:{roomnum:roomnum},  
+                     success:function(data){  
+                         // $('#email_result').html(data);  
+                         console.log(data)
+                    if(data.trim() === "true"){
+                        console.log('kk')
+                        $('#falseusername').removeAttr('hidden')
+                        $('#trueusername').attr('hidden',true)
+                        $('#button').attr('disabled',true)
+                    }else
+                    {
+                        $('#trueusername').removeAttr('hidden')
+                        $('#falseusername').attr('hidden',true)
+                        $('#button').removeAttr('disabled')
+                    }
+                     }  
+                });  
+           }
+      });  
+ });  
+ $(document).ready(function(){  
+      $('#username').change(function(){  
+           var username = $('#username').val();  
+           if(username != '')  
+           {  
+                $.ajax({  
+                     url:"<?php echo base_url(); ?>admin/checkusername",  
+                     method:"POST",  
+                     data:{username:username},  
+                     success:function(data){  
+                          //$('#username_result').html(data);  
+                          console.log(data)
+                    if(data.trim() === "true"){
+                        console.log('kk')
+                        $('#falseusername').removeAttr('hidden')
+                        $('#trueusername').attr('hidden',true)
+                        $('#button').attr('disabled',true)
+                    }else
+                    {
+                        $('#trueusername').removeAttr('hidden')
+                        $('#falseusername').attr('hidden',true)
+                        $('#button').removeAttr('disabled')
+                    }
+                     }  
+                });  
+           }  
+      });  
+ });  
+ </script>

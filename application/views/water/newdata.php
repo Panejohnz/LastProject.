@@ -33,7 +33,9 @@
                         </label> 
                         <?php echo $this->session->flashdata('error_typebill')?>
                         <input type="text" id="typebill" class="form-control" maxlength="255" name="typebill" value="<?php echo $this->session->flashdata('typebill'); ?>" required>
-                </div>
+                        <label class="text-danger" hidden id="falseusername"><span class="glyphicon glyphicon-remove"></span> ชื่อนี้ได้ถูกใช้ไปแล้ว</label>
+                        <label class="text-success" hidden id="trueusername"><span class="glyphicon glyphicon-ok"></span> ชื่อนี้สามารถใช้ได้</label>
+                    </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
                     ราคาต่อหน่วย
@@ -59,7 +61,7 @@
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">
-                    <button class="btn btn-primary" type="submit">
+                    <button id="button" name="button" class="btn btn-primary" type="submit">
                         <i class="fa fa-fw fa-save">
                         </i>บันทึกข้อมูล
                     </button>
@@ -73,3 +75,65 @@
         </div> </div> </div> 
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+
+<script>  
+
+
+ $(document).ready(function(){ 
+     
+      $('#typebill').change(function(){  
+           var typebill = $('#typebill').val();  
+           if(typebill != '')  
+           {  
+                $.ajax({  
+                     url:"<?php echo base_url(); ?>Watercontroller/checkmail",  
+                     method:"POST",  
+                     data:{typebill:typebill},  
+                     success:function(data){  
+                         // $('#email_result').html(data);  
+                         console.log(data)
+                    if(data.trim() === "true"){
+                        console.log('kk')
+                        $('#falseusername').removeAttr('hidden')
+                        $('#trueusername').attr('hidden',true)
+                        $('#button').attr('disabled',true)
+                    }else
+                    {
+                        $('#trueusername').removeAttr('hidden')
+                        $('#falseusername').attr('hidden',true)
+                        $('#button').removeAttr('disabled')
+                    }
+                     }  
+                });  
+           }
+      });  
+ });  
+ $(document).ready(function(){  
+      $('#username').change(function(){  
+           var username = $('#username').val();  
+           if(username != '')  
+           {  
+                $.ajax({  
+                     url:"<?php echo base_url(); ?>admin/checkusername",  
+                     method:"POST",  
+                     data:{username:username},  
+                     success:function(data){  
+                          //$('#username_result').html(data);  
+                          console.log(data)
+                    if(data.trim() === "true"){
+                        console.log('kk')
+                        $('#falseusername').removeAttr('hidden')
+                        $('#trueusername').attr('hidden',true)
+                        $('#button').attr('disabled',true)
+                    }else
+                    {
+                        $('#trueusername').removeAttr('hidden')
+                        $('#falseusername').attr('hidden',true)
+                        $('#button').removeAttr('disabled')
+                    }
+                     }  
+                });  
+           }  
+      });  
+ });  
+ </script>

@@ -11,6 +11,13 @@ class ReservationsController extends CI_Controller
     }
     public function index($id=null)
     {   
+        //  $a_date1 = date('Y-m-d',strtotime("+1 month")); 
+       
+        // echo date("Y-m-t", strtotime($a_date1)); 
+    //     $a_date1 = date('Y-m-d',strtotime("+1 month")); 
+       
+    //    $mdate = date("Y/m/t", strtotime($a_date1));
+    //    echo $mdate; die();
        $this->data['his'] = $this->ReservationsModel->historybill($id);
        
        $this->load->view('newhome',$this->data,false);

@@ -71,4 +71,14 @@ class Furniture_model extends CI_Model
             ->get()
             ->result();
     }
+    public function is_email_available($name)
+    {
+        $this->db->where('name', $name);
+        $query = $this->db->get("furniture");
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -17,7 +17,7 @@ class ComplainController extends CI_Controller
         $config = array();
         $config['base_url'] = base_url('Complain_model/index');
         $config['total_rows'] = $this->Complain_model->record_count($this->input->get('keyword'));
-        $config['per_page'] = $this->input->get('keyword') == null ? 14 : 999;
+        $config['per_page'] = $this->input->get('keyword') == null ? 999 : 999;
         $config['uri_segment'] = 3;
         $choice = $config['total_rows'] / $config['per_page'];
         $config['num_links'] = round($choice);
@@ -115,7 +115,8 @@ redirect('complain');
 
 
         $data2 = array(
-            'complain_status' => '2'
+            'complain_status' => '4',
+            'comment' => $this->input->post('send')
           );
    
            
@@ -125,7 +126,31 @@ redirect('complain');
 	public function update_complain($id)
     {
         $data2 = array(
-            'complain_status' => '1',
+            'complain_status' => '2',
+            'employee_id' => $this->session->userdata('employee_id')
+          );
+   
+        $this->db->where('complain_id', $id);
+        $this->db->update('complain', $data2);
+        redirect('ComplainController');
+    }
+
+   
+    public function update_complain2($id)
+    {
+        $data2 = array(
+            'complain_status' => '3',
+            'employee_id' => $this->session->userdata('employee_id')
+          );
+   
+        $this->db->where('complain_id', $id);
+        $this->db->update('complain', $data2);
+        redirect('ComplainController');
+    }
+
+    public function update_complainno($id){
+        $data2 = array(
+            'comment' => $this->input->post('send1'),
             'employee_id' => $this->session->userdata('employee_id')
           );
    

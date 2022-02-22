@@ -75,13 +75,19 @@
                     <label for="exampleInputEmail1">
                           เลขบัตรประชาชน
                         </label>
-                        <input type="text" id="cards" class="form-control" name="cards" value="" maxlength="13" required>
+                        <input type="text" id="cards" class="form-control" name="cards" maxlength="13" required value="">
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
                           วันที่ทำสัญญา
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input id="hee" class="form-control" name="datestart" value="" required>
+                        <input id="hee1" class="form-control" name="datestart1" value="<?php echo date('Y-m-d'); ?>" readonly required>
+                </div>
+                <div class="col-sm-4">  
+                    <label for="exampleInputEmail1">
+                          วันที่เริ่มต้นสัญญา
+                        </label> <?php echo $this->session->flashdata('error_password')?>
+                        <input id="datestart" class="form-control" name="datestart" value="" required>
                 </div>
                 
                 <div class="col-sm-4">  
@@ -92,7 +98,7 @@
                 </div>
                 <div class="col-sm-8">  
                     <label for="exampleInputEmail1">
-                          ที่อยู่
+                          ที่อยู่หอพัก
                         </label> <?php echo $this->session->flashdata('error_password')?>
                         <textarea type="textArea" id="address" class="form-control" name="address" readonly>926 ถนนสุ ทธิสารวินิจฉัย แขวง ดินแดง เขตดินแดง กรุงเทพมหานคร 10400</textarea>
                 </div>
@@ -103,23 +109,23 @@
                         <input readonly type="text" id="totalprice" class="form-control" name="totalprice" value="<?php echo $data1['roomprice'] ?>" required>
                 </div><div class="col-sm-4">  
                     <label for="exampleInputEmail1">
-                         ค่าน้ำ
-                        </label> <?php echo 14?>
+                         ค่าน้ำหน่วยละ
+                        </label> <?php echo 14?> บาท
                      <br>   <label for="exampleInputEmail1">
-                         ค่าไฟ
-                        </label> <?php echo 7?>
+                         ค่าไฟหน่วยละ
+                        </label> <?php echo 7?> บาท
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
-                          มิเตอร์ค่าน้ำ
+                          มิเตอร์ค่าน้ำปัจจุบัน
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input  type="text" id="totalprice" class="form-control" name="fire" required>
+                        <input  type="text" id="totalprice" class="form-control" name="fire" required maxlength="4">
                 </div>
                 <div class="col-sm-4">  
                     <label for="exampleInputEmail1">
-                          มิเตอร์ค่าไฟ
+                          มิเตอร์ค่าไฟปัจจุบัน
                         </label> <?php echo $this->session->flashdata('error_password')?>
-                        <input type="text" id="totalprice" class="form-control" name="nam" required>
+                        <input type="text" id="totalprice" class="form-control" name="nam" required maxlength="4">
                 </div>
                 <div class="col-sm-4">  
       <?php $reservations_id = $data['reservations_id'];?>
@@ -160,11 +166,19 @@
         // $('#datetimepicker').datetimepicker();
         
     // });
-    $('#hee').datetimepicker({
+    $('#datestart').datetimepicker({
      format:'Y-m-d',
      timepicker:false,
      minDate:'-1970/01/01', //yesterday is minimum date
     //  maxDate:'+1970/01/03' //tomorrow is maximum date
+    });
+
+
+    $('#datestart').datetimepicker({
+     format:'Y-m-d',
+     timepicker:false,
+     minDate:'-1970/01/01', //yesterday is minimum date
+      maxDate:'+1970/01/02' //tomorrow is maximum date
     });
 </script>
 
@@ -175,9 +189,9 @@
     // });
     $('#datetimepicker1').datetimepicker({
      format:'Y-m-d',
-    //  timepicker:false,
-    //  minDate:'-1970/01/01', //yesterday is minimum date
-    //  maxDate:'+1970/01/03' //tomorrow is maximum date
+     timepicker:false,
+     minDate:'-1970/01/01', //yesterday is minimum date
+     maxDate:'+1970/01/03' //tomorrow is maximum date
     });
 </script>
 <script>
@@ -193,7 +207,7 @@ $('#datetimepicker').change(function(){
 });</script>
 
 <script>
-    $('#hee').change(function (e) { 
+    $('#datestart').change(function (e) { 
         Date.prototype.addDays = function(days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
@@ -201,7 +215,7 @@ $('#datetimepicker').change(function(){
     
 }
 console.log($('#hee').val());
-var date = new Date($('#hee').val());
+var date = new Date($('#datestart').val());
         let formatted_date = (date.getFullYear()+1) + "-" + (date.getMonth()+1) + "-" + date.getDate();
         console.log(formatted_date)
 

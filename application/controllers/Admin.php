@@ -11,7 +11,7 @@ class admin extends CI_Controller
 		parent::__construct();
 		$this->load->library('pagination');
 		$this->load->model('Admin_model');
-		if (!$this->session->userdata('firstname_emp')) { //ดัก user บังคับล็อกอิน
+		if ($this->session->userdata('statusem') != 1) { //ดัก user บังคับล็อกอิน
             redirect('LoginController');
         }
 	}
@@ -57,7 +57,7 @@ class admin extends CI_Controller
 			'statusem' => $this->input->post('statusem')
 		);
 $this->db->insert('emmployee', $object);
-redirect('Admin');
+redirect('admin');
 		}
 	
 	public function edit($employee_id)
@@ -81,15 +81,15 @@ redirect('Admin');
 		$this->db->where('employee_id', $idad);
 		
 		$this->db->update('emmployee', $object);
-		redirect('Admin');
+		redirect('admin');
 	}
 
 	public function confrm($employee_id)
 	{
 		$data = array
 		(
-			'backlink'  => 'Admin',
-			'deletelink'=> 'Admin/remove/' . $employee_id
+			'backlink'  => 'admin',
+			'deletelink'=> 'admin/remove/' . $employee_id
 		);
 		$this->load->view('template/backheader');
 		$this->load->view('admin/confrm',$data);
@@ -98,8 +98,17 @@ redirect('Admin');
 
 	public function remove($employee_id)
 	{
-		$this->Admin_model->remove_member($employee_id);
-		redirect('Admin');
+
+		$this->db->where('employee_id',$employee_id);
+
+		$data = array(
+			'isactive' => 0
+		);
+
+		$this->db->update('emmployee',$data);
+
+		// $this->Admin_model->remove_member($employee_id);
+		redirect('admin');
 	}
 
 	public function checkmail()

@@ -26,7 +26,11 @@ class Selectrepair_api extends \Restserver\Libraries\REST_Controller {
             $this->db->join('contract', 'contract.contract_id  = repair.contract_id');
             $this->db->join('users', 'users.user_id = contract.user_id ');
             
-            $this->db->where('repair.contract_id', $id);
+            $this->db->join('emmployee','emmployee.employee_id = repair.employee_id','LEFT');
+            $this->db->join('employeestatus', 'employeestatus.employeestatus_id = emmployee.statusem','LEFT');
+            $this->db->join('approvestatus','approvestatus.approvestatus_id = repair.repair_status','LEFT');
+            
+            $this->db->where('contract.user_id', $id);
             $data = $this->db->get();
             $data = $data->result_array();
             
@@ -41,9 +45,8 @@ class Selectrepair_api extends \Restserver\Libraries\REST_Controller {
                     'status' => 'false'));
             }
        
+                           
        
-        
-    
     
     }
 }

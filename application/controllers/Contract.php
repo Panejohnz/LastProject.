@@ -7,6 +7,7 @@ class Contract extends CI_Controller
         parent::__construct();
         $this->load->library('pagination');
         $this->load->model('Contract_model');
+        $this->load->model('Bill_model');
         if (!$this->session->userdata('firstname_emp')) { //ดัก user บังคับล็อกอิน
             redirect('LoginController');
         }
@@ -41,11 +42,11 @@ class Contract extends CI_Controller
         // $this->db->where('reservations_id',$reservations_id);
         // $qq = $this->db->get('reservations');
         // $data = $qq->result_array();
-       // $data['results'] = $this->contract_model->fetch_Contract($reservations_id);
+        // $data['results'] = $this->contract_model->fetch_Contract($reservations_id);
         //print_r($data);
         $data['id'] = $reservations_id;
         $this->load->view('template/contract');
-        $this->load->view('contract/newdata',$data);
+        $this->load->view('contract/newdata', $data);
         $this->load->view('template/backfooter');
     }
     // public function download($contract_id)
@@ -134,8 +135,16 @@ class Contract extends CI_Controller
         }
 
     */
-    public function adding($reservations_id)
+    public function adding()
     {
+                   
+        
+        // $a_date1 = date('Y-m-d',strtotime("+0 month")); 
+       
+        // $mdate = date("Y/m/t", strtotime($a_date1));
+ 
+        // echo $mdate;
+        // echo $a_date1; die();
         $emp_id = $this->session->userdata('employee_id');
         // $Date = $this->input->post("datepickerstart");
         //     $dat = date("Y-m-d", strtotime($Date));
@@ -174,10 +183,27 @@ class Contract extends CI_Controller
         $arraystate = (explode("/", $stringrow));
         $idtestt = ($arraystate[5]);
         $idtest = ($arraystate[6]);
-         $idtest1 = ($arraystate[7]);
+        $idtest1 = ($arraystate[7]);
         // $idtest2 = ($arraystate[9]);totalprice
 
-        $arr=array(
+       
+
+        // if ($curmonth == $billmonth1) {
+            
+            $this->db->where('room_id', $idtest);
+            $mild = $this->db->get('room');
+            $mildpith = $mild->row_array();
+
+            $this->db->where('roomcategory_id', $mildpith['roomcategory_id']);
+            $pit = $this->db->get('roomcategory');
+            $pit1 = $pit->row_array(); 
+            
+            
+            
+
+        // } else {//ค่าห้องเฉลี่ย
+
+            $arr=array(
                              "user_id" => $idtestt,
                              "identity_card"=>$this->input->post('cards'),
                              "datecontract_start" => $this->input->post('datestart'),
@@ -188,14 +214,86 @@ class Contract extends CI_Controller
                              "roomprice" => $this->input->post('totalprice'),
                              'reservationsroom_id' => $this->input->post('kuykwai'),
                              'start_eletrict' => $this->input->post('fire'),
-                             'start_water' => $this->input->post('nam')
+                             'start_water' => $this->input->post('nam'),
+                             'contract_date' => date('Y-m-d'),
+                             'insurance' => $pit1['roomprice'] + ($pit1['roomprice'] * 2)
                             );
-        // $this->db->insert('contract', $arr);
-        $ord_id = $this->Contract_model->insert_order($arr);
+        //     // $this->db->insert('contract', $arr);
+            $ord_id = $this->Contract_model->insert_order($arr);
+
+        $this->db->where('contract_id', $ord_id);
+        $con1 =  $this->db->get('contract');
+        $con11 = $con1->row_array();
+    
+        $curmonth = date("Y-m-d");
+        $billmonth = $con11['datecontract_start'];
+        $start_eletrict = $con11['start_eletrict'];
+        $start_water = $con11['start_water'];
+        $billmonth1 = substr($billmonth, 8, 10);
+
+        // $curmonth = date("Y-m-d");
+        $a_date1 = date('Y-m-d',strtotime("+0 month")); 
+       
+        $mdate = date("Y/m/t", strtotime($a_date1));
+        $mdate1 = substr($mdate, 8, 10);  
+
+        // $mdatee = date("Y/m/t", strtotime($a_date1));
+        $mdatee1 = substr($curmonth, 8, 10);  
+        // echo $mdatee1;        
+// die();
+    //    echo $mdate1; echo ',';
+    //     echo $billmonth1;echo ',';
+    //     echo $curmonth;echo ',';
+    //   die();
+                        
+        $roomprice = (($mdate1 - $billmonth1) + 1) * 100;
+
+        // echo $roomprice;
+        // die();
+        if($mdate1 >= 15){
+            $arrr=array(
+                'contract_id' => $ord_id,
+                'bill_date' => date('Y-m-d'),
+                'bill_month' => date('m'),
+                'bill_year' => date('Y'),
+                'employee_id' => $this->session->userdata('employee_id'),
+                'bill_status' => 1,
+                'roompricebill' => $roomprice
+                );
+            $ord_id1 = $this->Bill_model->insert_order($arrr);
+        }else{
+            $arrr=array(
+            'contract_id' => $ord_id,
+            'bill_date' => date('Y-m-d'),
+            'bill_month' => date('m'),
+            'bill_year' => date('Y'),
+            'employee_id' => $this->session->userdata('employee_id'),
+            'bill_status' => 1,
+            'roompricebill' => $pit1['roomprice']
+            );
+            $ord_id1 = $this->Bill_model->insert_order($arrr);
+        }
+        $fi=array(
+                'bill_id' => $ord_id1,
+                'utility_id' => 1,
+                'unit' => $this->input->post('fire'),
+                'utilitypricetotal' => 0,
+            );
+
+        $na=array(
+                'bill_id' => $ord_id1,
+                'utility_id' => 2,
+                'unit' => $this->input->post('nam'),
+                'utilitypricetotal' => 0,
+            );
+
+        
+        $this->db->insert('billutility', $fi);
+        $this->db->insert('billutility', $na);
 
         $this->db->where('reservationsroom_id', $idtest1);
-       $furni = $this->db->get('reservationsfurniture');
-       $ferniture = $furni->result_array();
+        $furni = $this->db->get('reservationsfurniture');
+        $ferniture = $furni->result_array();
         foreach ($ferniture as $hee):
         $fur=array(
                 'contract_id' => $ord_id,
@@ -204,13 +302,17 @@ class Contract extends CI_Controller
               'furnitureprice' => $hee['furnitureprice']
         );
         $this->db->insert('contractfurniture', $fur);
-    endforeach;
+        endforeach;
+
+     
+
+        
 
         $this->session->set_flashdata(
-                array(
+            array(
                         'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                     )
-            );
+        );
         //     $this->db->where('reservations_id', $idtest1);
         // $this->db->delete('reservations');
 
@@ -230,9 +332,20 @@ class Contract extends CI_Controller
 
         
         $this->db->update('room', $data2);
-       // redirect('contract');
-    }
+      
+        $this->db->where('reservations_id', $idtest1);
+        $data58 = array(
+            'reservations_status' => 3,
+            'deposit' => 0
+        );
 
+        $this->db->update('reservations', $data58);
+        echo "<script>
+       alert('เสร็จเรียบร้อย');
+       </script>";
+        redirect('contract');
+        // }
+    }
 
     public function update($value='')
     {
@@ -251,7 +364,7 @@ class Contract extends CI_Controller
 
         if (! $this->upload->do_upload('Insurance')) {
             //$error = array('error' => $this->upload->display_errors());
-            //echo $this->upload->display_errors();
+            //echo $this->upload->display_errors()
             //$this->load->view('upload_form', $error);
 
                
@@ -266,7 +379,7 @@ class Contract extends CI_Controller
 
             $this->session->set_flashdata(
                 array(
-                        'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-success"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ [ไม่เปลี่ยนภาพ]</div></div>'
+                           'msginfo'=>'<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-success"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ [ไม่เปลี่ยนภาพ]</div></div>'
                     )
             );
 

@@ -28,7 +28,14 @@ class Bill_model extends CI_Model
         $this->db->like('roomnum', $keryword);
         $this->db->limit($limit, $start);
         $this->db->select('*')
-       				 ->from('room');
+                       ->from('room');
+          //              $this->db->where('roomstatus', 3);
+                        $this->db->query("SELECT * FROM billutility 
+                        JOIN bill ON bill.bill_id = billutility.bill_id 
+                        JOIN contract ON contract.contract_id = bill.contract_id  
+                        JOIN publicutility ON publicutility.utility_id = billutility.utility_id 
+                        JOIN room ON room.room_id = contract.room_id
+                        WHERE contract.room_id AND room.roomstatus = 3 ORDER BY billutility.bill_id DESC LIMIT 2");
                     // ->join('bill', 'bill.bill_id = room.room_id');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {

@@ -55,19 +55,20 @@
                                     <?php if (!empty($results)) {
                                              foreach ($results as $data) { ?>
                                 <?php $status = $data->roomstatus ?>
+                                
                                 <form role="form" method='post' action="<?php echo base_url('BillController/cal/') ?>"  >
                                         <tr role="row" <?php if ($status == 1) { ?> style="display:none" <?php } ?>>
                                             <td>
                                             <a href="<?php echo base_url('BillController/edit/'.$data->room_id); ?>" >
-                                            <?php echo  $data->roomnum;  ?>
+                                            <?php echo  $data->roomnum;  ?>     
                                             
                                             </a> 
                                             <br>
                                             
                                             </td>
                                           <td>
-                                                เลขมิเตอร์ไฟ
-                                                 <input <?php if(date('d') == 25){ ?> disabled <?php } ?> required type="input" name="electricnew" id="electricnew" class="form-control input-sm" style="width:30%">
+                                                 เลขมิเตอร์น้ำ
+                                                 <input  maxlength="4" <?php if(date('d') == 25 && date('d') == 26 && date('d') == 27 ){ ?> disabled <?php } ?> required type="text" name="electricnew" id="electricnew" class="form-control input-sm" style="width:30%">
                                                   <input type="hidden" name="room_id" value="<?php echo  $data->room_id ?>">
                                             
                                         <!-- จำนวนเงิน :  <span id="resulte"></span>
@@ -78,11 +79,12 @@
 });</script> -->
                                             </td>
                                             <td>
-                                            เลขมิเตอร์น้ำ <input <?php if(date('d') == 25){ ?> disabled <?php } ?> type="text" name="waternew" id="waternew" class="form-control input-sm" style="width:30%"> 
-                                           
+                                            เลขมิเตอร์ไฟ
+                                             <input  maxlength="4" <?php if(date('d') == 25 && date('d') == 26 && date('d') == 27){ ?> disabled <?php } ?> type="text" name="waternew" id="waternew" class="form-control input-sm" style="width:30%"> 
+                                            <input type="hidden" name="room_id" value="<?php echo  $data->room_id ?>">
                                             <br>
                                            
-                                            <td><button  class="btn btn-primary" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button></td>
+                                            <td><button name="submit" class="btn btn-primary" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button></td>
                                             </form>  <!-- จำนวนเงิน :  <span id="resultw"></span>
                                             <script>$(document).ready(function(){
     $('#waternew').keyup(function(){

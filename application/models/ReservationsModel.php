@@ -12,6 +12,7 @@ class ReservationsModel extends CI_Model
     {
         $this->db->like('reservations_id', $keyword);
         $this->db->from('reservations');
+        $this->db->where('reservations_status',1);
         return $this->db->count_all_results();
     }
 
@@ -95,7 +96,7 @@ class ReservationsModel extends CI_Model
             $data = $query->row();
             return $data;
         }
-        return false;
+        
     }
     public function multisave($user_id, $category)
     {

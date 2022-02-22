@@ -20,13 +20,19 @@ class Selectcomp_api extends \Restserver\Libraries\REST_Controller {
 
     public function index_post($id)
     {
+       
 
             $this->db->select('*');
             $this->db->from('complain');
             $this->db->join('contract', 'contract.contract_id  = complain.contract_id');
             $this->db->join('users', 'users.user_id = contract.user_id ');
+            $this->db->join('emmployee','emmployee.employee_id = complain.employee_id','LEFT');
+            $this->db->join('employeestatus', 'employeestatus.employeestatus_id = emmployee.statusem','LEFT');
+            $this->db->join('approvestatus','approvestatus.approvestatus_id = complain.complain_status','LEFT');
+           
             
-            $this->db->where('complain.contract_id', $id);
+            
+            $this->db->where('contract.user_id', $id);
             $data = $this->db->get();
             $data = $data->result_array();
             
