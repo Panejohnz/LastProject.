@@ -29,6 +29,7 @@ class Move_api extends \Restserver\Libraries\REST_Controller{
             'moveroom_date '=> $dat,
             'contract_id' => $id,
             'moveroom_status' => 1
+            'contract_id' => $id
 			// 'user_id' => $this->input->post('user_id'),
 			// 'date' => $this->input->post('date')
 			

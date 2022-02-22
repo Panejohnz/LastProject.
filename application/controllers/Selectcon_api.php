@@ -28,6 +28,7 @@ class Selectcon_api extends \Restserver\Libraries\REST_Controller {
             $this->db->join('roomcategory', 'roomcategory.roomcategory_id  = room.roomcategory_id');
             
             $this->db->where('contract.user_id', $id);
+<<<<<<< HEAD
             $this->db->where('contract.is_checkout',1);
             $data = $this->db->get();
             $data1 = $data->result_array();
@@ -37,6 +38,16 @@ class Selectcon_api extends \Restserver\Libraries\REST_Controller {
                     'message' => 'success', 
                     'status' => 'true', 
                     'data' => $data1));
+=======
+            $data = $this->db->get();
+            $data = $data->result_array();
+            
+            if(!empty($data)){
+                $this->response(array(
+                    'message' => 'success', 
+                    'status' => 'true', 
+                    'data' => $data));
+>>>>>>> 3588236fa7fed00d3b180629b813a77e77440522
             }else{
                 $this->response(array(
                     'message' => 'unsuccess', 

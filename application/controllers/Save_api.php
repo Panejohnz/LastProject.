@@ -19,6 +19,7 @@ require APPPATH . '/libraries/REST_Controller.php';
 class Save_api extends \Restserver\Libraries\REST_Controller {
 
     public function index_post($idc,$idcomp){
+    public function index_post($idc){
         $img = $this->input->post('img4');
 
         $arr = array(
@@ -26,6 +27,7 @@ class Save_api extends \Restserver\Libraries\REST_Controller {
             'contract_id'=>$idc,
             'complain_id'=>$idcomp
             
+            'contract_id'=>$idc
             
             
         );

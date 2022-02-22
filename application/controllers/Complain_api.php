@@ -21,7 +21,11 @@ class Complain_api extends \Restserver\Libraries\REST_Controller{
     public function index_post()
 
 	{
+<<<<<<< HEAD
         $id = "11";
+=======
+        $id = $this->input->post('idu');
+>>>>>>> 3588236fa7fed00d3b180629b813a77e77440522
         $title = $this->input->post('title');
         $detail = $this->input->post('complaindetail');
         $dat = date("Y-m-d");
